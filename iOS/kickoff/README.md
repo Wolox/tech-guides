@@ -183,25 +183,23 @@ Lo primero a cambiar es es la dirección de email al cual se enviarán todas las
  * `AWS_SECRET_ACCESS_KEY`
  * `CARTHAGE_CACHE_BUCKET_NAME`
 
-Las credenciales de AWS son las mismas que usó para configurar [CarthageCache](https://github.com/guidomb/carthage_cache) en el proceso de bootstrapping.
+Las credenciales de AWS son las mismas que usó para configurar [CarthageCache](https://github.com/guidomb/carthage_cache) en el proceso de bootstrapping. Las variables de entorno relacionadas a carthage cache se pueden agregar mediante un script el cual usa los valores que se encuentran en `.carthage_cache.yml`. Para esto debemos ejecutar
+
+	script/configure_carthage_cache PERSONAL_GITHUB_ACCESS_TOKEN
+
+donde `PERSONAL_GITHUB_ACCESS_TOKEN` es el token de su cuenta personal de GitHub. Este token **NO** es el mismo token que se usa en `GITHUB_ACCESS_TOKEN`. El token que se debe pasar a `script/configure_carthage_cache` es el de su cuenta personal de GitHub ya que es necesario para poder loguearse en Travis. Si no tiene un token personal de GitHub puede crear uno leyendo el siguiente [tutorial](https://help.github.com/articles/creating-an-access-token-for-command-line-use/).
+
+Luego debemos agregar las variables `KEY_PASSWORD` y `GITHUB_ACCESS_TOKEN ` encriptadas al archivo `.travis.yml`.
 
 `KEY_PASSWORD` es el passphrase del certificado de desarrollo de Apple que se usa para firmar las dependencias. Dicho certificado se encuentra en `script/certificates/cibot.p12`.
 
-`GITHUB_ACCESS_TOKEN` es el access token generado para la cuenta `wolox-ci` (la cual debe tener acceso de escritura al repositorio).
+`GITHUB_ACCESS_TOKEN` es el access token generado para la cuenta `wolox-ci` (la cual debe tener acceso de escritura al repositorio). No confundir con el access token de su cuenta personal de GitHub que se uso para configurar carthage cache.
 
-Para agregar estas variables de entorno de forma encriptada primero debemos loguearnos en travis desde la linea de comandos usando el siguiente comando
-
-	bundle exec travis --pro
-
-Luego debemos agregar las variables encriptadas al archivo `.travis.yml` ejecutando los siguientes comandos, remplazando los valores que corresponda
+Para esto debemos ejecutar los siguientes comandos, remplazando los valores que corresponda
 
 	 bundle exec travis encrypt GITHUB_ACCESS_TOKEN=INSERTE_EL_ACCESS_TOKEN --add env.global
 	 bundle exec travis encrypt KEY_PASSWORD=INSERTE_EL_KEY_PASSWORD --add env.global
-	 bundle exec travis encrypt AWS_REGION=us-west-2 --add env.global
-	 bundle exec travis encrypt AWS_ACCESS_KEY_ID=INSERTE_EL_ACCESS_KEY --add env.global
-	 bundle exec travis encrypt AWS_SECRET_ACCESS_KEY=INSERTE_EL_SECRET_ACCESS_KEY --add env.global
-	 bundle exec travis encrypt CARTHAGE_CACHE_BUCKET_NAME=carthage-cache --add env.global
-	 
+
 **IMPORTANTE!!!:** Es importante que ejecute estos comando un espacio en blanco al principio para que no queden guardados en el historial de su consola.
 
 Una vez que se han agregado todas las variables de entorno debemos agregar estos cambios al repositorio
