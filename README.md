@@ -22,6 +22,6 @@ You are more than welcome to add information to this repository! To do that plea
 
 ## About
 
-This project is written by [Wolox](http://www.wolox.com.ar).
+This repository is maintained by [Wolox](http://www.wolox.com.ar).
 
 ![Wolox](https://raw.githubusercontent.com/Wolox/press-kit/master/logos/logo_banner.png)
