@@ -1,3 +1,4 @@
+# Script to add Wolox people to this repository
 require 'octokit'
 
 access_token = ARGV[0]
