@@ -6,7 +6,6 @@ The following guide explains how to make a Ruby On Rails (RoR) project kickoff f
 The Technical Leaders of the RoR department can help you with the steps from this guide or grant you the necessary access needed. Any doubt get in touch with:
 
  * [Esteban Pintos](mailto:esteban.pintos@wolox.com.ar)
- * [Gaston Ponti](mailto:gaston.ponti@wolox.com.ar)
  * [Matias De Santi](mailto:matias.desanti@wolox.com.ar)
 
 ## Requirements
