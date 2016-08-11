@@ -1,0 +1,4 @@
+- [Async-Requests](https://github.com/Wolox/async-requests)
+- [Dictum](https://github.com/Wolox/dictum)
+- [CodeStats](https://github.com/Wolox/codestats) & [CodeStats-Metrics-Reporter](https://github.com/Wolox/codestats-metrics-reporter)
+- [Rails-Bootstrap](https://github.com/wolox/rails-bootstrap)
