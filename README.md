@@ -1,4 +1,4 @@
-# Tech Guides
+# Wolox Tech Guides
 
 Guides for all the technologies we use at [Wolox](http://wolox.com.ar).
 
