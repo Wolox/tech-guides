@@ -142,6 +142,7 @@ apm install pigments
 ### Scrolling
   - [Scrollanim](http://scrollanim.kissui.io/)
   - [Scrollorama](http://scrollmagic.io/)
+  - [Page transition effect](http://tympanus.net/Tutorials/PageRevealEffects)
 
 ### Tooltips
   - [Tooktik](https://eliorshalev.github.io/tootik/)
@@ -150,6 +151,10 @@ apm install pigments
 ### Animations And Transitions
   - [Wait](http://waitanimate.eggbox.io/#/)
   - [Shift](http://shift.octavector.co.uk/)
+  - [Heat distortion](http://tympanus.net/Tutorials/HeatDistortionEffect)
+
+### Loading
+  - [spinner](http://tympanus.net/Tutorials/SpringLoaders)
 
 ## Learning Resources - Frontend
 
