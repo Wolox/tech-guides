@@ -29,6 +29,7 @@
 ###### Garbage Collector
 
 - [Understanding GC](http://thorstenball.com/blog/2014/03/12/watching-understanding-ruby-2.1-garbage-collector/)
+- [GC Ready For Production](https://samsaffron.com/archive/2014/04/08/ruby-2-1-garbage-collection-ready-for-production)
 
 ###### Gems
 
