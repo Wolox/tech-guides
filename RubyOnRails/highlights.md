@@ -26,6 +26,10 @@
 
 - [3 ways to do eager loading (includes vs preload vs eager_load)](http://blog.arkency.com/2013/12/rails4-preloading/)
 
+###### Garbage Collector
+
+- [Understanding GC](http://thorstenball.com/blog/2014/03/12/watching-understanding-ruby-2.1-garbage-collector/)
+
 ###### Gems
 
 - [Awesome Rails Gems](https://github.com/hothero/awesome-rails-gem)
