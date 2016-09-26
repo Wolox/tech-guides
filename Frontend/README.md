@@ -92,7 +92,9 @@ It shows errors in real time. Linter provides and Api so the other linters can d
 apm install linter
 apm install linter-htmlhint
 apm install linter-csslint
-apm install linter-jshint
+apm install linter-sass-lint
+apm install linter-pug-lint
+apm install linter-eslint
 apm install linter-scss-lint
 ```
 
