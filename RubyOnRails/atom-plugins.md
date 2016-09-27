@@ -1,4 +1,4 @@
-The following plugins are recommended form [Atom](https://atom.io). With `apm install` you can install them directly:
+The following plugins are recommended for [Atom](https://atom.io). With `apm install` you can install them directly:
 
 ```bash
   apm install highlight-selected
@@ -18,4 +18,4 @@ The following plugins are recommended form [Atom](https://atom.io). With `apm in
   apm install pigments
 ```
 
-For the linters plugins you need to modify some Atom configuration for Rbenv with the [following](  https://discuss.atom.io/t/how-to-run-ruby-code-in-a-console-using-rbenv-in-atom/14281/4) instructions.
+For the linter plugin you need to modify some Atom configuration for Rbenv, with the [following](  https://discuss.atom.io/t/how-to-run-ruby-code-in-a-console-using-rbenv-in-atom/14281/4) instructions.
