@@ -47,3 +47,11 @@
 
 - [Rspec Expectations Cheat Sheet](http://www.rubypigeon.com/posts/rspec-expectations-cheat-sheet/)
 - [Rspec Matchers Cheat Sheet](http://cheatrags.com/rspec-matchers)
+
+##### PostgreSQL
+
+- [UUID Guide](https://github.com/Wolox/tech-guides/edit/master/RubyOnRails/postgresql-uuid-guide.md)
+
+##### MySQL
+
+- [UUID Guide](https://github.com/Wolox/tech-guides/edit/master/RubyOnRails/mysql-uuid-guide.md)
