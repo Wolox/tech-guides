@@ -247,6 +247,18 @@ apm install pigments
 # External Resources
 
 ## Images Presentation
+### General Stuff
+ 
+ - [Favicomatic](http://www.favicomatic.com/)
+ 
+### Libraries
+ 
+ - [RetinaJs](https://imulus.github.io/retinajs/)
+ - [iPhone inline video](https://github.com/bfred-it/iphone-inline-video)
+ - [Cleave](http://nosir.github.io/cleave.js/)
+ - [ngDialog](http://likeastore.github.io/ngDialog)
+ 
+### Images Presentation
   - [Multi Layout Slideshow](http://tympanus.net/Development/MultiLayoutSlideshow/)
   - [Image Grid Effects](http://tympanus.net/Development/ImageGridEffects/)
   - [Polaroid Stack Grid](http://tympanus.net/Tutorials/PolaroidStackGrid/)
@@ -257,6 +269,7 @@ apm install pigments
   - [Scrollanim](http://scrollanim.kissui.io/)
   - [Scrollorama](http://scrollmagic.io/)
   - [Page transition effect](http://tympanus.net/Tutorials/PageRevealEffects)
+  - [scrollReveal](https://scrollrevealjs.org/)
 
 ## Tooltips
   - [Tooktik](https://eliorshalev.github.io/tootik/)
