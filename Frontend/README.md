@@ -242,6 +242,11 @@ apm install pigments
 
 ## Chrome
 
+ - [Muzli](http://muz.li/join/)
+ - [Window resizer] (https://chrome.google.com/webstore/detail/window-resizer/kkelicaakdanhinjdeammmilcgefonfh?hl=en)
+ - [Page Ruller] (https://chrome.google.com/webstore/detail/page-ruler/jlpkojjdgbllmedoapgfodplfhcbnbpn)
+ - [Dimensions] (http://felixniklas.com/dimensions/)
+
 ## Firefox
 
 # External Resources
