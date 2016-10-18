@@ -61,8 +61,8 @@ Nested rules are used to avoid repetition of parent selectors. Just try to don't
 ```scss
 .paragraph {
   color: $red;
-    
-  .important-text { 
+
+  .important-text {
     font-weight: bold;
   }
 }
@@ -72,9 +72,9 @@ Another great thing is to refer to parent. Rember, using `&` is like copy-pastin
 ```scss
 .awesome-button {
   &:hover {
-    background-color: $red; 
+    background-color: $red;
   }
-  
+
   &--hidden {
     display: none;
   }
@@ -90,9 +90,9 @@ $green: #0F0;
 
 .big-footer {
   color: $black;
-  
-  .footer-text { 
-    color: $green; 
+
+  .footer-text {
+    color: $green;
   }
 }
 ```
@@ -116,7 +116,7 @@ Comments in sass are written with `//` instead of `/* ... */`. It's convinient t
 
 ## Extends & Placeholders
 
-In sass you can reuse class properties by declaring that a certain property extends another. 
+In sass you can reuse class properties by declaring that a certain property extends another.
 
 ```scss
 .icon {
@@ -248,15 +248,16 @@ apm install pigments
 
 ## Images Presentation
 ### General Stuff
- 
+
  - [Favicomatic](http://www.favicomatic.com/)
- 
+
 ### Libraries
- 
+
  - [RetinaJs](https://imulus.github.io/retinajs/)
  - [iPhone inline video](https://github.com/bfred-it/iphone-inline-video)
  - [Cleave](http://nosir.github.io/cleave.js/)
  - [ngDialog](http://likeastore.github.io/ngDialog)
+ - [Hyphenator.js](https://github.com/mnater/Hyphenator)
  
 ### Images Presentation
   - [Multi Layout Slideshow](http://tympanus.net/Development/MultiLayoutSlideshow/)
