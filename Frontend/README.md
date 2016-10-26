@@ -248,7 +248,7 @@ apm install pigments
 ### Responsiveness
  - [Window resizer] (https://chrome.google.com/webstore/detail/window-resizer/kkelicaakdanhinjdeammmilcgefonfh?hl=en)
  
-### proportions and alignment
+### Proportions & alignment
  - [Page Ruller] (https://chrome.google.com/webstore/detail/page-ruler/jlpkojjdgbllmedoapgfodplfhcbnbpn)
  - [Dimensions] (http://felixniklas.com/dimensions/)
 
