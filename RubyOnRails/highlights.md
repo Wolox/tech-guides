@@ -16,6 +16,7 @@
 
 - [Common Mistakes](http://www.toptal.com/ruby-on-rails/top-10-mistakes-that-rails-programmers-make)
 - [Preproduction Checklist](http://blog.codeship.com/preproduction-checklist-for-a-rails-app/)
+- [7 design patterns in Rails](https://www.sitepoint.com/7-design-patterns-to-refactor-mvc-components-in-rails/)
 
 ###### Documentation
 
