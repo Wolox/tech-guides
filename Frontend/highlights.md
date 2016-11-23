@@ -1,0 +1,1 @@
+- [Generate an API Mock](https://medium.com/@housecor/rapid-development-via-mock-apis-e559087be066#.479nnonvy)
