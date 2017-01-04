@@ -292,6 +292,7 @@ apm install pigments
   - [Heat distortion](http://tympanus.net/Tutorials/HeatDistortionEffect)
 
 ## Loading
+  - [emerge](http://ilyabirman.net/projects/emerge/)
   - [spinner](http://tympanus.net/Tutorials/SpringLoaders)
 
 # Learning Resources - Frontend
