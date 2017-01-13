@@ -54,7 +54,9 @@ install_rbenv() {
 
 install_ruby(){
   if command_exists rbenv; then
-    rbenv install $(rbenv install -l | grep -v - | tail -1)
+    latest_ruby_version=$(rbenv install -l | grep -v - | tail -1)
+    read -e -p "Please enter the Ruby version you want to install: " -i "$latest_ruby_version" ruby_version
+    rbenv install $ruby_version
   else
     echo "You need to install Rbenv first!"
     echo "Exiting..."
@@ -64,7 +66,10 @@ install_ruby(){
 
 install_rails(){
   if command_exists gem; then
-    gem install rails
+    # Little hack to get the newest version of the gem,
+    latest_rails_version=$(gem search '^rails$' --all | grep -o '\((.*)\)$' | tr -d '() ' | tr ',' "\n" | sort -r | head -n1)
+    read -e -p "Please enter the Rails version you want: " -i "$latest_rails_version" rails_version
+    gem install rails -v $rails_version
   else
     echo "You need to install ruby first!"
   fi
@@ -87,10 +92,16 @@ install_c_packages() {
 install_postgresql() {
   sudo apt-get update
   sudo apt-get install postgresql-common postgresql
+  read -e -p "Username for postgresql (dev by default): " -i "dev" username_pg
+  read -s -e -p "Password for postgresql (dev by default): " password_pg
+  if [[ -z "${param// }" ]]; then
+    password_pg="dev"
+  fi
+  psql -c "CREATE ROLE \"$username_pg\" WITH LOGIN SUPERUSER PASSWORD '$password_pg' ;"
 }
 
 install_node() {
-  nvm install v6.9.4
+  nvm install node
 }
 
 install_atom() {
@@ -102,9 +113,33 @@ install_atom() {
   apm upgrade --confirm false
 }
 
+install_heroku_cli() {
+  sudo add-apt-repository "deb https://cli-assets.heroku.com/branches/stable/apt ./"
+  curl -L https://cli-assets.heroku.com/apt/release.key | sudo apt-key add -
+  sudo apt-get update
+  sudo apt-get install heroku
+}
+
+install_python() {
+  current_shell_configuration=$(shell_configuration_file)
+  sudo apt-get install python3.4
+  curl -O https://bootstrap.pypa.io/get-pip.py
+  rm ./get-pip.py
+  python3 get-pip.py --user
+  echo 'export PATH=~/.local/bin:$PATH' >> $current_shell_configuration;
+  source $current_shell_configuration;
+}
+
+install_elastic_beanstalk() {
+  if ! command_exists pip; then
+    install_python
+  fi
+  sudo pip install awsebcli --upgrade --user
+}
+
 # Here we can add as many installers as we want to provide,
 # Everyone should match with a install_name function
-installers=(rbenv ruby c_packages rails postgresql nvm node atom)
+installers=(rbenv ruby c_packages rails postgresql nvm node atom elastic_beanstalk heroku_cli)
 selected_installers=()
 
 for i in "${installers[@]}"
