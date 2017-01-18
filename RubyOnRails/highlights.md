@@ -56,3 +56,7 @@
 ##### MySQL
 
 - [UUID Guide](https://github.com/Wolox/tech-guides/edit/master/RubyOnRails/mysql-uuid-guide.md)
+
+##### Cities
+
+- https://github.com/zokeber/argentina-json
