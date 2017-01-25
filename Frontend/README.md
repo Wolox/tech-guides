@@ -295,6 +295,9 @@ apm install pigments
   - [emerge](http://ilyabirman.net/projects/emerge/)
   - [spinner](http://tympanus.net/Tutorials/SpringLoaders)
 
+## Modals
+  - [modal with css only](http://www.webdesignerdepot.com/2012/10/creating-a-modal-window-with-html5-and-css3/)
+
 # Learning Resources - Frontend
 
 ## Books
