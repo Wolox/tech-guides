@@ -54,28 +54,32 @@ Examples:
 
 |            Element           |                        ID                       |
 |:----------------------------:|:-----------------------------------------------:|
-| Activities/Fragments Layouts | fragment_login activity_login                   |
-| Strings                      | login_email login_password                      |
-| Views                        | fragment_login_myButton activity_login_myButton |
-| Layouts (ViewGroups)         | fragment_login_myLayout activity_login_myLayout |
-| Dimens                       | dimen_small dimen_medium dimen_big              |
-| Font Sizes                   | font_small font_medium font_big                 |
-| Radious                      | radious_small radious_medium radious_big        |
+| Activities/Fragments Layouts | fragment_login<br> activity_login                   |
+| Strings                      | login_email<br> login_password                      |
+| Views                        | fragment_login_myButton<br> activity_login_myButton |
+| Layouts (ViewGroups)         | fragment_login_myLayout<br> activity_login_myLayout |
+| Dimens                       | dimen_small<br> dimen_medium<br> dimen_big<br>              |
+| Font Sizes                   | font_small<br> font_medium<br> font_big  <br>               |
+| Radious                      | radious_small<br> radious_medium<br> radious_big<br>        |
 
 ### <a name="topic-classes-naming"></a> 7) Classes naming
 Class names must be descriptive and written in UpperCamelCase, with the format FunctionalityType.
 
 Examples:
-|       Class      | Name                                                                                                                   |
-|:----------------:|------------------------------------------------------------------------------------------------------------------------|
-| Activities       | LoginActivity                                                                                                          |
-| Fragments        | LoginFragment                                                                                                          |
-| Presenters (MVP) | LoginPresenter                                                                                                         |
-| Views (MVP)      | ILoginView  Note: Views are interfaces                                                                                 |
-| Model (MVP)      | User  Note: The models are not accompanied by their function, it is implicit (that is, they are not named User Model). |
+
+|       Class      |      Name      |
+|:----------------:|:--------------:|
+| Activities       | LoginActivity  |
+| Fragments        | LoginFragment  |
+| Presenters (MVP) | LoginPresenter |
+| Views (MVP)      | iLoginView<br> Note: MVP Views are interfaces     |
+| Model (MVP)      | User           |
+
+<br>
+Note: The models are not accompanied by their function, it is implicit (that is, they are not named User Model).
 
 ### <a name="topic-interfaces-naming"></a> 8) Interfaces naming
-Interfaces must have the prefix "i", which allows them to be identified quickly. This also increases productivity with the search function or the IDE's autocomplete feature.
+Interfaces must have the prefix `i`, which allows them to be identified quickly. This also increases productivity with the search function or the IDE's autocomplete feature.
 
 Note: This requirement covers both the interfaces used in MVP (for views) and any other interface used in the project.
 
@@ -84,35 +88,35 @@ The project's structure must be configured in __packages by functionalities and 
 
 #### Example of a correct structure (ordered by functionality)
 ```
-    app/
-        models/
-        utils/
-        customViews/
-        features/
-            home/
-            auth/
-                login/
-                signup/
-                    SignupPresenter
-                    iSignupView
-                    SignupFragment
-                    SignupRecyclerAdapter
-                    SignupActivity
+  app/
+      models/
+      utils/
+      customViews/
+      features/
+          home/
+          auth/
+              login/
+              signup/
+                  SignupPresenter
+                  iSignupView
+                  SignupFragment
+                  SignupRecyclerAdapter
+                  SignupActivity
 ```
 
 #### Example of an incorrect structure (ordered by type)
 ```
-    app/
-        models/
-        utils/
-        activites/
-            SignupActivity
-        adapters/
-            SignupRecyclerAdapter
-        fragments/
-            SignupFragment
-        interfaces/
-            iSignupView
-        presenters/
-            SignupPresenter
+  app/
+      models/
+      utils/
+      activites/
+          SignupActivity
+      adapters/
+          SignupRecyclerAdapter
+      fragments/
+          SignupFragment
+      interfaces/
+          iSignupView
+      presenters/
+          SignupPresenter
 ```
