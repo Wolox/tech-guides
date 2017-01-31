@@ -16,6 +16,7 @@ The following guide indicates the main elements that are taken into account duri
 7. [Classes naming](#topic-classes-naming)
 8. [Interfaces naming](#topic-interfaces-naming)
 9. [Project structure](#topic-project-structure)
+10. [Usage of Android's annotations](#topic-android-annotations)
 
 ### <a name="topic-java-linter"></a> 1) Java Linter
 Before creating a new Pull Request the Java linter must be executed locally. In case the result of the linter is not satisfactory, the developer must make the necessary modifications to adjust the style of the code to the standard that we use in Wolox.
@@ -79,7 +80,7 @@ Examples:
 Note: The models are not accompanied by their function, it is implicit (that is, they are not named User Model).
 
 ### <a name="topic-interfaces-naming"></a> 8) Interfaces naming
-Interfaces must have the prefix `i`, which allows them to be identified quickly. This also increases productivity with the search function or the IDE's autocomplete feature.
+Interfaces must have the prefix `I`, which allows them to be identified quickly. This also increases productivity with the search function or the IDE's autocomplete feature.
 
 Note: This requirement covers both the interfaces used in MVP (for views) and any other interface used in the project.
 
@@ -98,7 +99,7 @@ The project's structure must be configured in __packages by functionalities and 
               login/
               signup/
                   SignupPresenter
-                  iSignupView
+                  ISignupView
                   SignupFragment
                   SignupRecyclerAdapter
                   SignupActivity
@@ -116,7 +117,43 @@ The project's structure must be configured in __packages by functionalities and 
       fragments/
           SignupFragment
       interfaces/
-          iSignupView
+          ISignupView
       presenters/
           SignupPresenter
 ```
+
+### <a name="topic-android-annotations"></a> 9) Usage of Android's annotations
+Android's SDK provides a number of useful annotations that can be used to provide
+more clarity when implementing methods. Additionally, this annotations will be
+check by Android Studio, enforcing type safety.
+The following annotations will be required in every `public` method of the project,
+specially in Presenters.
+
+* `@Nullable`: The value may be null
+* `@NonNull`: The value cannot be null
+* `@StringRes`: The value must be a string resource (`R.string.xxx`)
+* `@ColorRes`: The value must be a color resource (`R.color.xxx`)
+* `@ColorInt`: The value must be a color integer (`RRGGBB` or `AARRGGBB`)
+* `@DimenRes`: The value must be a dimen resource (`R.dimen.xxx`)
+
+#### Example
+
+```java
+@NonNull      // Indicates that the following method cannot return Null
+@Override
+public MyClass myAnnotatedMethod(
+              String aSimpleString,                 // eg: "Hello World"
+              @StringRes anIdOfAResourceString,     // eg: R.string.myString
+              @NonNull Context context,             // eg: A non null Android's context
+              @Nullable Integer myNullableValkue) { // eg: null or 123
+
+  return ... // return something that is not null
+
+  }
+```
+
+Additional annotations that can be useful:
+* `@CheckResult`: Warns the caller if the result value is not being used
+* `@CallSuper`: Enforces the caller to call `super` before implementing anything else
+
+More info about Android's annotations can be found [here](https://developer.android.com/studio/write/annotations.html)
