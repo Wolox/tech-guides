@@ -4,9 +4,9 @@
 # Navigation Drawer / Android
 
 ## Purpose
-[Official Docs](http://developer.android.com/training/implementing-navigation/nav-drawer.html)
-
 Here I'll describe the basics to have a working Navigation Drawer, the way it was implemented in previous projects. All examples will be taken from [MatchMaker](https://github.com/Wolox/matchmaker-android) and are based on the official docs.
+
+[Official Docs](http://developer.android.com/training/implementing-navigation/nav-drawer.html)
 
 ## Table of contents
 
@@ -14,7 +14,7 @@ Here I'll describe the basics to have a working Navigation Drawer, the way it wa
 2. [Populate with elements](#topic-populate-with-elements)
 3. [Opening and closing the drawer](#topic-opening-and-closing-the-drawer)
 4. [What else?](#topic-what-else)
-4. [Projects where it was used](#topic-projects)
+5. [Projects where it was used](#topic-projects)
 
 ##<a name="topic-xml-creation"></a> XML creation
 You must create a `DrawerLayout` with exactly 2 childs. The first one is the actual view. Usually we have a toolbar and a container to be populated when items of the navigation drawer are selected. The second one is the navigation drawer. It's recommended to use `NavigationView`. This view allows the items to be loaded from a `menu` but since we usually have to follow some sort of custom design guideline, we can set an empty menu and populate the items ourselves.
