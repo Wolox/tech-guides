@@ -33,10 +33,15 @@ Una vez creado el ROL hay que crear la Policy que va a reglar los accessos de di
 hay que ir a Policies -> Create Policy. Se recomienda usar el Policy Generator para generar las policies de forma sencilla.
 Se pueden agregar accessos a varios recursos en una misma policy.
 
-Finalmente hay que asociar la policy recién creada con el ROL creado anteriormente. Para esto:
+Luego hay que asociar la policy recién creada con el ROL creado anteriormente. Para esto:
 1. Buscar el ROL
 2. Hacer click en Attach Policy
 3. Buscar la policy recin generada y asociarla.
+
+Finalmente hay que asociar el ROL con la instancia o con el ambiente de Beanstalk.
+
+* Si es un ambiente de Beanstalk, basta con ir a la parte de Configuration -> Instances y cambiar el instance role ahí (puede figurar bajo el nombre de Instance Profile
+* Si es una instancia de EC2 a secas, hay que configurarlo al momento de creación.
 
 Con esto la instancia ya va a tener permisos para realizar las acciones que la policy permita. Si en el futuro se quieren 
 agregar permisos, basta con editar la policy.
