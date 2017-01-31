@@ -1,6 +1,6 @@
 **WOLOX - ANDROID**
 
-#MVP / Android
+# MVP / Android
 
 ## Purpose
 This guide covers the basics to work using the Model-View-Presenter pattern in Android.
