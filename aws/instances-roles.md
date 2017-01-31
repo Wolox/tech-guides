@@ -14,6 +14,13 @@ sino que podemos directamente instanciarlo de esta forma:
 
 `ec2 = Aws::EC2::Client.new(region: region_name)`
 
+Si tenemos que hacer pruebas en un entorno local, hay que agregar las siguientes entradas al archivo `.env`:
+
+AWS_ACCESS_KEY_ID=YOUR_ACCESS_KEY_ID
+AWS_SECRET_ACCESS_KEY=YOUR_SECRET_ACCESS_KEY
+
+y luego podemos cargar esas variables ejecutando `source .env`
+
 ## Configuración
 
 Para poder usar Instance Roles, lo primero que hay que hacer es crear dicho ROL en IAM. Para esto, dirigirse a la [sección de 
