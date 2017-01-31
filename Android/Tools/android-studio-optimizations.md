@@ -1,4 +1,6 @@
-# Android Studio
+**WOLOX - ANDROID**
+
+# Android Studio optimizations / Android
 
 **The following file documents how to properly set up Android Studio to maximize
 productivity.**
