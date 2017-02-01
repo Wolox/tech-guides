@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Instance profiles provide a way of assigning AWS credentials in a secure way ton an Amazon instance. They can be used in EC2 instances, Elastic Beanstalk environments, Lambda functions, etc.
+Instance profiles provide a way of assigning AWS credentials in a secure way to an Amazon instance. They can be used in EC2 instances, Elastic Beanstalk environments, Lambda functions, etc.
 
 Using Instance Profiles saves us from adding AWS credentials as Environment Variables. Amazon does that for us and it also rotates them for security. Hence, we don't need to initialize the AWS SDK in this way any more:
 
