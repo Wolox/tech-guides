@@ -4,7 +4,7 @@
 
 Instance profiles provide a way of assigning AWS credentials in a secure way to an Amazon instance. They can be used in EC2 instances, Elastic Beanstalk environments, Lambda functions, etc.
 
-Using Instance Profiles saves us from adding AWS credentials as Environment Variables. Amazon does that for us and it also rotates them for security. Hence, we don't need to initialize the AWS SDK in this way any more:
+Using Instance Profiles saves us from having to add AWS credentials as Environment Variables. Amazon does that for us and it also rotates them for security. Hence, we don't need to initialize the AWS SDK in this way any more:
 
 `ec2 = Aws::EC2::Client.new(region: region_name, credentials: credentials)`
 
@@ -24,7 +24,7 @@ Using https://github.com/bkeepers/dotenv will save you from executing `source .e
 
 ## Configuration
 
-In order to use Intance Roles, we first need to create such Role in IAM. To achieve this, go to [IAM]((https://console.aws.amazon.com/iam/home?region=us-east-1).
+In order to use Intance Roles, we first need to create said Role in IAM. To achieve this, go to [IAM]((https://console.aws.amazon.com/iam/home?region=us-east-1).
 
 Once there, go to Roles -> Create New Role
 
@@ -36,7 +36,7 @@ Once there, go to Roles -> Create New Role
     * AWSElasticBeanstalkMulticontainerDocker
     * AWSElasticBeanstalkWorkerTier
     
-With the Role created, we now need to create a Policy that will determine what can this role do. To do so, inside IAM go to 
+With the Role created, we now need to create a Policy that will determine what this role can do. To do so, inside IAM go to 
  Policies -> Create Policy. It is strongly recommended to use the Policy Generator to build the policy in an easy way.
 Multiple accesses can be added using the Policy Generator.
 
