@@ -1,55 +1,53 @@
 # Instance Profiles
 
-## Introducción
+## Introduction
 
-Se usan para asignarle credenciales de AWS de forma segura a una instancia de Amazon. Se puede usar tanto en instancias 
-aisladas de EC2 como ambientes de Elastic Beanstalk, funciones Lambda, etc.
+Instance profiles provide a way of assigning AWS credentials in a secure way ton an Amazon instance. They can be used in EC2 instances, Elastic Beanstalk environments, Lambda functions, etc.
 
-La ventaja que trae usar Instance Profiles es que no hace falta agregar credenciales de AWS a las variables de ambiente.
-De esta forma, cuando queremos usar el SDK no hace falta instanciarlo de esta forma:
+Using Instance Profiles saves us from adding AWS credentials as Environment Variables. Amazon does that for us and it also rotates them for security. Hence, we don't need to initialize the AWS SDK in this way any more:
 
 `ec2 = Aws::EC2::Client.new(region: region_name, credentials: credentials)`
 
-sino que podemos directamente instanciarlo de esta forma:
+We can simply instantiate it like this:
 
 `ec2 = Aws::EC2::Client.new(region: region_name)`
 
-Si tenemos que hacer pruebas en un entorno local, hay que agregar las siguientes entradas al archivo `.env`:
+If we need to test something locally we can add these lines to `.env` file:
 ```
 AWS_ACCESS_KEY_ID=YOUR_ACCESS_KEY_ID
 AWS_SECRET_ACCESS_KEY=YOUR_SECRET_ACCESS_KEY
 ```
 
-y luego podemos cargar esas variables ejecutando `source .env`
+and then load those variables using `source .env`
 
-## Configuración
+Using https://github.com/bkeepers/dotenv will save you from executing `source .env`
 
-Para poder usar Instance Roles, lo primero que hay que hacer es crear dicho ROL en IAM. Para esto, dirigirse a la [sección de 
-IAM](https://console.aws.amazon.com/iam/home?region=us-east-1) en la consola de AWS.
+## Configuration
 
-Una vez ahí, ingresar a Roles -> Create New Role.
+In order to use Intance Roles, we first need to create such Role in IAM. To achieve this, go to [IAM]((https://console.aws.amazon.com/iam/home?region=us-east-1).
 
-1. Ingresar el nombre del rol. Debe ser un nombre descriptivo y representativo.
-2. Select Role Type: Elegir *Amazon EC2*
-3. Elegir los permisos que queremos darle a la instancia
-  * Si es una instancia de un ambiente de Elastic Beanstalk agregar:
+Once there, go to Roles -> Create New Role
+
+1. Enter the name of the role. It must be self-describing.
+2. Select Role Type: Choose *Amazon EC2*
+3. Select the permissions our instance needs
+  * If we are doing this for an Elastic Beanstalk environment, make sure to add:
     * AWSElasticBeanstalkWebTier
     * AWSElasticBeanstalkMulticontainerDocker
     * AWSElasticBeanstalkWorkerTier
     
-Una vez creado el ROL hay que crear la Policy que va a reglar los accessos de dicha instancia. Para esto, dentro de IAM,
-hay que ir a Policies -> Create Policy. Se recomienda usar el Policy Generator para generar las policies de forma sencilla.
-Se pueden agregar accessos a varios recursos en una misma policy.
+With the Role created, we now need to create a Policy that will determine what can this role do. To do so, inside IAM go to 
+ Policies -> Create Policy. It is strongly recommended to use the Policy Generator to build the policy in an easy way.
+Multiple accesses can be added using the Policy Generator.
 
-Luego hay que asociar la policy recién creada con el ROL creado anteriormente. Para esto:
-1. Buscar el ROL
-2. Hacer click en Attach Policy
-3. Buscar la policy recin generada y asociarla.
+We must now associate this newly created policy with the previously created Role. To do so:
+1. Find the Role
+2. Click Attach Policy
+3. Find the policy and associate it
 
-Finalmente hay que asociar el ROL con la instancia o con el ambiente de Beanstalk.
+Finally we must associate the Role with the instance or the Beanstalk Environment.
 
-* Si es un ambiente de Beanstalk, basta con ir a la parte de Configuration -> Instances y cambiar el instance role ahí (puede figurar bajo el nombre de Instance Profile
-* Si es una instancia de EC2 a secas, hay que configurarlo al momento de creación.
+* If we are working with a Beanstalk environment, just go to Configuration -> Instances in the Beanstalk Environment and change the Instance Profile.
+* If it is an EC2 instance, it must be configured at creation time
 
-Con esto la instancia ya va a tener permisos para realizar las acciones que la policy permita. Si en el futuro se quieren 
-agregar permisos, basta con editar la policy.
+Once finished, our instance should have the permissions that the policy allows. If these permissions need to be changed, just change the policy and that should do it.
