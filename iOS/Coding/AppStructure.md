@@ -1,8 +1,8 @@
-## Modelos VS ViewModels
+## Models VS ViewModels
 
-**Modelos**
+**Models**
 
-Son objetos de datos, sin ningún tipo de lógica. Suelen provenir de la comunicación con APIs, dado que suelen representar conceptos del negocio de la aplicación.
+They are data objects, without any type of logic. They usually come from the communication to APIs, since they normally represent business concepts from the app.
 
 ```
 struct Dog {
@@ -15,7 +15,8 @@ struct Dog {
 
 **ViewModels**
 
-Contienen la lógica para manejar los modelos. Pueden incluir cualquier procesamiento necesario para mostrar, buscar, ordenar, etc. la información. Es la capa que traduce los datos a lo que sea que se necesite de ellos para su uso contextual. Esto quiere decir que un viewModel puede contener tanto modelos como a otros viewModels más "pequeños" (en el sentido de cantidad de lógica que incluyen). Para llegar al comportamiento que se quiere sobre los datos, usualmente los ViewModels relacionan otros objetos que se encargan de distintas cosas para obtener un resultado final. Suelen usar Repositorios o Servicios (vistos más adelante) para obtener o enviar modelos y hacer sobre ellos el procesamiento necesario.
+They contain the necessary logic for handling the models. They can include any type of processing necessary to show, search, order, and more, the information. It's the layer that translate data into whatever needed for its specific contextual use. This means that a view model can handle other "smaller" viewModels as well as models (smaller in the sense of how much logic they cover). To obtain the behaviour wanted over the data, usually view models relate other objects that handle different things so as to get the final unique wanted result. These other objects can be found to be
+Repositories or Services (seen afterwards), from which to obtain or send models and be able to do some processing over them.
 
 ```
 class DogViewModel {
@@ -50,11 +51,12 @@ class DogHouseViewModel {
 }
 ```
 
-## Servicios VS Repositorios
+## Repositories VS Services
 
-**Repositorios**
+**Repositories**
 
-Son objetos que exponen los métodos para obtener (`.GET`), modificar (`.PUT`), eliminar (`.DELETE`) o agregar (`.POST`) modelos. Son aquellos que permiten guardar el estado de la aplicación y que se mockean en los tests. Son la forma de comunicarse con alguna API, en cada repositorio se intenta que haya una relación entre los modelos que se gestionan y el uso que les da cada contexto. Por ejemplo:
+They are objects that expose methods for getting (`.GET`), modifying (`.PUT`), deleting (`.DELETE`) or adding (`.POST`) models. They are the ones that allow for the app to have a state, and they are the ones to be mocked in tests. Repositories are the way of communicating with an API: in each repository we try to have only one relation between the models handled and the use the context gives them. For example:
+
 ```
   class DogRepository {
 
@@ -78,11 +80,11 @@ Son objetos que exponen los métodos para obtener (`.GET`), modificar (`.PUT`), 
 
 ```
 
-**Servicios**
+**Services**
 
-Son objetos que se usan para realizar alguna tarea auxiliar en el sistema. Un ejemplo de un servicio podría ser un administrador de la geolocalización del dispositivo (un wrapper de `CLLocation`), un encargado de fetchear imagenes dada una URL, etc.
+They are the objects used for handling any auxiliary task int he system. An example of a service may be a device geolocation administrator (a wrapper to `CLLocation`), an image fetcher, and more things that are not directly related to the app business.
 
-Para el segundo ejemplo tendríamos:
+For the second example, we'd have:
 ```
   class ImageFetcher {
 
@@ -93,15 +95,15 @@ Para el segundo ejemplo tendríamos:
 
 ## Controllers VS ViewModels
 
-Todos los datos que los controllers necesitan deben ser obtenidos mediante un view model. Aún si un controller precisara crear a otro controller, sólo un view model puede crear a otro view model. Esto es porque los controllers no pueden conocer la información necesaria para crear a otro view model.
-Los controllers sólo necesitan información para comunicar a la interfaz visual o viceversa (es decir, los eventos que produce el usuario y los datos que se muestran en la vista).
+All the data that controllers need must come from a view model. Even if a controller needed to create another controller, the information that new controller would need can't come from this father controller itself: only a view model can create another view model, a controller doesn't know (and doesn't care) what information that new controller and view model need.
+Controllers only need the information that concerns communication to and from the visual interface (this means, what to do to react to user triggered events and what data to show on the screen).
 
-## Extensiones VS Subclases
+## Extensions VS Subclasses
 
-Si bien ambas se encargan de ampliar la funcionalidad de una clase, la herencia es restrictiva en cuanto a las posibles direcciones de crecimiento de la misma. Es por esto que se busca delegar o aplicar protocolos en lugar de hacer subclases.
-Sin embargo, cuando es mucha la lógica a reusar, necesita estado y la funcionalidad a agregar no es una simple función autocontenida/autosuficiente es necesaria la herencia.
+Even if both take care of enlarging a class functionality, subclassing is more restrictive of the possible directions in which that class may grow. This is why delegation or protocol conformance is preferred to subclassing.
+However, when the logic that we want to reuse is a lot, or is complex and needs state, when the functionality to add isn't a simple self-contained/self-dependent function, subclassing may become necessary.
 
-Ejemplos de extensión
+Extension examples:
 ```
 protocol AdopterType {
   var fullName: String
@@ -141,4 +143,5 @@ class UnregisteredAdopter {
 
 }
 ```
-Un buen ejemplo de subclase son los repositorios (que heredan de `BaseRepository`).
+
+A great example on subclassing are the Repositories, which will inherit from `BaseRepository`.
