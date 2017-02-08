@@ -82,7 +82,7 @@ They are objects that expose methods for getting (`.GET`), modifying (`.PUT`), d
 
 **Services**
 
-They are the objects used for handling any auxiliary task int he system. An example of a service may be a device geolocation administrator (a wrapper to `CLLocation`), an image fetcher, and more things that are not directly related to the app business.
+They are the objects used for handling any auxiliary task in the system. An example of a service may be a device geolocation administrator (a wrapper to `CLLocation`), an image fetcher, and more things that are not directly related to the app business.
 
 For the second example, we'd have:
 ```
