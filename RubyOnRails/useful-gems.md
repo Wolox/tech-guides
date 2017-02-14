@@ -21,141 +21,115 @@
 
 ## Abstractions
 
-|Name|Version|Stars|
+|Name|Description|Stars|
 |-----|-----|-----|
-|[dry](https://github.com/dry-rb)|||
-|[interactor](https://github.com/collectiveidea/interactor)|[![Gem Version](https://img.shields.io/gem/v/interactor.svg?style=flat)](https://rubygems.org/gems/interactor)|[![GitHub stars](https://img.shields.io/github/stars/bevacqua/awesome-badges.svg?style=social&label=Star)](https://github.com/collectiveidea/interactor)|
-|[virtus](https://github.com/solnic/virtus)|[![Gem Version](https://img.shields.io/gem/v/virtus.svg?style=flat)](https://rubygems.org/gems/virtus)|[![GitHub stars](https://img.shields.io/github/stars/bevacqua/awesome-badges.svg?style=social&label=Star)](https://github.com/solnic/virtus)|
+|[dry](https://github.com/dry-rb)|Set of gems designed to solve different problems including initialization, types, etc||
+|[interactor](https://github.com/collectiveidea/interactor)|Create use case service objects, [read more](https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html)|[![GitHub stars](https://img.shields.io/github/stars/collectiveidea/interactor.svg?style=social&label=Star)](https://github.com/collectiveidea/interactor)|
+|[virtus](https://github.com/solnic/virtus)|Add attribute type checking to your POJOs|[![GitHub stars](https://img.shields.io/github/stars/solnic/virtus.svg?style=social&label=Star)](https://github.com/solnic/virtus)|
 
 ## API
 
-|Name|Version|Stars|
+|Name|Description|Stars|
 |-----|-----|-----|
-|[ActiveModel::Serializers](https://github.com/rails-api/active_model_serializers)|[![Gem Version](https://img.shields.io/gem/v/active_model_serializers.svg?style=flat)](https://rubygems.org/gems/active_model_serializers)|[![GitHub stars](https://img.shields.io/github/stars/bevacqua/awesome-badges.svg?style=social&label=Star)](https://github.com/rails-api/active_model_serializers)|
+|[ActiveModel::Serializers](https://github.com/rails-api/active_model_serializers)|JSON serialization of your activerecord models|[![GitHub stars](https://img.shields.io/github/stars/rails-api/active_model_serializers.svg?style=social&label=Star)](https://github.com/rails-api/active_model_serializers)|
 
 ## Authentication
 
-|Name|Version|Stars|
+|Name|Description|Stars|
 |-----|-----|-----|
-|[devise](https://github.com/plataformatec/devise)|[![Gem Version](https://img.shields.io/gem/v/devise.svg?style=flat)](https://rubygems.org/gems/devise)|[![GitHub stars](https://img.shields.io/github/stars/bevacqua/awesome-badges.svg?style=social&label=Star)](https://github.com/plataformatec/devise)|
-|[JWT](https://github.com/jwt/ruby-jwt)|[![Gem Version](https://img.shields.io/gem/v/jwt.svg?style=flat)](https://rubygems.org/gems/jwt)|[![GitHub stars](https://img.shields.io/github/stars/bevacqua/awesome-badges.svg?style=social&label=Star)](https://github.com/jwt/ruby-jwt)|
+|[devise](https://github.com/plataformatec/devise)|Authentication library|[![GitHub stars](https://img.shields.io/github/stars/plataformatec/devise.svg?style=social&label=Star)](https://github.com/plataformatec/devise)|
+|[JWT](https://github.com/jwt/ruby-jwt)|JSON Web Token implementation for ruby|[![GitHub stars](https://img.shields.io/github/stars/jwt/ruby-jwt.svg?style=social&label=Star)](https://github.com/jwt/ruby-jwt)|
 
 ## Authorization
 
-|Name|Version|Stars|
+|Name|Description|Stars|
 |-----|-----|-----|
-|[CanCanCan](https://github.com/CanCanCommunity/cancancan)|[![Gem Version](https://img.shields.io/gem/v/cancancan.svg?style=flat)](https://rubygems.org/gems/cancancan)|[![GitHub stars](https://img.shields.io/github/stars/bevacqua/awesome-badges.svg?style=social&label=Star)](https://github.com/CanCanCommunity/cancancan)|
-|[Pundit](https://github.com/elabs/pundit)|[![Gem Version](https://img.shields.io/gem/v/pundit.svg?style=flat)](https://rubygems.org/gems/pundit)|[![GitHub stars](https://img.shields.io/github/stars/bevacqua/awesome-badges.svg?style=social&label=Star)](https://github.com/elabs/pundit)|
+|[CanCanCan](https://github.com/CanCanCommunity/cancancan)|Policies library|[![GitHub stars](https://img.shields.io/github/stars/CanCanCommunity/cancancan.svg?style=social&label=Star)](https://github.com/CanCanCommunity/cancancan)|
+|[Pundit](https://github.com/elabs/pundit)|Policies library|[![GitHub stars](https://img.shields.io/github/stars/elabs/pundit.svg?style=social&label=Star)](https://github.com/elabs/pundit)|
 
 ## Benchmarking
 
-|Name|Version|Stars|
+|Name|Description|Stars|
 |-----|-----|-----|
-|[benchmark-ips](https://github.com/evanphx/benchmark-ips)|[![Gem Version](https://img.shields.io/gem/v/benchmark-ips.svg?style=flat)](https://rubygems.org/gems/benchmark-ips)|[![GitHub stars](https://img.shields.io/github/stars/bevacqua/awesome-badges.svg?style=social&label=Star)](https://github.com/evanphx/benchmark-ips)|
+|[benchmark-ips](https://github.com/evanphx/benchmark-ips)|Benchmark library that uses CPU instructions per second instead of time|[![GitHub stars](https://img.shields.io/github/stars/evanphx/benchmark-ips.svg?style=social&label=Star)](https://github.com/evanphx/benchmark-ips)|
 
 ## Code analysis
 
-|Name|Version|Stars|
+|Name|Description|Stars|
 |-----|-----|-----|
-|[brakeman](https://github.com/presidentbeef/brakeman)|[![Gem Version](https://img.shields.io/gem/v/brakeman.svg?style=flat)](https://rubygems.org/gems/brakeman)|[![GitHub stars](https://img.shields.io/github/stars/bevacqua/awesome-badges.svg?style=social&label=Star)](https://github.com/presidentbeef/brakeman)|
-|[reek](https://github.com/troessner/reek)|[![Gem Version](https://img.shields.io/gem/v/reek.svg?style=flat)](https://rubygems.org/gems/reek)|[![GitHub stars](https://img.shields.io/github/stars/bevacqua/awesome-badges.svg?style=social&label=Star)](https://github.com/troessner/reek)|
-|[rubocop](https://github.com/bbatsov/rubocop)|[![Gem Version](https://img.shields.io/gem/v/rubocop.svg?style=flat)](https://rubygems.org/gems/rubocop)|[![GitHub stars](https://img.shields.io/github/stars/bevacqua/awesome-badges.svg?style=social&label=Star)](https://github.com/bbatsov/rubocop)|
-|[rubycritic](https://github.com/whitesmith/rubycritic)|[![Gem Version](https://img.shields.io/gem/v/rubycritic.svg?style=flat)](https://rubygems.org/gems/rubycritic)|[![GitHub stars](https://img.shields.io/github/stars/bevacqua/awesome-badges.svg?style=social&label=Star)](https://github.com/whitesmith/rubycritic)|
-|[simplecov](https://github.com/colszowka/simplecov)|[![Gem Version](https://img.shields.io/gem/v/simplecov.svg?style=flat)](https://rubygems.org/gems/simplecov)|[![GitHub stars](https://img.shields.io/github/stars/bevacqua/awesome-badges.svg?style=social&label=Star)](https://github.com/colszowka/simplecov)|
+|[brakeman](https://github.com/presidentbeef/brakeman)|Looks for security vulnerabilities in your Rails app|[![GitHub stars](https://img.shields.io/github/stars/presidentbeef/brakeman.svg?style=social&label=Star)](https://github.com/presidentbeef/brakeman)|
+|[reek](https://github.com/troessner/reek)|Looks for code smells|[![GitHub stars](https://img.shields.io/github/stars/troessner/reek.svg?style=social&label=Star)](https://github.com/troessner/reek)|
+|[rubocop](https://github.com/bbatsov/rubocop)|Coding style linter|[![GitHub stars](https://img.shields.io/github/stars/bbatsov/rubocop.svg?style=social&label=Star)](https://github.com/bbatsov/rubocop)|
+|[simplecov](https://github.com/colszowka/simplecov)|Code coverage tool|[![GitHub stars](https://img.shields.io/github/stars/colszowka/simplecov.svg?style=social&label=Star)](https://github.com/colszowka/simplecov)|
 
 ## Concurrency
 
-|Name|Version|Stars|
+|Name|Description|Stars|
 |-----|-----|-----|
-|[concurrent-ruby](https://github.com/ruby-concurrency/concurrent-ruby)|[![Gem Version](https://img.shields.io/gem/v/concurrent-ruby.svg?style=flat)](https://rubygems.org/gems/concurrent-ruby)|[![GitHub stars](https://img.shields.io/github/stars/bevacqua/awesome-badges.svg?style=social&label=Star)](https://github.com/ruby-concurrency/concurrent-ruby)|
+|[concurrent-ruby](https://github.com/ruby-concurrency/concurrent-ruby)|Set of concurrent tools and objects for ruby|[![GitHub stars](https://img.shields.io/github/stars/ruby-concurrency/concurrent-ruby.svg?style=social&label=Star)](https://github.com/ruby-concurrency/concurrent-ruby)|
 
 ## Configuration
 
-|Name|Version|Stars|
+|Name|Description|Stars|
 |-----|-----|-----|
-|[dotenv](https://github.com/bkeepers/dotenv)|[![Gem Version](https://img.shields.io/gem/v/dotenv.svg?style=flat)](https://rubygems.org/gems/dotenv)|[![GitHub stars](https://img.shields.io/github/stars/bevacqua/awesome-badges.svg?style=social&label=Star)](https://github.com/bkeepers/dotenv)|
+|[dotenv](https://github.com/bkeepers/dotenv)|Load environment variables for your app automatically without using secrets.yml|[![GitHub stars](https://img.shields.io/github/stars/bkeepers/dotenv.svg?style=social&label=Star)](https://github.com/bkeepers/dotenv)|
 
 
 ## Database
 
-|Name|Version|Stars|
+|Name|Description|Stars|
 |-----|-----|-----|
-|[acts_as_paranoid](https://github.com/ActsAsParanoid/acts_as_paranoid)|[![Gem Version](https://img.shields.io/gem/v/acts_as_paranoid.svg?style=flat)](https://rubygems.org/gems/acts_as_paranoid)|[![GitHub stars](https://img.shields.io/github/stars/bevacqua/awesome-badges.svg?style=social&label=Star)](https://github.com/ActsAsParanoid/acts_as_paranoid)|
-|[bullet](https://github.com/flyerhzm/bullet)|[![Gem Version](https://img.shields.io/gem/v/bullet.svg?style=flat)](https://rubygems.org/gems/bullet)|[![GitHub stars](https://img.shields.io/github/stars/bevacqua/awesome-badges.svg?style=social&label=Star)](https://github.com/flyerhzm/bullet)|
-|[pg_search](https://github.com/Casecommons/pg_search)|[![Gem Version](https://img.shields.io/gem/v/pg_search.svg?style=flat)](https://rubygems.org/gems/pg_search)|[![GitHub stars](https://img.shields.io/github/stars/bevacqua/awesome-badges.svg?style=social&label=Star)](https://github.com/Casecommons/pg_search)|
-|[redis](https://github.com/redis/redis-rb)|[![Gem Version](https://img.shields.io/gem/v/redis.svg?style=flat)](https://rubygems.org/gems/redis)|[![GitHub stars](https://img.shields.io/github/stars/bevacqua/awesome-badges.svg?style=social&label=Star)](https://github.com/redis/redis-rb)|
+|[acts_as_paranoid](https://github.com/ActsAsParanoid/acts_as_paranoid)|Easily add logic delete to your activerecord models|[![GitHub stars](https://img.shields.io/github/stars/ActsAsParanoid/acts_as_paranoid.svg?style=social&label=Star)](https://github.com/ActsAsParanoid/acts_as_paranoid)|
+|[bullet](https://github.com/flyerhzm/bullet)|Find N+1 queries in your Rails application|[![GitHub stars](https://img.shields.io/github/stars/flyerhzm/bullet.svg?style=social&label=Star)](https://github.com/flyerhzm/bullet)|
+|[pg_search](https://github.com/Casecommons/pg_search)|Powerful table search for PostgreSQL|[![GitHub stars](https://img.shields.io/github/stars/Casecommons/pg_search.svg?style=social&label=Star)](https://github.com/Casecommons/pg_search)|
+|[redis](https://github.com/redis/redis-rb)|Redis driver|[![GitHub stars](https://img.shields.io/github/stars/redis/redis-rb.svg?style=social&label=Star)](https://github.com/redis/redis-rb)|
 
 ## File uploads
 
-|Name|Version|Stars|
+|Name|Description|Stars|
 |-----|-----|-----|
-|[carrierwave](https://github.com/carrierwaveuploader/carrierwave)|[![Gem Version](https://img.shields.io/gem/v/carrierwave.svg?style=flat)](https://rubygems.org/gems/carrierwave)|[![GitHub stars](https://img.shields.io/github/stars/bevacqua/awesome-badges.svg?style=social&label=Star)](https://github.com/carrierwaveuploader/carrierwave)|
+|[carrierwave](https://github.com/carrierwaveuploader/carrierwave)|File upload library|[![GitHub stars](https://img.shields.io/github/stars/carrierwaveuploader/carrierwave.svg?style=social&label=Star)](https://github.com/carrierwaveuploader/carrierwave)|
 
 ## Geolocation
 
-|Name|Version|Stars|
+|Name|Description|Stars|
 |-----|-----|-----|
-|[geokit](https://github.com/geokit/geokit)|[![Gem Version](https://img.shields.io/gem/v/geokit.svg?style=flat)](https://rubygems.org/gems/geokit)|[![GitHub stars](https://img.shields.io/github/stars/bevacqua/awesome-badges.svg?style=social&label=Star)](https://github.com/geokit/geokit)|
+|[geokit](https://github.com/geokit/geokit)|Geolocation library|[![GitHub stars](https://img.shields.io/github/stars/geokit/geokit.svg?style=social&label=Star)](https://github.com/geokit/geokit)|
 
 ## HTTP Clients
 
-|Name|Version|Stars|
+|Name|Description|Stars|
 |-----|-----|-----|
-|[httparty](https://github.com/jnunemaker/httparty)|[![Gem Version](https://img.shields.io/gem/v/httparty.svg?style=flat)](https://rubygems.org/gems/httparty)|[![GitHub stars](https://img.shields.io/github/stars/bevacqua/awesome-badges.svg?style=social&label=Star)](https://github.com/jnunemaker/httparty)|
+|[httparty](https://github.com/jnunemaker/httparty)|Make HTTP requests in your app easily|[![GitHub stars](https://img.shields.io/github/stars/jnunemaker/httparty.svg?style=social&label=Star)](https://github.com/jnunemaker/httparty)|
 
 ## Localization
 
-|Name|Version|Stars|
+|Name|Description|Stars|
 |-----|-----|-----|
-|[globalize](https://github.com/globalize/globalize)|[![Gem Version](https://img.shields.io/gem/v/globalize.svg?style=flat)](https://rubygems.org/gems/globalize)|[![GitHub stars](https://img.shields.io/github/stars/bevacqua/awesome-badges.svg?style=social&label=Star)](https://github.com/globalize/globalize)|
+|[globalize](https://github.com/globalize/globalize)|Translate your models in several languages easily|[![GitHub stars](https://img.shields.io/github/stars/globalize/globalize.svg?style=social&label=Star)](https://github.com/globalize/globalize)|
 
 ## Pagination
 
-|Name|Version|Stars|
+|Name|Description|Stars|
 |-----|-----|-----|
-|[kaminari](https://github.com/kaminari/kaminari)|[![Gem Version](https://img.shields.io/gem/v/kaminari.svg?style=flat)](https://rubygems.org/gems/kaminari)|[![GitHub stars](https://img.shields.io/github/stars/bevacqua/awesome-badges.svg?style=social&label=Star)](https://github.com/kaminari/kaminari)|
-|[will_paginate](https://github.com/mislav/will_paginate)|[![Gem Version](https://img.shields.io/gem/v/will_paginate.svg?style=flat)](https://rubygems.org/gems/will_paginate)|[![GitHub stars](https://img.shields.io/github/stars/bevacqua/awesome-badges.svg?style=social&label=Star)](https://github.com/mislav/will_paginate)|
+|[kaminari](https://github.com/kaminari/kaminari)|Paginate your query results|[![GitHub stars](https://img.shields.io/github/stars/kaminari/kaminari.svg?style=social&label=Star)](https://github.com/kaminari/kaminari)|
+|[will_paginate](https://github.com/mislav/will_paginate)|Paginate your query results|[![GitHub stars](https://img.shields.io/github/stars/mislav/will_paginate.svg?style=social&label=Star)](https://github.com/mislav/will_paginate)|
 
 ## Parsers
 
-|Name|Version|Stars|
+|Name|Description|Stars|
 |-----|-----|-----|
-|[nokogiri](https://github.com/sparklemotion/nokogiri)|[![Gem Version](https://img.shields.io/gem/v/nokogiri.svg?style=flat)](https://rubygems.org/gems/nokogiri)|[![GitHub stars](https://img.shields.io/github/stars/bevacqua/awesome-badges.svg?style=social&label=Star)](https://github.com/sparklemotion/nokogiri)|
+|[nokogiri](https://github.com/sparklemotion/nokogiri)|Parse HTML (and more) documents in a very easy way|[![GitHub stars](https://img.shields.io/github/stars/sparklemotion/nokogiri.svg?style=social&label=Star)](https://github.com/sparklemotion/nokogiri)|
 
 ## Workers
 
-|Name|Version|Stars|
+|Name|Description|Stars|
 |-----|-----|-----|
-|[sidekiq](https://github.com/mperham/sidekiq/)|[![Gem Version](https://img.shields.io/gem/v/sidekiq.svg?style=flat)](https://rubygems.org/gems/sidekiq)|[![GitHub stars](https://img.shields.io/github/stars/bevacqua/awesome-badges.svg?style=social&label=Star)](https://github.com/mperham/sidekiq/)|
+|[sidekiq](https://github.com/mperham/sidekiq)|Easily create workers for your asynchronous jobs|[![GitHub stars](https://img.shields.io/github/stars/mperham/sidekiq.svg?style=social&label=Star)](https://github.com/mperham/sidekiq)|
+|[sidetiq](https://github.com/endofunky/sidetiq)|Add schedule to your sidekiq jobs|[![GitHub stars](https://img.shields.io/github/stars/endofunky/sidetiq.svg?style=social&label=Star)](https://github.com/endofunky/sidetiq)|
 
 ## Mantainers
 
   * [Alejandro Bezdjian](https://github.com/alebian)
   * Hugo Farji
   * Ignacio Coluccio
-
-![Wolox](https://raw.githubusercontent.com/Wolox/press-kit/master/logos/logo_banner.png)
-
-## License
-
-(The MIT License)
-
-Copyright (c) 2017 Wolox
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
