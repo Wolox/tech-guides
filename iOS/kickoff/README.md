@@ -306,3 +306,9 @@ TODO
 TODO
 
  * [Configuring pull request merge squashing](https://help.github.com/articles/configuring-pull-request-merge-squashing/)
+
+#### Configurar Pull Request template
+
+TODO
+
+ * [Configuring pull request template](https://help.github.com/articles/creating-a-pull-request-template-for-your-repository/) taking [this template](https://gist.github.com/guidomb/af92f2e7b9f1718a7c55) as a base.
