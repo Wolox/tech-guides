@@ -30,11 +30,13 @@
 
   To keep `app/poros` from becoming just a garbage dump for classes you aren’t sure where to place, be sure to create as many subdirectories as you see fit to keep things organized. For example, if you have many parsers you feel you can group together, you can put them all into `app/poros/parsers`.
 
-  If you find you usually have the same kind of poros throughout more than one app, you can move them out of the poros directory and into their own directory. Continuing our previous example, if all your apps have many parsers, instead of having a `app/poros/parsers` directory in each one, you can place them in `app/parsers`. 
+  If you find you usually have the same kind of poros throughout more than one app, you can move them out of the poros directory and into their own directory. Continuing our previous example, if all your apps have many parsers, instead of having a `app/poros/parsers` directory in each one, you can place them in `app/parsers`.
 
 ### Interactors
   Last but not least are interactors! Interactors are where the big bulk of business logic goes. As the name implies, they are the classes where various poros and models work together to achieve a certain use case or business process. They can even use other interactors!
   It is very important to notice that interactors should not, however, be huge classes. They are mostly just calls to other objects and the small logic between them.
+
+  You can read a bit more on interactors [here](https://mkdev.me/en/posts/a-couple-of-words-about-interactors-in-rails).
 
 ## But what about models and controllers?
 
