@@ -25,6 +25,8 @@
   - [Scrolling] (#scrolling)
   - [Tooltips] (#tooltips)
   - [Animations And Transitions] (#animations-and-transitions)
+  - [Loading] (#Loading)
+  - [Modals] (#Modals)
 - [Learning Resources - Frontend] (#learning-resources---frontend)
   - [Books] (#books)
   - [Articles] (#articles)
