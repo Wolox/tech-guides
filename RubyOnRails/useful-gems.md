@@ -128,6 +128,14 @@
 |[sidekiq](https://github.com/mperham/sidekiq)|Easily create workers for your asynchronous jobs|[![GitHub stars](https://img.shields.io/github/stars/mperham/sidekiq.svg?style=social&label=Star)](https://github.com/mperham/sidekiq)|
 |[sidetiq](https://github.com/endofunky/sidetiq)|Add schedule to your sidekiq jobs|[![GitHub stars](https://img.shields.io/github/stars/endofunky/sidetiq.svg?style=social&label=Star)](https://github.com/endofunky/sidetiq)|
 
+# Not recommended gems
+
+In this section we are going to mention some gems that we tried out but we had problems with. This doesn't mean that the gems are bad (maybe some), but that maybe they lack some important function or they had an error that needed a workaround. The idea is that if you MUST use these gems we can share solutions to problems you might have, so please make a PR if you can contribute. It is also important to mention that the problems listed might have been fixed by the community so you can create a PR to remove them.
+
+|Name|Description|Problems|Possible solutions|
+|-----|-----|-----|-----|
+|[refile](https://github.com/refile/refile)|File uploading|It didn't have an option to update files (specially painful for user images)|Remove old file and create a new one every time a user wants to update a file|
+
 ## Mantainers
 
   * [Alejandro Bezdjian](https://github.com/alebian)
