@@ -16,6 +16,8 @@ The following plugins are recommended for [Atom](https://atom.io). With `apm ins
   apm install linter-rubocop
   apm install linter-scss-lint
   apm install pigments
+  apm install change-case
+  apm install toggle-quotes
 ```
 
 For the linter plugin you need to modify some Atom configuration for Rbenv, with the [following](  https://discuss.atom.io/t/how-to-run-ruby-code-in-a-console-using-rbenv-in-atom/14281/4) instructions.
