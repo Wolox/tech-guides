@@ -24,7 +24,7 @@ Using https://github.com/bkeepers/dotenv will save you from executing `source .e
 
 ## Configuration
 
-In order to use Intance Roles, we first need to create said Role in IAM. To achieve this, go to [IAM]((https://console.aws.amazon.com/iam/home?region=us-east-1).
+In order to use Intance Roles, we first need to create said Role in IAM. To achieve this, go to [IAM](https://console.aws.amazon.com/iam/home?region=us-east-1).
 
 Once there, go to Roles -> Create New Role
 
