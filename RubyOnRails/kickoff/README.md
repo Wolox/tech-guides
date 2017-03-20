@@ -30,6 +30,8 @@ For this open your terminal and execute:
     rm -rf .git
     git init
     git remote add origin git@github.com:Wolox/example-project.git
+    git commit --allow-empty -m 'Initial Commit'
+    git push origin master -f
     git checkout -b development
   ```
 
@@ -45,7 +47,7 @@ Now you are ready to commit the Initial Commit code by running:
 
   ```bash
     git add .
-    git commit -m "Initial commit"
+    git commit -m "Kickoff"
     git push origin development
   ```
 
