@@ -91,7 +91,7 @@ install_c_packages() {
 
 install_postgresql() {
   sudo apt-get update
-  sudo apt-get install postgresql-common postgresql
+  sudo apt-get install libpq-dev postgresql-common postgresql
   read -e -p "Username for postgresql (dev by default): " -i "dev" username_pg
   read -s -e -p "Password for postgresql (dev by default): " password_pg
   if [[ -z "${param// }" ]]; then
