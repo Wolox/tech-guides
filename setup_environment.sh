@@ -139,7 +139,7 @@ install_elastic_beanstalk() {
 
 # Here we can add as many installers as we want to provide,
 # Everyone should match with a install_name function
-installers=(rbenv ruby c_packages rails postgresql nvm node atom elastic_beanstalk heroku_cli)
+installers=(c_packages rbenv ruby rails postgresql nvm node atom elastic_beanstalk heroku_cli)
 selected_installers=()
 
 for i in "${installers[@]}"
