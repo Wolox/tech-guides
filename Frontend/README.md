@@ -9,7 +9,7 @@
   - [CSS/SASS](#csssass)
     - [General](#general)
 - [Text editors](#text-editors)
-  - [Atom] (#atom)
+  - [Atom](#atom)
     - [Installation](#installation)
     - [Packages](#packages)
       - [Atom Beautify](#atom-beautify)
