@@ -49,6 +49,8 @@ install_rbenv() {
       git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
       echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> $current_shell_configuration;
     fi
+    export PATH="$HOME/.rbenv/bin:$PATH"      
+    eval "$(rbenv init -)"
   fi
 }
 
@@ -76,12 +78,17 @@ install_rails(){
 }
 
 install_nvm() {
+  current_shell_configuration=$(shell_configuration_file)
   if [ -d ~/.nvm ]; then
     echo "NVM is already installed, skipping..."
   else
-    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
   fi
   source ~/.nvm/nvm.sh
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+  echo 'export NVM_DIR="$HOME/.nvm"'  >> $current_shell_configuration;
+  echo '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"' >> $current_shell_configuration;
 }
 
 install_c_packages() {
@@ -107,7 +114,7 @@ install_node() {
 install_atom() {
   rm -f /tmp/atom.deb
   curl -L https://atom.io/download/deb > /tmp/atom.deb
-  dpkg --install /tmp/atom.deb
+  sudo dpkg --install /tmp/atom.deb
   rm -f /tmp/atom.deb
 
   apm upgrade --confirm false
@@ -154,3 +161,4 @@ do
   echo "Installing $i"
   install_${i}
 done
+
