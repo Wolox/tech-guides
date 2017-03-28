@@ -11,7 +11,7 @@
   1. [Concurrency](#concurrency)
   1. [Configuration](#configuration)
   1. [Database](#database)
-  1. [File uploads](#file uploads)
+  1. [File uploads](#file-uploads)
   1. [Geolocation](#geolocation)
   1. [HTTP Clients](#http-clients)
   1. [Localization](#localization)
