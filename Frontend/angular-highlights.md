@@ -13,3 +13,6 @@
 - [Directive's scope](http://onehungrymind.com/angularjs-sticky-notes-pt-2-isolated-scope/)
 - [Formatters and Parsers](http://alexperry.io/angularjs/2014/12/10/parsers-and-formatters-angular.html)
 - [Model objects](https://medium.com/opinionated-angularjs/angular-model-objects-with-javascript-classes-2e6a067c73bc#.2re02zvwe)
+
+###### Angular code snippets
+- [Fetch data from API: Infinite scroll](https://codepad.co/snippet/b27gCGTJ)
