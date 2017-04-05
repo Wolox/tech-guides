@@ -241,7 +241,7 @@
 
   # good
   describe SomeClass do
-    subject(:some_class) { SomeClass.new }
+    subject(:some_class) { described_class.new }
 
     describe '#some_method' do
       it 'does what we want' do
