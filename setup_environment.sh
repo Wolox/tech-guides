@@ -144,9 +144,16 @@ install_elastic_beanstalk() {
   sudo pip install awsebcli --upgrade --user
 }
 
+install_google_chrome() {
+  wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
+  sudo add-apt-repository "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
+  sudo apt-get update 
+  sudo apt-get install google-chrome-stable
+}
+
 # Here we can add as many installers as we want to provide,
 # Everyone should match with a install_name function
-installers=(c_packages rbenv ruby rails postgresql nvm node atom elastic_beanstalk heroku_cli)
+installers=(c_packages rbenv ruby rails postgresql nvm node atom elastic_beanstalk heroku_cli google_chrome)
 selected_installers=()
 
 for i in "${installers[@]}"
