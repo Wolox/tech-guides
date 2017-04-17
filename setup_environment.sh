@@ -143,7 +143,7 @@ install_elastic_beanstalk() {
   if ! command_exists pip; then
     install_python
   fi
-  sudo pip install awsebcli --upgrade --user
+  sudo $(which pip) install awsebcli --upgrade --user
 }
 
 # Here we can add as many installers as we want to provide,
