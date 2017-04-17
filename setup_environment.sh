@@ -104,7 +104,8 @@ install_postgresql() {
   if [[ -z "${param// }" ]]; then
     password_pg="dev"
   fi
-  psql -c "CREATE ROLE \"$username_pg\" WITH LOGIN SUPERUSER PASSWORD '$password_pg' ;"
+  sql_command="CREATE ROLE \"$username_pg\" WITH LOGIN SUPERUSER PASSWORD '$password_pg';"  
+  sudo sql_command="$sql_command" -Eu postgres bash -c 'psql -c "$sql_command"'  
 }
 
 install_node() {
