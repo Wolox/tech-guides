@@ -131,10 +131,11 @@ install_heroku_cli() {
 install_python() {
   current_shell_configuration=$(shell_configuration_file)
   sudo apt-get install python3.4
-  curl -O https://bootstrap.pypa.io/get-pip.py
-  rm ./get-pip.py
+  wget https://bootstrap.pypa.io/get-pip.py
   python3 get-pip.py --user
+  rm -rf ./get-pip.py
   echo 'export PATH=~/.local/bin:$PATH' >> $current_shell_configuration;
+  export PATH=~/.local/bin:$PATH;
   source $current_shell_configuration;
 }
 
@@ -142,7 +143,7 @@ install_elastic_beanstalk() {
   if ! command_exists pip; then
     install_python
   fi
-  sudo pip install awsebcli --upgrade --user
+  sudo $(which pip) install awsebcli --upgrade --user
 }
 
 install_google_chrome() {
