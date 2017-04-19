@@ -1,0 +1,195 @@
+  'React Native Pure Component':
+    'prefix': 'rnpc'
+    'body': '''
+      import React from 'react';
+      import { View, Text } from 'react-native';
+
+      export default function ${1:MyComponent}() {
+        return (
+          <View>
+            <Text>
+              MyComponent
+            </Text>
+          </View>
+        );
+      }
+
+    '''
+
+  'React Native Class Component':
+    'prefix': 'rncc'
+    'body': '''
+      import React, { Component } from 'react';
+      import { View, Text } from 'react-native';
+
+      export default class ${1:MyComponent} extends Component {
+
+        render() {
+          return (
+            <View>
+              <Text>
+                MyComponent
+              </Text>
+            </View>
+          );
+        }
+      }
+
+    '''
+
+  'React Native Stylesheet':
+    'prefix': 'rnst'
+    'body': '''
+      import { StyleSheet } from 'react-native';
+      export default StyleSheet.create({
+        ${1:}
+      });
+
+    '''
+  'debug log':
+    'prefix': 'logg'
+    'body': '''
+      console.log("===================");
+      console.log("${1:var}");
+      console.log(${1:var});
+    '''
+
+  # PropType string
+  'React PropType string':
+    'prefix': 'pts',
+    'body': "${1:myProp}: React.PropTypes.string,"
+  'React PropType string required':
+    'prefix': 'ptsr',
+    'body': "${1:myProp}: React.PropTypes.string.isRequired,"
+
+  # PropType number
+  'React PropType number':
+    'prefix': 'ptn',
+    'body': "${1:myProp}: React.PropTypes.number,"
+  'React PropType number required':
+    'prefix': 'ptnr',
+    'body': "${1:myProp}: React.PropTypes.number.isRequired,"
+
+  # PropType object
+  'React PropType object':
+    'prefix': 'pto',
+    'body': "${1:myProp}: React.PropTypes.object,"
+  'React PropType object required':
+    'prefix': 'ptor',
+    'body': "${1:myProp}: React.PropTypes.object.isRequired,"
+
+  # PropType array
+  'React PropType array':
+    'prefix': 'pta',
+    'body': "${1:myProp}: React.PropTypes.array,"
+  'React PropType array required':
+    'prefix': 'ptar',
+    'body': "${1:myProp}: React.PropTypes.array.isRequired,"
+
+  # PropType bool
+  'React PropType bool':
+    'prefix': 'ptb',
+    'body': "${1:myProp}: React.PropTypes.bool,"
+  'React PropType bool required':
+    'prefix': 'ptbr',
+    'body': "${1:myProp}: React.PropTypes.bool.isRequired,"
+
+  # PropType element
+  'React PropType element':
+    'prefix': 'pte',
+    'body': "${1:myProp}: React.PropTypes.element,"
+  'React PropType element required':
+    'prefix': 'pter',
+    'body': "${1:myProp}: React.PropTypes.element.isRequired,"
+
+  # PropType function
+  'React PropType function':
+    'prefix': 'ptf',
+    'body': "${1:myProp}: React.PropTypes.func,"
+  'React PropType function required':
+    'prefix': 'ptfr',
+    'body': "${1:myProp}: React.PropTypes.func.isRequired,"
+
+  # PropType shape
+  'React PropType shape':
+    'prefix': 'ptsh',
+    'body': """
+      ${1:myProp}: React.PropTypes.shape({
+        ${2}
+      }),
+    """
+  'React PropType shape required':
+    'prefix': 'ptshr',
+    'body': """
+      ${1:myProp}: React.PropTypes.shape({
+        ${2}
+      }).isRequired,
+    """
+
+  # PropType node
+  'React PropType node':
+    'prefix': 'ptno',
+    'body': """
+      ${1:myProp}: React.PropTypes.node,
+    """
+  'React PropType node required':
+    'prefix': 'ptnor',
+    'body': """
+      ${1:myProp}: React.PropTypes.node.isRequired,
+    """
+
+  # PropType oneOf
+  'React PropType oneOf':
+    'prefix': 'ptoneof',
+    'body': """
+      ${1:myProp}: React.PropTypes.oneOf([
+        ${2}
+      ]),
+    """
+  'React PropType oneOf required':
+    'prefix': 'ptoneofr',
+    'body': """
+      ${1:myProp}: React.PropTypes.oneOf([
+        ${2}
+      ]).isRequired,
+    """
+
+  # PropType oneOfType
+  'React PropType oneOfType':
+    'prefix': 'ptoneoftype',
+    'body': """
+      ${1:myProp}: React.PropTypes.oneOfType([
+        ${2}
+      ]),
+    """
+  'React PropType oneOfType required':
+    'prefix': 'ptoneoftyper',
+    'body': """
+      ${1:myProp}: React.PropTypes.oneOfType([
+        ${2}
+      ]).isRequired,
+    """
+
+  # PropType arrayOf
+  'React PropType arrayOf':
+    'prefix': 'ptarrof',
+    'body': """
+      ${1:myProp}: React.PropTypes.arrayOf(${2}),
+    """
+  'React PropType arrayOf required':
+    'prefix': 'ptarrofr',
+    'body': """
+      ${1:myProp}: React.PropTypes.arrayOf(${2}).isRequired,
+    """
+
+  # PropType objectOf
+  'React PropType objectOf':
+    'prefix': 'ptarrof',
+    'body': """
+      ${1:myProp}: React.PropTypes.objectOf(${2}),
+    """
+  'React PropType objectOf required':
+    'prefix': 'ptarrofr',
+    'body': """
+      ${1:myProp}: React.PropTypes.objectOf(${2}).isRequired,
+    """
