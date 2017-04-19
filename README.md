@@ -5,15 +5,21 @@ Guides for all the technologies we use at [Wolox](http://wolox.com.ar).
 Under every technology folder, you will find:
 
 - **Kickoff Guides**: Step by step guide to make a project kickoff.
-- **Highlights**: Links to highlights about the technology. Good practices, talks, usefull links and others. There is also a [general-highlights](general-highlights.md) file for common highlights.
-- **Open Source**: A list of the open source libraries we made at Wolox!
+- **Open Source**: A list of the open source libraries for the chosen technology.
+- **Useful Documentation**: Good practices, talks, useful guides and highlights.
 
+*Note: There is also a [general-highlights](general-highlights.md) file for common highlights.*
+
+## Technologies
+
+- [Ruby On Rails](./RubyOnRails/README.md)
+- [NodeJS](./NodeJS/README.md)
+- [AngularJS](./Frontend/README.md)
+- [React Native](./ReactNative/README.md)
+- [Android](./Android/README.md)
+- [iOS](./iOS/README.md)
 
 ## Contributing
-
-You are more than welcome to add information to this repository! To do that please follow the next steps:
-
-`Tip:` **You can do all the below actions using Github without the need of cloning the repository.**
 
 1. Fork it
 2. Create your "feature" branch (`git checkout -b my-new-feature`)
@@ -24,5 +30,4 @@ You are more than welcome to add information to this repository! To do that plea
 ## About
 
 This repository is maintained by [Wolox](http://www.wolox.com.ar).
-
 ![Wolox](https://raw.githubusercontent.com/Wolox/press-kit/master/logos/logo_banner.png)
