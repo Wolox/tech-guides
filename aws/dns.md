@@ -37,3 +37,10 @@ In your hosted zone you'll find an entry with type `NS`. Take note of the values
 2. Select Domains from under the Product tab and click on Manage beside the domain you want to delegate.
 3. Click Enter Custom Nameservers and enter the values you found in AWS entry with type `NS`. All 4 of AWS’ nameservers must be represented in your domain delegation.
 4. Click OK and then Save.
+
+## Verifying Domain to send mails via Mailgun
+
+1. Add your domain or subdomain to Mailgun.
+2. Open your DNS provider and add the two TXT DNS records provided.
+3. If you want Mailgun to track clicks and opens you can also add the CNAME record.
+4. MX records should also be added, unless you already have MX records for your domain pointed at another email service provider (e.g. Gmail).
