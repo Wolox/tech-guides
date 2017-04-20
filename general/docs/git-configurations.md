@@ -1,4 +1,8 @@
-Add the above lines to ~/.gitconfig
+# Git useful configurations
+
+## Gitconfig file
+
+Add the above lines to `~/.gitconfig`
 
 ```
 [user]
@@ -25,4 +29,16 @@ Add the above lines to ~/.gitconfig
     merge = refs/heads/development
 [help]
     autocorrect = 10
+```
+## Git autocompletions
+
+Run the following command from your terminal:
+
+```bash
+curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash > $HOME/.git-completion.bash
+```
+
+And then add to your `.bash_profile` or `.bashrc`:
+```bash
+source $HOME/.git-completion.bash
 ```

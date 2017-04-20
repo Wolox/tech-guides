@@ -9,7 +9,7 @@ Under every technology folder, you will find a README describing:
 - **Useful Documentation**: Good practices, talks, useful guides and highlights.
 - **Posts**: Posts written at Wolox for the given technology.
 
-*Note: There is also a [general-highlights](general-highlights.md) file for common highlights.*
+*Note: There is also a [general-highlights](./general/docs/general-highlights.md) file for common highlights.*
 
 ## Technologies
 
@@ -19,6 +19,13 @@ Under every technology folder, you will find a README describing:
 - [React Native](./ReactNative/README.md)
 - [Android](./Android/README.md)
 - [iOS](./iOS/README.md)
+
+## General Useful Documentation
+
+- [Git Configurations](./general/docs/git-configurations.md)
+- [Computer Environment Setup](./general/docs/setup-environment.md)
+- [Rollbar Setup](./general/docs/rollbar-setup.md)
+- [Add Devs To Github Teams](./general/scripts/add-devs-to-team.rb)
 
 ## Contributing
 

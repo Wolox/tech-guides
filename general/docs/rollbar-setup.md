@@ -1,3 +1,5 @@
+# Rollbar Set Up
+
 This is a guide to setup rollbar for and account and projects.
 
 ## Account
