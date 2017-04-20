@@ -34,6 +34,7 @@ At [Wolox](http://wolox.com.ar), we have developed the [Wolox Android Bootstrap]
 
 ## Posts
 
+- [The power of FFmpeg on Android](https://medium.com/wolox-driving-innovation/https-medium-com-wolox-driving-innovation-the-power-of-ffmpeg-on-android-ef6e0c01d59f)
 - [Android Searchlight: Discovering the Latest Tech Trends Within the Industry](https://medium.com/wolox-driving-innovation/android-searchlight-discovering-the-latest-tech-trends-within-the-industry-e21d4cd3a2c2)
 - [Bootstrap Android OpenGL 2.0](https://medium.com/wolox-driving-innovation/bootstrap-android-opengl-2-0-9ee1107aa4ab)
 - [Refactoring our code — The MVP design pattern for Android](https://medium.com/wolox-driving-innovation/refactoring-our-code-the-mvp-design-pattern-for-android-463df8678c34)
