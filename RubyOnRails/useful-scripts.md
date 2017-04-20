@@ -1,1 +1,0 @@
-- [Migrate files to S3](https://gist.github.com/fleveque/816dba802527eada56ab)

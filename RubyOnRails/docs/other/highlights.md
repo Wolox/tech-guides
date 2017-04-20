@@ -8,10 +8,6 @@
 - [Refactoring, Ruby edition](https://drive.google.com/open?id=0B5_WSD8RMYSWWWhXWmxES2ZrYlU)
 - [Service Oriented Design in Ruby](https://drive.google.com/open?id=0B5_WSD8RMYSWOFVhelktTGdNRGc)
 
-###### Bootstrap project
-
-- [Rails Bootstrap](https://github.com/Wolox/rails-bootstrap)
-
 ###### Best Practices
 
 - [Common Mistakes](http://www.toptal.com/ruby-on-rails/top-10-mistakes-that-rails-programmers-make)
@@ -48,14 +44,6 @@
 
 - [Rspec Expectations Cheat Sheet](http://www.rubypigeon.com/posts/rspec-expectations-cheat-sheet/)
 - [Rspec Matchers Cheat Sheet](http://cheatrags.com/rspec-matchers)
-
-##### PostgreSQL
-
-- [UUID Guide](https://github.com/Wolox/tech-guides/edit/master/RubyOnRails/postgresql-uuid-guide.md)
-
-##### MySQL
-
-- [UUID Guide](https://github.com/Wolox/tech-guides/edit/master/RubyOnRails/mysql-uuid-guide.md)
 
 ##### Cities
 
