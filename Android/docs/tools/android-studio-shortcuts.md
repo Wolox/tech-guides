@@ -12,7 +12,7 @@ Studio.
 2. [Secondary shortcuts](#topic-secondary-shortcuts)
 2. [Other shortcuts](#topic-other-shortcuts)
 
-##<a name="topic-essential-shortcuts"></a> Essential shortcuts
+## <a name="topic-essential-shortcuts"></a> Essential shortcuts
 
 The following shortcuts are essential for Android development:
 
@@ -38,7 +38,7 @@ select a method definition, you will find every usage of that method.
 * Windows / Linux: `CTRL + Click on item`
 * MacOs: `CMD + Click on item`
 
-##<a name="topic-secondary-shortcuts"></a> Secondary shortcuts
+## <a name="topic-secondary-shortcuts"></a> Secondary shortcuts
 
 The following shortcuts can be incredibly helpful, always keep them in mind.
 #### `Renaming (refactor)`
@@ -60,7 +60,7 @@ Find every usage of a given method, variable or class.
 * Windows / Linux: `ALT + F7 / CTRL + F7`
 * MacOs: `CMD + FN + F7`
 
-##<a name="topic-other-shortcuts"></a> Other shortcuts
+## <a name="topic-other-shortcuts"></a> Other shortcuts
 
 You can find every command for Android Studio [here](https://resources.jetbrains.com/storage/products/idea/docs/IntelliJIDEA_ReferenceCard.pdf)
 

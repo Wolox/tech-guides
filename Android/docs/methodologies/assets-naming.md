@@ -12,7 +12,7 @@ The following guide indicates the convention for assets naming used in Wolox.
 3. [Naming conventions for the "type" field](#topic-type-conventions)
 4. [Naming conventions for the "state" field](#topic-state-conventions)
 
-##<a name="topic-general-guidelines"></a> General guidelines
+## <a name="topic-general-guidelines"></a> General guidelines
 
 * Every asset name must be in English
 * You should always use **underscores** (`_`) instead of dashes(`-`) or spaces (` `)
@@ -21,7 +21,7 @@ The following guide indicates the convention for assets naming used in Wolox.
 * The main icon of the app (the one used for the launcher) should be named: `ic_launcher_icon`
 * The launcher icon should be placed inside `mipmap-xxx` folders in every supported screen density
 
-##<a name="topic-naming-convention"></a> Naming convention
+## <a name="topic-naming-convention"></a> Naming convention
 
 For assets naming, the following convention will be used:
 ```
@@ -47,7 +47,7 @@ Examples:
 | Background | `bg`  | `bg_splash_logo`    |
 | Image      | `img` | `img_profile_cover` |
 
-##<a name="topic-state-conventions"></a> Naming conventions for the `state` field
+## <a name="topic-state-conventions"></a> Naming conventions for the `state` field
 
 |   Role   |    State   |             Example            |
 |:--------:|:----------:|:------------------------------:|

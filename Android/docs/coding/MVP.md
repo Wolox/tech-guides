@@ -10,7 +10,7 @@ This guide covers the basics to work using the Model-View-Presenter pattern in A
 1. [What's the main idea?](#topic-main-idea)
 2. [Sample code](#topic-sample-code)
 
-##<a name="topic-main-idea"></a> What's the main idea?
+## <a name="topic-main-idea"></a> What's the main idea?
 
 **Model:** This is the well known model, present in many of the most common patterns and use cases. It represents the world we are working with, every real world element that our app should know how to represent. Both the _View_ and the _Presenter_ are aware of this model and they know how to use its properties and methods.
 
@@ -22,7 +22,7 @@ In order to have a better and cleaner code we introduce a third layer in this ca
 
 Now the presenter only needs to know which are this methods and what kind of information are they expecting regardless of how this affects our UI, **this will be decided by the _View_ classes**.
 
-##<a name="topic-sample-code"></a> Sample code
+## <a name="topic-sample-code"></a> Sample code
 
 Here is a very simple code snippet showing how this works and how it should be used to keep your code as simple as possible
 

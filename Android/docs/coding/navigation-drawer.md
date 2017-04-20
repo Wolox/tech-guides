@@ -16,7 +16,7 @@ Here I'll describe the basics to have a working Navigation Drawer, the way it wa
 4. [What else?](#topic-what-else)
 5. [Projects where it was used](#topic-projects)
 
-##<a name="topic-xml-creation"></a> XML creation
+## <a name="topic-xml-creation"></a> XML creation
 You must create a `DrawerLayout` with exactly 2 childs. The first one is the actual view. Usually we have a toolbar and a container to be populated when items of the navigation drawer are selected. The second one is the navigation drawer. It's recommended to use `NavigationView`. This view allows the items to be loaded from a `menu` but since we usually have to follow some sort of custom design guideline, we can set an empty menu and populate the items ourselves.
 
 ``` xml
@@ -77,7 +77,7 @@ You must create a `DrawerLayout` with exactly 2 childs. The first one is the act
 </android.support.v4.widget.DrawerLayout>
 ```
 
-##<a name="topic-populate-with-elements"></a> Populate with elements
+## <a name="topic-populate-with-elements"></a> Populate with elements
 
 First, inject the drawer and items of the drawer, along with anything else you might need (toolbar, header, etc).
 
@@ -150,7 +150,7 @@ And finally, the simple `setFragment` method back on the `Activity`
     }
 ```
 
-##<a name="topic-opening-and-closing-the-drawer"></a> Opening and closing the drawer
+## <a name="topic-opening-and-closing-the-drawer"></a> Opening and closing the drawer
 
 It hasn't been shown how to set the `Toolbar` here but I'll assume you are using one. When populating it, you should add a listener to the navigation icon (the one on the left, for navigation drawers it's usually a [burger icon](https://www.newfangled.com/wp-content/uploads/2014/08/stuffcontentmgrfiles2ac67e44c30a21635f8a9d498f832bc1cmisc_resized80_313_257_hamenu.png)) to open and close the navigation drawer. Notice that the `openDrawer` and `closeDrawer` methods are separate because they are called from elsewhere as well. The `GravityCompat.START` being passed as parameter means that the drawer opens and closes in relation to the 'start' of the screen which is usually to the left.
 
@@ -177,7 +177,7 @@ It hasn't been shown how to set the `Toolbar` here but I'll assume you are using
     }
 ```
 
-##<a name="topic-what-else"></a> What else?
+## <a name="topic-what-else"></a> What else?
 You should now have a working navigation drawer. I've left some blanks to be filled, but all the basic concepts of how to use a Navigation Drawer have been covered.
 
 Something cool that could bee added is to make the drawer visible below the Status Bar. If you need to do something like this look into adding the `android:fitsSystemWindows=”true”` line to the Drawer and making the status bar color transparent. If it is added in some project, consider adding how to do it here and adding your project to the list at the bottom of this page.
