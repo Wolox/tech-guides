@@ -13,7 +13,19 @@ In your hosted zone:
 2. Enter the record name (e.g. api.my-website.com)
 3. Select CNAME in the Type dropdown
 4. Select No in the alias option
-5. In the text area 
+5. In the text area copy the Beanstalk Environment url
+
+## Create DNS entry for a static website hosted in S3
+
+In your hosted zone:
+
+1. Click on Create Record Set
+2. Enter the record name (e.g. api.my-website.com)
+3. Select A – IPv4 address in the Type dropdown
+4. Select Yes in the alias option
+5. Alias Target: In the S3 website endpoints section of the list, choose the bucket that has the same name that you specified for Name.
+6. Routing Policy: Accept the default value of Simple.
+7. Evaluate Target Health: Accept the default value of No.
 
 ## Delegating domains to AWS
 
