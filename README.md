@@ -2,12 +2,12 @@
 
 Guides for all the technologies we use at [Wolox](http://wolox.com.ar).
 
-Under every technology folder, you will find:
+Under every technology folder, you will find a README describing:
 
 - **Kickoff Guides**: Step by step guide to make a project kickoff.
-- **Open Source**: A list of the open source libraries for the chosen technology.
+- **Open Source**: A list of the open source libraries developed at Wolox.
 - **Useful Documentation**: Good practices, talks, useful guides and highlights.
-- **Posts**: Posts written at Wolox for the technology.
+- **Posts**: Posts written at Wolox for the given technology.
 
 *Note: There is also a [general-highlights](general-highlights.md) file for common highlights.*
 
@@ -31,4 +31,5 @@ Under every technology folder, you will find:
 ## About
 
 This repository is maintained by [Wolox](http://www.wolox.com.ar).
+
 ![Wolox](https://raw.githubusercontent.com/Wolox/press-kit/master/logos/logo_banner.png)
