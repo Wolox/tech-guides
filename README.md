@@ -22,6 +22,7 @@ Under every technology folder, you will find a README describing:
 
 ## General Useful Documentation
 
+- [AWS Guides](./aws/README.md)
 - [Git Configurations](./general/docs/git-configurations.md)
 - [Computer Environment Setup](./general/docs/setup-environment.md)
 - [Rollbar Setup](./general/docs/rollbar-setup.md)
