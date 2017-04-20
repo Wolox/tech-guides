@@ -27,6 +27,19 @@ In your hosted zone:
 6. Routing Policy: Accept the default value of Simple.
 7. Evaluate Target Health: Accept the default value of No.
 
+
+## Point DNS to a Heroku Application
+
+In your Heroku Application visit the settings page and scroll down to the `Domains and certificates` section. Add a custom domain. For example: heroku.my-website.com.
+
+Back in AWS go to your your hosted zone:
+
+1. Click on Create Record Set
+2. Enter the record name (e.g. heroku.my-website.com)
+3. Select CNAME in the Type dropdown
+4. Select No in the alias option
+5. In the text area copy the heroku url (it should be something like myapp.herokuapp.com)
+
 ## Delegating domains to AWS
 
 In your hosted zone you'll find an entry with type `NS`. Take note of the values of that entry.
