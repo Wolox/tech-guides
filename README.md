@@ -15,7 +15,7 @@ Under every technology folder, you will find a README describing:
 
 - [Ruby On Rails](./RubyOnRails/README.md)
 - [NodeJS](./NodeJS/README.md)
-- [AngularJS](./Frontend/README.md)
+- [Frontend](./Frontend/README.md)
 - [React Native](./ReactNative/README.md)
 - [Android](./Android/README.md)
 - [iOS](./iOS/README.md)
