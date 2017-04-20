@@ -7,6 +7,7 @@ Under every technology folder, you will find:
 - **Kickoff Guides**: Step by step guide to make a project kickoff.
 - **Open Source**: A list of the open source libraries for the chosen technology.
 - **Useful Documentation**: Good practices, talks, useful guides and highlights.
+- **Posts**: Posts written at Wolox for the technology.
 
 *Note: There is also a [general-highlights](general-highlights.md) file for common highlights.*
 

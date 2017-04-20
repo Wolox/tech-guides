@@ -8,21 +8,25 @@ At [Wolox](http://wolox.com.ar), we have developed the [technology-bootstrap](li
 
 *Note: This text may be replace with a link to a kickoff guide inside your projects folder in this repository.*
 
-Under every technology folder, you will find:
-
 ### Open Source
 
-- list
-- of
-- open
-- source
-- libraries
+- [list]()
+- [of]()
+- [open]()
+- [source]()
+- [libraries]()
 
 *Note: Technologies bootstrap may be part of this list*
 
 ### Useful Documentation
 
-- list
-- of
-- useful
-- documents
+- [list]()
+- [of]()
+- [useful]()
+- [documents]()
+
+### Posts
+
+- [fill]()
+- [of]()
+- [posts]()
