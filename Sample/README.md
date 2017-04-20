@@ -1,14 +1,12 @@
-# Wolox Tech Guides
+# Wolox REPLACE-WITH-CHOSEN-TECHNOLOGY Tech Guides
 
-## Technology Name
-
-### Kickoff Guide
+## Kickoff Guide
 
 At [Wolox](http://wolox.com.ar), we have developed the [technology-bootstrap](link-to-bootstrap) to create our **replace-with-chosen-technology** projects. You'll find a detailed guide to start with your project in its README.
 
 *Note: This text may be replace with a link to a kickoff guide inside your projects folder in this repository.*
 
-### Open Source
+## Open Source
 
 - [list]()
 - [of]()
@@ -18,14 +16,14 @@ At [Wolox](http://wolox.com.ar), we have developed the [technology-bootstrap](li
 
 *Note: Technologies bootstrap may be part of this list*
 
-### Useful Documentation
+## Useful Documentation
 
 - [list]()
 - [of]()
 - [useful]()
 - [documents]()
 
-### Posts
+## Posts
 
 - [fill]()
 - [of]()
