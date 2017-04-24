@@ -12,16 +12,23 @@ Under every technology folder, you will find a README describing:
 ## Technologies
 
 - [Ruby On Rails](./ruby-on-rails/README.md)
+
 - [NodeJS](./NodeJS/README.md)
+
 - [Frontend](./frontend/README.md)
+
 - [React Native](./react-native/README.md)
+
 - [Android](./android/README.md)
+
 - [iOS](./iOS/README.md)
+
+- [Git](./git/README.md)
+
 - [Infraestructure](./infraestructure/README.md)
 
 ## General Useful Documentation
 
-- [Git Configurations](./general/docs/git-configurations.md)
 - [Computer Environment Setup](./general/docs/setup-environment.md)
 - [Rollbar Setup](./general/docs/rollbar-setup.md)
 - [Add Devs To Github Teams](./general/scripts/add-devs-to-team.rb)
