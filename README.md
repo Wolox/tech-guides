@@ -17,10 +17,10 @@ Under every technology folder, you will find a README describing:
 - [React Native](./react-native/README.md)
 - [Android](./android/README.md)
 - [iOS](./iOS/README.md)
+- [Infraestructure](./infraestructure/README.md)
 
 ## General Useful Documentation
 
-- [AWS Guides](./aws/README.md)
 - [Git Configurations](./general/docs/git-configurations.md)
 - [Computer Environment Setup](./general/docs/setup-environment.md)
 - [Rollbar Setup](./general/docs/rollbar-setup.md)
