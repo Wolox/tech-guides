@@ -29,9 +29,9 @@ Under every technology folder, you will find a README describing:
 
 ## General Useful Documentation
 
-- [Computer Environment Setup](./general/docs/setup-environment.md)
-- [Rollbar Setup](./general/docs/rollbar-setup.md)
-- [Add Devs To Github Teams](./general/scripts/add-devs-to-team.rb)
+- [Services Setups](./services-setups/README.md)
+
+- [General Useful Scripts](./useful-scripts/README.md)
 
 ## Contributing
 
