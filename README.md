@@ -29,10 +29,11 @@ Under every technology folder, you will find a README describing:
 ## Contributing
 
 1. Fork it
-2. Create your "feature" branch (`git checkout -b my-new-feature`)
-3. Edit the file and commit your changes (`git commit -am 'Add some feature'`)
-7. Push your branch (`git push origin my-new-feature`)
-8. Create a new Pull Request
+2. Create your branch (`git checkout -b my-new-guide-documentation`)
+3. Edit the file and commit your changes (`git commit -am 'Add some guide or documentation'`)
+4. Push your branch (`git push origin my-new-guide-documentation`)
+5. Create a new Pull Request
+6. Assign it to area responsible people
 
 ## About
 
