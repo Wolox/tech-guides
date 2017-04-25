@@ -14,6 +14,8 @@ At [Wolox](http://wolox.com.ar), we have developed the [Wolox Android Bootstrap]
 
 ## Useful Documentation
 
+### Standards
+
 ### Coding
 
 - [MVP](./docs/coding/MVP.md)

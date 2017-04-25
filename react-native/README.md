@@ -11,6 +11,10 @@ At [Wolox](http://wolox.com.ar), we have developed the [React Native Bootstrap](
 
 ## Useful Documentation
 
+### Standards
+
+### IDE
+
 - [Atom snippets](./docs/atom-snippets.cson)
 
 ## Posts

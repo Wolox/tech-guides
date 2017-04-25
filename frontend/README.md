@@ -11,6 +11,10 @@ At [Wolox](http://wolox.com.ar), we have developed the [Frontend kickoff guide](
 
 ## Useful Documentation
 
+### Standards
+
+### General
+
 - [Frontend Guidelines](./docs/style-guide.md#guidelines)
 - [Text Editors](./docs/style-guide.md#text-editors)
 - [Browser Extensions](./docs/style-guide.md#browser-extensions)
