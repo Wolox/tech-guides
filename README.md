@@ -2,24 +2,45 @@
 
 Guides for all the technologies we use at [Wolox](http://wolox.com.ar).
 
-Under every technology folder, you will find:
+Under every technology folder, you will find a README describing:
 
 - **Kickoff Guides**: Step by step guide to make a project kickoff.
-- **Highlights**: Links to highlights about the technology. Good practices, talks, usefull links and others. There is also a [general-highlights](general-highlights.md) file for common highlights.
-- **Open Source**: A list of the open source libraries we made at Wolox!
+- **Open Source**: A list of the open source libraries developed at Wolox.
+- **Useful Documentation**: Good practices, talks, useful guides and highlights.
+- **Posts**: Posts written at Wolox for the given technology.
 
+## Technologies
+
+- [Ruby On Rails](./ruby-on-rails/README.md)
+
+- [NodeJS](./NodeJS/README.md)
+
+- [Frontend](./frontend/README.md)
+
+- [React Native](./react-native/README.md)
+
+- [Android](./android/README.md)
+
+- [iOS](./iOS/README.md)
+
+- [Git](./git/README.md)
+
+- [Infraestructure](./infraestructure/README.md)
+
+## General Useful Documentation
+
+- [Services Setups](./services-setups/README.md)
+
+- [General Useful Scripts](./useful-scripts/README.md)
 
 ## Contributing
 
-You are more than welcome to add information to this repository! To do that please follow the next steps:
-
-`Tip:` **You can do all the below actions using Github without the need of cloning the repository.**
-
 1. Fork it
-2. Create your "feature" branch (`git checkout -b my-new-feature`)
-3. Edit the file and commit your changes (`git commit -am 'Add some feature'`)
-7. Push your branch (`git push origin my-new-feature`)
-8. Create a new Pull Request
+2. Create your branch (`git checkout -b my-new-guide-documentation`)
+3. Edit the file and commit your changes (`git commit -am 'Add some guide or documentation'`)
+4. Push your branch (`git push origin my-new-guide-documentation`)
+5. Create a new Pull Request
+6. Assign it to area responsible people
 
 ## About
 
