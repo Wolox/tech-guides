@@ -13,7 +13,7 @@ Under every technology folder, you will find a README describing:
 
 - [Ruby On Rails](./ruby-on-rails/README.md)
 
-- [NodeJS](./NodeJS/README.md)
+- [NodeJS](./nodejs/README.md)
 
 - [Frontend](./frontend/README.md)
 
