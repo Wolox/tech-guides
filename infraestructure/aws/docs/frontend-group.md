@@ -1,4 +1,4 @@
-# Deploying to a AWS S3 Bucket / Create a Group with S3 deployment permissions
+# Create a Group with S3 deployment permissions
 
 ## Create the policy
 
