@@ -18,9 +18,8 @@ At [Wolox](http://wolox.com.ar), we have developed the [iOS kickoff guide](./doc
 
 ### Wolox
 
-- [Reuniones mensuales](https://docs.google.com/document/d/1P6Ml6Wd_rUk-NkNRJUcHhKpyGsU3pSTr1qKxG591HZU/edit)
-- [Problemas comunes](https://docs.google.com/document/d/1aU-J890VfbSeNLvNiP97LepmVCEAC0d3HB4IE_sJ1FY/edit)
 - [Style guide](https://github.com/Wolox/ios-style-guide)
+- [App Structure](./docs/app-structure.md)
 
 ### UI
 
