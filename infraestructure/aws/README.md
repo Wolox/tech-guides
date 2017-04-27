@@ -1,5 +1,9 @@
 # Wolox Amazon Web Services Guides
 
+## IAM
+
+- [Frontend Deployment Group](./docs/frontend-group.md)
+
 ## Useful Documents
 
 - [Instances Roles Configuration](./docs/instances-roles.md)
