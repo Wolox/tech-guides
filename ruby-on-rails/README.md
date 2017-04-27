@@ -2,7 +2,7 @@
 
 ## Kickoff Guide
 
-At [Wolox](http://wolox.com.ar), we have developed the [RoR kickoff guide](./docs/kickoff/README.md) to create our RoR projects. Check it out to find a detailed guide to start with your project.
+At [Wolox](https://wolox.co), we have developed the [RoR kickoff guide](./docs/kickoff/README.md) to create our RoR projects. Check it out to find a detailed guide to start with your project.
 
 ## Open Source
 
@@ -13,6 +13,7 @@ At [Wolox](http://wolox.com.ar), we have developed the [RoR kickoff guide](./doc
 - [Async-Requests](https://github.com/Wolox/async-requests)
 - [CodeStats](https://github.com/Wolox/codestats)
 - [CodeStats Metrics Reporter](https://github.com/Wolox/codestats-metrics-reporter)
+- [Argentinian Localities][https://github.com/Wolox/arg-localities]
 
 ## Useful Documentation
 
@@ -32,7 +33,7 @@ At [Wolox](http://wolox.com.ar), we have developed the [RoR kickoff guide](./doc
 
 - [MercadoPago Integration](./docs/scripts/mercadopago.md)
 - [Migrate files to S3](https://gist.github.com/fleveque/816dba802527eada56ab)
-- [Postgresql UUID Guide](./docs/scripts/postgresql-uuid-guide.md)
+- [PostgreSQL UUID Guide](./docs/scripts/postgresql-uuid-guide.md)
 - [Mysql UUID Guide](./docs/scripts/mysql-uuid-guide.md)
 
 ### Other
