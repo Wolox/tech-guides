@@ -27,9 +27,7 @@ The first thing you need to do is to clone the base project we have at Wolox tha
 For this open your terminal and execute:
 
   ```bash
-    git clone git@github.com:Wolox/frontend-bootstrap.git
-    cd ..
-    cp -r frontend-bootstrap/ example-project
+    git clone git@github.com:Wolox/frontend-bootstrap.git example-project
     cd example-project
     rm -rf .git
     git init
