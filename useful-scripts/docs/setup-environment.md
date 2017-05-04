@@ -9,5 +9,5 @@ curl https://raw.githubusercontent.com/Wolox/tech-guides/master/useful-scripts/s
 And execute it:
 
 ```bash
-sh setup-environment.sh
+bash setup-environment.sh
 ```
