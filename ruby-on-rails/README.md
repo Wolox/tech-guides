@@ -13,7 +13,7 @@ At [Wolox](https://wolox.co), we have developed the [RoR kickoff guide](./docs/k
 - [Async-Requests](https://github.com/Wolox/async-requests)
 - [CodeStats](https://github.com/Wolox/codestats)
 - [CodeStats Metrics Reporter](https://github.com/Wolox/codestats-metrics-reporter)
-- [Argentinian Localities][https://github.com/Wolox/arg-localities]
+- [Argentinian Localities](https://github.com/Wolox/arg-localities)
 
 ## Useful Documentation
 
