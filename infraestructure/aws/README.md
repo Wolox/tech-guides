@@ -12,6 +12,11 @@
 - [Open guide to AWS](https://github.com/open-guides/og-aws)
 - [Activate MFA in OpenVPN](http://myrandomtechbits.blogspot.com.ar/2016/06/openvpn-with-mfa-google.html)
 
+## Elasticbeanstalk
+
+- [Possible issues and solutions](./docs/eb-possible-issues.md)
+- [Redis configuration](./docs/eb-redis.md)
+
 ## Posts
 
 - [Building a Microservices API in AWS](https://medium.com/wolox-driving-innovation/https-medium-com-wolox-driving-innovation-building-microservices-api-aws-e9a455cc3456)
