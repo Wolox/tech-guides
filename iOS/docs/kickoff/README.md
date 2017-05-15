@@ -89,21 +89,11 @@ If this hasn't print out anything, you are good to go!
 
 #### Build Scripts Configuration
 
-Renaming is over! Time to move on to configuring the [build scripts](https://github.com/guidomb/ios-scripts) file. To do this, edit the `script/.env` file, which should already contain the following:
+Renaming is over! Time to move on to configuring the [build scripts](https://github.com/guidomb/ios-scripts) file. To do this, edit the `script/.env` file, which should already contain these lines (among some others):
 
 ```
-REQUIRED_SWIFTLINT_VERSION=0.9.2
-REQUIRED_CARTHAGE_VERSION=0.15.1
-CARTHAGE_BUILD_PLATFORM=${CARTHAGE_BUILD_PLATFORM:-"iOS"}
-CARTHAGE_NO_USE_BINARIES=${CARTHAGE_NO_USE_BINARIES:-"false"}
-LINT_PODSPEC=${LINT_PODSPEC:-"yes"}
 PROJECT_NAME=BaseProject
-XCODE_WORKSPACE=
 XCODE_PROJECT=BaseProject.xcodeproj
-IOS_DESTINATION_VERSION=${IOS_DESTINATION_VERSION:-"latest"}
-IOS_DESTINATION_SIMULATOR_NAME=${IOS_DESTINATION_SIMULATOR_NAME:-"iPhone 6"}
-OSX_DESTINATION_ARCH=${OSX_DESTINATION_ARCH:-""}
-INSTALL_GITHOOKS=true
 ```
 
 Replace the values for `PROJECT_NAME` and `XCODE_PROJECT` with the following ones:
@@ -137,10 +127,10 @@ You can start hacking by executing:
 
 Make sure the project can be built and run it on the simulator (⌘ + R). You should see the following screen:
 
- ![base project screenshot](./resources/base-project-screenshot.png)
+![base project screenshot](./resources/base-project-screenshot.png)
 
- Add these changes by running:
- `$ git add .`
+Add these changes by running:
+`$ git add .`
 
 And commit them:
 `$ git commit -m "Rename project"`
