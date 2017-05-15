@@ -1,7 +1,7 @@
 iOS Kickoff guide
 -----------------
 
-This is a tutorial explaining how to kickoff an iOS project from scratch. Some steps can't be followed without being granted access to certain services: request them to your TM, [Santiago Samra](mailto:santiago.samra@wolox.com.ar) or iOS' technical leaders:
+This is a tutorial explaining how to kickoff an iOS project from scratch. Some steps can't be followed without being granted access to certain services: request them to an iOS' technical leader:
 
 * [Pablo Giorgi](mailto:pablo.giorgi@wolox.com.ar)
 * [Guido Marucci Blas](mailto:guidomb@wolox.com.ar)
