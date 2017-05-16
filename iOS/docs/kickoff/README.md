@@ -103,6 +103,13 @@ PROJECT_NAME=ProjectName
 XCODE_PROJECT=ProjectName.xcodeproj
 ```
 
+Check the value for `REQUIRED_XCODE_VERSION` matches the installed version. You can check it with the command `xcodebuild -version`.
+
+Replace the values for `REQUIRED_SWIFTLINT_VERSION` and `REQUIRED_CARTHAGE_VERSION` with the last release version for each of them.
+You can check them in [SwiftLint releases](https://github.com/realm/SwiftLint/releases) and [Carthage releases](https://github.com/Carthage/Carthage/releases).
+
+#### Bootstrapping project
+
 Run bootstrapping script, which will install every necessary dependency to build the project:
 `$ ./script/bootstrap `
 
