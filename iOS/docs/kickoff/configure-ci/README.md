@@ -37,7 +37,7 @@ openssl aes-256-cbc -k "password" -in secrets.tar -out secrets.tar.enc
 
 ### Decryption
 
-Add add this as first step of the `bitrise.yml` (don’t forget to add ENCRYPT_PASSWORD to the bitrise secure keys):
+Add this as first step of the `bitrise.yml`:
 
 ```
     - script@1.1.3:
@@ -46,9 +46,11 @@ Add add this as first step of the `bitrise.yml` (don’t forget to add ENCRYPT_P
         - content: openssl aes-256-cbc -k "$ENCRYPT_PASSWORD" -in secrets.tar.enc -out secrets.tar -d && tar xvf secrets.tar
 ```
 
+Don’t forget to include `ENCRYPT_PASSWORD` as explained in [Configure App Environment variables](#configure-app-environment-variables)
+
 ## Create Bitrise app...
 
-### Login in [Bitrise](https://www.bitrise.io/) using your own account. 
+### Log in to [Bitrise](https://www.bitrise.io/) using your Wolox's github account.
 
 If you’re not added to the `Wolox` organization, you should ask the technical leader to do so.
 
@@ -70,7 +72,7 @@ From the list of platforms, choose `Github`. Below, in the left part of the scre
 
 Select `auto-add SSH Key`. The key should be added automatically after a moment. If it doesn’t work, you may need to do it manually.
 
-NOTE: Only Github account admins can add automatically add the SSH key in this step. In case you have no access, skip this step and ask an admin to do it.
+NOTE: Only Github admins can automatically add the SSH key in this step. In case you have no access, skip this step and ask your TL to do it.
 
 ![choose project](./resources/br3.png)
 
@@ -88,11 +90,11 @@ Select iOS. Verify that the correct XCode stack is selected and confirm.
 
 Select Register a new webhook for me. It will allow Bitrise to know when a `push` / `pull request` has been made, so it can test it. This step can only be done by an admin.
 
-NOTE: Only Github account admins can add automatically the webhook in this step. In case you have no access, skip this step and ask an admin to do it. It can be done from the Code tab in the project’s dashboard. Under “webhooks”, there’s a webhook URL which you can add to your Github repository following [this guide](https://github.com/bitrise-io/bitrise-webhooks#github---setup--usage).
+NOTE: Only Github admins can automatically add the webhook in this step. In case you have no access, skip this step and ask your TL to do it. It can be done from the Code tab in the project’s dashboard. Under “webhooks”, there’s a webhook URL which you can add to your Github repository following [this guide](https://github.com/bitrise-io/bitrise-webhooks#github---setup--usage).
 
 ### Finish configuration
 
-Select We’ve kicked off your first test build for you to continue. 
+Select We’ve kicked off your first test build for you to continue. Bitrise will run a build at this step, you should cancel it since it runs with another configuration, thus it will fail.
 
 ![choose project](./resources/br5.png)
 
@@ -132,13 +134,13 @@ workflows:
 
 ## Configure App Environment variables
 
-From the left menu, select `App Env Vars` for private repositories or `Secret Env Vars` for public ones. Add the keys and values of your environment variables.
+From the left menu, select `App Env Vars` for private repositories or `Secret Env Vars` for public ones. Add the keys and values of the environment variables that will be needed for bootstrapping, testing and all other actions or steps that will be run according to the repo's `bitrise.yml`.
 
-To have `codestats` reporting in your project, first ask an administrator to add the project to codestats and add the `CODE_STATS_TOKEN` as an environment variable.
+To have `codestats` reporting in your project, first ask an administrator to add the project to codestats and add the `CODE_STATS_TOKEN` of the project as an environment variable.
 
 ## Run build manually
 
-To check that everything works correctly, you should run a build manually in your default branch. Although Bitrise runs a build after you create the app, you should cancel that one since it runs with another configuration, thus it will fail.
+To check that everything works correctly, you should run a build manually in your default branch.
 
 ![choose project](./resources/br6.png)
 
