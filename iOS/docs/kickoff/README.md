@@ -135,6 +135,10 @@ Add these changes by running:
 And commit them:
 `$ git commit -m "Rename project"`
 
+### Configure CI
+
+To configure continuous integration follow the guide [CI configuration for iOS projects](./configure-ci/README.md)
+
 ### Configure GitHub
 
 #### Protect Master
