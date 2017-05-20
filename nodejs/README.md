@@ -7,11 +7,13 @@ At [Wolox](http://wolox.com.ar), we have developed the [ExpressJS Bootstrap](htt
 ## Open Source
 
 - [ExpressJS Bootstrap](https://github.com/wolox/express-js-bootstrap)
+- [Dictum.js](https://github.com/wolox/dictum.js)
 
 ## Useful Documentation
 
 - [ExpressJS Headers Problem](http://stackoverflow.com/questions/7042340/node-js-error-cant-set-headers-after-they-are-sent)
 - [Eloquent Javacsript - Chapter 20](http://eloquentjavascript.net/20_node.html)
+- [Kue - Redis](https://github.com/Automattic/kue)
 
 ### Standards
 
