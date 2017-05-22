@@ -18,6 +18,7 @@ At [Wolox](http://wolox.com.ar), we have developed the [iOS kickoff guide](./doc
 
 ### Wolox
 
+- [Kickoff guide](./docs/kickoff/README.md)
 - [Style guide](https://github.com/Wolox/ios-style-guide)
 - [App Structure](./docs/app-structure.md)
 
