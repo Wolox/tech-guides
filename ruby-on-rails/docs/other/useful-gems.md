@@ -18,6 +18,7 @@
   1. [Pagination](#pagination)
   1. [Parsers](#parsers)
   1. [Workers](#workers)
+  1. [Debugging](#debugging)
 
 ## Abstractions
 
@@ -127,6 +128,13 @@
 |-----|-----|-----|
 |[sidekiq](https://github.com/mperham/sidekiq)|Easily create workers for your asynchronous jobs|[![GitHub stars](https://img.shields.io/github/stars/mperham/sidekiq.svg?style=social&label=Star)](https://github.com/mperham/sidekiq)|
 |[sidetiq](https://github.com/endofunky/sidetiq)|Add schedule to your sidekiq jobs|[![GitHub stars](https://img.shields.io/github/stars/endofunky/sidetiq.svg?style=social&label=Star)](https://github.com/endofunky/sidetiq)|
+
+## Debugging
+
+|Name|Description|Stars|
+|-----|-----|-----|
+|[byebug](https://github.com/deivid-rodriguez/byebug)|Simple to use, feature rich debugger for Ruby|[![GitHub stars](https://img.shields.io/github/stars/deivid-rodriguez/byebug.svg?style=social&label=Star)](https://github.com/deivid-rodriguez/byebug)|
+|[rails_panel](https://github.com/dejan/rails_panel)|RailsPanel is a Chrome extension for Rails development that will end your tailing of development.log|[![GitHub stars](https://img.shields.io/github/stars/dejan/rails_panel.svg?style=social&label=Star)](https://github.com/dejan/rails_panel)|
 
 # Not recommended gems
 
