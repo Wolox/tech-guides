@@ -8,6 +8,7 @@
 
 - [Instances Roles Configuration](./docs/instances-roles.md)
 - [DNS Configuration](./docs/dns.md)
+- [SSL Certificates](./docs/ssl.md)
 - [Pricing](http://www.ec2instances.info)
 - [Open guide to AWS](https://github.com/open-guides/og-aws)
 - [Activate MFA in OpenVPN](http://myrandomtechbits.blogspot.com.ar/2016/06/openvpn-with-mfa-google.html)
