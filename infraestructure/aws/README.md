@@ -3,6 +3,7 @@
 ## IAM
 
 - [Frontend Deployment Group](./docs/frontend-group.md)
+- [SNS Basic Permissions](./docs/sns-basic-permissions.md)
 
 ## Useful Documents
 
