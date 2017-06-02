@@ -146,6 +146,23 @@ And commit them:
 
 To configure continuous integration follow the guide [CI configuration for iOS projects](./configure-ci/README.md)
 
+### Configure Crash logger
+
+The project integrates [Rollbar](https://github.com/rollbar/rollbar-ios) as default crash logger.
+
+In order to enable it, ask a technical leader to create a new group and a new iOS project in Rollbar.
+
+Once created, sign in to [Rollbar](https://rollbar.com), and go to your project's "Settings" -> "Access Tokens".
+
+Then copy into all the `.xcconfig` files the following content replacing with the tokens:
+
+```
+ROLLBAR_CLIENT_ACCESS_TOKEN = <token under "post_client_item">
+ROLLBAR_SERVER_ACCESS_TOKEN = <token under "post_server_item">
+```
+
+Once the `.xcconfig` files are configured (make sure they are ignored, if they are shown as changes to be committed, then do `git update-index --assume-unchanged ./BaseProject/ConfigurationFiles/*` to ignore these changes) just uncomment the call to `RollbarService().initialize()` in `AppDelegate.swift`.
+
 ### Configure GitHub
 
 #### Protect Master
