@@ -2,34 +2,34 @@ import { check } from "k6";
 import http from "k6/http";
 
 // This params will be used to make the GET request
-var params;
+let params;
 
 // This headers and body will be used only for logging in the first time
-let log_in_headers = {
+let logInHeaders = {
   // E.g.
   "Content-Type": "application/json",
   "Accept": "application/json",
   "Other": "header"
 }
 
-let login_body = {
+let loginBody = {
   // E.g.
   sessions: {
     username: "user",
-    password: "very_secret_password"
+    password: "verySecretPassword"
   }
 };
 
 export default function() {
 
   // This will be run only the first time, when the headers are not initialized
-  if(params == null) {
+  if(params === undefined) {
     params = {
       headers: {
                  // E.g.
                  "Content-Type": "application/json",
                  "Accept": "application/json",
-                 "Authorization": JSON.parse(http.post("LOGIN_URL", JSON.stringify(login_body), { headers: log_in_headers }).body)['token_name']
+                 "Authorization": JSON.parse(http.post("LOGIN_URL", JSON.stringify(loginBody), { headers: logInHeaders }).body)['token_name']
                  "some": "filter"
                }
       };
