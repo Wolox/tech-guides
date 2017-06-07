@@ -1,6 +1,8 @@
 # SNS Basic Permissions
 
-The following permissions gives basic authorization for using SNS Push Notifications.
+### Sending Push Notifications
+
+The following permissions gives basic authorization for setting up endpoints and sending Push Notifications using the Simple Notification Service (SNS).
 This permissions does not allow to create, modify or destroy platform applications.
 
 ```
