@@ -24,6 +24,12 @@ docker pull loadimpact/k6
 
 ## Usage
 
+### What you shall test and how do you report it
+
+In the following [Document](https://docs.google.com/document/d/1izTKBOYPYUuc8zmxmvB4EQFbhMDgaDvYjViDL_yDvOg/edit?ts=59382e24#) it's explained how and what things you shall test. Also it tells you how to report your results and gives you the templates where to put them.
+
+### Script Usage
+
 After installing just execute `./path/to/k6 run --vus 5 -d 2s  script.js` if you are working in a Linux environment and you have extracted the tool from the .tar.gz or simply run `k6 run --vus 5 -d 2s  script.js` if you have are using Mac.
 
 The options are:
