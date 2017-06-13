@@ -168,6 +168,9 @@ In Sass you can generate functions called mixins that can receive parameters and
 }
 ```
 
+### CSS style guide
+To know more about CSS conventions and best practices, check [this document](./css-style-guide.md).
+
 # Text editors
 
 ## Atom
