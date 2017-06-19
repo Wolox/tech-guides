@@ -133,13 +133,6 @@ This policy will grant permissions to invalidate CloudFront's CDN content.
                 "waf:ListWebACLs"
             ],
             "Resource": "*"
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "s3:ListAllMyBuckets"
-            ],
-            "Resource": "arn:aws:s3:::*"
         }
     ]
 }
