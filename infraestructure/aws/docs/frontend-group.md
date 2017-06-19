@@ -65,7 +65,7 @@ The policy will grant the permissions to the bucket.
 
 8. Click on **Create Policy**
 
-## Create the Group
+## <a name="create-the-group"></a> Create the Group
 
 This group will grant to all the users that belongs to it, all the permissions from the policy attached.
 
@@ -98,3 +98,52 @@ Finally you can add users to this group, from which they will gain access to dep
 6. Select the *FrontendDeployment* Group and click in **Next: Review**
 7. Click on **Create User**
 8. Copy the link in the **Success** dialog and send it to the user, along with it's *Access key ID*, *Secret access key* and *Password*. Manage this information carefully, as it allows the access to the bucket
+
+## CloudFront Invalidations Policy
+
+This policy will grant permissions to invalidate CloudFront's CDN content.
+
+1. Access the [IAM Service Dashboard](https://console.aws.amazon.com/iam)
+2. Click on **Policies** on the left side panel
+3. Click on **Create Policy**
+4. Click on **Select** button in the *Create Your Own Policy* option
+5. **Policy Name**: "frontend-cdn"
+6. **Description**: Invalidation Policy for Frontend CDN
+7. **Policy Document**:
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "acm:ListCertificates",
+                "cloudfront:GetDistribution",
+                "cloudfront:GetDistributionConfig",
+                "cloudfront:ListDistributions",
+                "cloudfront:ListCloudFrontOriginAccessIdentities",
+                "cloudfront:CreateInvalidation",
+                "cloudfront:GetInvalidation",
+                "cloudfront:ListInvalidations",
+                "elasticloadbalancing:DescribeLoadBalancers",
+                "iam:ListServerCertificates",
+                "sns:ListSubscriptionsByTopic",
+                "sns:ListTopics",
+                "waf:GetWebACL",
+                "waf:ListWebACLs"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListAllMyBuckets"
+            ],
+            "Resource": "arn:aws:s3:::*"
+        }
+    ]
+}
+```
+> *It would be nice to restrict invalidations to the desired distribution but Amazon does not support action-level permissions for CloudFront yet. See: Networking and Content Delivery Services in [AWS Services That Work With IAM](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html)*.
+
+8. Add the created policy to a group, like explained in the [Create the Group](#create-the-group) section
