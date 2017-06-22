@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Some API",
+    "path": "COMPLETE_PATH_TO_REPOSITORY_FOLDER",
+    "tech": "rails",
+    "instances": [
+      "EB-DEV-INSTANCE",
+      "EB-STAGE-INSTANCE",
+      "EB-PRODUCTION-INSTANCE"
+    ]
+  },
+  {
+    "name": "Other API",
+    "path": "COMPLETE_PATH_TO_REPOSITORY_FOLDER",
+    "tech": "node",
+    "instances": [
+      "EB-DEV-INSTANCE",
+      "EB-STAGE-INSTANCE",
+      "EB-PRODUCTION-INSTANCE"
+    ]
+  }
+]
