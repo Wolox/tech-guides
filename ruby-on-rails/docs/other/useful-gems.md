@@ -19,6 +19,7 @@
   1. [Parsers](#parsers)
   1. [Workers](#workers)
   1. [Debugging](#debugging)
+  1. [Specs](#specs)
 
 ## Abstractions
 
