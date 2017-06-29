@@ -19,6 +19,7 @@
   1. [Parsers](#parsers)
   1. [Workers](#workers)
   1. [Debugging](#debugging)
+  1. [Mail](#mail)
 
 ## Abstractions
 
@@ -135,6 +136,13 @@
 |-----|-----|-----|
 |[byebug](https://github.com/deivid-rodriguez/byebug)|Simple to use, feature rich debugger for Ruby|[![GitHub stars](https://img.shields.io/github/stars/deivid-rodriguez/byebug.svg?style=social&label=Star)](https://github.com/deivid-rodriguez/byebug)|
 |[rails_panel](https://github.com/dejan/rails_panel)|RailsPanel is a Chrome extension for Rails development that will end your tailing of development.log|[![GitHub stars](https://img.shields.io/github/stars/dejan/rails_panel.svg?style=social&label=Star)](https://github.com/dejan/rails_panel)|
+
+## Mail
+
+|Name|Description|Stars|
+|-----|-----|-----|
+|[premail-rails](https://github.com/fphilipe/premailer-rails)|Permit to compile the CSS in the HTML for mails|[![GitHub stars](https://img.shields.io/github/stars/fphilipe/premailer-rails.svg?style=social&label=Star)](https://github.com/fphilipe/premailer-rails)|
+
 
 # Not recommended gems
 
