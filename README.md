@@ -25,6 +25,8 @@ Under every technology folder mentioned [below](#technologies-index), you will f
 
 - [iOS](./iOS/README.md)
 
+- [Net Core](./net-core/README.md)
+
 - [Infraestructure](./infraestructure/README.md)
 
 - [Git](./git/README.md)
@@ -48,7 +50,6 @@ Under every technology folder mentioned [below](#technologies-index), you will f
 This repository is maintained by everyone at  [Wolox](https://wolox.co).
 
 ![Wolox](https://raw.githubusercontent.com/Wolox/press-kit/master/logos/logo_banner.png)
-
 
 ## License
 
