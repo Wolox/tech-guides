@@ -23,7 +23,7 @@ let loginBody = {
 export default function() {
 
   // This will be run only the first time, when the headers are not initialized
-  if(params === undefined) {
+  f(!params){
     params = {
       headers: {
                  // E.g.
@@ -39,9 +39,8 @@ export default function() {
         // Structure => "output title": (res) => res.data == condition
         // http response doc => https://docs.k6.io/docs/response-k6http
         // different checks you can try https://k6.readme.io/docs/check-val-sets-tags
-        { "status is 200": (res) => res.status == 200,
-          "status is 400": (res) => res.status == 400,
-          "status is 401": (res) => res.status == 401,
-          "status is 503": (res) => res.status == 503,
+        { "status is 200": (res) => res.status === 200,
+          "status is 401": (res) => res.status === 401,
+          "status is 503": (res) => res.status === 503,
         });
 }
