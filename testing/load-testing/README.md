@@ -24,10 +24,6 @@ docker pull loadimpact/k6
 
 ## Usage
 
-### What you shall test and how do you report it
-
-In the following [Document](https://docs.google.com/document/d/1izTKBOYPYUuc8zmxmvB4EQFbhMDgaDvYjViDL_yDvOg/edit?ts=59382e24#) it's explained how and what things you shall test. Also it tells you how to report your results and gives you the templates where to put them.
-
 ### Script Usage
 
 After installing just execute `./path/to/k6 run --vus 5 -d 2s  script.js` if you are working in a Linux environment and you have extracted the tool from the .tar.gz or simply run `k6 run --vus 5 -d 2s  script.js` if you have are using Mac.
@@ -42,6 +38,40 @@ You have different script examples in
 - [GET REQUEST](get.js)
 - [POST REQUEST](post.js)
 - [PUT REQUEST](put.js)
+
+### Before Testing
+
+Create a copy of this [document](https://docs.google.com/spreadsheets/d/1EUS4Livu-0rXkJnDx6oZjnl3mDA9PXlCfUSb_dlvPlU/edit#gid=0), where you shall put your testing results. This document shall remain with all the other project documentation.
+
+- **Documentate the environment characteristics.** This includes the amount of CPUs of the instance, the amount of RAM and the size of the database.
+- **Identify the endpoints to test.** Usually the endpoints that have trouble handling a huge amount of request, are the ones that are involved in one or more of the following cases:
+  - They depend on an external service
+  - They execute a complex algorithm
+  - It has some important or critic business logic
+  - It makes complex database queries
+  - The database to be queried has a huge size
+
+### Testing
+
+Start using a low amount of virtual users, e.g. 30. This amount of virtual users is the amount of parallel processes that will be executed. Each virtual user will be sending a request to the server repeatedly during the duration of the test, but it does not mean that with 30 virtual users you will get 30 requests per second, because each requests has a different connection time, waiting time, sending time, receiving time, etc., which results in a different duration for each request.
+
+Each test should last for at least 60 seconds and you should increase the amount of virtual users until you find the point where something starts to fail. You should wait some time between each test to allow the instance to cool down.
+
+Some cutoff criteria can be:
+- The server responds with 500
+- The average time of the request is not acceptable
+- The maximum time of the request is not acceptable
+
+### After Testing
+
+You should look in CloudWatch which metrics have been fired or what failed in which point, to know what are the thresholds where you should set an escalating point.
+
+Como CloudWatch metrics to take in count are:
+- CPU usage
+- Average response time
+- Bytes out
+
+Finally you should fill the results document and send it to the Project Architect to be evaluated.
 
 ## Results
 
