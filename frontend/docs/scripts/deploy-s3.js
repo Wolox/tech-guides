@@ -22,22 +22,19 @@ const deploy = publisher => {
   return merge(zipped, unzipped).pipe(publisher.sync()).pipe(awspublish.reporter());
 };
 
-gulp.task('publish-stg', () => {
+const createPublisher = (bucketName, awsProfileName) => {
   const publisher = awspublish.create({
     params: {
-      Bucket: process.env.S3_STG_BUCKET_NAME
+      Bucket: bucketName
     },
-    credentials: new AWS.SharedIniFileCredentials({ profile: 'STAGING-DEPLOY-PROFILE' })
+    credentials: new AWS.SharedIniFileCredentials({ profile: awsProfileName })
   });
-  return deploy(publisher);
-});
+  return publisher;
+};
 
-gulp.task('publish-prod', () => {
-  const publisher = awspublish.create({
-    params: {
-      Bucket: process.env.S3_PROD_BUCKET_NAME
-    },
-    credentials: new AWS.SharedIniFileCredentials({ profile: 'PRODUCTION-DEPLOY-PROFILE' })
-  });
-  return deploy(publisher);
-});
+gulp.task('publish-stg', () =>
+  deploy(createPublisher(process.env.S3_STG_BUCKET_NAME, 'STAGING-DEPLOY-PROFILE'))
+);
+gulp.task('publish-prod', () =>
+  deploy(createPublisher(process.env.S3_PROD_BUCKET_NAME, 'PRODUCTION-DEPLOY-PROFILE'))
+);
