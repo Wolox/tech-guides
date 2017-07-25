@@ -12,7 +12,7 @@ npm install --save gulp gulp-awspublish aws-sdk merge-stream
 ```
 require('./gulp/tasks/deploy-s3.js')
 ```
-* Edit `s3-deploy.js` changing `S3_STG_BUCKET_NAME` and `S3_PROD_BUCKET_NAME` for the env variables containing both the staging and production s3 bucket names. Also change `STAGING-DEPLOY-PROFILE` and `PRODUCTION-DEPLOY-PROFILE` for the staging and production deploy aws profile names.
+* Edit `deploy-s3.js` changing `S3_STG_BUCKET_NAME` and `S3_PROD_BUCKET_NAME` for the env variables containing both the staging and production s3 bucket names. Also change `STAGING-DEPLOY-PROFILE` and `PRODUCTION-DEPLOY-PROFILE` for the staging and production deploy aws profile names.
 
 * You can edit the list of files to be zipped according to your project by changing the `zippedFiles` array.
 
