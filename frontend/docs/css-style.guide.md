@@ -1,76 +1,77 @@
 CSS Style guide
 ===============
 
-## Objetivo
-El objetivo de este documento es listar las buenas prácticas y convenciones para usar CSS en Wolox S.A.. Será consultado en capacitaciones y usado como marco de referencia a la hora de hacer Code Review.
-Este documento debe ser modificado y revisado regularmente
+## Purpose
+The aim of this document is to show good practices and conventions while using CSS in Wolox S.A.. This document will be used in trainings and as a reference in Code Reviewing.
+This document must be reviewed and regularly updated.
 
 
-## Estilo
+## Style
 #### Naming:
-Para nombrar clases, usar nombres lo más cortos posibles, pero lo suficientemente largos para que sean representativos:
+When naming a class, use names as short as possilbe, but large enough to be representative:
 
-**.navigation** es muy largo, cuando **.nav** es representativo
+**.navigation** is too large, when we consider that **.nav** is representative enough
 
-**.atr** es muy corto y no tan representativo para decir **.author**
+**.atr** is very short and not representative enough to name **.author**
 
-El uso de ids en css (por ejemplo _#navigation_) no es recomendado.
+Using ids in css (i.e.: _#navigation_) is not recommended.
 
-Existen casos en donde es inevitable (por ejemplo, si se desea “overridear” o sobreescribir reglas de un componente).
+There are particular ocassions where using ids is the only choice (i.e.: You want to override some rules from a component).
 
-Si una clase debería tener 2 palabras, separarla sólo por un guion medio.
+If a classname should have 2 words, they must be separed only by a middle dash (hyphen-case a.k.a. kebab-case)
 
-**.demo-image** y no **.demo_image**, ni **.demoImage** o **.demoimage**
+**.demo-image** instead of **.demo_image**, nor **.demoImage** nor **.demoimage**
 
-#### CSS y HTML tags:
-Evitar usar HTML tags en css:
-En vez de **p.error{ }** , usar **.error{ }**
-En vez de usar **p {}**, escribir en el html **p.caption** y usar **.caption{}**
+#### CSS and HTML tags:
+Avoid using HTML tags en css:
+Instead of **p.error{ }** , use **.error{ }**
+Instead of **p {}**, include in your html **p.caption** and use **.caption{}**
 
 #### Shorthands:
-Se fomenta el uso de shorthands
+Shorthands use is expected
 
     margin: 0 10px 20px;
 
-Los shorthands (que son usados para margin, padding, border, etc.) funcionan de acuerdo a la cantidad de valores.
+Shorthands (used for margin, padding, border, etc.) depends on the amount of values listed.
 
-Si tiene 4 valores
+If a shorthand has 4 values
 
     margin: 25px 50px 75px 100px;
 
-Equivale a
+That means
 
     margin-top: 25px;
     margin-right: 50px;
     margin-bottom: 75px;
     margin-left: 100px;
 
-Si tiene 3 valores
+If a shorthand has 3 values
 
     margin: 25px 50px 75px;
 
-Equivale a
+That means
 
     margin-top: 25px;
     margin-right: 50px;
     margin-bottom: 75px;
     margin-left: 50px;
 
-Si tiene 2 valores
+If a shorthand has 2 values
 
     margin: 25px 50px;
 
-Equivale a
+That means
 
     margin-top: 25px;
     margin-right: 50px;
     margin-bottom: 25px;
     margin-left: 50px;
 
-Si tiene 1 valor
+If a shorthand has 1 value
 
     margin: 25px;
-Equivale a
+
+That means
 
     margin-top: 25px;
     margin-right: 25px;
@@ -78,67 +79,68 @@ Equivale a
     margin-left: 25px;
 
 
-#### Unidades:
-Evitar agregar unidades en valores **“0”**.
+#### Units:
+Avoid adding unit suffix when the value is **“0”**.
 
     margin: 0;
 
-en vez de
+Instead of
 
     margin: 0px;
 
-#### Fuentes:
-Se recomienda usar “Web safe fonts” (A.K.A. callback fonts)
+#### Fonts:
+Web safe fonts (A.K.A. callback fonts) are recommended
 
     .caption {
-        font-family: "Times New Roman", Times, serif;
+        font-family: 'Times New Roman', Times, serif;
     }
 
-Si por alguna razón el browser no soporta la primera fuente, pasará a la siguiente y así sucesivamente.
+If the browser couldn't load the first font, it would use the next one and so on.
 
-#### Colores:
-Se deben usar variables de color
+#### Colors:
+Color variables must be used
 
-    color: #4285F4;
-    color: $cornflower-blue;
+    color: #4285F4; //wrong
+    color: $cornflower-blue; //right
 
-Luego en un archivo **\_colors.scss**
+Then, in a file called **\_colors.scss**
 
     $cornflower-blue: #4285F4;
 
-El nombre del color debe describir el color en sí mismo y no donde es usado
+Color name should describe the color as it is and not where is used.
 
-Evitar:
+Avoid:
 
     background-color: $table-header-color;
-Evitar:
+
+Avoid:
 
     color: $main-title;
 
-Usar, en cambio:
+Instead, use:
 
     color: $cornflower-blue;
 
-Para evitar repetición de colores (Ej: _$light-grey_, _$lighter-grey_) usamos [Name that color](http://chir.ag/projects/name-that-color/).
+To avoid color repetition (Ej: _$light-grey_, _$lighter-grey_) we use [Name that color](http://chir.ag/projects/name-that-color/).
 
-Usar colores abreviados de ser posible, cambiando
+Use color abbreviations if possible, changing
 
     $beauty-bush: #EEBBCC;
 
-por
+for
 
     $beauty-bush: #EBC;
 
-Y no deben estar en minuscula, cambiando
+Color hex should not be in lowercase, changing
 
     $beauty-bush: #ebc;
 
-por
+for
 
     $beauty-bush: #EBC;
 
-#### Orden de propiedades:
-Las propiedades deben ser ordenadas alfabéticamente
+#### Properties order:
+Properties must be alphabetically ordered
 
     background: fuchsia;
     border: 1px solid;
@@ -147,16 +149,15 @@ Las propiedades deben ser ordenadas alfabéticamente
     text-align: center;
     text-indent: 2em;
 
-#### Indentación:
-Las propiedades deben estar indentadas (con respecto al nombre del bloque) con 2 espacios
+#### Indentation:
+Property should be indented with 2 spaces respect from its containing block
 
     .test {
       display: block;
       height: 100px;
     }
 
-
-En caso de bloques anidados, estos bloques deben estar separados por una línea en blanco y anidados 2 espacios
+In case of nested blocks, they should be separed with one blank link  and indented with 2 spaces
 
     .test {
 
@@ -165,64 +166,64 @@ En caso de bloques anidados, estos bloques deben estar separados por una línea 
       }
     }
 
-#### Fin de declaración:
-Todas deben terminar con “;”
+#### Declaration stop:
+Declarations should end with “;”
 
     .test {
       display: block;
       height: 100px;
     }
 
-Evitar líneas sin fin de declaración como:
+Avoid lines with no declarations stop such as:
 
     .test {
       display: block;
       height: 100px
     }
 
-#### Nombre de propiedad:
-Los nombres de propiedades deberán ser seguidos de un espacio
+#### Propery names:
+Property names should be followed by one space
 
-    display:block; //Incorrecto
-    display: block; //Correcto
+    display:block; //Wrong
+    display: block; //Right
 
-#### Nombre de bloque:
-Los nombres de bloque deberán ser seguidos de un espacio
+#### Block names:
+Block names should be followed by one space
 
-    .video{  //Incorrecto
+    .video{  //Wrong
       margin-top: 10px;
     }
 
     .video
-    {  //Incorrecto
+    {  //Wrong
       margin-top: 10px;
     }
 
-    .video {  //Correcto
+    .video {  //Right
       margin-top: 10px;
     }
 
-#### Multiples selectores por bloque:
-Cuando varios selectores tienen las mismas propiedades, se recomienda usar un solo bloque con múltples selectores
+#### Multiple selectors per block:
+When many selectos has the same properties, it is recommended to use a single block with multiple selectors
 
     .sale-option:focus,
     .sale-option:active {
       color: $green;
     }
 
-Los múltiples selectores no deben separados por una línea y no deben ser escritos en la misma línea.
+Multiple selectors must not be written in the same line
 
     .sale-option:focus, .sale-option:active {  //Incorrecto
       color: $green;
     }
 
-#### Separación de reglas
-Se separan con una línea en blanco
+#### Rules separation
+Rules must be separated with a blank line
 
     .container {
       background: $white;
     }
-    .tile { //Sin línea, incorrecto.
+    .tile { // No blank line, wrong
       margin: auto;
       width: 50%;
     }
@@ -231,47 +232,46 @@ Se separan con una línea en blanco
       background: $white;
     }
 
-    .tile { // Con línea, correcto.
+    .tile { // Blank line, right
       margin: auto;
       width: 50%;
     }
 
 
-#### Comillas
-Usar comillas simples
+#### Quotes
+Use single quotes
 
     .caption {
-      font-family: “open sans”, arial, sans-serif; // Incorrecto
+      font-family: “open sans”, arial, sans-serif; // Wrong
     }
 
     .caption {
-      font-family: 'open sans', arial, sans-serif; // Correcto
+      font-family: 'open sans', arial, sans-serif; // Right
     }
 
 ##  Naming:
+There are many different approaches to css naming (expressive, atomic, object-oriented). The most important thing (in case of maintaining existing css) is to create classes that matches the style and approach already implemented.
 
-Existen distintos tipos de enfoque para nombrar las clases de CSS (expressive, atomic, object-oriented). Lo más importante (en caso de ser proyectos mantenidos con código existente) es generar clases que sean compatibles con el estilo y enfoque ya aplicado.
+#### Expressive approach:
 
-#### Expressive:
-Para reutilizar clases con estilos cortos en otros lugares, sino queda vinculado al nombre
-
-    .home-container { // No recomendado (Según expressive css)
+    .home-container { // Not recommended (Based on expressive css)
       padding: 10px;
     }
 
-    .padding-10 { // Recomendado (Según expressive css)
+    .padding-10 { // Recommended (Based on expressive css)
       padding: 10px;
     }
-** Nota: ** Recordar que las recomendaciones de naming no son rígidas y dependen del enfoque utilizado.
+** Note: ** Remember that naming recomendations are flexible and depends on the naming approach.
 
-#### Naming en Slim:
-Siempre poner el id (si lo hay) antes que las clases
+#### Naming in Slim:
+Put the id (if there is one) before the classname
 
-    // Incorrecto
+    // Wrong
     .class-name#container-home
 
-    // Correcto
+    // Right
     #container-home.class-name
 
-** No usar br tag:**
-Si se quiere separar contenedores usar padding o margin.
+** Avoid using br tag:**
+When breaking containers, paddin or margin should be used.
+
