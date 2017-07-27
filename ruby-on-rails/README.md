@@ -10,6 +10,8 @@ At [Wolox](https://wolox.co), we have developed the [RoR kickoff guide](./docs/k
 - [Dictum](https://github.com/Wolox/dictum)
 - [Wor Requests](https://github.com/Wolox/wor-requests)
 - [Wor Authentication](https://github.com/Wolox/wor-authentication)
+- [Wor Paginate](https://github.com/Wolox/wor-paginate)
+- [Wor Push Notifications AWS](https://github.com/Wolox/wor-push-notifications-aws)
 - [Async-Requests](https://github.com/Wolox/async-requests)
 - [CodeStats](https://github.com/Wolox/codestats)
 - [CodeStats Metrics Reporter](https://github.com/Wolox/codestats-metrics-reporter)
