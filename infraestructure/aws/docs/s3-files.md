@@ -23,3 +23,8 @@ For more information on how to generate this URL please refer to the AWS SDK tha
 
 2. The client uses the url to perform the action.
 
+## Flows
+### GET
+![S3 Get Flow](./s3-get-flow.png)
+### PUT
+![S3 Put Flow](./s3-put-flow.png)
