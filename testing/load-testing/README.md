@@ -41,7 +41,7 @@ You have different script examples in
 
 ### Before Testing
 
-Create a copy of this [document](https://docs.google.com/spreadsheets/d/1EUS4Livu-0rXkJnDx6oZjnl3mDA9PXlCfUSb_dlvPlU/edit#gid=0), where you shall put your testing results. This document shall remain with all the other project documentation.
+Create a copy of this [document](https://docs.google.com/spreadsheets/d/1EUS4Livu-0rXkJnDx6oZjnl3mDA9PXlCfUSb_dlvPlU/edit?usp=sharing), where you shall put your testing results. This document shall remain with all the other project documentation.
 
 - **Documentate the environment characteristics.** This includes the amount of CPUs of the instance, the amount of RAM and the size of the database.
 - **Identify the endpoints to test.** Usually the endpoints that have trouble handling a huge amount of request, are the ones that are involved in one or more of the following cases:
