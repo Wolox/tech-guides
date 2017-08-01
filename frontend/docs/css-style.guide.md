@@ -8,22 +8,22 @@ This document must be reviewed and regularly updated.
 
 ## Style
 #### Naming:
-When naming a class, use names as short as possilbe, but large enough to be representative:
+When naming a class, use names as short as possible, but large enough to be representative:
 
 **.navigation** is too large, when we consider that **.nav** is representative enough
 
 **.atr** is very short and not representative enough to name **.author**
 
-Using ids in css (i.e.: _#navigation_) is not recommended.
+Using ids in CSS (i.e.: _#navigation_) is not recommended.
 
 There are particular ocassions where using ids is the only choice (i.e.: You want to override some rules from a component).
 
-If a classname should have 2 words, they must be separed only by a middle dash (hyphen-case a.k.a. kebab-case)
+If a class name has more than one word, they should be separated by hyphens (hyphen-case a.k.a. kebab-case)
 
-**.demo-image** instead of **.demo_image**, nor **.demoImage** nor **.demoimage**
+**.demo-image** instead of **.demo_image**, **.demoImage** or **.demoimage**
 
 #### CSS and HTML tags:
-Avoid using HTML tags en css:
+Avoid using HTML tags in css:
 Instead of **p.error{ }** , use **.error{ }**
 Instead of **p {}**, include in your html **p.caption** and use **.caption{}**
 
@@ -32,7 +32,7 @@ Shorthands use is expected
 
     margin: 0 10px 20px;
 
-Shorthands (used for margin, padding, border, etc.) depends on the amount of values listed.
+Shorthands (used for margin, padding, border, etc.) depend on the amount of values listed.
 
 If a shorthand has 4 values
 
@@ -95,13 +95,13 @@ Web safe fonts (A.K.A. callback fonts) are recommended
         font-family: 'Times New Roman', Times, serif;
     }
 
-If the browser couldn't load the first font, it would use the next one and so on.
+If the browser can't load the first font, it will use the next one and so on.
 
 #### Colors:
 Color variables must be used
 
-    color: #4285F4; //wrong
-    color: $cornflower-blue; //right
+    color: #4285F4; // Wrong
+    color: $cornflower-blue; // Right
 
 Then, in a file called **\_colors.scss**
 
@@ -150,7 +150,7 @@ Properties must be alphabetically ordered
     text-indent: 2em;
 
 #### Indentation:
-Property should be indented with 2 spaces respect from its containing block
+Properties should have 2 spaces indentation in relation to its containing block
 
     .test {
       display: block;
@@ -160,6 +160,8 @@ Property should be indented with 2 spaces respect from its containing block
 In case of nested blocks, they should be separed with one blank link  and indented with 2 spaces
 
     .test {
+      display:block;
+      height: 100px;
 
       .caption {
         color: $cornflower-blue;
@@ -184,27 +186,27 @@ Avoid lines with no declarations stop such as:
 #### Propery names:
 Property names should be followed by one space
 
-    display:block; //Wrong
-    display: block; //Right
+    display:block; // Wrong
+    display: block; // Right
 
 #### Block names:
 Block names should be followed by one space
 
-    .video{  //Wrong
+    .video{  // Wrong
       margin-top: 10px;
     }
 
     .video
-    {  //Wrong
+    {  // Wrong
       margin-top: 10px;
     }
 
-    .video {  //Right
+    .video {  // Right
       margin-top: 10px;
     }
 
 #### Multiple selectors per block:
-When many selectos has the same properties, it is recommended to use a single block with multiple selectors
+When many selectors have the same properties, it is recommended to use a single block with multiple selectors
 
     .sale-option:focus,
     .sale-option:active {
@@ -213,7 +215,7 @@ When many selectos has the same properties, it is recommended to use a single bl
 
 Multiple selectors must not be written in the same line
 
-    .sale-option:focus, .sale-option:active {  //Incorrecto
+    .sale-option:focus, .sale-option:active {  // Wrong
       color: $green;
     }
 
@@ -250,7 +252,7 @@ Use single quotes
     }
 
 ##  Naming:
-There are many different approaches to css naming (expressive, atomic, object-oriented). The most important thing (in case of maintaining existing css) is to create classes that matches the style and approach already implemented.
+There are many different approaches to css naming (expressive, atomic, object-oriented). The most important thing (in case of maintaining existing CSS) is to create classes that match the already implemented style.
 
 #### Expressive approach:
 
@@ -261,7 +263,7 @@ There are many different approaches to css naming (expressive, atomic, object-or
     .padding-10 { // Recommended (Based on expressive css)
       padding: 10px;
     }
-** Note: ** Remember that naming recomendations are flexible and depends on the naming approach.
+** Note: ** Remember that naming recomendations are flexible and depend on the naming approach.
 
 #### Naming in Slim:
 Put the id (if there is one) before the classname
@@ -273,5 +275,5 @@ Put the id (if there is one) before the classname
     #container-home.class-name
 
 ** Avoid using br tag:**
-When breaking containers, paddin or margin should be used.
+When breaking containers, padding or margin should be used.
 
