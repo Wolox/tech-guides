@@ -1,7 +1,5 @@
 # Frontend Style Guide
 
-import variableCheckerRb from '../../useful-scripts/scripts/variable_checker.rb'
-
 ## Content
 
 - [Guidelines](#guidelines)
