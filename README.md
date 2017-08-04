@@ -37,6 +37,8 @@ Under every technology folder mentioned [below](#technologies-index), you will f
 
 - [General Useful Scripts](./useful-scripts/README.md)
 
+- [Testing](./testing/README.md)
+
 ## Contributing
 
 1. Fork it
