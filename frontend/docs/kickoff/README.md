@@ -1,12 +1,11 @@
-Frontend Kickoff guide
+Front-End Kickoff guide
 -----------------
 
-The following guide explains how to make a frontend project kickoff from scratch. Depending on who is making the kickoff, it may lack access to execute some steps from this guide. In that case, get in touch with someone that can grant those access. They can be granted by [TMS](mailto:tms@wolox.com.ar), [TLS](mailto:tls@wolox.com.ar) or [Santiago Samra](mailto:santiago.samra@wolox.com.ar).
+The following guide explains how to make a Front-End project kickoff from scratch. Depending on who is making the kickoff, it may lack access to execute some steps from this guide. In that case, get in touch with someone that can grant those access. They can be granted by [TMS](mailto:tms@wolox.com.ar), [TLS](mailto:tls@wolox.com.ar) or [Santiago Samra](mailto:santiago.samra@wolox.com.ar).
 
-The Technical Leaders of the frontend department can help you with the steps from this guide or grant you the necessary access needed. Any doubt get in touch with:
+The Technical Leader of the Front-End department can help you with the steps from this guide or grant you the necessary access needed. Any doubt get in touch with:
 
  * [Gabriel Zanzotti](mailto:gabriel.zanzotti@wolox.com.ar)
- * [Sebastian Balay](mailto:sebastian.balay@wolox.com.ar)
 
 ## Requirements
 
@@ -16,7 +15,7 @@ Before you start with this step by step guide you will need the following:
 
 ## Kickoff
 
-The following steps will help you have a frontend project ready for new features.
+The following steps will help you have a Front-End project ready for new features.
 
 ### Clone and project base setup
 
@@ -34,10 +33,10 @@ For this open your terminal and execute:
     git remote add origin git@github.com:Wolox/example-project.git
   ```
 
-**Remember to use the `angular` branch of the frontend bootstrap if it's an angular project**
+**Remember to use the `angular` branch of the Front-End bootstrap if it's an angular project**
 
 Then you need to run the script that changes all the names of the base project to the one you really want. Run:
-Remember to follow the steps detailed in the frontend bootstrap readme to install node if you still do not have it.
+Remember to follow the steps detailed in the Front-End bootstrap README to install node if you still do not have it.
 
   ```bash
     node script/bootstrap
@@ -55,7 +54,7 @@ Now you are ready to commit the Initial Commit code by running:
 
 ## Wolox CI
 
-Ask your technical leader to properly setup the continous integration environment
+Ask your technical leader to properly setup the continuous integration environment
 
 ## Rollbar
 
@@ -63,7 +62,7 @@ When the projects is deployed to Stage or Production it will need a dashboard to
 
 ### Create account
 
-First we need to create an account that will have all the tecnologies of the project. Enter [here](https://rollbar.com/account/create/) and insert `EXAMPLE-PROJECT`.
+First we need to create an account that will have all the technologies of the project. Enter [here](https://rollbar.com/account/create/) and insert `EXAMPLE-PROJECT`.
 
 ![Rollbar New Account](./resources/rollbar-create-account.png)
 
@@ -77,7 +76,7 @@ Go back to the `Owners Team` and add the TM email.
 
 ### Create Project
 
-Now let's add the new frontend project. Enter [https://rollbar.com/settings/accounts/EXAMPLE-PROJECT/projects/](https://rollbar.com/settings/accounts/EXAMPLE-PROJECT/projects/) replacing `EXAMPLE-PROJECT` with your new account name. Delete the `FirstProject` that its always added by default and then under `Create a new project` insert your project name in Camel-Case separated by `-`, and assign `Wolox` as a team. Don't forget to add the technology at the end of the name of the project. This will make the emails more clear.
+Now let's add the new Front-End project. Enter [https://rollbar.com/settings/accounts/EXAMPLE-PROJECT/projects/](https://rollbar.com/settings/accounts/EXAMPLE-PROJECT/projects/) replacing `EXAMPLE-PROJECT` with your new account name. Delete the `FirstProject` that its always added by default and then under `Create a new project` insert your project name in Camel-Case separated by `-`, and assign `Wolox` as a team. Don't forget to add the technology at the end of the name of the project. This will make the emails more clear.
 
 ![Rollbar New Project](./resources/rollbar-new-project.png)
 
