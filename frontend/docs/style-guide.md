@@ -51,6 +51,8 @@
 # Angular
   - [Papa's Styleguide](https://github.com/johnpapa/angular-styleguide)
     - Specific conventions for syntax and structuring angular applications and why you should follow them.
+  - Angular code snippets
+    - [Fetch data from API: Infinite scroll](https://codepad.co/snippet/b27gCGTJ)
 
 # CSS/SASS
 
