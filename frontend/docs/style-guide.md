@@ -17,6 +17,7 @@
       - [Pigments](#pigments)
       - [Node requirer](#node-requirer)
       - [js-hyperclick](#js-hyperclick)
+      - [React](#react)
 - [Browser Extensions](#browser-extensions)
   - [Chrome](#chrome)
   - [Firefox](#firefox)
@@ -256,6 +257,14 @@ It lets you jump to where variables are defined. (JS only)
 
 ```
 apm install js-hyperclick
+```
+
+#### React
+React.js (JSX) language support, indentation, snippets, auto completion, reformatting
+
+
+```
+apm install react
 ```
 
 # Browser Extensions
