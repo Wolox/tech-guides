@@ -6,7 +6,6 @@
   - [Javascript](#javascript)
     - [Angular](#angular)
   - [CSS/SASS](#csssass)
-    - [General](#general)
 - [Text editors](#text-editors)
   - [Atom](#atom)
     - [Installation](#installation)
@@ -15,7 +14,10 @@
       - [Linter](#linter)
       - [Minimap](#minimap)
       - [Color picker](#color-picker)
-      - [Pigments](#Pigments)
+      - [Pigments](#pigments)
+      - [Node requirer](#node-requirer)
+      - [js-hyperclick](#js-hyperclick)
+      - [React](#react)
 - [Browser Extensions](#browser-extensions)
   - [Chrome](#chrome)
   - [Firefox](#firefox)
@@ -24,8 +26,8 @@
   - [Scrolling](#scrolling)
   - [Tooltips](#tooltips)
   - [Animations And Transitions](#animations-and-transitions)
-  - [Loading](#Loading)
-  - [Modals](#Modals)
+  - [Loading](#loading)
+  - [Modals](#modals)
 - [Learning Resources - Frontend](#learning-resources---frontend)
   - [Books](#books)
   - [Articles](#articles)
@@ -177,7 +179,7 @@ To know more about CSS conventions and best practices, check [this document](./c
 
 ## Atom
 
-[Atom](https://atom.io/) is a highly customizable text editor. It's open source, developed by github and has tons of Packages to extend its functionality.
+[Atom](https://atom.io/) is a highly customizable text editor. It's open source, developed by GitHub and has tons of Packages to extend its functionality.
 
 ### Installation
 To install it just open a terminal run the following commands
@@ -240,6 +242,34 @@ apm install color-picker
 It display CSS colors in place
 ```
 apm install pigments
+```
+
+#### node-requirer
+
+![image of node-requirer](https://user-images.githubusercontent.com/25931366/28980572-b476c736-7924-11e7-8f81-9f53bf1c8c13.gif)
+
+It lets you quickly add require/import statements to any files within your code.
+
+```
+apm install node-requirer
+```
+
+#### js-hyperclick
+
+![image of js-hyperclick](https://user-images.githubusercontent.com/25931366/28981322-a7e89bfe-7927-11e7-9265-d2318ef0f22c.gif)
+
+It lets you jump to where variables are defined. (JS only)
+
+```
+apm install js-hyperclick
+```
+
+#### React
+React.js (JSX) language support, indentation, snippets, auto completion, reformatting
+
+
+```
+apm install react
 ```
 
 # Browser Extensions
