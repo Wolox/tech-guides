@@ -22,8 +22,6 @@ At [Wolox](http://wolox.com.ar), we have developed the [Frontend kickoff guide](
 
 ## Useful Documentation
 
-### Standards
-
 ### General
 
 - [Frontend Guidelines](./docs/style-guide.md#guidelines)
@@ -33,18 +31,6 @@ At [Wolox](http://wolox.com.ar), we have developed the [Frontend kickoff guide](
 - [Learning Resources - Frontend](./docs/style-guide.md#learning-resources---frontend)
 - [Learning Resources - Design - UI/UX](./docs/style-guide.md#learning-resources---design---uiux)
 - [Generate an API Mock](https://medium.com/@housecor/rapid-development-via-mock-apis-e559087be066#.479nnonvy)
-
-### Angular
-
-- [Styleguide](https://github.com/johnpapa/angular-styleguide)
-- [Common Mistakes](https://www.airpair.com/angularjs/posts/top-10-mistakes-angularjs-developers-make)
-- [Directive's scope](http://onehungrymind.com/angularjs-sticky-notes-pt-2-isolated-scope/)
-- [Formatters and Parsers](http://alexperry.io/angularjs/2014/12/10/parsers-and-formatters-angular.html)
-- [Model objects](https://medium.com/opinionated-angularjs/angular-model-objects-with-javascript-classes-2e6a067c73bc#.2re02zvwe)
-
-### React
-
-- [Deploy Create React App project to S3](./docs/cra-s3-compressed-deploy.md)
 
 ## Posts
 
@@ -58,3 +44,4 @@ At [Wolox](http://wolox.com.ar), we have developed the [Frontend kickoff guide](
 - [3 Facts About UX Everybody Should Know](https://medium.com/wolox-driving-innovation/with-user-experience-ux-being-a-central-part-of-todays-tech-world-there-are-many-misconceptions-db4f8a813cb8)
 - [8 tips to keep CSS organized](https://medium.com/wolox-driving-innovation/8-tips-to-keep-css-organized-1c7e0bcaa905)
 - [Comparing CSS code styles and deciding which is the best practice](https://medium.com/wolox-driving-innovation/comparing-css-code-styles-and-deciding-which-is-the-best-practice-360a8e058988)
+- [Infinite Scrolling in Ruby on Rails](https://medium.com/wolox-driving-innovation/infinite-scrolling-ruby-on-rails-3fcd3bac0f75)
