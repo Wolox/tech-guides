@@ -18,6 +18,8 @@
       - [Node requirer](#node-requirer)
       - [js-hyperclick](#js-hyperclick)
       - [React](#react)
+      - [Highlight-selected](#highlight-selected)
+      - [tab-foldername-index](#tab-foldername-index)
 - [Browser Extensions](#browser-extensions)
   - [Chrome](#chrome)
   - [Firefox](#firefox)
@@ -270,6 +272,24 @@ React.js (JSX) language support, indentation, snippets, auto completion, reforma
 
 ```
 apm install react
+```
+
+#### Highlight-selected
+Double click on a word to highlight it throughout the open file.
+
+![image of highlight](https://user-images.githubusercontent.com/25931366/29073959-0120d44e-7c24-11e7-8bf1-ea2053820c96.gif)
+
+```
+apm install highlight-selected
+```
+
+#### tab-foldername-index
+It replaces tab’s title if opened multiple files with the same name for more readability.
+
+![image of tab-foldername](https://user-images.githubusercontent.com/25931366/29074125-85109a50-7c24-11e7-94ab-dc0488e56a3e.png)
+
+```
+apm install tab-foldername-index
 ```
 
 # Browser Extensions
