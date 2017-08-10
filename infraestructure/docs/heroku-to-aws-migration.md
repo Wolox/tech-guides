@@ -2,7 +2,7 @@
 
 When migrating an app from Heroku to AWS, you should take into account the following steps:
 
-1. Uncomment the *.ebextensions* files. Delete the *.01_crong.config* file if you don't schedule jobs with whenever. ([Sidekiq Scheduler gem](https://github.com/moove-it/sidekiq-scheduler) is recommended, but if you already started using whenever just uncomment the lines in this file an keep it).
+1. Uncomment the *.ebextensions* files. Delete the *01_cron.config* file if you don't schedule jobs with whenever. ([Sidekiq Scheduler gem](https://github.com/moove-it/sidekiq-scheduler) is recommended, but if you already started using whenever just uncomment the lines in this file an keep it).
 
 2. (**OPTIONAL** If you use only one DB with different Schemas)
 
@@ -14,7 +14,7 @@ production:
   schema_search_path: 'desired_schema'
 ```
 
-3. Copy the global variables from Heroku to AWS
+3. Copy the environment variables from Heroku to AWS
 
 4. Commit and Deploy
 
