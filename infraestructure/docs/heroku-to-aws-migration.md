@@ -56,14 +56,22 @@ sudo ln -s /usr/lib/postgresql/9.X/bin/pg_dump /usr/bin/pg_dump --force
 
 2. (**OPTIONAL** If you use only one DB with different Schemas)
 
-Open the `dump.sql` file and replace **"public"** with **"desired_schema"** everywhere.
+#### Connect to the database and create the Schema
+
+```
+psql RDS_DATABASE_URL
+CREATE SCHEMA desired_schema;
+```
+
+> Where *RDS_DATABASE_URL* is a String with the format: `postgres://user::password@HOST:port/database_name`
+> Use \\dn to see the existing schemas
+
+Then open the `dump.sql` file and replace **"public"** with **"desired_schema"** everywhere.
 
 3. Restore the database in AWS
 
 ```
 psql RDS_DATABASE_URL -f dump.sql
 ```
-
-> Where *RDS_DATABASE_URL* is a String with the format: `postgres://user::password@HOST:port/database_name`
 
 Ignore the errors of existing role or relations.
