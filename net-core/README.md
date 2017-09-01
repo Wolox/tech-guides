@@ -15,7 +15,5 @@ At [Wolox](http://wolox.com.ar), we have developed the [NET Core kickoff guide](
 
 ## Posts
 
-- [Creating your first .NET Core project on Linux]
-(https://medium.com/wolox-driving-innovation/how-to-create-your-first-net-e2223dedb74f)
-- [How to create a .NET Core project on Linux using MVC and Postgres]
-(https://medium.com/wolox-driving-innovation/create-an-mvc-web-app-in-net-core-30f92cf94a75)
+- [Creating your first .NET Core project on Linux](https://medium.com/wolox-driving-innovation/how-to-create-your-first-net-e2223dedb74f)
+- [How to create a .NET Core project on Linux using MVC and Postgres](https://medium.com/wolox-driving-innovation/create-an-mvc-web-app-in-net-core-30f92cf94a75)
