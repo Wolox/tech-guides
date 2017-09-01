@@ -2,7 +2,7 @@
 
 ## Kickoff Guide
 
-At [Wolox](http://wolox.com.ar), we have developed the [NET Core kickoff guide](./docs/kickoff/README.md) to create our RoR projects. Check it out to find a detailed guide to start with your project.
+At [Wolox](http://wolox.com.ar), we have developed the [NET Core kickoff guide](./docs/kickoff/README.md) to create our NET Core projects. Check it out to find a detailed guide to start with your project.
 
 ## Open Source
 
