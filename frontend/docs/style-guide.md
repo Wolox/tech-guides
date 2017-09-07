@@ -30,6 +30,7 @@
   - [Animations And Transitions](#animations-and-transitions)
   - [Loading](#loading)
   - [Modals](#modals)
+  - [Gif Screen Recorders](#gif-screen-recorders)
 - [Learning Resources - Frontend](#learning-resources---frontend)
   - [Books](#books)
   - [Articles](#articles)
@@ -351,6 +352,10 @@ apm install tab-foldername-index
 
 ## Modals
   - [modal with css only](http://www.webdesignerdepot.com/2012/10/creating-a-modal-window-with-html5-and-css3/)
+
+## Gif Screen Recorders
+- [Licecap](https://www.cockos.com/licecap/) (Windows/macOS)
+- [Peak](https://github.com/phw/peek) (Linux)
 
 # Learning Resources - Frontend
 
