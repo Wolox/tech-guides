@@ -338,7 +338,6 @@ apm install tab-foldername-index
   - [scrollReveal](https://scrollrevealjs.org/)
 
 ## Tooltips
-  - [Tooktik](https://eliorshalev.github.io/tootik/)
   - [Baloon](http://kazzkiq.github.io/balloon.css/)
 
 ## Animations And Transitions
