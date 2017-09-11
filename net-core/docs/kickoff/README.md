@@ -32,13 +32,13 @@ First, make sure you have the latest version of the [NetCore Bootstrap](https://
     git checkout -b development
 ```
 
-To change all the names of the base project to the one you really want, you need to run a script.
-To do so, follow the next steps:
-1. Set access permissions to init script:
+In order to replace in every file the 'NetCoreBootstrap' name with your project name (here called AppName) follow the next steps:
+1. Set access permissions to init script.
+Just run:
 ```bash
     chmod +x ./Scripts/script.sh
 ```
-2. Change the AppName:
+2. Change the AppName. Remember, `AppName` must be your project name.
 If you don't need the authentication module, run: 
 ```bash
     ./Scripts/script.sh AppName delete-auth
@@ -47,9 +47,6 @@ Else just run:
 ```bash
     ./Scripts/script.sh AppName
 ```
-(Remember, `AppName` must be your project name)
-
-This will replace all the `NetCoreBootstrap` instances in the base project with `AppName`
 
 Now you are ready to make the Initial Commit code by running:
 
