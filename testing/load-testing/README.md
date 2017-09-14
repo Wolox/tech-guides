@@ -82,3 +82,15 @@ You can also export the results to a JSON running the script with the option `--
 - E.g. `k6 run --out json=json_result.json script.js`
 
 It's a good idea that you documentate the results you get, to know what are the limits of your API.
+
+## Advanced
+
+The examples seen so far are well suited for testing API endpoints. If you want to test a monolithic application you have to make the same requests a browser would do, those include requests to assets (js, css, images) and maybe some async requests done by the frontend (JQuery, React, Angular, Vue, etc).
+
+- [BATCH REQUEST](batch.js)
+
+Even more, if you are testing a Rails application which submits a form, you would have to take the CSRF token inserted by Rails in the HTML before you can make the request.
+
+Let's say we have an app that makes a request to an API endpoint, which executes an async job an returns the ID of that job so you can check the status later. Here is a full example of that:
+
+- [RAILS ADVANCED](rails.js)

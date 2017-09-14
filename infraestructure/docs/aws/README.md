@@ -31,3 +31,4 @@
 - [Asynchronous processing using SQS and Shoryuken](https://medium.com/wolox-driving-innovation/asynchronous-processing-using-sqs-and-shoryuken-2596aec19b4c)
 - [Image Processing in Rails using AWS Lambda](https://medium.com/wolox-driving-innovation/image-processing-in-rails-using-aws-lambda-43b5b268019f)
 - [Transform Cloud Storage Performance into an F1 Car](https://medium.com/wolox-driving-innovation/transform-cloud-storage-performance-into-an-f1-car-d00f7103bcca)
+- [Redirect domains with TLS using CloudFront and S3](https://simonecarletti.com/blog/2016/08/redirect-domain-https-amazon-cloudfront/)

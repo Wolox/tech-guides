@@ -20,6 +20,7 @@
   1. [Workers](#workers)
   1. [Debugging](#debugging)
   1. [Mail](#mail)
+  1. [Push Notifications](#push-notifications)
 
 ## Abstractions
 
@@ -122,6 +123,12 @@
 |Name|Description|Stars|
 |-----|-----|-----|
 |[nokogiri](https://github.com/sparklemotion/nokogiri)|Parse HTML (and more) documents in a very easy way|[![GitHub stars](https://img.shields.io/github/stars/sparklemotion/nokogiri.svg?style=social&label=Star)](https://github.com/sparklemotion/nokogiri)|
+
+## Push Notifications
+
+|Name|Description|Stars|
+|-----|-----|-----|
+|[wor-push-notifications-aws](https://github.com/Wolox/wor-push-notifications-aws)|Send Push Notifications to your application using AWS Simple Notification Service (SNS)|[![GitHub stars](https://img.shields.io/github/stars/Wolox/wor-push-notifications-aws.svg?style=social&label=Star)](https://github.com/Wolox/wor-push-notifications-aws)|
 
 ## Workers
 
