@@ -12,10 +12,6 @@
 
 - [Ruby on Rails layout](./ruby-on-rails-layout/)
 
-## Kickoff Guide
-
-At [Wolox](http://wolox.com.ar), we have developed the [Frontend kickoff guide](./docs/kickoff/README.md) to create our frontend projects. Check it out to find a detailed guide to start with your project.
-
 ## Open Source
 
 - [Wolox Frontend Bootstrap](http://github.com/wolox/frontend-bootstrap)

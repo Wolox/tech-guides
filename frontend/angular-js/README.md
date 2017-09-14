@@ -1,5 +1,9 @@
 # AngularJS Tech Guides
 
+## Kickoff Guide
+
+At [Wolox](http://wolox.com.ar), we have developed the [Angular kickoff guide](./docs/kickoff/README.md) to create our Angular projects. Check it out to find a detailed guide to start with your project.
+
 ## Useful Documentation
 
 - [Styleguide](https://github.com/johnpapa/angular-styleguide)
