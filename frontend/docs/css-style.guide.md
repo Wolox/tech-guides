@@ -1,5 +1,4 @@
-CSS Style guide
-===============
+#CSS Style guide
 
 ## Purpose
 The aim of this document is to show good practices and conventions while using CSS in Wolox S.A.. This document will be used in trainings and as a reference in Code Reviewing.
@@ -276,4 +275,3 @@ Put the id (if there is one) before the classname
 
 ** Avoid using br tag:**
 When breaking containers, padding or margin should be used.
-
