@@ -4,6 +4,11 @@
 
 At [Wolox](http://wolox.com.ar), we have developed the [Angular kickoff guide](./docs/kickoff/README.md) to create our Angular projects. Check it out to find a detailed guide to start with your project.
 
+## Open Source
+
+- [Wolox Front-End Bootstrap](http://github.com/wolox/frontend-bootstrap) (use `angular` branch)
+- [Custom Multiple Select](https://codepen.io/SKOLZ/pen/PJqPGG)
+
 ## Useful Documentation
 
 - [Styleguide](https://github.com/johnpapa/angular-styleguide)
