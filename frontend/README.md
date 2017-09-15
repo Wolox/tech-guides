@@ -12,10 +12,6 @@
 
 - [Ruby on Rails layout](./ruby-on-rails-layout/)
 
-## Open Source
-
-- [Wolox Frontend Bootstrap](http://github.com/wolox/frontend-bootstrap)
-
 ## Useful Documentation
 
 ### General
