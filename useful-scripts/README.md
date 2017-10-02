@@ -8,4 +8,6 @@
 
 - [Check Elastic Beanstalk environment variables](./docs/eb_environment_variable_checker.md)
 
-- [Create Trello card from Google Form](./docs/create-trello-card-via-form.md) 
+- [Create Trello card from Google Form](./docs/create-trello-card-via-form.md)
+
+- [Copy trello boards](./docs/copy-trello.md)
