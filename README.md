@@ -45,7 +45,22 @@ Under every technology folder mentioned [below](#technologies-index), you will f
 2. Create your branch (`git checkout -b my-new-guide-documentation`)
 3. Edit the file and commit your changes (`git commit -am 'Add some guide or documentation'`)
 4. Push your branch (`git push origin my-new-guide-documentation`)
-5. Create a new Pull Request
+5. Create a new Pull Request.  
+   Include brackets containing your involved technologies on its name, one bracket per tech.  
+   By example:  
+   `[RoR] Updating tech-guides`  
+   `[Android][iOS] Updating deployment guide`  
+   Available tags:  
+     *  RoR
+     *  NodeJS
+     *  Front-End
+     *  React Native
+     *  Android
+     *  iOS
+     *  Net Core
+     *  Infrastructure
+     *  Git
+     *  Wolox
 
 ## About
 
