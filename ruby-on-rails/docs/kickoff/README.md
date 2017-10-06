@@ -72,7 +72,7 @@ You are now ready to make a new commit and test everything.
     git push origin development
   ```
 
-## Wolox CI (For infraestructure only)
+## Wolox CI (For infrastructure only)
 
 ## Github configuration
 
