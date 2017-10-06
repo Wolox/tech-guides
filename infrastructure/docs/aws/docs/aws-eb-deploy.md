@@ -2,7 +2,9 @@
 
 ## Introduction
 
-This document is intended to be a guideline to show you how to configure your computer for deployment into the Amazon Web Services. You may contact with the developers in the team, the Architect or Scum Master for the files needed.
+This document is intended to be a guideline to show you how to configure your computer for deploying into the Amazon Web Services.
+
+You may contact the Developers in the team, the Architect or Scum Master for the files needed.
 
 ## Installing the tools
 
