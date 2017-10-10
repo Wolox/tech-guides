@@ -48,6 +48,10 @@ Fast copy everything but the .git file from base project to your project.
 
 Change to your project directory.
 
+`$ git checkout -b "project-setup" `
+
+Create a new branch to properly set up the project.
+
 `$ git add .`
 
 Don't forget to add the changes.
@@ -56,12 +60,9 @@ Don't forget to add the changes.
 
 Watch the message! This will be your project's first commit ;)
 
-`$ git push origin HEAD -u`
+`$ git push origin project-setup -u`
 
 Then send it to the clouds!
-
-When these is done a new branch should be created to properly set up the project. Once again, run on your terminal:
-`$ git checkout -b "project-setup" `
 
 #### Project Renaming
 
