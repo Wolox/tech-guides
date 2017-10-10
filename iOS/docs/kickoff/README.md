@@ -60,10 +60,6 @@ Don't forget to add the changes.
 
 Watch the message! This will be your project's first commit ;)
 
-`$ git push origin project-setup -u`
-
-Then send it to the clouds!
-
 #### Project Renaming
 
 Open XCode project by running:
@@ -142,6 +138,10 @@ Add these changes by running:
 
 And commit them:
 `$ git commit -m "Rename project"`
+
+Then send it to the clouds!
+`$ git push origin HEAD -u`
+
 
 ### Configure CI
 
