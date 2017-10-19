@@ -52,7 +52,7 @@ eb init
 
 > Add `--profile <profile-name>` option if needed
 
-This will prompt some steps in your terminal to set up your application and environment by default for this project in AWS.
+This will prompt some steps in your terminal to set up your application and environment for this project in AWS.
 
 After running this command this will create a `.elasticbeanstalk` folder with your project configuration.
 
@@ -80,7 +80,7 @@ A fingerprint confirmation will prompt in your terminal, write `yes`.
 
 ### Watching the logs while the deploy runs
 
-Run the command after connecting by *ssh*:
+Run the command after connecting through *ssh*:
 
 ```
 tail -f /var/log/eb-activity.log
@@ -91,6 +91,8 @@ This opens a live stream of the changes that are taking place in the deploy and 
 ### Running the Rails console
 
 Also you can open a Rails console in the instance to run queries, create objects, etc.
+
+Run these commands after connecting through *ssh*:
 
 ```
 cd /var/app/current
