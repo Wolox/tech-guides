@@ -4,6 +4,7 @@
 
 - Go the *Services -> S3* in the top left corner
 - Just click in *Create bucket*, enter the name you want and click *Create* in the bottom left corner
+- If you had registered a domain for your web page, you should name the bucket with the same name of the domain. E.g. if you bought the domain *awesomecompany.com*, you should name your bucket *awesomecompany.com*. More [information](http://docs.aws.amazon.com/AmazonS3/latest/dev/website-hosting-custom-domain-walkthrough.html).
 
 > If you don't have permissions to access S3, ask for them to your TM, Architect or SM
 
