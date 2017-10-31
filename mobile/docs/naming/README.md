@@ -1,6 +1,6 @@
 # Wolox Mobile Convention Naming
 
-In Wolox we use conventions for naming projects and identifiers, as `Bundle ID` for `iOS` projects and `Application ID` for `Android`.
+At Wolox we use conventions for naming projects and identifiers, as `Bundle ID` for `iOS` projects and `Application ID` for `Android`.
 
 This convention, even though is very simple, has a critical impact in the project development, given we use scripts which read these properties and expect consistent values.
 
@@ -19,7 +19,7 @@ Example:
 
 For naming identifiers we use the convention suggested for `iOS` in [this link](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/20001431-102070) and for `Android` in [this link](https://developer.android.com/studio/build/application-id.html).
 
-Both of them are compatible. In particular in `Wolox` we use "com.Wolox.ProjectName".
+Both of them are compatible. In particular at `Wolox` we use "com.Wolox.ProjectName".
 
 Example:
 
