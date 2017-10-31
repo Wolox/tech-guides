@@ -24,7 +24,9 @@ The following will be needed to start an iOS project kickoff process:
 
 Next steps will get your iOS project configured, for these, replace `Project Name` with your project name.
 
-A little heads up: It's *extremely* important naming conventions, such as camel case notation and so on, are followed. I.e.: if `BaseProject.xcodeproj` should be renamed with our project name, then it should be `ProjectName.xcodeproj`. Always follow the naming pattern on the base project. Also, this is meant to be sequentially, so don't skip or mix steps.
+A little heads up: It's *extremely* important naming conventions, such as camel case notation and so on, are followed. I.e.: if `BaseProject.xcodeproj` should be renamed with our project name, then it should be `ProjectName.xcodeproj`. Always follow the naming pattern on the base project. Read this [Convention guide](../../../mobile/docs/naming/README.md) to figure out what the `Project Name` should be.
+
+Also, this is meant to be sequentially, so don't skip or mix steps.
 
 ### Setup
 

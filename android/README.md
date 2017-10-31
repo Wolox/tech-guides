@@ -23,11 +23,14 @@ At [Wolox](http://wolox.com.ar), we have developed the [Wolox Android Bootstrap]
 - [Shared Element Transition](./docs/coding/shared-element-transition.md)
 
 ### Methodologies
+
 - [Assets Naming](./docs/methodologies/assets-naming.md)
 - [Branching Model](./docs/methodologies/branching-model.md)
 - [Code Review Guide](./docs/methodologies/code-review-guide.md)
+- [Mobile conventions naming](../mobile/docs/naming/README.md)
 
 ### Tools
+
 - [Android Studio Optimizations](./docs/tools/android-studio-optimizations.md)
 - [Android Studio Shortcuts](./docs/tools/android-studio-shortcuts.md)
 - [Building](./docs/tools/building.md)
