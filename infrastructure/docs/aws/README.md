@@ -5,6 +5,10 @@
 - [Frontend Deployment Group](./docs/frontend-group.md)
 - [SNS Basic Permissions](./docs/sns-basic-permissions.md)
 
+## S3
+
+- [S3 Frontend Web Hosting](./docs/s3-web-hosting.md)
+
 ## Useful Documents
 
 - [Instances Roles Configuration](./docs/instances-roles.md)
