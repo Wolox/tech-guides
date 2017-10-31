@@ -16,7 +16,7 @@ require('./gulp/tasks/deploy-s3.js')
 
 * You can edit the list of files to be zipped according to your project by changing the `zippedFiles` array.
 
-> If you need to create the bucket follow this [instructions](../../../infraestructure/docs/aws/docs/s3-web-hosting.md)
+> If you need to create the bucket follow this [instructions](../../../infrastructure/docs/aws/docs/s3-web-hosting.md)
 
 ## Use
 After running `npm run build` run `gulp publish-stg` to deploy to the staging bucket or `gulp publish-prod` to deploy to the production one.
