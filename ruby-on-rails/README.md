@@ -27,7 +27,7 @@ At [Wolox](https://wolox.co), we have developed the [RoR kickoff guide](./docs/k
 ### Deploys And Configurations
 
 - [Capistrano](./docs/deploys-configurations/capistrano.md)
-- [Elastic Beanstalk](./docs/deploys-configurations/elastic-beanstalk.md)
+- [Elastic Beanstalk](../infrastructure/docs/aws/docs/aws-eb-deploy.md)
 - [Heroku](./docs/deploys-configurations/heroku.md)
 - [Circle CI](./docs/deploys-configurations/cicle-ci-useful-configurations.md)
 

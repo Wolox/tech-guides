@@ -16,6 +16,7 @@
 
 ## Elasticbeanstalk
 
+- [Deploy Guide](./docs/aws-eb-deploy.md)
 - [Possible issues and solutions](./docs/eb-possible-issues.md)
 - [Redis configuration](./docs/eb-redis.md)
 

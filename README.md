@@ -27,7 +27,7 @@ Under every technology folder mentioned [below](#technologies-index), you will f
 
 - [Net Core](./net-core/README.md)
 
-- [Infraestructure](./infraestructure/README.md)
+- [Infrastructure](./infrastructure/README.md)
 
 - [Git](./git/README.md)
 
