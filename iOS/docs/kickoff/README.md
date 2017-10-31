@@ -66,7 +66,7 @@ Open XCode project by running:
 
 `$ open BaseProject.xcodeproj`
 
-Change its name from `BaseProject` to your own `ProjectName`, following [this]((https://developer.apple.com/library/ios/recipes/xcode_help-project_editor/RenamingaProject/RenamingaProject.html)) tutorial.
+Change its name from `BaseProject` to your own `ProjectName`, following [this](https://help.apple.com/xcode/mac/8.0/#/dev3db3afe4f) tutorial.
 
 After doing this you'll note that still the `ProjectName`'s `Scheme` hasn't been renamed. To do this, duplicate the actual scheme and rename it, only then delete the old scheme. While editing the scheme, tick the `shared` option so project can be run on CI environment.
 
