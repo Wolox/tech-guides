@@ -21,6 +21,7 @@ At [Wolox](http://wolox.com.ar), we have developed the [iOS kickoff guide](./doc
 - [Kickoff guide](./docs/kickoff/README.md)
 - [Style guide](https://github.com/Wolox/ios-style-guide)
 - [App Structure](./docs/app-structure.md)
+- [Mobile conventions naming](../mobile/docs/naming/README.md)
 
 ### UI
 

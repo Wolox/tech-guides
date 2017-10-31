@@ -25,8 +25,6 @@ Under every technology folder mentioned [below](#technologies-index), you will f
 
 - [iOS](./iOS/README.md)
 
-- [Mobile](./mobile/README.md)
-
 - [Net Core](./net-core/README.md)
 
 - [Infraestructure](./infraestructure/README.md)
