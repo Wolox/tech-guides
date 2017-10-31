@@ -33,14 +33,26 @@ When configuring an `iOS` project (both for native and react native) this `bundl
 For `iOS` projects, the base project contains 4 build configurations, and for `React Native` projects we use 2 build configurations (a subset of the native ones). For each of them we use a prefix to be appended after the `bundle ID`:
 
 - `Debug`: ".debug", example: "com.Wolox.ProjectName.debug"
+
+We use this `build configuration` for developing the applications in the local developer environment, and for running the tests in continuous integration environment.
+
 - `Alpha`: ".alpha", example: "com.Wolox.ProjectName.alpha"
+
+We use this `build configuration` for deploying the applications in `Wolox`s Itunes Connect account. These deploys are used for sending builds to `Wolox` QA (Quality Assurance).
+
 - `Release`: "", example: "com.Wolox.ProjectName"
 
-For `Production` we use no prefix, and we do not use `Wolox` as part of it, instead we use the name of the project.
+We use this `build configuration` for deploying the applications in `Wolox`s Itunes Connect account. These deploys are used both for sending the applications to beta testing for external testers (in case the application has an external client), or for sending the application public in the App Store (in case the application is `Wolox` internal).
 
 - `Production`: "", example: "com.ProjectName.ProjectName"
 
-Only take into account those present in your project.
+For `Production` we use no prefix, and we do not use `Wolox` as part of it, instead we use the name of the project. In case the applications is `Wolox` internal this configuration will not be used.
+
+We use this `build configuration` for deploying the applications in client's Itunes Connect account. These deploys are used for sending the application public in the App Store (in case the application is not `Wolox` internal, and has an external client instead).
+
+Only take into account those present in your project. Depending on the technology you are developing your project includes the necessary `build configuration`s. 
+
+You can check which of them are present by going to your project name, in the root of the left project navigator. Once there, enter your project once again under the title "PROJECTS" in the left bar deployed. The `build configuration`s are listed in the tab "Info", under "Configurations".
 
 ### NOTE 2: 
 
