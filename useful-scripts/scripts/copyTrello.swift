@@ -3,10 +3,11 @@ import Alamofire
 
 extension String {
 
+    static let validURL = "^((http[s]?|ftp):\\/)?\\/?([^:\\/\\s]+)((\\/\\w+)*\\/)([\\w\\-\\.]+[^#?\\s]+)(.*)?(#[\\w\\-]+)?$"
+    
     func getReferencedURL() -> String {
         do {
-            let URLRegex = "^((http[s]?|ftp):\\/)?\\/?([^:\\/\\s]+)((\\/\\w+)*\\/)([\\w\\-\\.]+[^#?\\s]+)(.*)?(#[\\w\\-]+)?$"
-            let regex = try NSRegularExpression(pattern: URLRegex)
+            let regex = try NSRegularExpression(pattern: String.validURL)
             let nsString = self as NSString
             let result = regex.matches(in: self, range: NSRange(location: 0, length: nsString.length))
             return nsString.substring(with: result[0].range)
