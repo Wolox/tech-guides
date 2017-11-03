@@ -1,6 +1,11 @@
 ## Copy Trello board script
 
-This script copies a Trello board and replaces the references on the new board's cards' checklists with references to cards
+This script copies a Trello board and replaces the references on the new board's cards' checklists with references to cards.
+
+:warning: Linux users need to install Swift on their machines. If this turns out as not possible, these are the available options:
+1. Ask someone with MacOS to run this script for you (reach out to @dtilve).
+2. Copy the board yourself and restore the links manually.
+
 
 Coded in Swift 3.2 using [Marathon](https://github.com/JohnSundell/Marathon)
 
