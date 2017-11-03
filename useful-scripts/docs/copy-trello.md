@@ -6,7 +6,6 @@ This script copies a Trello board and replaces the references on the new board's
 1. Ask someone with MacOS to run this script for you (reach out to @dtilve).
 2. Copy the board yourself and restore the links manually.
 
-
 Coded in Swift 3.2 using [Marathon](https://github.com/JohnSundell/Marathon)
 
 ### Requisites
