@@ -127,9 +127,7 @@ final class TrelloRepository {
         }
     }
 
-    private func makeSynchronousRequest(url: URLConvertible,
-                                        method: HTTPMethod,
-                                        parameters: Parameters) -> Data? {
+    private func makeSynchronousRequest(url: URLConvertible, method: HTTPMethod, parameters: Parameters) -> Data? {
         var output: Data?
 
         let headers: HTTPHeaders = ["Accept": "application/json"]
