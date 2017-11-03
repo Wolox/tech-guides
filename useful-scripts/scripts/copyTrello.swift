@@ -110,7 +110,6 @@ final class TrelloRepository {
                                       "token": _token,
                                       "name": newItemDescription]
         _ = makeSynchronousRequest(url: url, method: .put, parameters: parameters)
-        return
     }
 
     private func parse<T>(maybeJSON: Data?, to object: T.Type) throws -> T where T: Decodable {
