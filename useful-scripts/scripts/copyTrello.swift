@@ -25,7 +25,6 @@ struct Card: Decodable {
     let name: String
     let desc: String
     let url: String
-
 }
 
 struct Board: Decodable {
