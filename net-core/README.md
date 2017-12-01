@@ -20,3 +20,4 @@ At [Wolox](http://wolox.com.ar), we have developed the [NET Core kickoff guide](
 - [Migrating from .NET Core 1 to .Net Core 2.0](https://medium.com/wolox-driving-innovation/migrating-to-net-core-2-0-1122b69f5d0c)
 - [Persisting data in .NET Core](https://medium.com/wolox-driving-innovation/da97811ddc5c)
 - [Globalization in ASP.NET Core](https://medium.com/wolox-driving-innovation/globalization-in-asp-net-core-3c70379d1e7f)
+- [Applying SCSS for styles](https://medium.com/wolox-driving-innovation/3f31b412188f)
