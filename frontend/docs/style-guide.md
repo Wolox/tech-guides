@@ -6,7 +6,6 @@
   - [Javascript](#javascript)
     - [Angular](#angular)
   - [CSS/SASS](#csssass)
-    - [General](#general)
 - [Text editors](#text-editors)
   - [Atom](#atom)
     - [Installation](#installation)
@@ -15,7 +14,12 @@
       - [Linter](#linter)
       - [Minimap](#minimap)
       - [Color picker](#color-picker)
-      - [Pigments](#Pigments)
+      - [Pigments](#pigments)
+      - [Node requirer](#node-requirer)
+      - [js-hyperclick](#js-hyperclick)
+      - [React](#react)
+      - [Highlight-selected](#highlight-selected)
+      - [tab-foldername-index](#tab-foldername-index)
 - [Browser Extensions](#browser-extensions)
   - [Chrome](#chrome)
   - [Firefox](#firefox)
@@ -24,8 +28,9 @@
   - [Scrolling](#scrolling)
   - [Tooltips](#tooltips)
   - [Animations And Transitions](#animations-and-transitions)
-  - [Loading](#Loading)
-  - [Modals](#Modals)
+  - [Loading](#loading)
+  - [Modals](#modals)
+  - [Gif Screen Recorders](#gif-screen-recorders)
 - [Learning Resources - Frontend](#learning-resources---frontend)
   - [Books](#books)
   - [Articles](#articles)
@@ -51,6 +56,8 @@
 # Angular
   - [Papa's Styleguide](https://github.com/johnpapa/angular-styleguide)
     - Specific conventions for syntax and structuring angular applications and why you should follow them.
+  - Angular code snippets
+    - [Fetch data from API: Infinite scroll](https://codepad.co/snippet/b27gCGTJ)
 
 # CSS/SASS
 
@@ -168,11 +175,14 @@ In Sass you can generate functions called mixins that can receive parameters and
 }
 ```
 
+### CSS style guide
+To know more about CSS conventions and best practices, check [this document](./css-style-guide.md).
+
 # Text editors
 
 ## Atom
 
-[Atom](https://atom.io/) is a highly customizable text editor. It's open source, developed by github and has tons of Packages to extend its functionality.
+[Atom](https://atom.io/) is a highly customizable text editor. It's open source, developed by GitHub and has tons of Packages to extend its functionality.
 
 ### Installation
 To install it just open a terminal run the following commands
@@ -237,6 +247,52 @@ It display CSS colors in place
 apm install pigments
 ```
 
+#### node-requirer
+
+![image of node-requirer](https://user-images.githubusercontent.com/25931366/28980572-b476c736-7924-11e7-8f81-9f53bf1c8c13.gif)
+
+It lets you quickly add require/import statements to any files within your code.
+
+```
+apm install node-requirer
+```
+
+#### js-hyperclick
+
+![image of js-hyperclick](https://user-images.githubusercontent.com/25931366/28981322-a7e89bfe-7927-11e7-9265-d2318ef0f22c.gif)
+
+It lets you jump to where variables are defined. (JS only)
+
+```
+apm install js-hyperclick
+```
+
+#### React
+React.js (JSX) language support, indentation, snippets, auto completion, reformatting
+
+
+```
+apm install react
+```
+
+#### Highlight-selected
+Double click on a word to highlight it throughout the open file.
+
+![image of highlight](https://user-images.githubusercontent.com/25931366/29073959-0120d44e-7c24-11e7-8bf1-ea2053820c96.gif)
+
+```
+apm install highlight-selected
+```
+
+#### tab-foldername-index
+It replaces tab’s title if opened multiple files with the same name for more readability.
+
+![image of tab-foldername](https://user-images.githubusercontent.com/25931366/29074125-85109a50-7c24-11e7-94ab-dc0488e56a3e.png)
+
+```
+apm install tab-foldername-index
+```
+
 # Browser Extensions
 
 ## Chrome
@@ -282,7 +338,6 @@ apm install pigments
   - [scrollReveal](https://scrollrevealjs.org/)
 
 ## Tooltips
-  - [Tooktik](https://eliorshalev.github.io/tootik/)
   - [Baloon](http://kazzkiq.github.io/balloon.css/)
 
 ## Animations And Transitions
@@ -296,6 +351,10 @@ apm install pigments
 
 ## Modals
   - [modal with css only](http://www.webdesignerdepot.com/2012/10/creating-a-modal-window-with-html5-and-css3/)
+
+## Gif Screen Recorders
+- [Licecap](https://www.cockos.com/licecap/) (Windows/macOS)
+- [Peak](https://github.com/phw/peek) (Linux)
 
 # Learning Resources - Frontend
 

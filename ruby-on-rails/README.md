@@ -27,7 +27,7 @@ At [Wolox](https://wolox.co), we have developed the [RoR kickoff guide](./docs/k
 ### Deploys And Configurations
 
 - [Capistrano](./docs/deploys-configurations/capistrano.md)
-- [Elastic Beanstalk](./docs/deploys-configurations/elastic-beanstalk.md)
+- [Elastic Beanstalk](../infrastructure/docs/aws/docs/aws-eb-deploy.md)
 - [Heroku](./docs/deploys-configurations/heroku.md)
 - [Circle CI](./docs/deploys-configurations/cicle-ci-useful-configurations.md)
 
@@ -69,3 +69,4 @@ At [Wolox](https://wolox.co), we have developed the [RoR kickoff guide](./docs/k
 - [Unicorn Not Trapping USR2](https://medium.com/wolox-driving-innovation/unicorn-not-trapping-usr2-41f15153b25d)
 - [Adding a Real-Time Module to your Rails API](https://medium.com/wolox-driving-innovation/adding-a-realtime-module-to-your-rails-api-18bb562e6441)
 - [ActiveRecord + PostgreSQL Materialized Views](https://medium.com/wolox-driving-innovation/activerecord-postgresql-materialized-views-9a9ef56b5a8d)
+- [Includes vs join vs eager_load](http://blog.scoutapp.com/articles/2017/01/24/activerecord-includes-vs-joins-vs-preload-vs-eager_load-when-and-where)

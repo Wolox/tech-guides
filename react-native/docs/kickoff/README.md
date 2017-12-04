@@ -10,6 +10,8 @@ React Native: Kickoff guide
 
 ## Project kickoff instructions
 
+Before starting read this [Convention guide](../../../mobile/docs/naming/README.md) to figure out what the `Project Name` should be.
+
 1. Project boilerplate
 ```bash
 bash <(curl -s https://raw.githubusercontent.com/Wolox/wolmo-bootstrap-react-native/master/run.sh)

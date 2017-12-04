@@ -1,12 +1,12 @@
 # Rollbar Set Up
 
-This is a guide to setup rollbar for and account and projects.
+This is a guide to setup rollbar for an account and projects.
 
 ## Account
 
 You can create a new rollbar acount with your user by entering [here](https://rollbar.com/account/create/)
 
-The account name should be in CamelCase and separated by `-`. For example `My-Account`.
+The account name should be in Train-Case. For example `My-Account`.
 
 In this account you will create all the different projects. For example, API, Android, iOS.
 

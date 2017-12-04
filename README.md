@@ -17,7 +17,7 @@ Under every technology folder mentioned [below](#technologies-index), you will f
 
 - [NodeJS](./nodejs/README.md)
 
-- [Frontend](./frontend/README.md)
+- [Front-End](./frontend/README.md)
 
 - [React Native](./react-native/README.md)
 
@@ -27,7 +27,7 @@ Under every technology folder mentioned [below](#technologies-index), you will f
 
 - [Net Core](./net-core/README.md)
 
-- [Infraestructure](./infraestructure/README.md)
+- [Infrastructure](./infrastructure/README.md)
 
 - [Git](./git/README.md)
 
@@ -37,13 +37,30 @@ Under every technology folder mentioned [below](#technologies-index), you will f
 
 - [General Useful Scripts](./useful-scripts/README.md)
 
+- [Testing](./testing/README.md)
+
 ## Contributing
 
 1. Fork it
 2. Create your branch (`git checkout -b my-new-guide-documentation`)
 3. Edit the file and commit your changes (`git commit -am 'Add some guide or documentation'`)
 4. Push your branch (`git push origin my-new-guide-documentation`)
-5. Create a new Pull Request
+5. Create a new Pull Request.  
+   Include brackets containing your involved technologies on its name, one bracket per tech.  
+   By example:  
+   `[RoR] Updating tech-guides`  
+   `[Android][iOS] Updating deployment guide`  
+   Available tags:  
+     *  RoR
+     *  NodeJS
+     *  Front-End
+     *  React Native
+     *  Android
+     *  iOS
+     *  Net Core
+     *  Infrastructure
+     *  Git
+     *  Wolox
 
 ## About
 

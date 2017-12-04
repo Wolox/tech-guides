@@ -13,9 +13,28 @@ At [Wolox](http://wolox.com.ar), we have developed the [React Native Bootstrap](
 
 ### Standards
 
+- [Mobile conventions naming](../mobile/docs/naming/README.md)
+
 ### IDE
 
-- [Atom snippets](./docs/atom-snippets.cson)
+#### Atom Packages
+
+[Atom](https://atom.io/) is a highly customizable text editor. It's open source, developed by GitHub and has tons of Packages to extend its functionality.
+For more information: check [Frontend style-guide](https://github.com/Wolox/tech-guides/blob/master/frontend/docs/style-guide.md#atom)
+
+##### React
+React.js (JSX) language support, indentation, snippets, auto completion, reformatting
+
+To install it, run this line in your terminal:
+
+```
+apm install react
+```
+
+##### Snippets
+An Atom snippet library for React Native
+
+Download it [here.](./docs/atom-snippets.cson)
 
 ## Posts
 
