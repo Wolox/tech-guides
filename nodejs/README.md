@@ -15,6 +15,7 @@ At [Wolox](http://wolox.com.ar), we have developed the [ExpressJS Bootstrap](htt
 - [Eloquent Javacsript - Chapter 20](http://eloquentjavascript.net/20_node.html)
 - [Kue - Redis](https://github.com/Automattic/kue)
 - [Google Cloud - NodeJS](https://cloud.google.com/nodejs)
+- [Orm and migrations](./docs/orm.md)
 
 ### Standards
 
