@@ -4,8 +4,7 @@
 Unless specified, all files *must* be private when stored in S3. As a consequence, no one should be able to upload and/or download a file.
 
 ## Interacting with the bucket
-If the user wants to upload a file that is not currently in our backend, it *must* always be done on *client-side*. This reduces server 
-load.
+If the user wants to upload a file that is not currently in our backend, it *must* always be done on *client-side*. This reduces server load.
 Since our bucket does not allow any user to upload objects the following steps need to be done:
 
 1. Ask the server for a pre-signed url. The server will use it's AWS credentials to build a pre-signed url that will have permissions to
@@ -13,7 +12,7 @@ perform the desired action on the bucket. The following code generates a URL tha
 bucket for 300 seconds:
 ```
 s3_image_obj = Aws::S3::Resource.new(region: AWS_BUCKET_REGION).bucket(IMAGE_UPLOAD_BUCKET).object('my_image.png')
-s3_image_obj.presigned_url(:put, acl: 'put', expires_in: 300)
+s3_image_obj.presigned_url(:get, acl: 'public-read', expires_in: 300)
 ```
 The resulting URL looks like this:
 
