@@ -1,5 +1,9 @@
 # Create a Group with S3 deployment permissions
 
+## S3 Bucket
+
+Make sure you already have a S3 bucket. If not, you can check our [S3 Web Hosting](./s3-web-hosting.md) guide to create it.
+
 ## Create the policy
 
 The policy will grant the permissions to the bucket.

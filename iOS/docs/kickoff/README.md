@@ -24,7 +24,9 @@ The following will be needed to start an iOS project kickoff process:
 
 Next steps will get your iOS project configured, for these, replace `Project Name` with your project name.
 
-A little heads up: It's *extremely* important naming conventions, such as camel case notation and so on, are followed. I.e.: if `BaseProject.xcodeproj` should be renamed with our project name, then it should be `ProjectName.xcodeproj`. Always follow the naming pattern on the base project. Also, this is meant to be sequentially, so don't skip or mix steps.
+A little heads up: It's *extremely* important naming conventions, such as camel case notation and so on, are followed. I.e.: if `BaseProject.xcodeproj` should be renamed with our project name, then it should be `ProjectName.xcodeproj`. Always follow the naming pattern on the base project. Read this [Convention guide](../../../mobile/docs/naming/README.md) to figure out what the `Project Name` should be.
+
+Also, this is meant to be sequentially, so don't skip or mix steps.
 
 ### Setup
 
@@ -48,6 +50,10 @@ Fast copy everything but the .git file from base project to your project.
 
 Change to your project directory.
 
+`$ git checkout -b "project-setup" `
+
+Create a new branch to properly set up the project.
+
 `$ git add .`
 
 Don't forget to add the changes.
@@ -56,20 +62,13 @@ Don't forget to add the changes.
 
 Watch the message! This will be your project's first commit ;)
 
-`$ git push origin HEAD -u`
-
-Then send it to the clouds!
-
-When these is done a new branch should be created to properly set up the project. Once again, run on your terminal:
-`$ git checkout -b "project-setup" `
-
 #### Project Renaming
 
 Open XCode project by running:
 
 `$ open BaseProject.xcodeproj`
 
-Change its name from `BaseProject` to your own `ProjectName`, following [this]((https://developer.apple.com/library/ios/recipes/xcode_help-project_editor/RenamingaProject/RenamingaProject.html)) tutorial.
+Change its name from `BaseProject` to your own `ProjectName`, following [this](https://help.apple.com/xcode/mac/8.0/#/dev3db3afe4f) tutorial.
 
 After doing this you'll note that still the `ProjectName`'s `Scheme` hasn't been renamed. To do this, duplicate the actual scheme and rename it, only then delete the old scheme. While editing the scheme, tick the `shared` option so project can be run on CI environment.
 
@@ -108,6 +107,14 @@ Check the value for `REQUIRED_XCODE_VERSION` matches the installed version. You 
 Replace the values for `REQUIRED_SWIFTLINT_VERSION` and `REQUIRED_CARTHAGE_VERSION` with the last release version for each of them.
 You can check them in [SwiftLint releases](https://github.com/realm/SwiftLint/releases) and [Carthage releases](https://github.com/Carthage/Carthage/releases).
 
+#### Include Fastlane
+
+Move to the project's root folder and download the [Fastlane](https://docs.fastlane.tools) content from the [Fastlane repository](https://github.com/Wolox/fastlane-mobile) by doing:
+
+`git clone --depth=1 https://github.com/Wolox/fastlane-mobile.git fastlane; rm -rf fastlane/.git`
+
+This copies the `fastlane-mobile` repository into `fastlane` folder, and removes the `.git` directory.
+
 #### Bootstrapping project
 
 Run bootstrapping script, which will install every necessary dependency to build the project:
@@ -141,6 +148,10 @@ Add these changes by running:
 
 And commit them:
 `$ git commit -m "Rename project"`
+
+Then send it to the clouds!
+`$ git push origin HEAD -u`
+
 
 ### Configure CI
 

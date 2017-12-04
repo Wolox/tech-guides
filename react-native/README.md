@@ -13,6 +13,8 @@ At [Wolox](http://wolox.com.ar), we have developed the [React Native Bootstrap](
 
 ### Standards
 
+- [Mobile conventions naming](../mobile/docs/naming/README.md)
+
 ### IDE
 
 #### Atom Packages

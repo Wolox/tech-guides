@@ -5,17 +5,23 @@
 - [Frontend Deployment Group](./docs/frontend-group.md)
 - [SNS Basic Permissions](./docs/sns-basic-permissions.md)
 
+## S3
+
+- [S3 Frontend Web Hosting](./docs/s3-web-hosting.md)
+
 ## Useful Documents
 
 - [Instances Roles Configuration](./docs/instances-roles.md)
 - [DNS Configuration](./docs/dns.md)
 - [SSL Certificates](./docs/ssl.md)
+- [S3 files](./docs/s3-files.md)
 - [Pricing](http://www.ec2instances.info)
 - [Open guide to AWS](https://github.com/open-guides/og-aws)
 - [Activate MFA in OpenVPN](http://myrandomtechbits.blogspot.com.ar/2016/06/openvpn-with-mfa-google.html)
 
 ## Elasticbeanstalk
 
+- [Deploy Guide](./docs/aws-eb-deploy.md)
 - [Possible issues and solutions](./docs/eb-possible-issues.md)
 - [Redis configuration](./docs/eb-redis.md)
 
