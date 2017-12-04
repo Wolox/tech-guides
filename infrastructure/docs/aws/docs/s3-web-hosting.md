@@ -39,3 +39,7 @@
 - Check the option *Use this bucket to host a website*
 - Write `index.html` in *Index document* and *Error document*
 - You can now access the web page by clicking in the URL that appears at the top in *Endpoint*
+
+## Extra: Deployment Permissions
+
+To see how to configure a frontend group to enable deploys to a specific group of users, see our [Frontend Group Deployment Permissions Configuration](./frontend-group.md).
