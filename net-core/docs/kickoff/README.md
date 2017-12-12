@@ -10,7 +10,7 @@ Before you start with this step by step guide you will need the following:
 
 ## Kickoff
 
-The following steps will help you have a NET Core project ready for new features. We are going to use an example project with the name `app-name`. Everytime you see `App Name` in this guide, you must replace it with your project name. It is important to respect all the name conventions.
+The following steps will help you have a NET Core project ready for new features. We are going to use an example project with the name `app-name`. Everytime you see `AppName` in this guide, you must replace it with your project name. It is important to respect all the name conventions.
 
 ### Clone and project base setup
 
@@ -36,16 +36,16 @@ In order to replace in every file the 'NetCoreBootstrap' name with your project 
 1. Set access permissions to init script.
 Just run:
 ```bash
-    chmod +x ./Scripts/script.sh
+    chmod +x ./NetCoreBootstrap/Scripts/script.sh
 ```
 2. Change the AppName. Remember, `AppName` must be your project name.
 If you don't need the authentication module, run: 
 ```bash
-    ./Scripts/script.sh AppName delete-auth
+    ./NetCoreBootstrap/Scripts/script.sh AppName delete-auth
 ```
 Else just run:
 ```bash
-    ./Scripts/script.sh AppName
+    ./NetCoreBootstrap/Scripts/script.sh AppName
 ```
 
 Now you are ready to make the Initial Commit code by running:
