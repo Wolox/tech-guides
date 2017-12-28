@@ -12,7 +12,7 @@ perform the desired action on the bucket. The following code generates a URL tha
 bucket for 300 seconds:
 ```
 s3_image_obj = Aws::S3::Resource.new(region: AWS_BUCKET_REGION).bucket(IMAGE_UPLOAD_BUCKET).object('my_image.png')
-s3_image_obj.presigned_url(:get, acl: 'public-read', expires_in: 300)
+s3_image_obj.presigned_url(:put, acl: 'private', expires_in: 300)
 ```
 The resulting URL looks like this:
 
