@@ -9,6 +9,10 @@
 
 - [S3 Frontend Web Hosting](./docs/s3-web-hosting.md)
 
+## CloudFront
+
+- [Configuring CloudFront for Elastic Beanstalk instances](./docs/cloudfront-eb-configuration.md)
+
 ## Useful Documents
 
 - [Instances Roles Configuration](./docs/instances-roles.md)
