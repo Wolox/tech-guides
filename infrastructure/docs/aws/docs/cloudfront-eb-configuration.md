@@ -1,6 +1,6 @@
 # Configuring CloudFront for Elastic Beanstalk instances
 
-This guide provides a basic configuration for CloudFront when using it along Elastic Beanstalk instances including common mistakes that cause the distribution's malfunction.
+This guide provides a basic configuration for CloudFront when using it along Elastic Beanstalk instances.
 
 ## Steps
 1. Inside the `CloudFront` service in the AWS console, select `Create Distribution` then choose `Web Distribution`.
