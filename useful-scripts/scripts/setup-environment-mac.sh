@@ -4,8 +4,8 @@
  # Script to setup the development environment that we use in Wolox for Mac.      #
  #                                                                                #
  # Usage:                                                                         #
- #   $ chmod +x setup-environment_mac.sh                                          #
- #   $ ./setup_environment_mac.sh                                                 #
+ #   $ chmod +x setup-environment-mac.sh                                          #
+ #   $ ./setup_environment-mac.sh                                                 #
  ##################################################################################
 
  USAGE="
