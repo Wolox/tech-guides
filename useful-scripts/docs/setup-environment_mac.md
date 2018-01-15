@@ -10,5 +10,5 @@ And execute it:
 
 ```bash
 chmod +x setup-environment_mac.sh
-./setup-environment.sh
+./setup-environment_mac.sh
 ```
