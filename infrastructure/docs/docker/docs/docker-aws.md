@@ -1,8 +1,6 @@
 #### Deploy to AWS (Building Docker image on AWS)
 
-AWS has the possibility of directly building a Docker image, allowing us to just push our code (with a valid Dockerfile). 
-
-Before you start, make sure you have a [valid Dockerfile](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_docker_image.html#create_deploy_docker_image_dockerfile) (or just use the one provided in this bootstrap).
+AWS has the possibility of directly building a Docker image, allowing us to just push our code (with a [valid Dockerfile](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_docker_image.html#create_deploy_docker_image_dockerfile)). 
 
 1. Download the [Elastic Beanstalk Client](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3-install.html)
     ```bash
