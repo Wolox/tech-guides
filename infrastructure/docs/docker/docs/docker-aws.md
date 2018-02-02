@@ -1,18 +1,4 @@
-## Docker guide
-
-First you need to install Docker (https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/#install-docker-ce-1)
-When you have installed Docker you need to create a Dockerfile, its content will depend on the technology, for example, in .NET Core we use [this definition](https://github.com/Wolox/netcore-bootstrap/blob/master/NetCoreBootstrap/Dockerfile) and in RoR we use [this definition](https://github.com/Wolox/rails-bootstrap/blob/master/Dockerfile)
-
-When you have a Dockerfile you just need to run the following comand to create the docker container
-```bash
-    docker build -t nectore-bootstrap .
-```
-
-With your docker container you can:
-
-#### Deploy to AWS
-
-##### Build Docker image on AWS
+#### Deploy to AWS (Building Docker image on AWS)
 
 AWS has the possibility of directly building a Docker image, allowing us to just push our code (with a valid Dockerfile). 
 
@@ -65,25 +51,4 @@ Before you start, make sure you have a [valid Dockerfile](https://docs.aws.amazo
     And deploy using:
     ```bash
         eb deploy environment_name
-    ```
-
-#### Deploy to Heroku
-1. Install Heroku CLI https://devcenter.heroku.com/articles/heroku-cli
-
-2. Log in to heroku with the folloing command:
-    ```bash
-        heroku login
-        heroku container:login
-    ```    
-3. Create the heroku app with:
-    ```bash
-        heroku apps:create net-core-deploy-heroku
-    ```
-4. Tag the heroku target image
-    ```bash
-        docker tag <image-name> registry.heroku.com/<heroku-app-name>/web
-    ```
-5. Push the docker image to heroku
-    ```bash
-        docker push registry.heroku.com/<heroku-app-name>/web
     ```
