@@ -40,6 +40,16 @@
 - Write `index.html` in *Index document* and *Error document*
 - You can now access the web page by clicking in the URL that appears at the top in *Endpoint*
 
+## Extra: Cloudfront Error Behaviour
+If you are using Cloudfront (the AWS CDN), you must configure the error reponse by going to: 
+- Error Pages tab inside your cloudfront distribution
+- Create Custom Error Response
+- HTTP error code `404: Not Found`
+- Error Catching Minimum TTL: 300
+- Customize Error response: Yes
+- Response page path: `/index.html`
+- HTTP Response code: `200: OK`
+
 ## Extra: Deployment Permissions
 
 To see how to configure a frontend group to enable deploys to a specific group of users, see our [Frontend Group Deployment Permissions Configuration](./frontend-group.md).
