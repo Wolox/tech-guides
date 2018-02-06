@@ -2,10 +2,7 @@
 
 AWS has the possibility of directly building a Docker image, allowing us to just push our code (with a [valid Dockerfile](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_docker_image.html#create_deploy_docker_image_dockerfile)). 
 
-1. Download the [Elastic Beanstalk Client](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3-install.html)
-    ```bash
-        sudo pip install awswebcli
-    ```
+1. Download the Elastic Beanstalk Client. To do this you can follow the [aws installing tools guide](https://github.com/Wolox/tech-guides/blob/master/infrastructure/docs/aws/docs/aws-eb-deploy.md#installing-the-tools)
 
 2. Configure your access credentials, creating a file in your root folder `~/.aws/credentials`. Make sure it has the following format:
     ```bash
