@@ -1,32 +1,30 @@
 # CSS Style guide
 
 ## Purpose
-The aim of this document is to show good practices and conventions while using CSS in Wolox S.A.. This document will be used in trainings and as a reference in Code Reviewing.
+The aim of this document is to show good practices and conventions while using CSS in Wolox S.A.. This document will be used in trainings as well as a reference for Code Reviewing.
 This document must be reviewed and regularly updated.
 
 ## CSS Conventions
 
-### Naming:
+### Naming
 - When naming a class, use names as short as possible, but large enough to be representative:
 
   For example: we consider that `.navigation` is too large, and we preffer to use `.nav` instead. On the other hand we think `.author` is more representative than naming your class `.atr`.
 
-- If a class name has more than one word, they should be separated by hyphens (hyphen-case a.k.a. kebab-case or spinal-case).
-
-  use `.demo-image` instead of `.demo_image`, `.demoImage` or `.demoimage`
+- If a class name has more than one word, they should be separated by hyphens (hyphen-case a.k.a. kebab-case or spinal-case). Use `.demo-image` instead of `.demo_image`, `.demoImage` or `.demoimage`
 
 ### ID usage
 
-Using ids in CSS (i.e.: `#navigation`) is not recommended since it makes selectors too specific. We always try to define the selectors as simple as possible so they can be easily overridden in the future.
+Using IDs in CSS (i.e.: `#navigation`) is not recommended since it makes selectors too specific. We always try to define the selectors as simple as possible so they can be easily overridden in the future.
 
-  There are particular cases where defining ids in the HTML is ok (i.e.: You want to target an element from JS). It's also acceptable to use them to override a library that styles it's components with ids.
+There are particular cases where defining IDs in the HTML is ok (i.e.: You want to target an element from JS). It's also acceptable to use them to override a library that styles it's components with IDs.
 
-### CSS and HTML tags:
+### CSS and HTML tags
 Avoid using HTML tags inside your CSS files:
 - Instead of `p.error{ }` , use `.error{ }`
 - Instead of `p {}`, add to your html a representative class name and target that class instead.
 
-### Shorthands:
+### Shorthands
 Shorthands are used for margin, padding, border, etc. and their meaning depends on the amount of values listed. It's always preferred to use shorthands instead of multiple properties.
 
 - If a shorthand has 4 values
@@ -76,7 +74,7 @@ margin-bottom: 25px;
 margin-left: 25px;
 ```
 
-### Units:
+### Units
 Avoid adding unit suffix when the value is `0`.
 
 use:
@@ -89,7 +87,7 @@ Instead of:
 margin: 0px;
 ```
 
-### Fonts:
+### Fonts
 We try to always use fonts obtained from Google Fonts (designers are aware of this) and add a browser default font in case the other font doesn't load.
 
 ```scss
@@ -100,7 +98,7 @@ We try to always use fonts obtained from Google Fonts (designers are aware of th
 
 If the browser can't load the first font, it will use the next one and so on.
 
-### Colors:
+### Colors
 - every time a new color is going to be used, a variable of that color should be created in the `colors.scss` file and used instead.
 
 ```scss
@@ -147,7 +145,7 @@ $beauty-bush: #ebc;
 $beauty-bush: #EBC;
 ```
 
-### Properties order:
+### Properties order
 Properties must be alphabetically ordered, this makes it easier to find a property.
 
 ```scss
@@ -162,7 +160,7 @@ border: 1px solid $black;
 text-align: center;
 ```
 
-### Indentation:
+### Indentation
 - Indentation should be of 2 spaces each.
 ```scss
 // WRONG
