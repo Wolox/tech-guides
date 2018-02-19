@@ -32,6 +32,7 @@ Create a Dockerrun.aws.json file in the root directory of your application.
     }
 ```
 
+The ContainerPort might vary depending on the service you're starting in the container. For example, for rails apps it should be 3000.
 #### Configuring more than one container in the instance
 
 For some applications it might be necessary to deploy more than one container to the instance. For example:
@@ -39,7 +40,9 @@ For some applications it might be necessary to deploy more than one container to
     * Ruby on Rails app that needs to run the server, sidekiq and redis
     * NodeJS app that needs redis or any other service
 
-In such cases, AWS provides the possibility to deploy more than one container to the same instance. If using this option, AWS will no build the docker images for us. To get this working, you'll need to follow these steps:
+In such cases, AWS provides the possibility to deploy more than one container to the same instance. If using this option, AWS will no build the docker images for us. 
+-Before getting started with this, you must go through the `Install AWS EB CLI` section at the top of this document.-
+To get this working, you'll need to follow these steps:
 
     1. Visit [AWS ECS](https://console.aws.amazon.com/ecs/home) and create a new repository for the app image.
     2. Obtain the ElasticBeanstalk instance role in `ElasticBeanstalk` -> `Configuration` -> `Security` -> `Service Role`
@@ -52,6 +55,8 @@ In such cases, AWS provides the possibility to deploy more than one container to
     docker tag my-app:latest <aws_ecs_repository>/my-app:latest
     docker push <aws_ecs_repository>/my-app:latest
 ```
+
+This needs to be done each time code is updated.
 
     5. Create a Dockerrun.aws.json in the root directory of your application:
 
