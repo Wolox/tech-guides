@@ -50,7 +50,7 @@ function command_exists () {
 function shell_configuration_file () {
   case $SHELL in
     /bin/zsh )
-      echo ~/.zshrc_profile;;
+      echo ~/.zshrc;;
     /bin/bash )
       echo ~/.bash_profile;;
     * )
