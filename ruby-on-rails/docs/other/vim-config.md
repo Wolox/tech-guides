@@ -5,10 +5,12 @@
 If you want to use [VIM](https://www.vim.org/) to edit files is very easy to install:
 
 ```bash
-sudo apt-get install vim
+sudo apt-get install vim-gtk
 ```
 
-After that you can start edit a file with the following command:
+Adding `-gtk` allow to use copy paste with `"+y` and `"+p` for ubuntu, otherwise is complecate to realize copy-paste from or to VIM.
+
+After that you can start editing a file with the following command:
 
 
 ```bash
@@ -25,7 +27,7 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ```
 
 
-Below an example of configuration file:
+Below is an example of configuration file:
 
 ```vim
 set nocompatible      " Necessary
