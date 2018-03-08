@@ -8,7 +8,7 @@ If you want to use [VIM](https://www.vim.org/) to edit files is very easy to ins
 sudo apt-get install vim-gtk
 ```
 
-Adding `-gtk` allow to use copy paste with `"+y` and `"+p` for ubuntu, otherwise is complecate to realize copy-paste from or to VIM.
+Adding `-gtk` allow to use copy paste with `"+y` and `"+p` for ubuntu, otherwise is complecated to realize copy-paste from or to VIM.
 
 After that you can start editing a file with the following command:
 
@@ -19,7 +19,7 @@ vim path_to_file
 
 ## How use .vimrc for configuration
 
-VIM is fully configurable, for that you can edit `~/.vimrc` and use [Vundle](https://github.com/VundleVim/Vundle.vim) to manage plugin.
+VIM is fully configurable, for that you can edit `~/.vimrc` and use [Vundle](https://github.com/VundleVim/Vundle.vim) to manage your plugins.
 To install Vundle one line is required:
 
 ```bash
@@ -142,7 +142,7 @@ noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
 ```
 
-Now you need to install the plugin by running:
+Now you need to install plugins by running:
 
 ```bash
 vim +PluginInstall +qall
@@ -150,14 +150,14 @@ vim +PluginInstall +qall
 
 ## Links to personalize your VIM
 
-In the part above, is an example of configuration and you should modify it to your preferences. Here some links to find other plugins:
+The part above, is an example of configuration and you should modify it to your preferences. Here are some links to find other plugins:
 
 - [VimAwesome](https://vimawesome.com/);
 - [A blog which present a personal config](https://janjiss.com/walkthrough-of-my-vimrc-file-for-ruby-development/);
 
 ## How learn VIM
 
-Here come the harder part. Learning vim could be painful, but when you handle it is so rewarding and some time you could feel superheros power.
+Here comes the harder part. Learning vim could be painful, but when you handle it is so rewarding and some time you could feel superheros power.
 Some links to learn it:
 
 ### Learn while playing
