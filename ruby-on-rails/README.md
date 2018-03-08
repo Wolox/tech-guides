@@ -70,3 +70,4 @@ At [Wolox](https://wolox.co), we have developed the [RoR kickoff guide](./docs/k
 - [Adding a Real-Time Module to your Rails API](https://medium.com/wolox-driving-innovation/adding-a-realtime-module-to-your-rails-api-18bb562e6441)
 - [ActiveRecord + PostgreSQL Materialized Views](https://medium.com/wolox-driving-innovation/activerecord-postgresql-materialized-views-9a9ef56b5a8d)
 - [Includes vs join vs eager_load](http://blog.scoutapp.com/articles/2017/01/24/activerecord-includes-vs-joins-vs-preload-vs-eager_load-when-and-where)
+- [Verify application subscriptions with Ruby on Rails API](https://medium.com/wolox-driving-innovation/7b208f9cfa3e)
