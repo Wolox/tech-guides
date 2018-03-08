@@ -8,7 +8,7 @@ If you want to use [VIM](https://www.vim.org/) to edit files is very easy to ins
 sudo apt-get install vim-gtk
 ```
 
-Adding `-gtk` allow to use copy paste with `"+y` and `"+p` for ubuntu, otherwise is complecated to realize copy-paste from or to VIM.
+Adding `-gtk` allow to use copy paste with `"+y` and `"+p` for ubuntu, otherwise is complicated to realize copy-paste from or to VIM.
 
 After that you can start editing a file with the following command:
 
