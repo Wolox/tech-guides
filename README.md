@@ -19,7 +19,7 @@ Under every technology folder mentioned [below](#technologies-index), you will f
 
 - [Front-End](./frontend/README.md)
 
-- [React Native](./react-native/README.md)
+- [React & React Native](./react/README.md)
 
 - [Android](./android/README.md)
 
