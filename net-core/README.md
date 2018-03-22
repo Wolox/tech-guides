@@ -21,3 +21,4 @@ At [Wolox](http://wolox.com.ar), we have developed the [NET Core kickoff guide](
 - [Persisting data in .NET Core](https://medium.com/wolox-driving-innovation/da97811ddc5c)
 - [Globalization in ASP.NET Core](https://medium.com/wolox-driving-innovation/globalization-in-asp-net-core-3c70379d1e7f)
 - [Applying SCSS for styles](https://medium.com/wolox-driving-innovation/3f31b412188f)
+- [Deploying with Docker on Heroku and AWS]()
