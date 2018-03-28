@@ -8,6 +8,7 @@ At [Wolox](http://wolox.com.ar), we have developed the [React Native Bootstrap](
 
 - [React Native Bootstrap](https://github.com/Wolox/wolmo-bootstrap-react-native)
 - [React Native Renavigate](https://github.com/Wolox/react-native-renavigate)
+- [React Native Redux Toast](https://github.com/Wolox/react-native-redux-toast)
 
 ## Useful Documentation
 
