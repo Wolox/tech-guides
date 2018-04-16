@@ -38,12 +38,17 @@ At [Wolox](https://wolox.co), we have developed the [RoR kickoff guide](./docs/k
 - [PostgreSQL UUID Guide](./docs/scripts/postgresql-uuid-guide.md)
 - [Mysql UUID Guide](./docs/scripts/mysql-uuid-guide.md)
 
+### Gem tutorials
+
+- [Spree](./docs/gem-tutorials/spree.md)
+
 ### Other
 
 - [Atom Plugins](./docs/other/atom-plugins.md)
 - [Useful Gems](./docs/other/useful-gems.md)
 - [Engines](./docs/other/engines.md)
 - [Some highlights](./docs/other/highlights.md)
+- [Configuration for VIM](./docs/other/vim-config.md)
 
 ## Posts
 
