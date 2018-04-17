@@ -45,10 +45,9 @@ To manage social auth like Facebook, go [here](https://github.com/spree-contrib/
 - [Adding a custom model in spree database](https://nnodes.com/blog/2016/custom-model-with-spree)
 - [Create an extension for spree](https://nebulab.it/blog/developing-spree-extension-with-tdd/)
 
-##### Website developed with spree:
+##### Developers in Wolox with Spree experience
 
-- [Enjoy-vue (stage)](https://enjoy-vue-stage.herokuapp.com/)
-- Enjoy-vue GitLab, see Gregoire Marnotte [Gmarn](https://github.com/Gmarn)
+- Gregoire Marnotte [Gmarn](https://github.com/Gmarn)
 
 
 
