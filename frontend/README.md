@@ -17,6 +17,7 @@
 ### General
 
 - [Frontend Guidelines](./docs/style-guide.md#guidelines)
+- [SEO Guidelines](./docs/seo-guide.md)
 - [Text Editors](./docs/style-guide.md#text-editors)
 - [Browser Extensions](./docs/style-guide.md#browser-extensions)
 - [External Resources](./docs/style-guide.md#external-resources)
