@@ -8,54 +8,71 @@ The aim of this document is to show good practices and conventions to improve yo
 ## Table of Contents
 
 1. [Glossary](#1-glossary)
-   1. [Search engine optimization](#1.1-search-engine-optimization)
+   1. [SEM](#1.1-SEM)
+      - [SEO](#SEO)
+      - [PPC](#PPC)
    2. [Index](#1.2-index)
    3. [Crawl](#1.3-crawl)
    4. [Crawler](#1.4-crawler)
-   5. [Googlebot](#1.5-googlebot)
 2. [On-Page](#2-on-page)
    1. [General](#2.1-general)
-      1. [Google Analytics](#google-analytics)
-      2. [HTTPS](#https)
-      3. [Flash](#flash)
-      4. [iFrames](#iframes)
-      5. [Page Speed](#page-speed)
+      - [Google Analytics](#google-analytics)
+      - [HTTPS](#https)
+      - [Flash](#flash)
+      - [iFrames](#iframes)
+      - [Page Speed](#page-speed)
    2. [Content](#2.2-content)
-      1. [General](#general)
-      2. [Title](#title)
-      3. [Images](#images)
+      - [General](#general)
+      - [Title](#title)
+      - [Images](#images)
    3. [Meta-tags](#2.3-meta-tags)
-      1. [Meta content type](#meta-content-type)
-      2. [Meta descriptions](#meta-descriptions)
-      3. [Viewport](#viewport)
-      4. [Language](#language)
-      5. [Keywords](#keywords)
+      - [Meta content type](#meta-content-type)
+      - [Meta descriptions](#meta-descriptions)
+      - [Viewport](#viewport)
+      - [Language](#language)
+      - [Keywords](#keywords)
    4. [Structure](#2.4-structure)
-      1. [Headings](#headings)
-      2. [Write valid code](#write-valid-code)
-      3. [Pagination](#pagination)
+      - [Headings](#headings)
+      - [Write valid code](#write-valid-code)
+      - [Pagination](#pagination)
    5. [Accesability](#2.5-accesability)
-      1. [Status code errors](#status-code-errors)
-      2. [Sitemap](#sitemap)
-      3. [Canonical Tag](#canonical-tag)
-      4. [URLs](#urls)
-      5. [Redirections](#redirections)
-      6. [Robots Exclusion Protocol](#robots-exclusion-protocol-(rep))
+      - [Status code errors](#status-code-errors)
+      - [Sitemap](#sitemap)
+      - [Canonical Tag](#canonical-tag)
+      - [URLs](#urls)
+      - [Redirections](#redirections)
+      - [Robots Exclusion Protocol](#robots-exclusion-protocol-(rep))
    6. [Social networks](#2.6-social-networks)
-      1. [Social sharing buttons](#social-sharing-buttons)
-      2. [The Open Graph](#the-open-graph)
-      3. [Twitter Cards](#twitter-cards)
+      - [Social sharing buttons](#social-sharing-buttons)
+      - [The Open Graph](#the-open-graph)
+      - [Twitter Cards](#twitter-cards)
       
 ## 1. Glossary
-Here's a short glossary of important terms:
 
-### 1.1 Search engine optimization
+### 1.1 SEM
 
-Process of making your site better for search engines. To know more please read [Google 101: How Google crawls, indexes and serves the web](https://support.google.com/webmasters/answer/70897)
+**Search Engine Marketing (SEM)** is a form of Internet marketing that involved the promotion of websites by increasing their visibility in search engine results pages (SERPS) through optimization and advertising.
+
+#### SEO
+
+**Search Engine Optimization (SEM)** is a technical process through which differents changes in your websitie structure and content are implemented in order to improve its visibility en organic results from search engines.
+
+To know more please read [Google 101: How Google crawls, indexes and serves the web](https://support.google.com/webmasters/answer/70897)
+
+#### PPC
+
+When it comes to boosting traffic to your website, you have two basic options: **Pay Per Click (PPC)** advertising or SEO.
+
+You can pay for traffic using the PPC advertising programs provided by Google Adwords, Yahoo Search Marketing and others. **This guidelines do not contemplate this techniques**.
+
 
 ### 1.2 Index
-Google stores all web pages that it knows about in its index. The index entry for each page describes the content and location (URL) of that page. To index is when Google fetches a page, reads it, and adds it to the index: Google indexed several pages on my site today.
-[Read more...](https://support.google.com/webmasters/answer/7643011)
+
+Google stores all web pages that it knows about in its index. The index entry for each page describes the content and location (URL) of that page. 
+
+A page is indexed by Google if it has been visited by the Google crawler, analyzed for content and meaning, and stored in the Google index. It is important to know that Google does not index all pages but only which ones that seems to be relevent to it. To learn more visit [this site](https://www.google.com/search/howsearchworks/).
+
+To see indexed pages in your site, use the `site:` operator, like this: `site:google.com`. [Read more...](https://support.google.com/webmasters/answer/35256?hl=en)
 
 ### 1.3 Crawl
 
@@ -66,8 +83,7 @@ The process of looking for new or updated web pages. Google discovers URLs by fo
 
 Automated software that crawls (fetches) pages from the web and indexes them.
 
-### 1.5 Googlebot
-The generic name of Google's crawler. Googlebot crawls the web constantly.
+Googlebot is the generic name of Google's crawler. Googlebot crawls the web constantly.
 
 ## 2. On-Page
 
