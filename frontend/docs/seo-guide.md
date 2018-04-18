@@ -111,10 +111,10 @@ Page speed is a measurement of how fast the content on your page load. You can e
 
 You can find some of the many ways to increase your page speed: 
 
-- Use **Gzip**, a software application for file compression, to reduce the size of your CSS, HTML, and JavaScript files.
-- **Minify CSS, JavaScript, and HTML**.
-- Remove **render-blocking JavaScript**.
-- Leverage **browser caching**.
+- Use **Gzip**, a software application for file compression, to reduce the size of your CSS, HTML, and JavaScript files. [Read more...](https://developers.google.com/speed/docs/insights/EnableCompression)
+- **Minify CSS, JavaScript, and HTML**. [Read more...](https://developers.google.com/speed/docs/insights/MinifyResources)
+- Remove **render-blocking JavaScript**. [Read more...](https://developers.google.com/speed/docs/insights/BlockingJS)
+- Leverage **browser caching**. [Read more...](https://developers.google.com/speed/docs/insights/LeverageBrowserCaching)
 
 _Why:_
 > Page speed is a measurement of how fast the content on your page loads. [Read more...](https://moz.com/learn/seo/page-speed)
@@ -126,7 +126,7 @@ _Why:_
 Content is the most important thing in SEO. Keep in mind:
 
 - New content is important! **Keep your page active** and Google will reward it.
-- Content does **not have orthographic or serious grammatical errors**.
+- Content should does **not have orthographic or serious grammatical errors**.
 - All your pages should have **at least 300 words**. If your web has less content, is it really necessary?
 - **Text/HTML ratio** is not a direct ranking factor for search engines but there are many factors related to the ratio that indicate best SEO practices and thus may indirectly result in higher search rankings. A good text to HTML ratio is about from 25 to 70 percent.
 
@@ -142,6 +142,12 @@ This element especifies **the title of a webpage**. Title tags are displayed on 
 
 - Here you can find an (snippet optimizer)[http://www.seomofo.com/snippet-optimizer.html] that allows you to see how your titles look on Google and other search results.
 
+Example:
+
+```html
+<title>Title of the document</title>
+```
+
 _Why:_
 > Title tags are a major factor in helping search engines understand what your page is about, and they are the first impression many people have of your page. [Read more...](https://moz.com/learn/seo/title-tag)
 
@@ -153,11 +159,23 @@ Almost every content has to have any image in it. But, how this affect SEO? Well
   _Why:_
   > Your pages load time will vary based on the number and size of your images.
 
-- All images must have an `alt` and `title` attributes implemented that describes its content.
+- All images must have an `alt` attribute implemented that describes its content.
+  The alt text describes what’s on the image and the function of the image on the page.
+  For example:
+  ```html
+  <img src="image.jpg" alt="image description"> 
+
+  ```
   _Why:_
   > ALT text attaches a description to your pictures so that they show up in Google and other search engine's image results. [Read more...](https://yoast.com/image-seo-alt-tag-and-title-tag-optimization/)
 
 - You have an **Favicon**. This is the icon thet you can see next to the title in the tab of your browser.
+- SVG is the best choice if the image is not a picture, an icon for example.
+
+Here you can find some image optimazers to help you:
+
+- [TinyPNG](https://tinypng.com/).
+- [SVGOMG](https://jakearchibald.github.io/svgomg/).
 
 ### 2.3 Meta-tags
 
@@ -179,7 +197,7 @@ _Why:_
 
 It explains to search engines and searchers themselves what your page is about. Describes the page to searchers as they read through the SERPs.
 
-- Should be 160-300 characters long. Keep in mind that the "optimal" length will vary depending on the situation, and your primary goal should be to provide value and drive clicks.
+- Should be 160 - 300 characters long. Keep in mind that the "optimal" length will vary depending on the situation, and your primary goal should be to provide value and drive clicks.
 - Is concise and contain your best keywords.
 - Each page should have its own meta description.
 - Don't include double quotation marks
