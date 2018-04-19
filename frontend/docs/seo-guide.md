@@ -3,7 +3,7 @@
 ## Purpose
 
 **Search engine optimization** (SEO) is the practice of increasing the quantity and quality of traffic to your website through organic search engine results.
-The aim of this document is to show good practices and conventions to improve your webpages' SEO.
+The aim of this document is to show good practices and conventions to improve your webpage's SEO.
 
 ## Table of Contents
 
@@ -51,17 +51,17 @@ The aim of this document is to show good practices and conventions to improve yo
 
 ### 1.1 SEM
 
-**Search Engine Marketing (SEM)** is a form of Internet marketing that involved the promotion of websites by increasing their visibility in search engine results pages (SERPS) through optimization and advertising.
+**Search Engine Marketing (SEM)** is a form of Internet marketing that involves the promotion of websites by increasing their visibility in search engine results pages (SERPS) through optimization and advertising.
 
 #### SEO
 
-**Search Engine Optimization (SEM)** is a technical process through which differents changes in your websitie structure and content are implemented in order to improve its visibility en organic results from search engines.
+**Search Engine Optimization (SEO)** is a technical process through which differents changes in your websitie structure and content are implemented in order to improve its visibility in organic results from search engines.
 
-To know more please read [Google 101: How Google crawls, indexes and serves the web](https://support.google.com/webmasters/answer/70897)
+To learn more please read [Google 101: How Google crawls, indexes and serves the web](https://support.google.com/webmasters/answer/70897)
 
 #### PPC
 
-When it comes to boosting traffic to your website, you have two basic options: **Pay Per Click (PPC)** advertising or SEO.
+When it comes to boosting traffic in your website, you have two basic options: **Pay Per Click (PPC)** advertising or SEO.
 
 You can pay for traffic using the PPC advertising programs provided by Google Adwords, Yahoo Search Marketing and others. **This guidelines do not contemplate this techniques**.
 
@@ -70,7 +70,7 @@ You can pay for traffic using the PPC advertising programs provided by Google Ad
 
 Google stores all web pages that it knows about in its index. The index entry for each page describes the content and location (URL) of that page. 
 
-A page is indexed by Google if it has been visited by the Google crawler, analyzed for content and meaning, and stored in the Google index. It is important to know that Google does not index all pages but only which ones that seems to be relevent to it. To learn more visit [this site](https://www.google.com/search/howsearchworks/).
+A page is indexed by Google if it has been visited by the Google crawler, analyzed for content and meaning, and stored in the Google index. It is important to know that Google does not index all pages but only the ones that seem relevent to it. To learn more visit [this site](https://www.google.com/search/howsearchworks/).
 
 To see indexed pages in your site, use the `site:` operator, like this: `site:google.com`. [Read more...](https://support.google.com/webmasters/answer/35256?hl=en)
 
@@ -101,9 +101,9 @@ _Why:_
 
 #### HTTPS
 
-Google has taken a strict stance to ensure that they protect the privacy of their consumers, in order to that [the search engine announced HTTPS as a ranking signal](https://security.googleblog.com/2014/08/https-as-ranking-signal_6.html).
+Google has taken a strict stance to ensure that they protect the privacy of their consumers, to achieve this [the search engine announced HTTPS as a ranking signal](https://security.googleblog.com/2014/08/https-as-ranking-signal_6.html).
 
-In order to thar Google recommends to Developers and webmasters: 
+Other recommendations that Google gives to developers and webmasters are:
 
 - Use 2048-bit key certificates.
 - Use relative URLs for resources that reside on the same secure domain.
@@ -115,6 +115,7 @@ _Why:_
 #### Flash
 
 Avoid **Flash** content or pages. They are not accessible on mobile phones and will be ranked lower.
+
 #### iFrames
 
 Ensure there are **no content in iFrames**. Frames can cause problems for search engines because they don't correspond to the conceptual model of the web. 
@@ -123,9 +124,9 @@ Ensure there are **no content in iFrames**. Frames can cause problems for search
 
 #### Page Speed
 
-Page speed is a measurement of how fast the content on your page load. You can evaluate your page speed with [Google's PageSpeed Insights.](https://developers.google.com/speed/pagespeed/insights/) Google has indicated page speed **is one of the signals used by its algorithm to rank pages**.
+Page speed is a measurement of how fast the content on your page loads. You can evaluate your page's speed with [Google's PageSpeed Insights.](https://developers.google.com/speed/pagespeed/insights/) Google has indicated page speed **is one of the signals used by its algorithm to rank pages**.
 
-You can find some of the many ways to increase your page speed: 
+Some of the many ways to increase your page speed are:
 
 - Use **Gzip**, a software application for file compression, to reduce the size of your CSS, HTML, and JavaScript files. [Read more...](https://developers.google.com/speed/docs/insights/EnableCompression)
 - **Minify CSS, JavaScript, and HTML**. [Read more...](https://developers.google.com/speed/docs/insights/MinifyResources)
@@ -142,17 +143,17 @@ _Why:_
 Content is the most important thing in SEO. Keep in mind:
 
 - New content is important! **Keep your page active** and Google will reward it.
-- Content should does **not have orthographic or serious grammatical errors**.
+- Content should **not have orthographic or serious grammatical errors**.
 - All your pages should have **at least 300 words**. If your web has less content, is it really necessary?
 - **Text/HTML ratio** is not a direct ranking factor for search engines but there are many factors related to the ratio that indicate best SEO practices and thus may indirectly result in higher search rankings. A good text to HTML ratio is about from 25 to 70 percent.
 
 #### Title
 
-This element especifies **the title of a webpage**. Title tags are displayed on search engine results pages (SERPs) as the clickable headline for a given result, and are important for usability, SEO, and social sharing.
+This element especifies **the title of a webpage**. Title tags are displayed on search engine result pages (SERPs) as the clickable headline for a given result, and are important for usability, SEO, and social sharing.
 
 - Is about **50-60 characters long**, including spaces.
 
-- Is concise and **contain your best keywords**.
+- Is concise and **contains your best keywords**.
 
 - Each page should have its own **exclusive title**.
 
@@ -169,11 +170,11 @@ _Why:_
 
 #### Images
 
-Almost every content has to have any image in it. But, how this affect SEO? Well, without the proper optimization, however, you’re wasting a valuable SEO asset. Plus, the larger the file size, the longer it takes your page to load, and the higher your bounce rate will be.
+Almost every content has to have an image in it. But, how this affect SEO? Well, without the proper optimization, however, you’re wasting a valuable SEO asset. Plus, the larger the file size, the longer it takes your page to load, and the higher your bounce rate will be.
 
-- Be sure that your images are no larger than they need to be, that they are in the right file format.
+- Be sure that your images are no larger than they need to be and that they are in the right file format.
   _Why:_
-  > Your pages load time will vary based on the number and size of your images.
+  > Your page's load time will vary based on the number and size of your images.
 
 - All images must have an `alt` attribute implemented that describes its content.
   The alt text describes what’s on the image and the function of the image on the page.
@@ -185,17 +186,17 @@ Almost every content has to have any image in it. But, how this affect SEO? Well
   _Why:_
   > ALT text attaches a description to your pictures so that they show up in Google and other search engine's image results. [Read more...](https://yoast.com/image-seo-alt-tag-and-title-tag-optimization/)
 
-- You have an **Favicon**. This is the icon thet you can see next to the title in the tab of your browser.
+- You have a **Favicon**. This is the icon that you can see next to the title in your browser's tab.
 - SVG is the best choice if the image is not a picture, an icon for example.
 
-Here you can find some image optimazers to help you:
+Here you can find some image optimizers that will help you:
 
 - [TinyPNG](https://tinypng.com/).
 - [SVGOMG](https://jakearchibald.github.io/svgomg/).
 
 ### 2.3 Meta-tags
 
-Meta-tags describe a page's content; they not appear on the page itself, but only in the page's code. 
+Meta-tags describe a page's content; they don't appear on the page itself, but only in the page's code. 
 
 #### Meta content type
 
@@ -236,7 +237,7 @@ _Why:_
 #### Keywords
 **These days Google doesn’t use meta keywords in its ranking algorithm at all**, because they're too easy to abuse. Years ago, marketers eager for page views would insert keywords totally unrelated to their pages into their code in an attempt to pirate traffic from the more popular pages. This was known as "keyword stuffing." Google eventually got wise to this and decided in the end to devalue the tool.
 
-So, how to implement keywords tags in your page? Simple, don't do it.
+So, how to implement keyword tags in your page? Simple, don't do it.
 
 ### 2.4 Structure
 
@@ -248,13 +249,13 @@ The six heading elements, H1 through H6, denote section headings, with **H1 as t
 
 Although the order and occurrence of headings is not constrained by the HTML DTD, documents should not skip levels (for example, from H1 to H3), as converting such documents to other representations is often problematic.
 
-You have to keep in mind that headers implementation is one of the more highlighted elements in SEO.
+You have to keep in mind that headings implementation is one of the more highlighted elements in SEO.
 
 Try to follow these rules:
 
 - Your website should have only one H1 tag per page or one H1 per `<section>`. Your H1 tag should help your reader understand what the page is about.
 - Your H1 tag should contain your most important keywords for that page. These should also match the page title keywords and META keywords.
-- There are not pages without H1.
+- There are no pages without an H1.
 
 #### Write valid code
 
@@ -263,7 +264,7 @@ Ensure your code has valid markup. You can use the following tools for that:
 - [HTML Validator](https://validator.w3.org/).
 - [CSS Validator](https://jigsaw.w3.org/css-validator/).
 
-Keep it in mind, W3C validation is not the “SEO magic bullet” to top rankings.
+Keep in mind, W3C validation is not the "SEO magic bullet" to achieve high positions. A good HTML syntax does not ensure you a good place in Google SERPs, but a bad syntax move us away them.
 
 #### Pagination
 
@@ -294,7 +295,7 @@ Sitemaps are machine readable URL submission lists in various formats, e.g., XML
 Sitemaps are part of Robots Exclusion Protocol (REP), which we will cover in some lines.
 
 - If you’ve got a big site, use dynamic sitemaps. You can use plugins for this, for example: [DynamicSitemaps (RoR)](https://github.com/lassebunk/dynamic_sitemaps).
-- Not include pages in your sitemap that are blocked by robots.txt or have set meta robots `'noindex,follow'`.
+- Don't include pages in your sitemap that are blocked by robots.txt or have set meta robots `'noindex,follow'`.
 
  [Read more...](https://moz.com/blog/xml-sitemaps)
 
@@ -307,7 +308,7 @@ You should use www or not in your web site’s canonical hostname? For SEO **it 
 
 - https://my-page.com
 
-What do tou have to do the set the canonical URL?
+What do you have to do to set the canonical URL?
 
 1. First, you pick one of your two pages as the canonical version. It should be the version you think is the most important one.
 2.  Add a `rel=canonical` link from the non-canonical page to the canonical one in the `<head>` section.
@@ -324,15 +325,15 @@ _Why:_
 
 Search engines and visitors can interact with your website more effectively when you implement URLs that describe your pages content.
 
-  - URLs should not be grater than 100 charaters.
-  - Avoid use more than 3 levels in your URLs. What I mean with level? https://yourdomain.com/level1/level2/level3.
-  - URLs must be user-friendly. An URL have to describe page content and include keyword in it. For example:
-    - BAD: https://yourdomain.com/123123123123lkjlkjlkjlkj.
-    - GOOD: https://yourdomain.com/how-to-implement-good-seo-strategy.
+- URLs should not be grater than 100 charaters.
+- Avoid using more than 3 levels in your URLs. What I mean with level? https://yourdomain.com/level1/level2/level3.
+- URLs must be human-readable. They have to describe page content and include keyword in it. For example:
+  - BAD: https://yourdomain.com/12345.
+  - GOOD: https://yourdomain.com/how-to-implement-good-seo-strategy.
 - There are no params in the URL, this can be setup in Google Search Console.			
 
 _Why:_
-> URLs are extremely vital to your SEO campaign. Be sure to use URLs that make it easy for Google™ to index your site. [Read more...](https://support.google.com/webmasters/answer/6080548?visit_id=0-636594791880851880-2150656090&hl=en&rd=2)
+> URLs are extremely vital to your SEO campaign. Be sure to use URLs that make it easy for Google to index your site. [Read more...](https://support.google.com/webmasters/answer/6080548?visit_id=0-636594791880851880-2150656090&hl=en&rd=2)
 
 #### Redirections
 
@@ -369,14 +370,14 @@ _Why:_
 
 #### Social sharing buttons
 
-Social networks may not play direct role in ranking your site. But social shares generate more eyes focus on your content, and more people you attract, the more likely someone is to link. 
+Social networks may not play direct role in ranking your site. But social shares generate more eyes focusing on your content, and the more people you attract, the more likely someone is to link. 
 
 _Why:_
 > A study by [BrigthEdge](https://www.brightedge.com/) found that prominent social sharing buttons can increase social sharing by 700%. [Read more...](https://blog.hubspot.com/blog/tabid/6307/bid/24994/using-social-sharing-buttons-leads-to-7x-more-mentions-data.aspx)
 
 #### The Open Graph
 
-The Open Graph protocol enables any web page to become a rich object in a social graph. For instance, this is used on Facebook to allow any web page to have the same functionality as any other object on Facebook.
+The Open Graph protocol enables any web page to become a rich object in a social graph. For instance, this is used by Facebook to allow any web page to have the same functionality as any other object from Facebook.
 
 You can validate your markup with the [Facebook Object Debugger tool](https://developers.facebook.com/tools/debug/og/object/?q=https%3A%2F%2Fwww.wolox.com.ar%2Fmobile.html).
 
