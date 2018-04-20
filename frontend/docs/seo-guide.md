@@ -178,13 +178,13 @@ Almost every content has to have an image in it. But, how this affect SEO? Well,
 
 - All images must have an `alt` attribute implemented that describes its content.
   The alt text describes what’s on the image and the function of the image on the page.
+  Alt tags will be displayed in place of an image if an image file cannot be loaded.
   For example:
   ```html
-  <img src="image.jpg" alt="image description"> 
-
+  <img src="painting-coolidge-dogs.gif" alt="Dogs' group playing poker around a table">
   ```
   _Why:_
-  > ALT text attaches a description to your pictures so that they show up in Google and other search engine's image results. [Read more...](https://yoast.com/image-seo-alt-tag-and-title-tag-optimization/)
+  > ALT text attaches a description to your pictures so that they show up in Google and other search engine's image results. [Read more...](https://moz.com/learn/seo/alt-text)
 
 - You have a **Favicon**. This is the icon that you can see next to the title in your browser's tab.
 - SVG is the best choice if the image is not a picture, an icon for example.
@@ -330,7 +330,7 @@ Search engines and visitors can interact with your website more effectively when
 - URLs must be human-readable. They have to describe page content and include keyword in it. For example:
   - BAD: https://yourdomain.com/12345.
   - GOOD: https://yourdomain.com/how-to-implement-good-seo-strategy.
-- There are no params in the URL, this can be setup in Google Search Console.			
+- There are no params in the URL, this can be setup in Google Search Console.
 
 _Why:_
 > URLs are extremely vital to your SEO campaign. Be sure to use URLs that make it easy for Google to index your site. [Read more...](https://support.google.com/webmasters/answer/6080548?visit_id=0-636594791880851880-2150656090&hl=en&rd=2)
