@@ -283,7 +283,7 @@ Keep in mind, W3C validation is not the "SEO magic bullet" to achieve high posit
 
 Pagination is used to improve user experience. Instead of serving a lengthy page of results, it presents several smaller pieces (and arguably the most relevant first) that are easier to consume. Another advantage is that shorter pages load faster. But it can sometimes cause problems for search engines, if it is not correctly implemented.
 
-Implement the `rel="next"` and `rel="prev"` tags. We can use these elements to specify a relationship between multiple URLs. 
+Implement the `rel="next"` and `rel="prev"` attributes. We can use these elements to specify a relationship between multiple URLs. 
 
 [Read more...](https://webdesign.tutsplus.com/articles/helping-search-engines-handle-pagination--webdesign-10035)
 
@@ -294,14 +294,14 @@ Implement the `rel="next"` and `rel="prev"` tags. We can use these elements to s
 - **1XX:** These are informational codes and they indicate a provisional response, you should very rarely explicitly send a 1xx response.
 - **2XX:** These are success messages, this is what will be returned by default when a web page is successfully served up.
 - **3XX:** These are all redirection messages. This means that the client needs to perform an additional action in order to correctly complete the request. For more information go to [Reditections section](#redirections).
-- **4XX:** These are all client error messages. The most well known of these is the 404 message, but there are others, which I will get into in more details later.
+- **4XX:** These are all client error messages. The most well known of these is the 404 message, but there are others, which I will get into in more detail later.
   - **Provide a 403 error page** (access denied).
   - **Provide a 404 error page** (Page not found).
 - **5XX:** These are all server error messages. Ensure your page does not return 500 errors.
 
 #### Sitemap
 
-I should start with this, Google does not index your pages because you asked for it. Google indexes pages because it founds them and considers them good enough quality to be indexed. 
+I should start with this, Google does not index your pages because you asked for it. Google indexes pages because it founds them and considers them them good enough to be indexed.
 
 Sitemaps are machine readable URL submission lists in various formats, e.g., XML or plain text. It’s like an archive of every webpage in your website. **Use your sitemaps as sleuthing tools to discover and eliminate indexation problems**, and only let/ask Google to index the pages you know Google is going to want to index.
 
