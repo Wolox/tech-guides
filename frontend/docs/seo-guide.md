@@ -366,7 +366,7 @@ It is important to highlight some facts about them:
 
 The Robots Exclusion Protocol (REP) is a conglomerate of standards that regulate Web robot behavior and search engine indexing. Despite the "Exclusion" in its name, the REP covers mechanisms for inclusion too.
 
-Some of this mechanisms are: robots.txt, rebots meta elements, microformat relationship-nofollow and sitmaps(We talked about it a few line up). We can divide them in two groups:
+Some of this mechanisms are: robots.txt, rebots meta elements, microformat relationship-nofollow and sitmaps. We can divide them in two groups:
 
 - **Crawler directives:** *(robots.txt, sitemaps)* Suggest to crawlers what they should crawl and must not crawl. 
 
