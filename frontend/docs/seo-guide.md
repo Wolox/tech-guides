@@ -250,7 +250,7 @@ This markup improves the search engines’ understanding of that content, which 
 
 If you want to learn more about how to implement Structured Data in your webpage, please visit [Google Developers Site](https://developers.google.com/search/docs/guides/prototype).
 
-You can validate your markup with Google's [Structured Data Testing Tool](https://search.google.com/structured-data/testing-tool/u/0/).
+You can validate your page markup with Google's [Structured Data Testing Tool](https://search.google.com/structured-data/testing-tool/u/0/).
 
 ### 2.4 Structure
 
