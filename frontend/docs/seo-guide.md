@@ -31,11 +31,12 @@ The aim of this document is to show good practices and conventions to improve yo
       - [Viewport](#viewport)
       - [Language](#language)
       - [Keywords](#keywords)
+      - [Structured data](#structured-data)
    4. [Structure](#2.4-structure)
       - [Headings](#headings)
       - [Write valid code](#write-valid-code)
       - [Pagination](#pagination)
-   5. [Accesability](#2.5-accesability)
+   5. [Accessibility](#2.5-Accessibility)
       - [Status code errors](#status-code-errors)
       - [Sitemap](#sitemap)
       - [Canonical Tag](#canonical-tag)
@@ -174,7 +175,7 @@ Almost every content has to have an image in it. But, how this affect SEO? Well,
 
 - Be sure that your images are no larger than they need to be and that they are in the right file format.
   _Why:_
-  > Your page's load time will vary based on the number and size of your images.
+  > Your page's load time will vary based on the number and size of your assets.
 
 - All images must have an `alt` attribute implemented that describes its content.
   The alt text describes what’s on the image and the function of the image on the page.
@@ -239,6 +240,18 @@ _Why:_
 
 So, how to implement keyword tags in your page? Simple, don't do it.
 
+#### Structured data
+
+In an SEO context, "structured data" usually refers to implementing some type of markup on a webpage, in order to provide additional detail around the page’s content.
+
+This markup improves the search engines’ understanding of that content, which can help with relevancy signals and also enables a site to benefit from enhanced results in SERPs (rich snippets, rich cards, carousels, knowledge boxes, etc). 
+
+[Schema.org](http://schema.org/) is the result of collaboration between Google, Bing, Yandex, and Yahoo! to help you provide the information their search engines need to understand your content and provide the best search results possible at this time. Adding Schema markup to your HTML improves the way your page displays in SERPs by enhancing the rich snippets that are displayed beneath the page title.
+
+If you want to learn more about how to implement Structured Data in your webpage, please visit [Google Developers Site](https://developers.google.com/search/docs/guides/prototype).
+
+You can validate your markup with Google's [Structured Data Testing Tool](https://search.google.com/structured-data/testing-tool/u/0/).
+
 ### 2.4 Structure
 
 #### Headings
@@ -274,7 +287,7 @@ Implement the `rel="next"` and `rel="prev"` tags. We can use these elements to s
 
 [Read more...](https://webdesign.tutsplus.com/articles/helping-search-engines-handle-pagination--webdesign-10035)
 
-### 2.5 Accesability
+### 2.5 Accessibility
 
 #### Status code errors
 
