@@ -9,10 +9,6 @@ At [Wolox](http://wolox.com.ar), we have developed the [NET Core kickoff guide](
 - [NetCore Bootstrap](https://github.com/wolox/netcore-bootstrap)
 - [Localization Culture](https://github.com/Wolox/localization-culture-core)
 
-## Useful Documentation
-
-### Standards
-
 ## Posts
 
 - [Creating your first .NET Core project on Linux](https://medium.com/wolox-driving-innovation/how-to-create-your-first-net-e2223dedb74f)
@@ -21,3 +17,4 @@ At [Wolox](http://wolox.com.ar), we have developed the [NET Core kickoff guide](
 - [Persisting data in .NET Core](https://medium.com/wolox-driving-innovation/da97811ddc5c)
 - [Globalization in ASP.NET Core](https://medium.com/wolox-driving-innovation/globalization-in-asp-net-core-3c70379d1e7f)
 - [Applying SCSS for styles](https://medium.com/wolox-driving-innovation/3f31b412188f)
+- [Deploying with Docker on Heroku and AWS](https://medium.com/wolox-driving-innovation/deploying-in-net-core-with-docker-f7d829325273)
