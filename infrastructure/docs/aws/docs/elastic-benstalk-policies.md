@@ -60,7 +60,7 @@
                 "cloudformation:CancelUpdateStack"
             ],
             "Effect": "Allow",
-            "Resource": "arn:aws:cloudformation:*:your-account-id:*"
+            "Resource": "arn:aws:cloudformation:*:YOUR-ACCOUNT-ID:*"
         },
         {
             "Action": [
@@ -90,8 +90,8 @@
             "Effect": "Allow",
             "Resource": [
                 "arn:aws:s3:::elasticbeanstalk*",
-                "arn:aws:s3:::elasticbeanstalk-*-your-account-id",
-                "arn:aws:s3:::elasticbeanstalk-*-your-account-id/*"
+                "arn:aws:s3:::elasticbeanstalk-*-YOUR-ACCOUNT-ID",
+                "arn:aws:s3:::elasticbeanstalk-*-YOUR-ACCOUNT-ID/*"
             ]
         }
     ]
