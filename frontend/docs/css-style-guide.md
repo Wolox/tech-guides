@@ -325,7 +325,7 @@ We always try to avoid the use of double quotes to be consistent amongst project
 
 ### Setting a fixed width
 
-If you have a component that has an specific width and, in addition, this last is widder than 300px or 250px
+If you have a component that has an specific width and, in addition, this last is widder than 250px
 
 ```scss
 // WRONG
