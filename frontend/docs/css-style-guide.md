@@ -283,6 +283,31 @@ Selectors must be separated with a blank line
 }
 ```
 
+### Pseudo-elements and pseudo-clases
+
+If we have a class with properties and we need to add a pseudo-element or a pseudo-class, we use nesting
+
+```scss
+// WRONG
+.my-class {
+ ...
+}
+
+.my-class::before {
+ ...
+}
+
+// RIGHT
+.my-class {
+  color: $white;
+  
+  &::before {
+    content: '';
+    ... 
+  }
+} 
+```
+
 ### Quotes
 We always try to avoid the use of double quotes to be consistent amongst projects.
 
@@ -297,3 +322,27 @@ We always try to avoid the use of double quotes to be consistent amongst project
   font-family: 'open sans', sans-serif;
 }
 ```
+
+### Setting a fixed width
+
+If you have a component that has an specific width and, in addition, this last is widder than 300px or 250px
+
+```scss
+// WRONG
+.wide-component {
+  width: 700px;
+}
+
+// RIGHT
+.wide-component {
+  width: 100%;
+  max-width: 700px;
+}
+
+// OR
+.wide-component {
+  width: 700px;
+  max-width: 100%;
+}
+```
+This makes that if the viewport is less than 700px, the component will fit to the 100% of its fathers width
