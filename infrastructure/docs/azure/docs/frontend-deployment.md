@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This document is intended to be a guideline to show you how to configure your computer for deploying a frontend static site to Azure.
+This document is intended to be a guideline for deploying a frontend static site to Azure.
 
 There are two main ways of deploying a static website to Azure. The first one and also the more expensive is using a Web App.
 Since the cost of computational instances is highly superior to that of static storage, it is recommended to use a blob container instead.
