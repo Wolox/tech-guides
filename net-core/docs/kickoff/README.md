@@ -20,7 +20,7 @@ The first thing you need to do is to clone the [base project](https://github.com
 
 Then we are going to create a development branch so we can make an pull request to master and check the CI integrations. It is important that you leave master empty.
 
-First, make sure you have the latest version of the [NetCore Bootstrap](https://github.com/wolox/netcore-bootstrap) and you don't have the `appsettings.Development.json` file. Then, run the following commands:
+First, make sure that you have the latest version of the [NetCore Bootstrap](https://github.com/wolox/netcore-bootstrap) and that you don't have the `appsettings.Development.json` file. Then, run the following commands:
 ```bash
     cp -r netcore-bootstrap/ app-name
     cd app-name
