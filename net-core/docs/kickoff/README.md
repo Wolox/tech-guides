@@ -20,7 +20,7 @@ The first thing you need to do is to clone the [base project](https://github.com
 
 Then we are going to create a development branch so we can make an pull request to master and check the CI integrations. It is important that you leave master empty.
 
-First, make sure you have the latest version of the [NetCore Bootstrap](https://github.com/wolox/netcore-bootstrap). Then, run the following commands:
+First, make sure that you have the latest version of the [NetCore Bootstrap](https://github.com/wolox/netcore-bootstrap) and that you don't have the `appsettings.Development.json` file. Then, run the following commands:
 ```bash
     cp -r netcore-bootstrap/ app-name
     cd app-name
@@ -36,16 +36,16 @@ In order to replace in every file the 'NetCoreBootstrap' name with your project 
 1. Set access permissions to init script.
 Just run:
 ```bash
-    chmod +x ./NetCoreBootstrap/Scripts/script.sh
+    chmod +x ./src/Scripts/script.sh
 ```
-2. Change the AppName. Remember, `AppName` must be your project name.
+2. Change the application name. Remember, `AppName` must be your project name.
 If you don't need the authentication module, run: 
 ```bash
-    ./NetCoreBootstrap/Scripts/script.sh AppName delete-auth
+    ./src/Scripts/script.sh AppName delete-auth
 ```
 Else just run:
 ```bash
-    ./NetCoreBootstrap/Scripts/script.sh AppName
+    ./src/Scripts/script.sh AppName
 ```
 
 Now you are ready to make the Initial Commit code by running:
@@ -56,5 +56,7 @@ Now you are ready to make the Initial Commit code by running:
     git commit -m "Kickoff"
     git push origin development
 ```
+
+Remember update your new `appsettings.Development.json` file with your environment configuration.
 
 You can now start hacking with NetCore! Have fun!
