@@ -7,3 +7,4 @@
 - [Git Configurations And Autocompletions](./docs/git-configurations.md)
 - [Github Issues](./docs/issues-good-practices.md)
 - [Github branch protection](./docs/branch-protections.md)
+- [Github release](./docs/releases-good-practices.md)

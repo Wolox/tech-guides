@@ -1,6 +1,6 @@
 # Wolox Good Practices for Github Pull Requests
 
-It's important to take into account these good practices to create Github Pull Requests. Creating good pull requests helps us to keep high code quality and to avoid bugs in our code.
+It's important to take into account these good practices to create Github Pull Requests. Creating good pull requests helps us keep high code quality and avoid bugs in our code.
 
 A good pull request will look something like this:
 
