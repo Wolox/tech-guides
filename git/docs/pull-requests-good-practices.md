@@ -13,11 +13,25 @@ When you are going to create a pull request take into account:
 - A Pull request should be a small feature. Usually if a Pull request has more than 20 files changed then you may be adding lots of functionalities, and so could divide them into separate PRs.
 - A Pull request is a good place to discuss, ask and suggest improvements, that's the best way to learn and to improve your code.
 
+
 ## Pull Request Content
 
 You should have a `pull_request_template.md` template in the project's repository.
 It should be placed in `docs` filer, or `.github` folder if you want it "hidden". You can check [this](https://help.github.com/articles/creating-a-pull-request-template-for-your-repository/) link.
 The template should be based on [this example template](./pull_request_template.md) and modified according to project.
+
+
+## Pull Request Webhooks
+
+The project should have webhooks that run with every PR, running tests of the project and reporting code quality and code coverage (using a Continuous Integration service).
+
+These webhooks should **fail** if something of the following happens:
+- Code can't be compiled/run/built
+- At least one test fail
+- Code Coverage is lower than the minimum required
+- Code Quality is lower than the minimum required
+
+You can always add more webhooks that take care of even more things like reporting coding or style errors in the PR or making a release for example.
 
 
 ## Example
@@ -41,5 +55,5 @@ The template should be based on [this example template](./pull_request_template.
 
 A pull request is ready to be merged after the following two steps:
 
-- All builds are SUCCESS.
+- All webhooks builds are SUCCESS.
 - **Code review**: After creating a pull request, it must be assigned to a code reviewer using the `assignees` and `reviewers` field. The code reviewer will check the code and may comment, request changes or approve. The pull request is approved when there are no more changes requested and at least one code reviewer marks it as Approved. If the code reviewer requests changes, he will assign you and then you should generate new commits with the fixes requested. **Never modify old commits** because the code reviewer will use the diff to compare new changes. Don’t forget to assign the reviewer back after you make all the fixes.

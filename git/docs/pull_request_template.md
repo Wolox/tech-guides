@@ -1,10 +1,9 @@
-## Origin
+## Summary
 
 ![](https://github.trello.services/images/mini-trello-icon.png) `[<TITLE>](<long or short link to the trello card that is being developed>)`
 
-**Github Issue**: #<number of issue>
+**Github Issue**: `#<number of issue that is being solved>`
 
-## Summary
 
 A brief description of the pull request.
 
