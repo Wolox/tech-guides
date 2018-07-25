@@ -10,30 +10,15 @@ When you are going to create a pull request take into account:
 
 - Read [this link](https://help.github.com/articles/using-pull-requests/) to create a pull request.
 - All the pull request content must be in english.
-- A Pull request should be a small feature. Usually if a Pull request has more than 20 files changed then you may be adding lots of functionalities.
+- A Pull request should be a small feature. Usually if a Pull request has more than 20 files changed then you may be adding lots of functionalities, and so could divide them into separate PRs.
 - A Pull request is a good place to discuss, ask and suggest improvements, that's the best way to learn and to improve your code.
 
 ## Pull Request Content
 
-Every Pull Request should have the following information in Markdown style:
+You should have a `pull_request_template.md` template in the project's repository.
+It should be placed in `docs` filer, or `.github` folder if you want it "hidden". You can check [this](https://help.github.com/articles/creating-a-pull-request-template-for-your-repository/) link.
+The template should be based on [this example template](./pull_request_template.md) and modified according to project.
 
-### Summary
-
-Brief description of what you did and the trello card associated. If it’s a fix, explain what the problem was and how it was solved.
-
-### Screenshots
-
-If your code modifies front end views, then you should attach screenshots for every modification. You should add a screenshot of the original design and your implementation. You can use http://www.cockos.com/licecap/ for OSX and https://chrome.google.com/webstore/detail/gif-cat-animated-gif-capt/pdgpcobaomccdgnjjgbcacofhfnkdhbd?hl=en or https://wiki.ubuntu.com/CreatingScreencasts for Ubuntu to add animated gifs to your pull request to show some transitions between views.
-
-### Known Issues/Notes
-
-If you found any issues while developing the feature. This is the place where you should detail everything. Also you can report bugs found or any TODO feature.
-
-### Trello Card
-
-A long or short link to the trello card that is being developed.
-
-> You can always add a new section that can help your code reviewer. For example: “Migrations needed”, “Scripts to run”, “Discussion”.
 
 ## Example
 
@@ -57,4 +42,4 @@ A long or short link to the trello card that is being developed.
 A pull request is ready to be merged after the following two steps:
 
 - All builds are SUCCESS.
-- Code review: After creating a pull request, it must be assigned to a code reviewer using the assignees field. The code reviewer will check the code and may comment, request changes or approve. The pull request is approved when the code reviewer marks it as Approved. If the code reviewer requests changes, then you should generate new commits with the fixes requested. Never modify old commits because the code reviewer will use the diff to compare new changes. You can check more about this process here. Don’t forget to assign the reviewer back after you make all the fixes.
+- **Code review**: After creating a pull request, it must be assigned to a code reviewer using the `assignees` and `reviewers` field. The code reviewer will check the code and may comment, request changes or approve. The pull request is approved when there are no more changes requested and at least one code reviewer marks it as Approved. If the code reviewer requests changes, he will assign you and then you should generate new commits with the fixes requested. **Never modify old commits** because the code reviewer will use the diff to compare new changes. Don’t forget to assign the reviewer back after you make all the fixes.
