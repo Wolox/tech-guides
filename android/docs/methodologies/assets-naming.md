@@ -52,5 +52,5 @@ Examples:
 |   Role   |    State   |             Example            |
 |:--------:|:----------:|:------------------------------:|
 | Active   | `on`       | `ic_chat_new_message_on`       |
-| Inactive | `off`      | `ic_chat_new_messag_off`       |
+| Inactive | `off`      | `ic_chat_new_message_off`       |
 | Disabled | `disabled` | `ic_chat_new_message_disabled` |
