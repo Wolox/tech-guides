@@ -64,6 +64,7 @@ src
     | i18n.js
 └───constants
 └───redux
+│   | store.js
 │   └───myReducer
 │       | actions.js
 │       | reducer.js
