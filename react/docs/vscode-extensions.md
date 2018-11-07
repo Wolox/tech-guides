@@ -30,16 +30,16 @@ The following are some recommended extensions to be used, if you have any other 
 
 ## React Extensions
 
- - REACT VSCODE EXTENSION PACK `code --install-extension jawandarajbir.react-vscode-extension-pack`
+- REACT VSCODE EXTENSION PACK `code --install-extension jawandarajbir.react-vscode-extension-pack`
 
-DOTENV code --install-extension `mikestead.dotenv`
+- DOTENV `code --install-extension mikestead.dotenv`
 
-JS/JSX SNIPPETS code --install-extension `skyran.js-jsx-snippets`
+- JS/JSX SNIPPETS `code --install-extension skyran.js-jsx-snippets`
 
 ## Extras
 
-IMPORT COST code --install-extension `wix.vscode-import-cost`
+- IMPORT COST `code --install-extension wix.vscode-import-cost`
 
-BRACKET PAIR COLORIZER code --install-extension `CoenraadS.bracket-pair-colorizer`
+- BRACKET PAIR COLORIZER `code --install-extension CoenraadS.bracket-pair-colorizer`
 
-GIT LENS code --install-extension `eamodio.gitlens`
+- GIT LENS `code --install-extension eamodio.gitlens`
