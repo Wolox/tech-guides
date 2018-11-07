@@ -28,24 +28,18 @@ To import VSCode extensions it is only necessary to use the folowwing command ->
 
 The following are some recommended extensions to be used, if you have any other extension suggestion you can add it using this form -> https://goo.gl/forms/Oh6pWj3bqgJv2ajp2
 
-React Extensions
+## React Extensions
 
-REACT VSCODE EXTENSION PACK
-code --install-extension jawandarajbir.react-vscode-extension-pack
+ - REACT VSCODE EXTENSION PACK `code --install-extension jawandarajbir.react-vscode-extension-pack`
 
-DOTENV
-code --install-extension mikestead.dotenv
+DOTENV code --install-extension `mikestead.dotenv`
 
-JS/JSX SNIPPETS
-code --install-extension skyran.js-jsx-snippets
+JS/JSX SNIPPETS code --install-extension `skyran.js-jsx-snippets`
 
-Extras
+## Extras
 
-IMPORT COST
-code --install-extension wix.vscode-import-cost
+IMPORT COST code --install-extension `wix.vscode-import-cost`
 
-BRACKET PAIR COLORIZER
-code --install-extension CoenraadS.bracket-pair-colorizer
+BRACKET PAIR COLORIZER code --install-extension `CoenraadS.bracket-pair-colorizer`
 
-GIT LENS
-code --install-extension eamodio.gitlens
+GIT LENS code --install-extension `eamodio.gitlens`
