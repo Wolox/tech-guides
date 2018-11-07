@@ -1,12 +1,14 @@
 # React Tech Guides
 At [Wolox](https://wolox.co), we use our own version of [create-react-app](https://github.com/Wolox/wolox-react-scripts#creating-an-app) to create our React projects. Check it out to find a detailed guide to start with your project.
-## Technologies
+
+<!-- In construction -->
+<!-- ## Technologies
 
 - [React](./react/)
 
 - [React Native](./react-native/)
 
-- [React in Rails](./react-in-rails/)
+- [React in Rails](./react-in-rails/) -->
 
 
 ## Open Source
