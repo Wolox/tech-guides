@@ -4,6 +4,7 @@
 
   1. [Abstractions](#abstractions)
   1. [API](#api)
+  1. [Apps](#apps)
   1. [Authentication](#authentication)
   1. [Authorization](#authorization)
   1. [Benchmarking](#benchmarking)
@@ -11,16 +12,19 @@
   1. [Concurrency](#concurrency)
   1. [Configuration](#configuration)
   1. [Database](#database)
+  1. [Debugging](#debugging)
   1. [File uploads](#file-uploads)
   1. [Geolocation](#geolocation)
   1. [HTTP Clients](#http-clients)
   1. [Localization](#localization)
+  1. [Mail](#mail)
+  1. [Model Validations](#model-validations)
   1. [Pagination](#pagination)
   1. [Parsers](#parsers)
-  1. [Workers](#workers)
-  1. [Debugging](#debugging)
-  1. [Mail](#mail)
   1. [Push Notifications](#push-notifications)
+  1. [SEO](#seo)
+  1. [Testing](#testing)
+  1. [Workers](#workers)
 
 ## Abstractions
 
@@ -34,13 +38,21 @@
 
 |Name|Description|Stars|
 |-----|-----|-----|
-|[ActiveModel::Serializers](https://github.com/rails-api/active_model_serializers)|JSON serialization of your activerecord models|[![GitHub stars](https://img.shields.io/github/stars/rails-api/active_model_serializers.svg?style=social&label=Star)](https://github.com/rails-api/active_model_serializers)|
+|[active_model_serializers](https://github.com/rails-api/active_model_serializers)|JSON serialization of your activerecord models|[![GitHub stars](https://img.shields.io/github/stars/rails-api/active_model_serializers.svg?style=social&label=Star)](https://github.com/rails-api/active_model_serializers)|
+|[versionist](https://github.com/bploetz/versionist)|Version Rails based RESTful APIs.|[![GitHub stars](https://img.shields.io/github/stars/bploetz/versionist.svg?style=social&label=Star)](https://github.com/bploetz/versionist)|
+
+## Apps
+
+|Name|Description|Stars|
+|-----|-----|-----|
+|[candy-check](https://github.com/jnbt/candy_check)|Check and verify in-app receipts. [read more](https://medium.com/wolox-driving-innovation/7b208f9cfa3e)|[![GitHub stars](https://img.shields.io/github/stars/jnbt/candy_check.svg?style=social&label=Star)](https://github.com/jnbt/candy_check)|
 
 ## Authentication
 
 |Name|Description|Stars|
 |-----|-----|-----|
 |[devise](https://github.com/plataformatec/devise)|Authentication library|[![GitHub stars](https://img.shields.io/github/stars/plataformatec/devise.svg?style=social&label=Star)](https://github.com/plataformatec/devise)|
+|[devise_token_auth](https://github.com/lynndylanhurley/devise_token_auth)|Token based authentication for Rails JSON APIs|[![GitHub stars](https://img.shields.io/github/stars/lynndylanhurley/devise_token_auth.svg?style=social&label=Star)](https://github.com/lynndylanhurley/devise_token_auth)|
 |[JWT](https://github.com/jwt/ruby-jwt)|JSON Web Token implementation for ruby|[![GitHub stars](https://img.shields.io/github/stars/jwt/ruby-jwt.svg?style=social&label=Star)](https://github.com/jwt/ruby-jwt)|
 
 ## Authorization
@@ -82,22 +94,30 @@
 
 |Name|Description|Stars|
 |-----|-----|-----|
-|[acts_as_paranoid](https://github.com/ActsAsParanoid/acts_as_paranoid)|Easily add logic delete to your activerecord models|[![GitHub stars](https://img.shields.io/github/stars/ActsAsParanoid/acts_as_paranoid.svg?style=social&label=Star)](https://github.com/ActsAsParanoid/acts_as_paranoid)|
 |[bullet](https://github.com/flyerhzm/bullet)|Find N+1 queries in your Rails application|[![GitHub stars](https://img.shields.io/github/stars/flyerhzm/bullet.svg?style=social&label=Star)](https://github.com/flyerhzm/bullet)|
+|[paranoia](https://github.com/rubysherpas/paranoia)|Easily add logic delete to your activerecord models|[![GitHub stars](https://img.shields.io/github/stars/rubysherpas/paranoia.svg?style=social&label=Star)](https://github.com/rubysherpas/paranoia)|
 |[pg_search](https://github.com/Casecommons/pg_search)|Powerful table search for PostgreSQL|[![GitHub stars](https://img.shields.io/github/stars/Casecommons/pg_search.svg?style=social&label=Star)](https://github.com/Casecommons/pg_search)|
 |[redis](https://github.com/redis/redis-rb)|Redis driver|[![GitHub stars](https://img.shields.io/github/stars/redis/redis-rb.svg?style=social&label=Star)](https://github.com/redis/redis-rb)|
+
+## Debugging
+
+|Name|Description|Stars|
+|-----|-----|-----|
+|[byebug](https://github.com/deivid-rodriguez/byebug)|Simple to use, feature rich debugger for Ruby|[![GitHub stars](https://img.shields.io/github/stars/deivid-rodriguez/byebug.svg?style=social&label=Star)](https://github.com/deivid-rodriguez/byebug)|
+|[rails_panel](https://github.com/dejan/rails_panel)|RailsPanel is a Chrome extension for Rails development that will end your tailing of development.log|[![GitHub stars](https://img.shields.io/github/stars/dejan/rails_panel.svg?style=social&label=Star)](https://github.com/dejan/rails_panel)|
 
 ## File uploads
 
 |Name|Description|Stars|
 |-----|-----|-----|
 |[carrierwave](https://github.com/carrierwaveuploader/carrierwave)|File upload library|[![GitHub stars](https://img.shields.io/github/stars/carrierwaveuploader/carrierwave.svg?style=social&label=Star)](https://github.com/carrierwaveuploader/carrierwave)|
+|[aws-sdk-s3](https://github.com/aws/aws-sdk-ruby)|The official AWS SDK for Ruby.|[![GitHub stars](https://img.shields.io/github/stars/aws/aws-sdk-ruby.svg?style=social&label=Star)](https://github.com/aws/aws-sdk-ruby)|
 
 ## Geolocation
 
 |Name|Description|Stars|
 |-----|-----|-----|
-|[geokit](https://github.com/geokit/geokit)|Geolocation library|[![GitHub stars](https://img.shields.io/github/stars/geokit/geokit.svg?style=social&label=Star)](https://github.com/geokit/geokit)|
+|[geokit-rails](https://github.com/geokit/geokit-rails)|Geolocation library|[![GitHub stars](https://img.shields.io/github/stars/geokit/geokit-rails.svg?style=social&label=Star)](https://github.com/geokit/geokit-rails)|
 
 ## HTTP Clients
 
@@ -111,12 +131,25 @@
 |-----|-----|-----|
 |[globalize](https://github.com/globalize/globalize)|Translate your models in several languages easily|[![GitHub stars](https://img.shields.io/github/stars/globalize/globalize.svg?style=social&label=Star)](https://github.com/globalize/globalize)|
 
+## Mail
+
+|Name|Description|Stars|
+|-----|-----|-----|
+|[premail-rails](https://github.com/fphilipe/premailer-rails)|Permit to compile the CSS in the HTML for mails|[![GitHub stars](https://img.shields.io/github/stars/fphilipe/premailer-rails.svg?style=social&label=Star)](https://github.com/fphilipe/premailer-rails)|
+
+## Model Validations
+
+|Name|Description|Stars|
+|-----|-----|-----|
+|[money-rails](https://github.com/RubyMoney/money-rails)|Handle money values and currency conversion|[![GitHub stars](https://img.shields.io/github/stars/RubyMoney/money-rails.svg?style=social&label=Star)](https://github.com/RubyMoney/money-rails)|
+
 ## Pagination
 
 |Name|Description|Stars|
 |-----|-----|-----|
 |[kaminari](https://github.com/kaminari/kaminari)|Paginate your query results|[![GitHub stars](https://img.shields.io/github/stars/kaminari/kaminari.svg?style=social&label=Star)](https://github.com/kaminari/kaminari)|
 |[will_paginate](https://github.com/mislav/will_paginate)|Paginate your query results|[![GitHub stars](https://img.shields.io/github/stars/mislav/will_paginate.svg?style=social&label=Star)](https://github.com/mislav/will_paginate)|
+|[wor-paginate](https://github.com/Wolox/wor-paginate)|Paginate your query results (made at Wolox)|[![GitHub stars](https://img.shields.io/github/stars/Wolox/wor-paginate.svg?style=social&label=Star)](https://github.com/Wolox/wor-paginate)|
 
 ## Parsers
 
@@ -130,25 +163,25 @@
 |-----|-----|-----|
 |[wor-push-notifications-aws](https://github.com/Wolox/wor-push-notifications-aws)|Send Push Notifications to your application using AWS Simple Notification Service (SNS)|[![GitHub stars](https://img.shields.io/github/stars/Wolox/wor-push-notifications-aws.svg?style=social&label=Star)](https://github.com/Wolox/wor-push-notifications-aws)|
 
+## SEO
+
+|Name|Description|Stars|
+|-----|-----|-----|
+|[friendly_id](https://github.com/norman/friendly_id)|Create pretty URL’s and work with human-friendly strings as if they were numeric ids for ActiveRecord models. |[![GitHub stars](https://img.shields.io/github/stars/norman/friendly_id.svg?style=social&label=Star)](https://github.com/norman/friendly_id)|
+
+## Testing
+
+|Name|Description|Stars|
+|-----|-----|-----|
+|[parallel_tests](https://github.com/grosser/parallel_tests)|Speedup tests by running parallel on multiple CPU cores. |[![GitHub stars](https://img.shields.io/github/stars/grosser/parallel_tests.svg?style=social&label=Star)](https://github.com/grosser/parallel_tests)|
+
 ## Workers
 
 |Name|Description|Stars|
 |-----|-----|-----|
 |[sidekiq](https://github.com/mperham/sidekiq)|Easily create workers for your asynchronous jobs|[![GitHub stars](https://img.shields.io/github/stars/mperham/sidekiq.svg?style=social&label=Star)](https://github.com/mperham/sidekiq)|
+|[sidekiq-scheduler](https://github.com/moove-it/sidekiq-scheduler)|Lightweight job scheduler extension for Sidekiq|[![GitHub stars](https://img.shields.io/github/stars/moove-it/sidekiq-scheduler.svg?style=social&label=Star)](https://github.com/moove-it/sidekiq-scheduler)|
 |[sidetiq](https://github.com/endofunky/sidetiq)|Add schedule to your sidekiq jobs|[![GitHub stars](https://img.shields.io/github/stars/endofunky/sidetiq.svg?style=social&label=Star)](https://github.com/endofunky/sidetiq)|
-
-## Debugging
-
-|Name|Description|Stars|
-|-----|-----|-----|
-|[byebug](https://github.com/deivid-rodriguez/byebug)|Simple to use, feature rich debugger for Ruby|[![GitHub stars](https://img.shields.io/github/stars/deivid-rodriguez/byebug.svg?style=social&label=Star)](https://github.com/deivid-rodriguez/byebug)|
-|[rails_panel](https://github.com/dejan/rails_panel)|RailsPanel is a Chrome extension for Rails development that will end your tailing of development.log|[![GitHub stars](https://img.shields.io/github/stars/dejan/rails_panel.svg?style=social&label=Star)](https://github.com/dejan/rails_panel)|
-
-## Mail
-
-|Name|Description|Stars|
-|-----|-----|-----|
-|[premail-rails](https://github.com/fphilipe/premailer-rails)|Permit to compile the CSS in the HTML for mails|[![GitHub stars](https://img.shields.io/github/stars/fphilipe/premailer-rails.svg?style=social&label=Star)](https://github.com/fphilipe/premailer-rails)|
 
 
 # Not recommended gems
