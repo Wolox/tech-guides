@@ -161,6 +161,6 @@ In this section we are going to mention some gems that we tried out but we had p
 
 ## Mantainers
 
-  * [Alejandro Bezdjian](https://github.com/alebian)
-  * Hugo Farji
   * Ignacio Coluccio
+  * Leandro Motta
+  * Juan Ignacio Sierra
