@@ -9,7 +9,7 @@
 - [React in Rails](./react-in-rails/)
 
 
-## Open Source
+## Our React Cross-Platform Open Source Libraries
 
 - [Wolox Eslint Config For React](https://github.com/Wolox/eslint-config-wolox-react)
 
