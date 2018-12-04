@@ -7,6 +7,7 @@
   1. [Apps](#apps)
   1. [Authentication](#authentication)
   1. [Authorization](#authorization)
+  1. [Backoffice](#backoffice)
   1. [Benchmarking](#benchmarking)
   1. [Code analysis](#code-analysis)
   1. [Concurrency](#concurrency)
@@ -61,6 +62,13 @@
 |-----|-----|-----|
 |[CanCanCan](https://github.com/CanCanCommunity/cancancan)|Policies library|[![GitHub stars](https://img.shields.io/github/stars/CanCanCommunity/cancancan.svg?style=social&label=Star)](https://github.com/CanCanCommunity/cancancan)|
 |[Pundit](https://github.com/elabs/pundit)|Policies library|[![GitHub stars](https://img.shields.io/github/stars/elabs/pundit.svg?style=social&label=Star)](https://github.com/elabs/pundit)|
+
+## Backoffice
+
+|Name|Description|Stars|
+|-----|-----|-----|
+|[ActiveAdmin](https://github.com/activeadmin/activeadmin)|Administration framework for Ruby on Rails applications|[![GitHub stars](https://img.shields.io/github/stars/activeadmin/activeadmin.svg?style=social&label=Star)](https://github.com/activeadmin/activeadmin)|
+|[Administrate](https://github.com/thoughtbot/administrate)|Super-flexible admin dashboard|[![GitHub stars](https://img.shields.io/github/stars/thoughtbot/administrate.svg?style=social&label=Star)](https://github.com/thoughtbot/administrate)|
 
 ## Benchmarking
 
