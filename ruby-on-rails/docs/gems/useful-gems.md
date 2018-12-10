@@ -80,10 +80,15 @@
 
 |Name|Description|Stars|
 |-----|-----|-----|
+|[active_record_doctor](https://github.com/gregnavis/active_record_doctor)| Active Record Doctor helps to keep the database in a good shape |[![GitHub stars](https://img.shields.io/github/stars/gregnavis/active_record_doctor.svg?style=social&label=Star)](https://github.com/gregnavis/active_record_doctor)|
 |[brakeman](https://github.com/presidentbeef/brakeman)|Looks for security vulnerabilities in your Rails app|[![GitHub stars](https://img.shields.io/github/stars/presidentbeef/brakeman.svg?style=social&label=Star)](https://github.com/presidentbeef/brakeman)|
 |[reek](https://github.com/troessner/reek)|Looks for code smells|[![GitHub stars](https://img.shields.io/github/stars/troessner/reek.svg?style=social&label=Star)](https://github.com/troessner/reek)|
 |[rubocop](https://github.com/bbatsov/rubocop)|Coding style linter|[![GitHub stars](https://img.shields.io/github/stars/bbatsov/rubocop.svg?style=social&label=Star)](https://github.com/bbatsov/rubocop)|
+|[ruby-prof](https://github.com/ruby-prof/ruby-prof)| Code profiler |[![GitHub stars](https://img.shields.io/github/stars/ruby-prof/ruby-prof.svg?style=social&label=Star)](https://github.com/ruby-prof/ruby-prof)|
 |[simplecov](https://github.com/colszowka/simplecov)|Code coverage tool|[![GitHub stars](https://img.shields.io/github/stars/colszowka/simplecov.svg?style=social&label=Star)](https://github.com/colszowka/simplecov)|
+|[stackprof](https://github.com/tmm1/stackprof)| Sampling call-stack profiler |[![GitHub stars](https://img.shields.io/github/stars/tmm1/stackprof.svg?style=social&label=Star)](https://github.com/tmm1/stackprof)|
+|[test-prof](https://github.com/palkan/test-prof)| Collection of different tools to analyze your test suite performance |[![GitHub stars](https://img.shields.io/github/stars/palkan/test-prof.svg?style=social&label=Star)](https://github.com/palkan/test-prof)|
+
 
 ## Concurrency
 
