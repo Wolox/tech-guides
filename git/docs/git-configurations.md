@@ -1,8 +1,10 @@
 # Git useful configurations
 
+If you have OSX, you can run the git installation from [this](../useful-scripts/scripts/setuo-environment-mac.sh) script and this configuration will be set for you.
+
 ## Gitconfig file
 
-Add the above lines to `~/.gitconfig`
+Add the following lines to `~/.gitconfig`
 
 ```
 [user]
@@ -23,22 +25,48 @@ Add the above lines to `~/.gitconfig`
     br = branch
     up = pull --rebase origin master
     poh = push origin HEAD
+    fp = fetch -p
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-[branch "development"]
-    remote = origin
-    merge = refs/heads/development
+    gbr = branch -r
+    gac = commit -a -m
+    ac = "!git commit -a -m "
 [help]
     autocorrect = 10
+[filter "lfs"]
+    clean = git-lfs clean %f
+    smudge = git-lfs smudge %f
+    required = true
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    interactive = auto
+    ui = auto
+[push]
+    default = matching
 ```
+
 ## Git autocompletions
+
+### Ubuntu
 
 Run the following command from your terminal:
 
 ```bash
-curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash > $HOME/.git-completion.bash
+sudo apt-get install git bash-completion
 ```
 
-And then add to your `.bash_profile` or `.bashrc`:
+### OSX
+
+1. [Install homebrew](https://brew.sh/).
+2. Run from terminal:
 ```bash
-source $HOME/.git-completion.bash
+brew install git bash-completion
 ```
+3. Add to `~./bash_profile` file:
+```
+if [ -f `brew --prefix`/etc/bash_completion.d/git-completion.bash ]; then
+  . `brew --prefix`/etc/bash_completion.d/git-completion.bash
+fi
+```
+4. Restart terminal.

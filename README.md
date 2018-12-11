@@ -11,6 +11,8 @@ Under every technology folder mentioned [below](#technologies-index), you will f
 - **Useful Documentation**: Good practices, talks, useful guides and highlights.
 - **Posts**: Posts written for the [Wolox Engineering Blog](http://eng.wolox.co) for the given technology.
 
+If you need to add a new technology, follow the [Tech Kickoff Guide](./templates/docs/tech_kickoff.md).
+
 ## Technologies Index
 
 - [Ruby On Rails](./ruby-on-rails/README.md)

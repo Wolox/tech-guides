@@ -7,21 +7,22 @@ At [Wolox](http://wolox.com.ar), we have developed the [iOS kickoff guide](./doc
 ## Open Source
 
 - [iOS Base Project](https://github.com/Wolox/ios-base-project)
-- [Wolmo Core iOS](https://github.com/Wolox/wolmo-core-ios)
-- [Wolmo Authentication iOS](https://github.com/Wolox/wolmo-authentication-ios)
 - [Wolox iOS Style Guide](https://github.com/Wolox/ios-style-guide)
+- [Carthage Cache](https://github.com/Wolox/carthage_cache)
+- [Fastlane for mobile](https://github.com/Wolox/fastlane-mobile)
+- [Wolmo Core iOS](https://github.com/Wolox/wolmo-core-ios)
+- [Wolmo Reactive Core iOS](https://github.com/Wolox/wolmo-reactive-core-ios)
+- [Wolmo Authentication iOS](https://github.com/Wolox/wolmo-authentication-ios)
+- [Wolmo Networking iOS](https://github.com/Wolox/wolmo-networking-ios)
 - [WARP](https://github.com/Wolox/warp)
 
 ## Useful Documentation
 
 ### Standards
 
-### Wolox
-
-- [Kickoff guide](./docs/kickoff/README.md)
-- [Style guide](https://github.com/Wolox/ios-style-guide)
 - [App Structure](./docs/app-structure.md)
 - [Mobile conventions naming](../mobile/docs/naming/README.md)
+- [Style guide](https://github.com/Wolox/ios-style-guide)
 
 ### UI
 
@@ -42,6 +43,10 @@ At [Wolox](http://wolox.com.ar), we have developed the [iOS kickoff guide](./doc
 ### Functional Reactive Programming
 
 - [Signal & SignalProducer Responsability Discussion - RAC github](https://github.com/ReactiveCocoa/ReactiveCocoa/pull/2639#issuecomment-170258058)
+
+### scripts
+
+- [iOS Useful Scripts](https://github.com/guidomb/ios-scripts)
 
 ### Talks
 
@@ -66,3 +71,5 @@ At [Wolox](http://wolox.com.ar), we have developed the [iOS kickoff guide](./doc
 - [How to Increase my iOS Application Security](https://medium.com/wolox-driving-innovation/how-to-increase-my-ios-application-security-17681f068d11)
 - [An easier development flow using Javascript and WKWebView on iOS](https://medium.com/wolox-driving-innovation/an-easier-development-flow-using-javascript-and-wkwebview-on-ios-592b5037b53d)
 - [Bluetooth Low Energy on iOS: The Easy Way](https://medium.com/wolox-driving-innovation/bluetooth-low-energy-on-ios-the-easy-way-628d13ff1127)
+- [IOS In-App Purchases and Subscriptions](https://medium.com/wolox-driving-innovation/3b361da0f038)
+- [IOS Deep linking: URL Scheme vs Universal Links](https://medium.com/wolox-driving-innovation/ios-deep-linking-url-scheme-vs-universal-links-50abd3802f97)
