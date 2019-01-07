@@ -2,11 +2,11 @@
 
 ## Introduction
 
-This guide intends to be a guide to useful React/React-Native extensions used along with VSCode. Those extensions are useful to have a productive working enviroment. Also, it will teach how to import/export those extensions.
+This guide will help you install some useful React/React-Native extensions used along with VSCode. Those extensions are useful for having a productive working environment. Also, it will teach how to import/export those extensions.
 
 # VSCode
 
-Citing directly from the page, "Visual Studio Code is a source code editor developed by Microsoft for Windows, Linux and macOS. It includes support for debugging, embedded Git control,syntax highlighting, intelligent code completion, snippets, and code refactoring." 
+Quoting directly from the page, "Visual Studio Code is a source code editor developed by Microsoft for Windows, Linux and macOS. It includes support for debugging, embedded Git control,syntax highlighting, intelligent code completion, snippets, and code refactoring." 
 
 It runs on Windows, macOS and Linux. You can download it from: https://code.visualstudio.com/.
 
@@ -35,6 +35,24 @@ The following are some recommended extensions to be used, if you have any other 
 - DOTENV `code --install-extension mikestead.dotenv`
 
 - JS/JSX SNIPPETS `code --install-extension skyran.js-jsx-snippets`
+
+- BABEL `code --install-extension mgmcdermott.vscode-language-babel`
+
+- AUTO-CLOSE TAGS `code --install-extension formulahendry.auto-close-tag`
+
+- AUTO-COMPLETE TAGS `code --install-extension formulahendry.auto-complete-tag`
+
+- COLOR HIGHLIGHT `code --install-extension naumovs.color-highlight`
+
+- NPM INTELLISENSE `code --install-extension christian-kohler.npm-intellisense`
+
+- PATH INTELLISENSE `code --install-extension christian-kohler.path-intellisense`
+
+- PRETTIER VSCODE `code --install-extension esbenp.prettier-vscode`
+
+- SASS LINT `code --install-extension glen-84.sass-lint`
+
+- VSCODE REDUX DEVTOOLS `code --install-extension jingkaizhao.vscode-redux-devtools`
 
 ## Extras
 
