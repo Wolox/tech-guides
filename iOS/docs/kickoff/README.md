@@ -1,10 +1,7 @@
 iOS Kickoff guide
 -----------------
 
-This is a tutorial explaining how to kickoff an iOS project from scratch. Some steps can't be followed without being granted access to certain services: request them to an iOS' technical leader:
-
-* [Pablo Giorgi](mailto:pablo.giorgi@wolox.com.ar)
-* [Guido Marucci Blas](mailto:guidomb@wolox.com.ar)
+This is a tutorial explaining how to kickoff an iOS project from scratch (some steps can't be followed without being granted access to certain services).
 
 ## Before starting...
 
@@ -24,7 +21,7 @@ The following will be needed to start an iOS project kickoff process:
 
 Next steps will get your iOS project configured, for these, replace `Project Name` with your project name.
 
-A little heads up: It's *extremely* important naming conventions, such as camel case notation and so on, are followed. I.e.: if `BaseProject.xcodeproj` should be renamed with our project name, then it should be `ProjectName.xcodeproj`. Always follow the naming pattern on the base project. Read this [Convention guide](../../../mobile/docs/naming/README.md) to figure out what the `Project Name` should be.
+A little heads up: It's *extremely* important naming conventions, such as camel case notation and so on, are followed. I.e.: if `BaseProject.xcodeproj` should be renamed with our project name, then it should be `ProjectName.xcodeproj`. Always follow the naming pattern on the base project. Read this [Convention guide](../../../mobile/docs/naming/README.md) to figure out what the `Project Name` should be. There can't be symbols like `-` in the new project's name or the renaming won't work.
 
 Also, this is meant to be sequentially, so don't skip or mix steps.
 

@@ -233,15 +233,18 @@ function install_git_aliases () {
   if ! text_exists_in_file "\[alias\]" $git_configuration_file
   then
     aliases+="[alias]
-  st = status
   co = checkout
-  br = branch"
-    aliases+='/tac = "!git commit -a -m"'
-    aliases+="
+  ci = commit
+  st = status
+  br = branch
+  up = pull --rebase origin master
+  poh = push origin HEAD
+  fp = fetch -p
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   gbr = branch -r
   gac = commit -a -m
 "
+    aliases+='/tac = "!git commit -a -m"'
     echo "Added alias to gitconfig"
   else
     echo "Alias already added to gitconfig"

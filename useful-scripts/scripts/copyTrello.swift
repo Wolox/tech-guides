@@ -1,5 +1,5 @@
 import Foundation
-import Alamofire
+import Alamofire // marathon:https://github.com/Alamofire/Alamofire.git
 
 extension String {
 
