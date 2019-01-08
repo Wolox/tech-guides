@@ -23,5 +23,7 @@
 
 - [Testing guide with Jest & Enzyme](./docs/jest-enzyme-testing.md)
 
+- [VSCode useful extensions](./docs/vscode-extensions.md)
+
 ## Posts
 - [Introducing redux-recompose](https://medium.com/wolox-driving-innovation/932e746b0198)
