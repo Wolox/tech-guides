@@ -30,9 +30,11 @@ Follow this guide sequentially, don't skip or mix steps.
 #### Adding Base Project
 
 First, clone the [Base Project](https://github.com/Wolox/ios-base-project) repository. The included project comes with a basic XCode configuration and includes the most useful/needed dependencies.
+
 Also clone from GitHub the empty project repository for our new project.
 
 Now we should fast copy everything but the .git file from base project to our project. Remember to change `project-name-ios` with our project folder name.
+
 `$ rsync -av --progress ios-base-project/. project-name-ios --exclude .git`
 
 Now create a branch for setup (call it something like `project-initial-setup`) and commit and push the changes.
@@ -42,6 +44,7 @@ Now create a branch for setup (call it something like `project-initial-setup`) a
 Open your XCode project and change its name from `BaseProject` to your own `ProjectName` following [this](https://help.apple.com/xcode/mac/8.0/#/dev3db3afe4f) tutorial.
 
 After doing this you'll note that the `ProjectName`'s `Scheme` hasn't been renamed. To do this, duplicate the actual scheme and rename it and only then delete the old scheme. While editing the scheme, tick the `shared` option so the project can be run on a CI environment. Here's a gif of the process:
+
 ![rename scheme](./resources/xcode-scheme-rename.gif)
 
 Folders and groups should also be renamed. To do this you can use the `rename` script that is in the root of the project by running: `./rename` and following the steps.
@@ -51,17 +54,23 @@ Folders and groups should also be renamed. To do this you can use the `rename` s
 Time to move on to install the build scripts that will bootstrap our project. To do this clone or download [this repository.](https://github.com/guidomb/ios-scripts)
 
 Before doing anything check in a terminal the value for `xcodebuild -version` and the latest versions of SwiftLint and Carthage.
+
 You can check them in [SwiftLint releases](https://github.com/realm/SwiftLint/releases) and [Carthage releases](https://github.com/Carthage/Carthage/releases).
 
 Now run ` ./install <your project directory>` and follow the steps. Select the options you need for your project. If you are not sure you can use the default values the script provides (by pressing `return` when asked for a value) in almost all cases except for:
+
 The name of your project.
+
 When asked to create a `.env` file select `y`.
+
 When the script asks for xCode, Swiftlint and Carthage versions use the values you searched for above.
+
 When asked if you want to bootstrap the project select `y`.
 
 #### Bootstrapping project
 
 Bootstraping the project will install every necessary dependency to build the project.
+
 This will configure [CarthageCache](https://github.com/guidomb/carthage_cache) locally and generate a `.carthage_cache.yml` file. Have your AWS credentials handy: you'll need the `access key ID` and `secret access key` from the account with access to the `carthage-cache` bucket. Configure `us-west-2` as region. When done, you should see this message on the console:
 
 ```
