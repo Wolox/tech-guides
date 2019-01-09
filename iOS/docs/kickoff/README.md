@@ -65,8 +65,6 @@ When asked to create a `.env` file select `y`.
 
 When the script asks for xCode, Swiftlint and Carthage versions use the values you searched for above.
 
-When asked if you want to bootstrap the project select `y`.
-
 #### Bootstrapping project
 
 Bootstraping the project will install every necessary dependency to build the project.
