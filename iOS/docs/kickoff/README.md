@@ -90,7 +90,9 @@ You can start hacking by executing:
 
 Move to the project's root folder and download the [Fastlane](https://docs.fastlane.tools) content from the [Fastlane repository](https://github.com/Wolox/fastlane-mobile) by doing:
 
-`git clone --depth=1 https://github.com/Wolox/fastlane-mobile.git fastlane; rm -rf fastlane/.git`
+`git clone --depth=1 https://github.com/Wolox/fastlane-mobile.git fastlane`
+
+`rm -rf fastlane/.git`
 
 This copies the `fastlane-mobile` repository into `fastlane` folder, and removes the `.git` directory.
 
