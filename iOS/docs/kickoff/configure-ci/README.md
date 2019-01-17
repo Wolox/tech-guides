@@ -10,7 +10,7 @@ The following steps will guide you to setup a new project in [Bitrise](https://b
 
 ## Check repo files...
 
-### Check the repository’s `bitrise.yml`. 
+### Check the repository’s `bitrise.yml`.
 
 It can be found [here](https://github.com/Wolox/ios-base-project/blob/master/bitrise.yml) in the `ios-base-project` root directory.
 
@@ -31,10 +31,10 @@ If you need to use any secret configuration keys in the Bitrise build, encrypt t
 
 ```
 # Put all the files in a tar file
-tar cvf secrets.tar file1 file2 
+tar cvf secrets.tar file1 file2
 
 # Encrypt the tar file
-openssl aes-256-cbc -k "password" -in secrets.tar -out secrets.tar.enc 
+openssl aes-256-cbc -k "password" -in secrets.tar -out secrets.tar.enc
 ```
 
 ### Decryption
@@ -58,7 +58,7 @@ If you’re not added to the `Wolox` organization, you should ask the technical 
 
 ### Add application
 
-In Bitrise dashboard, press "Add new app" to start the process. 
+In Bitrise dashboard, press "Add new app" to start the process.
 
 ### Choose project’s repository
 
@@ -104,7 +104,7 @@ Select "We’ve kicked off your first test build for you!" to continue. Bitrise 
 
 ## Configure Bitrise’s `bitrise.yml`
 
-When Bitrise builds trigger, they look for the configuration in the web’s `bitrise.yml`. This file should call the one from our repository. 
+When Bitrise builds trigger, they look for the configuration in the web’s `bitrise.yml`. This file should call the one from our repository.
 
 For this, go to `Workflow`, inside the project's bitrise page. There select `bitrise.yml` and replace the contect of the file for this:
 
@@ -133,14 +133,26 @@ workflows:
   ci:
     after_run:
     - _run_from_repo
-    steps: 
+    steps:
 ```
 
 ## Configure App Environment variables
 
 From the menu on the left, select `App Env Vars` for private repositories or `Secret Env Vars` for public ones. Add the keys and values of the environment variables that will be needed for bootstrapping, testing and all other actions or steps that will be run according to the repo's `bitrise.yml`.
 
-To have `codestats` reporting in your project, first ask an administrator to add the project to codestats and add the `CODE_STATS_TOKEN` of the project as an environment variable.
+If you don't know what these Env Vars are, ask your TL to give you access to them. Just as reference, the variables you will need to set are:
+
+```
+- GITHUB_ACCESS_TOKEN
+- KEY_PASSWORD
+- CARTHAGE_CACHE_BUCKET_NAME
+- AWS_REGION
+- AWS_ACCESS_KEY_ID
+- AWS_SECRET_ACCESS_KEY
+- RUNNING_ON_CI
+```
+
+To have `codestats` reporting in your project, first ask an administrator to add the project to codestats and add both the `CODE_STATS_TOKEN` and `CODE_STATS_URL` of the project as an environment variable.
 
 ## Run build manually
 
