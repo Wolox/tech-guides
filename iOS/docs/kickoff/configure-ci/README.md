@@ -162,6 +162,12 @@ To check that everything works correctly, you should run a build manually in you
 
 For this, go to `Start / Schedule a build`, inside the project's bitrise page. Select your default branch and confirm.
 
+**Important**: if your build fails because of a module that's missing (`no such module '<ModuleName>'` error, for example), there's a big chance it's related with `carthage_cache`. To solve this:
+* Check that you have your `carthage_cache` properly set up. If not, go through the setup process described in [its repo](https://github.com/Wolox/carthage_cache#setup).
+* Try force-publishing a new build. You can easily do that with `carthage_cache publish --force`.
+
+That will surely take care of these types of errors.
+
 ## Add bagdes to README
 
 Badges for bitrise and codestats can be added from:
