@@ -138,7 +138,7 @@ workflows:
 
 ## Configure App Environment variables
 
-From the menu on the left, select `App Env Vars` for private repositories or `Secret Env Vars` for public ones. Add the keys and values of the environment variables that will be needed for bootstrapping, testing and all other actions or steps that will be run according to the repo's `bitrise.yml`.
+In the `Workflow` menu, select `Env Vars` for private repositories or `Secrets` for public ones. Add the keys and values of the environment variables that will be needed for bootstrapping, testing and all other actions or steps that will be run according to the repo's `bitrise.yml`.
 
 If you don't know what these Env Vars are, ask your TL to give you access to them. Just as reference, the variables you will need to set are:
 
