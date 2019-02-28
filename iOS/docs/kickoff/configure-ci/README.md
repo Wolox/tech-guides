@@ -152,6 +152,8 @@ If you don't know what these Env Vars are, ask your TL to give you access to the
 - RUNNING_ON_CI
 ```
 
+Then, check that for every Env Var, you have the option `Replace variables in inputs?` enabled.
+
 To have `codestats` reporting in your project, first ask an administrator to add the project to codestats and add both the `CODE_STATS_TOKEN` and `CODE_STATS_URL` of the project as an environment variable.
 
 ## Run build manually
