@@ -21,7 +21,7 @@ If you need to add a new technology, follow the [Tech Kickoff Guide](./templates
 
 - [Front-End](./frontend/README.md)
 
-- [React & React Native](./react/README.md)
+- [React Native](./react-native/README.md)
 
 - [Android](./android/README.md)
 
@@ -47,12 +47,12 @@ If you need to add a new technology, follow the [Tech Kickoff Guide](./templates
 2. Create your branch (`git checkout -b my-new-guide-documentation`)
 3. Edit the file and commit your changes (`git commit -am 'Add some guide or documentation'`)
 4. Push your branch (`git push origin my-new-guide-documentation`)
-5. Create a new Pull Request.  
-   Include brackets containing your involved technologies on its name, one bracket per tech.  
-   By example:  
-   `[RoR] Updating tech-guides`  
-   `[Android][iOS] Updating deployment guide`  
-   Available tags:  
+5. Create a new Pull Request.
+   Include brackets containing your involved technologies on its name, one bracket per tech.
+   By example:
+   `[RoR] Updating tech-guides`
+   `[Android][iOS] Updating deployment guide`
+   Available tags:
      *  RoR
      *  NodeJS
      *  Front-End

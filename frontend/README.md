@@ -6,7 +6,7 @@
 
 - [AngularJS](./angular-js/)
 
-- [React](../react/)
+- [React](./react/)
 
 - [Vue](./vue/)
 
