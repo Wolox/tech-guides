@@ -29,6 +29,8 @@ If you need to add a new technology, follow the [Tech Kickoff Guide](./templates
 
 - [Net Core](./net-core/README.md)
 
+- [Java](./java/README.md)
+
 - [Infrastructure](./infrastructure/README.md)
 
 - [Git](./git/README.md)

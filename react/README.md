@@ -25,5 +25,7 @@
 
 - [VSCode useful extensions](./docs/vscode-extensions.md)
 
+- [Atom useful extensions](https://github.com/Wolox/tech-guides/blob/master/frontend/docs/style-guide.md#atom) 
+
 ## Posts
 - [Introducing redux-recompose](https://medium.com/wolox-driving-innovation/932e746b0198)
