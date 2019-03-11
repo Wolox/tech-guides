@@ -4,13 +4,17 @@
 
 At [Wolox](http://wolox.com.ar), we have developed the [React Native Bootstrap](https://github.com/Wolox/wolmo-bootstrap-react-native) to create our RN projects. You'll find a detailed guide to start with your project in its README.
 
-## Open Source
+## Recommended Libraries
 
-- [React Native Bootstrap](https://github.com/Wolox/wolmo-bootstrap-react-native)
-- [React Native Renavigate](https://github.com/Wolox/react-native-renavigate)
-- [React Native Redux Toast](https://github.com/Wolox/react-native-redux-toast)
+- [Internal Libraries](./docs/libraries/internal-libraries.md)
+
+- [External Libraries](./docs/libraries/external-libraries.md)
 
 ## Useful Documentation
+
+- [Style Guide](./style-guide.md)
+
+- [Testing guide with Jest & Enzyme](./docs/jest-enzyme-testing.md)
 
 ### Standards
 
