@@ -21,7 +21,7 @@ If you need to add a new technology, follow the [Tech Kickoff Guide](./templates
 
 - [Front-End](./frontend/README.md)
 
-- [React & React Native](./react/README.md)
+- [React Native](./react-native/README.md)
 
 - [Android](./android/README.md)
 
