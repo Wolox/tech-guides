@@ -39,6 +39,7 @@ Download it [here.](./docs/atom-snippets.cson)
 
 ## Posts
 
+- [Introducing redux-recompose](https://medium.com/wolox-driving-innovation/932e746b0198)
 - [Bring Your Data To Life](https://medium.com/wolox-driving-innovation/https-medium-com-wolox-driving-innovation-bring-your-data-to-life-278d97e454b9)
 - [Easy forms in React Native with Redux-Form](https://medium.com/wolox-driving-innovation/https-medium-com-wolox-driving-innovation-easy-forms-in-react-native-with-redux-form-1cdc16a9a889)
 - [React Native Heatmap](https://medium.com/wolox-driving-innovation/react-native-heatmap-cc29181e6276)
