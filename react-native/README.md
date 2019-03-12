@@ -7,7 +7,6 @@ At [Wolox](http://wolox.com.ar), we have developed the [React Native Bootstrap](
 ## Recommended Libraries
 
 - [Internal Libraries](./docs/libraries/internal-libraries.md)
-
 - [External Libraries](./docs/libraries/external-libraries.md)
 
 ## Useful Documentation
@@ -47,7 +46,5 @@ Download it [here.](./docs/atom-snippets.cson)
 - [Bring Your Data To Life](https://medium.com/wolox-driving-innovation/https-medium-com-wolox-driving-innovation-bring-your-data-to-life-278d97e454b9)
 - [Easy forms in React Native with Redux-Form](https://medium.com/wolox-driving-innovation/https-medium-com-wolox-driving-innovation-easy-forms-in-react-native-with-redux-form-1cdc16a9a889)
 - [React Native Heatmap](https://medium.com/wolox-driving-innovation/react-native-heatmap-cc29181e6276)
-
 - [(Spanish) Crear un módulo nativo con React Native](https://medium.com/wolox-driving-innovation/crear-un-m%C3%B3dulo-nativo-con-react-native-5d71a85c7dc6)
-
 - [(Spanish) Servicios de Android mediante Módulos Nativos de React Native](https://medium.com/wolox-driving-innovation/servicios-de-android-mediante-m%C3%B3dulos-nativos-de-react-native-d78e883522b4)
