@@ -17,6 +17,13 @@ Before starting read this [Convention guide](../../../mobile/docs/naming/README.
 bash <(curl -s https://raw.githubusercontent.com/Wolox/wolmo-bootstrap-react-native/master/run.sh)
 ```
 
+1a. If the app have `double-conversion` or `fishhook` related errors, try running:  
+```
+cd node_modules/react-native/scripts && ./ios-install-third-party.sh && cd ../../../
+cd node_modules/react-native/third-party/glog-0.3.*/ && ../../scripts/ios-configure-glog.sh && cd ../../../../
+cp ios/build/Build/Products/Debug-iphonesimulator/libfishhook.a node_modules/react-native/Libraries/WebSocket/
+```
+
 2. Create app in Apple Developer Portal and iTunes Connect
 ```bash
 fastlane produce
