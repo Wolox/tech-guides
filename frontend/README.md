@@ -10,8 +10,6 @@
 
 - [Vue](./vue/)
 
-- [Ruby on Rails layout](./ruby-on-rails-layout/)
-
 ## Useful Documentation
 
 ### General
