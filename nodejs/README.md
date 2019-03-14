@@ -16,9 +16,19 @@ At [Wolox](http://wolox.com.ar), we have developed the [ExpressJS Bootstrap](htt
 - [Kue - Redis](https://github.com/Automattic/kue)
 - [Google Cloud - NodeJS](https://cloud.google.com/nodejs)
 - [Orm and migrations](./docs/orm.md)
+- [Getting started with Jest](./docs/jest.md)
 
 ### Standards
 
 - [Airbnb Javascript Style Guide](https://github.com/airbnb/javascript)
 
-## Posts
+## Wolox posts
+
+- [How to code async JavaScript better](https://medium.com/wolox-driving-innovation/how-to-code-better-async-javascript-e59363883c84)
+- [NodeJS API Bootstrap](https://medium.com/wolox-driving-innovation/nodejs-api-bootstrap-b598a2591a3b)
+- [Watson and Node: an efficient way to set up a chatbot](https://medium.com/wolox-driving-innovation/watson-and-node-an-efficient-way-to-set-up-a-chatbot-6606a5a9f29a)
+- [Developing Better Node.js Developers](https://medium.com/wolox-driving-innovation/developing-better-node-js-developers-a176de770539)
+- [An easy way to make an inclusive proxy in NodeJS](https://medium.com/wolox-driving-innovation/an-easy-way-to-make-an-inclusive-proxy-in-nodejs-e36bccba95ea)
+- [How to really take advantage of the NodeJS REPL](https://medium.com/wolox-driving-innovation/how-to-really-take-advantage-of-the-nodejs-repl-877a17162ab7)
+- [How to Set Up Your Own Prerender Environment With AWS EC2](https://medium.com/wolox-driving-innovation/how-to-set-up-your-own-prerender-environment-with-aws-ec2-a14451f857bf)
+- [AWS Lambda + SimpleDb + Mandrill](https://medium.com/wolox-driving-innovation/aws-lambda-simpledb-mandrill-55dd651e2601)
