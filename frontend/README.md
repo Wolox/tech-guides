@@ -6,11 +6,9 @@
 
 - [AngularJS](./angular-js/)
 
-- [React](./react/README.md)
+- [React](./react/)
 
 - [Vue](./vue/)
-
-- [Ruby on Rails layout](./ruby-on-rails-layout/)
 
 ## Useful Documentation
 
@@ -23,7 +21,6 @@
 - [External Resources](./docs/style-guide.md#external-resources)
 - [Learning Resources - Frontend](./docs/style-guide.md#learning-resources---frontend)
 - [Learning Resources - Design - UI/UX](./docs/style-guide.md#learning-resources---design---uiux)
-- [Generate an API Mock](https://medium.com/@housecor/rapid-development-via-mock-apis-e559087be066#.479nnonvy)
 
 ## Posts
 
