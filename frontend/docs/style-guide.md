@@ -20,6 +20,7 @@
       - [React](#react)
       - [Highlight-selected](#highlight-selected)
       - [tab-foldername-index](#tab-foldername-index)
+  - [VScode](./vscode-extensions.md)
 - [Browser Extensions](#browser-extensions)
   - [Chrome](#chrome)
   - [Firefox](#firefox)
