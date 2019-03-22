@@ -3,7 +3,7 @@
 ## Content
 
 - [Project Bootstrapper](#project-bootstrapper)
-- [Styleguide](#styleguide)
+- [Styleguide](#style-guide)
 - [Internal Libraries](#internal-libraries)
 - [External Libraries](#external-libraries)
 - [Text editors](#text-editors)
