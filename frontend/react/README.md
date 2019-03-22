@@ -14,7 +14,9 @@ At [Wolox](http://wolox.com.ar), we have developed the [React Bootstrap](https:/
 
 ## Styleguide
 
+We use the [Airbnb Javascript Style Guide](https://github.com/airbnb/javascript) as reference for Javascript style. For all React technologies, we have our own styleguide also heavily influenced by [Airbnb React Style Guide](https://github.com/airbnb/javascript/tree/master/react).
 
+  - [Wolox React Style Guide](https://github.com/Wolox/tech-guides/blob/tech-refactor/frontend/react)
 
 ## Internal Libraries
 

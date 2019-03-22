@@ -1,10 +1,4 @@
-# Javascript
-
-We use the [Airbnb Javascript Style Guide](https://github.com/airbnb/javascript) as reference for Javascript style.
-
-# React
-
-For all React technologies, we have our own styleguide also heavily influenced by [Airbnb React Style Guide](https://github.com/airbnb/javascript/tree/master/react).
+# React Styleguide
 
 ## Table of Contents
 
