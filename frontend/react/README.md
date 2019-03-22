@@ -66,10 +66,8 @@ We use the [Airbnb Javascript Style Guide](https://github.com/airbnb/javascript)
 |[Connected-React-Router](https://github.com/supasate/connected-react-router)|A Redux binding for React Router v4|[![GitHub stars](https://img.shields.io/github/stars/supasate/connected-react-router.svg?style=social&label=Star)](https://github.com/supasate/connected-react-router)|[![Build Status](https://travis-ci.org/supasate/connected-react-router.png?branch=master)](https://travis-ci.org/supasate/connected-react-router)
 |[Reselect](https://github.com/reduxjs/reselect)|Simple “selector” library for Redux (and others)|[![GitHub stars](https://img.shields.io/github/stars/reduxjs/reselect.svg?style=social&label=Star)](https://github.com/reduxjs/reselect)|[![Build Status](https://travis-ci.org/reduxjs/reselect.png?branch=master)](https://travis-ci.org/reduxjs/reselect)
 
-
 ## Useful Documentation
 
-- [Style Guide](./style-guide.md)
 - [Testing guide with Jest & Enzyme](./docs/jest-enzyme-testing.md)
 
 ## Posts
