@@ -1,4 +1,4 @@
-# React Styleguide
+# React Style Guide
 
 ## Table of Contents
 

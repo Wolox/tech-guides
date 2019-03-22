@@ -12,7 +12,7 @@
     
 At [Wolox](http://wolox.com.ar), we have developed the [React Bootstrap](https://github.com/Wolox/react-bootstrap) to create our React projects. You'll find a detailed guide to start with your project in its README.
 
-## Styleguide
+## Style Guide
 
 We use the [Airbnb Javascript Style Guide](https://github.com/airbnb/javascript) as reference for Javascript style. For all React technologies, we have our own styleguide also heavily influenced by [Airbnb React Style Guide](https://github.com/airbnb/javascript/tree/master/react).
 
