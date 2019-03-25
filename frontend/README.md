@@ -26,6 +26,8 @@
 
 ## Posts
 
+### General
+
 - [How to Set Up Your Own Prerender Environment With AWS EC2](https://medium.com/wolox-driving-innovation/how-to-set-up-your-own-prerender-environment-with-aws-ec2-a14451f857bf)
 - [The Importance of Separating Structure from Style](https://medium.com/wolox-driving-innovation/the-importance-of-separating-structure-from-style-afdf52335254)
 - [Dynamic environments for your gulp tasks](https://medium.com/wolox-driving-innovation/dynamic-environments-for-your-gulp-tasks-27fada475c7e)
@@ -37,3 +39,10 @@
 - [8 tips to keep CSS organized](https://medium.com/wolox-driving-innovation/8-tips-to-keep-css-organized-1c7e0bcaa905)
 - [Comparing CSS code styles and deciding which is the best practice](https://medium.com/wolox-driving-innovation/comparing-css-code-styles-and-deciding-which-is-the-best-practice-360a8e058988)
 - [Infinite Scrolling in Ruby on Rails](https://medium.com/wolox-driving-innovation/infinite-scrolling-ruby-on-rails-3fcd3bac0f75)
+
+### React 
+
+- [Improve your React web app with a chat-widget](https://medium.com/wolox-driving-innovation/improve-your-react-web-app-with-a-chat-widget-14a1792902df)
+- [Introducing redux-recompose](https://medium.com/wolox-driving-innovation/932e746b0198)
+- [Easy data management from a REST API using redux-recompose v2](https://medium.com/wolox-driving-innovation/easy-data-management-from-a-rest-api-using-redux-recompose-v2-7c4dc5323445)
+- [Learn Firebase fast and simple, a complete beginners guide](https://medium.com/wolox-driving-innovation/fighting-back-fire-with-firebase-dc3e47021a81)
