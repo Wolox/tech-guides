@@ -24,4 +24,11 @@ This section is still under construction.
 
 ## External Libraries
 
+|Name|Description|Stars|Build|
+|----|-----------|-----|-----|
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+
 ## Useful Documentation
