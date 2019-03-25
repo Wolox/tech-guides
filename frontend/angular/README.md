@@ -1,14 +1,21 @@
 # Angular Tech Guides [Tech Guides under construction]
 This section is still under construction. 
 
-## Recommended Libraries
+## Content
 
-- [Internal Libraries]
+- [Project Bootstrapper](#project-bootstrapper)
+- [Styleguide](#style-guide)
+- [Internal Libraries](#internal-libraries)
+- [External Libraries](#external-libraries)
 
-- [External Libraries]
+## Project Bootstrapper
+
+## Style Guide
+
+## Internal Libraries
+
+## External Libraries
 
 ## Useful Documentation
-
-- [Style Guide]
 
 ## Posts
