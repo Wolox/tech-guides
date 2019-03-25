@@ -3,7 +3,7 @@
 ## Content
 
 - [Project Bootstrapper](#project-bootstrapper)
-- [Styleguide](#style-guide)
+- [Style Guide](#style-guide)
 - [Open Source](#open-source)
 - [Useful Documentation](#useful-documentation)
 
