@@ -4,7 +4,9 @@
 
 - [Project Bootstrapper](#project-bootstrapper)
 - [Style Guide](#style-guide)
-- [Open Source](#open-source)
+- [Internal Libraries](#internal-libraries)
+- [External Libraries](#external-libraries)
+- [Useful Documentation](#useful-documentation)
 
 ## Project Bootstrapper
 
@@ -14,11 +16,22 @@ At [Wolox](http://wolox.com.ar), we have developed the [Front-End Bootstrap](htt
 
 You can read our style conventions [here](../docs/css-style-guide.md)
 
-## Open Source
+## Internal Libraries
 
-- [Custom Radio Buttons](https://codepen.io/SKOLZ/pen/vNvNKW)
-- [Custom Text input 1](https://codepen.io/SKOLZ/pen/mBJeee)
-- [Custom Checkboxes](https://codepen.io/SKOLZ/pen/ZXGbQo)
-- [Custom Slider](https://codepen.io/SKOLZ/pen/jbvaEb)
-- [The Equalizer SCSS](https://codepen.io/SKOLZ/pen/pWJjRL)
-- [Layout SCSS](https://codepen.io/SKOLZ/pen/KXpBXZ)
+|Name|Description|Stars|Build|
+|----|-----------|-----|-----|
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+
+## External Libraries
+
+|Name|Description|Stars|Build|
+|----|-----------|-----|-----|
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+
+## Useful Documentation

@@ -12,6 +12,22 @@
 
 - [Vue](./vue/)
 
+## Open Source
+
+
+### Layout 
+
+- [Custom Radio Buttons](https://codepen.io/SKOLZ/pen/vNvNKW)
+- [Custom Text input 1](https://codepen.io/SKOLZ/pen/mBJeee)
+- [Custom Checkboxes](https://codepen.io/SKOLZ/pen/ZXGbQo)
+- [Custom Slider](https://codepen.io/SKOLZ/pen/jbvaEb)
+- [The Equalizer SCSS](https://codepen.io/SKOLZ/pen/pWJjRL)
+- [Layout SCSS](https://codepen.io/SKOLZ/pen/KXpBXZ)
+
+### AngularJS
+
+- [Custom Multiple Select](https://codepen.io/SKOLZ/pen/PJqPGG)
+
 ## Useful Documentation
 
 ### General

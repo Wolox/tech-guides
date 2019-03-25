@@ -4,7 +4,8 @@
 
 - [Project Bootstrapper](#project-bootstrapper)
 - [Style Guide](#style-guide)
-- [Open Source](#open-source)
+- [Internal Libraries](#internal-libraries)
+- [External Libraries](#external-libraries)
 - [Useful Documentation](#useful-documentation)
 
 ## Project Bootstrapper
@@ -15,9 +16,23 @@ At [Wolox](http://wolox.com.ar), we have developed the [Angular Bootstrap](http:
 
 We use the following [Style Guide](https://github.com/johnpapa/angular-styleguide) as reference for our Angular style projects.
 
-## Open Source
+## Internal Libraries
 
-- [Custom Multiple Select](https://codepen.io/SKOLZ/pen/PJqPGG)
+|Name|Description|Stars|Build|
+|----|-----------|-----|-----|
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+
+## External Libraries
+
+|Name|Description|Stars|Build|
+|----|-----------|-----|-----|
+| | | | |
+| | | | |
+| | | | |
+| | | | |
 
 ## Useful Documentation
 
