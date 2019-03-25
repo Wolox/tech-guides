@@ -6,7 +6,6 @@
 - [Styleguide](#style-guide)
 - [Internal Libraries](#internal-libraries)
 - [External Libraries](#external-libraries)
-- [Text editors](#text-editors)
 
 ## Project Bootstrapper
     
