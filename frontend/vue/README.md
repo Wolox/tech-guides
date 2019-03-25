@@ -8,7 +8,6 @@ This section is still under construction.
 - [Internal Libraries](#internal-libraries)
 - [External Libraries](#external-libraries)
 - [Useful Documentation](#useful-documentation)
-- [Posts](#posts)
 
 ## Project Bootstrapper
 
@@ -16,8 +15,10 @@ This section is still under construction.
 
 ## Internal Libraries
 
+|Name|Description|Stars|Build|
+|----|-----------|-----|-----|
+| | | | |
+
 ## External Libraries
 
 ## Useful Documentation
-
-## Posts
