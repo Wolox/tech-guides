@@ -4,6 +4,8 @@
 
 - [Layout](./layout/)
 
+- [Angular](./angular/)
+
 - [AngularJS](./angular-js/)
 
 - [React](./react/)
