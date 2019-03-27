@@ -18,6 +18,10 @@ At [Wolox](http://wolox.com.ar), we have developed the [ExpressJS Bootstrap](htt
 - [Orm and migrations](./docs/orm.md)
 - [Getting started with Jest](./docs/jest.md)
 
+## Sequelize
+
+- [HOW TO use aggregation functions and join clause](./docs/sequelize/group_by_and_aggregation_functions.md)
+
 ### Standards
 
 - [Airbnb Javascript Style Guide](https://github.com/airbnb/javascript)
