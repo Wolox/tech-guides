@@ -912,7 +912,7 @@ src
 
 ## HOCs
 
-  If the HOC you are creating requires some sort of configuration or extra parameters, don't pass with the wrapped component. Make a function that receives the configuration and returns a HOC. You can then pass the wrapped component to that HOC.
+  If the HOC you are creating requires some sort of configuration or extra parameters, don't pass them with the wrapped component. Make a function that receives the configuration and returns a HOC. You can then pass the wrapped component to that HOC.
   ```jsx
   //good HOC without configuration
   function withSomethingExtra(WrappedComponent){ }
