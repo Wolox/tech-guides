@@ -62,6 +62,7 @@ If you need to add a new technology, follow the [Tech Kickoff Guide](./templates
      *  Android
      *  iOS
      *  Net Core
+     *  Java
      *  Infrastructure
      *  Git
      *  Wolox
