@@ -19,6 +19,7 @@
   1. [Methods](#methods)
   1. [Ordering](#ordering)
   1. [`isMounted`](#ismounted)
+  1. [HOCs](#hocs)  
 
 ## Basic Rules
 
@@ -902,6 +903,27 @@ src
   > Why? [`isMounted` is an anti-pattern][anti-pattern], is not available when using ES6 classes, and is on its way to being officially deprecated.
 
   [anti-pattern]: https://facebook.github.io/react/blog/2015/12/16/ismounted-antipattern.html
+
+## HOCs
+
+  If the HOC you are creating requires some sort of configuration or extra parameters, don't pass them with the wrapped component. Make a function that receives the configuration and returns a HOC. You can then pass the wrapped component to that HOC.
+  ```jsx
+  //good HOC without configuration
+  function withSomethingExtra(WrappedComponent){ }
+  //good HOC with configuration
+  function withSomethingExtra(config1, config2)(WrappedComponent){ }
+  ```
+  ```jsx
+  //bad HOC
+  function withSomethingExtra(WrappedComponent, config1, config2){ }
+  function withSomethingExtra({component: WrappedComponent, config1, config2}){ }
+  ```
+
+  This way, we know exactly how to use each HOC and we can compose them with other libraries like `recompose`'s `compose`
+  ```js
+  const composedHoc = compose(hoc1(config1), hoc2, hoc3(config3));
+  const WrappedComponent = composedHoc(Component);
+  ```
 
 ## Translation
 
