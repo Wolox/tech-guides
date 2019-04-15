@@ -14,8 +14,7 @@
 
 ## Open Source
 
-
-### Layout 
+### Layout
 
 - [Custom Radio Buttons](https://codepen.io/SKOLZ/pen/vNvNKW)
 - [Custom Text input 1](https://codepen.io/SKOLZ/pen/mBJeee)
@@ -23,22 +22,26 @@
 - [Custom Slider](https://codepen.io/SKOLZ/pen/jbvaEb)
 - [The Equalizer SCSS](https://codepen.io/SKOLZ/pen/pWJjRL)
 - [Layout SCSS](https://codepen.io/SKOLZ/pen/KXpBXZ)
+- [External Resources](./docs/style-guide.md#external-resources)
 
 ### AngularJS
 
 - [Custom Multiple Select](https://codepen.io/SKOLZ/pen/PJqPGG)
 
-## Useful Documentation
+## Learning Content
 
-### General
-
-- [Frontend Guidelines](./docs/style-guide.md#guidelines)
-- [SEO Guidelines](./docs/seo-guide.md)
-- [Text Editors](./docs/style-guide.md#text-editors)
-- [Browser Extensions](./docs/style-guide.md#browser-extensions)
-- [External Resources](./docs/style-guide.md#external-resources)
 - [Learning Resources - Frontend](./docs/style-guide.md#learning-resources---frontend)
 - [Learning Resources - Design - UI/UX](./docs/style-guide.md#learning-resources---design---uiux)
+- [Frontend Guidelines](./docs/style-guide.md#guidelines)
+- [SEO Guidelines](./docs/seo-guide.md)
+
+## Editor Extensions
+
+- [Text Editors](./docs/style-guide.md#text-editors)
+
+## Browser Extensions
+
+- [Browser Extensions](./docs/style-guide.md#browser-extensions)
 
 ## Posts
 
@@ -56,7 +59,7 @@
 - [Comparing CSS code styles and deciding which is the best practice](https://medium.com/wolox-driving-innovation/comparing-css-code-styles-and-deciding-which-is-the-best-practice-360a8e058988)
 - [Infinite Scrolling in Ruby on Rails](https://medium.com/wolox-driving-innovation/infinite-scrolling-ruby-on-rails-3fcd3bac0f75)
 
-### React 
+### React
 
 - [Improve your React web app with a chat-widget](https://medium.com/wolox-driving-innovation/improve-your-react-web-app-with-a-chat-widget-14a1792902df)
 - [Introducing redux-recompose](https://medium.com/wolox-driving-innovation/932e746b0198)
