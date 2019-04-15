@@ -28,6 +28,7 @@ At [Wolox](http://wolox.com.ar), we have developed the [ExpressJS Bootstrap](htt
 
 ## Wolox posts
 
+- [Documenting a NodeJS REST API with OpenApi 3/Swagger](post is not created in Medium yet)
 - [How to code async JavaScript better](https://medium.com/wolox-driving-innovation/how-to-code-better-async-javascript-e59363883c84)
 - [NodeJS API Bootstrap](https://medium.com/wolox-driving-innovation/nodejs-api-bootstrap-b598a2591a3b)
 - [Watson and Node: an efficient way to set up a chatbot](https://medium.com/wolox-driving-innovation/watson-and-node-an-efficient-way-to-set-up-a-chatbot-6606a5a9f29a)
