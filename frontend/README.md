@@ -30,8 +30,6 @@
 
 ## Learning Content
 
-- [Learning Resources - Frontend](./docs/style-guide.md#learning-resources---frontend)
-- [Learning Resources - Design - UI/UX](./docs/style-guide.md#learning-resources---design---uiux)
 - [Frontend Guidelines](./docs/style-guide.md#guidelines)
 - [SEO Guidelines](./docs/seo-guide.md)
 
