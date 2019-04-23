@@ -66,3 +66,5 @@ return User.bulkCreate([
 ```
 
 Now an error will be thrown and our model is secure!
+
+Source: http://docs.sequelizejs.com/class/lib/model.js~Model.html#static-method-bulkCreate
