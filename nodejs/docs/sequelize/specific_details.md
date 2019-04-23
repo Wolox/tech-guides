@@ -2,7 +2,7 @@
 
 ## Validations in bulk methods
 
-Suppose you have a User model in Sequelize and you have a validation inside.
+Let's suppose you have an User model in Sequelize with a validation inside it.
 
 ```javascript
 module.exports = (sequelize, DataTypes) => {
@@ -11,7 +11,10 @@ module.exports = (sequelize, DataTypes) => {
     {
       id: { type: DataTypes.INTEGER, allowNull: false, autoIncrement: true, primaryKey: true },
       userName: { type: DataTypes.STRING, allowNull: false },
-      userType: { type: DataTypes.STRING, allowNull: false, validate: { isIn: [['regular', 'administrator']] }
+      userType: { 
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: { isIn: [['regular', 'administrator']] }
     },
     {}
   );
@@ -51,8 +54,8 @@ return User.bulkCreate([
 ]);
 ```
 
-This will be fine and your instances will be created successfully.
-In order to tell Sequelize to trigger the validations in bulk methods, you have to indicate the property `validate` in `true`.
+Although there are invalid values, the instances are created successfully, due the behavior of bulk actions in Sequelize.
+In order to tell Sequelize to trigger the validations in bulk methods, you have to set the property `validate` to `true`.
 
 ```javascript
 return User.bulkCreate([
@@ -67,6 +70,6 @@ return User.bulkCreate([
 ], { validate: true });
 ```
 
-Now an error will be thrown and our model is secure!
+Now, since validations are enabled, an error will be thrown and our model is secure!
 
 Source: http://docs.sequelizejs.com/class/lib/model.js~Model.html#static-method-bulkCreate
