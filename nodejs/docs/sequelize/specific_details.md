@@ -33,6 +33,8 @@ return User.create(
   }
 );
 ```
+throws an error.
+
 
 But if you handle users with a `bulk` method, such as `bulkCreate`, `bulkUpdate`, or another one, the validation `won't trigger` by default.
 
