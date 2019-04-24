@@ -3,7 +3,6 @@
 ## Validations in bulk methods
 
 Let's suppose you have an User model in Sequelize with a validation inside it.
-
 ```javascript
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define(
@@ -26,8 +25,7 @@ module.exports = (sequelize, DataTypes) => {
 ```
 
 If you create an user in the "normal" way and you do not respect the validation, an error will be thrown.
-For example:
-
+For example, the following code will throw an error:
 ```javascript
 return User.create(
   {
@@ -36,11 +34,8 @@ return User.create(
   }
 );
 ```
-throws an error.
 
-
-But if you handle users with a `bulk` method, such as `bulkCreate`, `bulkUpdate`, or another one, the validation `won't trigger` by default.
-
+But if you handle users with a `bulk` method, such as `bulkCreate`, `bulkUpdate`, or another one, the validation `won't be triggered` by default.
 ```javascript
 return User.bulkCreate([
   {
@@ -56,7 +51,6 @@ return User.bulkCreate([
 
 Although there are invalid values, the instances are created successfully, due the behavior of bulk actions in Sequelize.
 In order to tell Sequelize to trigger the validations in bulk methods, you have to set the property `validate` to `true`.
-
 ```javascript
 return User.bulkCreate([
   {
