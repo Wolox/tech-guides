@@ -30,12 +30,12 @@
 
 ## Learning Content
 
-- [Frontend Guidelines](./docs/style-guide.md#guidelines)
 - [SEO Guidelines](./docs/seo-guide.md)
 
 ## Editor Extensions
 
-- [Text Editors](./docs/style-guide.md#text-editors)
+- [Atom](./docs/text-editors.md#atom)
+- [Visual Studio Code](./docs/text-editors.md#visual-studio-code)
 
 ## Browser Extensions
 
@@ -56,10 +56,10 @@
 - [8 tips to keep CSS organized](https://medium.com/wolox-driving-innovation/8-tips-to-keep-css-organized-1c7e0bcaa905)
 - [Comparing CSS code styles and deciding which is the best practice](https://medium.com/wolox-driving-innovation/comparing-css-code-styles-and-deciding-which-is-the-best-practice-360a8e058988)
 - [Infinite Scrolling in Ruby on Rails](https://medium.com/wolox-driving-innovation/infinite-scrolling-ruby-on-rails-3fcd3bac0f75)
+- [Learn Firebase fast and simple, a complete beginners guide](https://medium.com/wolox-driving-innovation/fighting-back-fire-with-firebase-dc3e47021a81)
 
 ### React
 
 - [Improve your React web app with a chat-widget](https://medium.com/wolox-driving-innovation/improve-your-react-web-app-with-a-chat-widget-14a1792902df)
 - [Introducing redux-recompose](https://medium.com/wolox-driving-innovation/932e746b0198)
 - [Easy data management from a REST API using redux-recompose v2](https://medium.com/wolox-driving-innovation/easy-data-management-from-a-rest-api-using-redux-recompose-v2-7c4dc5323445)
-- [Learn Firebase fast and simple, a complete beginners guide](https://medium.com/wolox-driving-innovation/fighting-back-fire-with-firebase-dc3e47021a81)
