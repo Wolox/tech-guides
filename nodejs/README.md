@@ -21,6 +21,7 @@ At [Wolox](http://wolox.com.ar), we have developed the [ExpressJS Bootstrap](htt
 ## Sequelize
 
 - [HOW TO use aggregation functions and join clause](./docs/sequelize/group_by_and_aggregation_functions.md)
+- [HOW TO use validations in bulk methods](./docs/sequelize/validations_in_bulk_methods.md)
 
 ### Standards
 
