@@ -1,6 +1,4 @@
-# Sequelize specific details
-
-## Validations in bulk methods
+# Validations in bulk methods
 
 Let's suppose you have an User model in Sequelize with a validation inside it.
 ```javascript
