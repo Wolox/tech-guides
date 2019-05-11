@@ -3,6 +3,8 @@ This section is still under construction.
 
 ## Index
 
+------
+
 - [Project Bootstrapper](#project-bootstrapper)
 - [Style Guide](#style-guide)
 - [Internal Libraries](#internal-libraries)
