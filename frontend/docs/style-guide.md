@@ -166,22 +166,6 @@ In Sass you can generate functions called mixins that can receive parameters and
 ### CSS style guide
 To know more about CSS conventions and best practices, check [this document](./css-style-guide.md).
 
-# Browser Extensions
-
-## Chrome
-
-### Design & components
- - [Muzli](http://muz.li/join/)
-
-### Responsiveness
- - [Window resizer] (https://chrome.google.com/webstore/detail/window-resizer/kkelicaakdanhinjdeammmilcgefonfh?hl=en)
-
-### Proportions & alignment
- - [Page Ruller] (https://chrome.google.com/webstore/detail/page-ruler/jlpkojjdgbllmedoapgfodplfhcbnbpn)
- - [Dimensions] (http://felixniklas.com/dimensions/)
-
-## Firefox
-
 # External Resources
 
 ## Images Presentation
