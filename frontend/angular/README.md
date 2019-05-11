@@ -1,5 +1,4 @@
-# Angular Tech Guides [Tech Guides under construction]
-This section is still under construction. 
+# Angular Tech Guides
 
 ## Content
 
