@@ -10,11 +10,11 @@
 
 ## Project Bootstrapper
 
-At [Wolox](http://wolox.com.ar), we have developed the [Angular Bootstrap](http://github.com/wolox/frontend-bootstrap) (use `angular` branch) to create our Angular projects. You'll find a detailed guide to start with your project in its README.
+At [Wolox](http://wolox.com.ar), we have developed the [AngularJS Bootstrap](http://github.com/wolox/frontend-bootstrap) (use `angular` branch) to create our AngularJS projects. You'll find a detailed guide to start with your project in its README.
 
 ## Style Guide
 
-We use the following [Style Guide](https://github.com/johnpapa/angular-styleguide) as reference for our Angular style projects.
+We use the following [Style Guide](https://github.com/johnpapa/angular-styleguide) as reference for our AngularJS style projects.
 
 ## Internal Libraries
 
