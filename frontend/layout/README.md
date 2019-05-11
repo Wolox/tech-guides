@@ -1,4 +1,4 @@
-# Layout Tech Guides [Tech Guides under construction]
+# Layout Tech Guides
 
 ## Content
 
