@@ -1,4 +1,4 @@
-# AngularJS Tech Guides [Tech Guides under construction]
+# AngularJS Tech Guides
 
 ## Content
 
