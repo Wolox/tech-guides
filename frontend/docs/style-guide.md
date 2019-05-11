@@ -6,8 +6,6 @@
   - [Javascript](#javascript)
     - [Angular](#angular)
   - [CSS/SASS](#csssass)
-- [Text editors](#text-editors)
-  - [VScode](./vscode-extensions.md)
 - [Browser Extensions](#browser-extensions)
   - [Chrome](#chrome)
   - [Firefox](#firefox)
