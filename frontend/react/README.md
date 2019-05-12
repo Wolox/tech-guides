@@ -1,6 +1,6 @@
 # React Tech Guides
 
-## Content
+## Index
 
 - [Project Bootstrapper](#project-bootstrapper)
 - [Style Guide](#style-guide)
