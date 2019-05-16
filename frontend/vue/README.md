@@ -1,5 +1,4 @@
-# Vue Tech Guides [Tech Guides under construction]
-This section is still under construction. 
+# Vue Tech Guides
 
 ## Index
 
