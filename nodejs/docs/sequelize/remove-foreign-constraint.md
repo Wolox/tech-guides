@@ -1,4 +1,4 @@
-# Did you need to remove a foreign constraint and you don't know the name? How and TIP
+# Do you need to remove a foreign constraint and you don't know the name? How and TIP
 
 ## Introduction
 
