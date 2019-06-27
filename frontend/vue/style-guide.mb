@@ -1,0 +1,110 @@
+# Vue Style Guide
+
+## Table of contents
+
+1. [Basic rules](#basic-rules)
+2. [Folder structure](#folder-structure)
+3. [Ordering](#ordering)
+
+## Basic rules
+
+* When using the data property on a component, it **must** be a function that return an object. The only exception to the rule is in a root Vue instance, since only a single instance will ever exist.
+
+## Folder structure
+
+```
+src
+|
+├── assets // General app assets
+|
+├── components
+|     |
+|     ├ MyComponent.vue
+|     |
+|     └ RelatedComponents
+|         |
+|         ├ RelatedComponent1.vue
+|         |
+|         └ RelatedComponent2.vue
+|
+├── config
+|     ├ api.js
+|     |
+|     └ i18n.js
+|
+├── mixins // Folder with js files
+|
+├── scss
+|     ├ application.scss
+|     |
+|     ├ commons // Common styles, like display, margins, texts, etc.
+|     |
+|     └ variables // Common SCSS variables, like colors, sizes, etc.
+|
+├── services
+|     |
+|     └ MyService.js
+|
+├── store
+|     ├ index.js
+|     |
+|     └ modules // Folder with js files that contains parts of the store.
+|
+├── utils // Folder with js files
+|
+├── views // Main views
+|
+├── App.vue
+|
+├── main.js
+|
+└── router.js
+
+```
+
+## Ordering
+
+Component/instance options should be ordered consistently. Here at Wolox, we have opted for the recommended way from the Vue's official site.
+
+1. Side Effects
+   * `el`
+2. Global Awareness
+   * `name`
+   * `parent`
+3. Component Type
+   * `functional`
+4. Template Modifiers
+   * `delimiters`
+   * `comments`
+5. Template Dependencies
+   * `components`
+   * `directives`
+   * `filters`
+6. Composition
+   * `extends`
+   * `mixins`
+7. Interface
+   * `inheritAttrs`
+   * `model`
+   * `props/propsData`
+8. Local State
+   * `data`
+   * `computed`
+9. Events
+   * `watch`
+   * Lyfecycle Events
+     * `beforeCreate`
+     * `created`
+     * `beforeMount`
+     * `mounted`
+     * `beforeUpdate`
+     * `updated`
+     * `activated`
+     * `deactivated`
+     * `beforeDestroy`
+     * `destroyed`
+10. Non-Reactive Properties
+   * `methods`
+11. Rendering
+   * `template` / `render`
+   * `renderError`
