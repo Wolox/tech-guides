@@ -16,102 +16,18 @@ sudo apt-get install atom
 
 To install packages you can use the built-in package manager or you can install them using the terminal.
 
-#### Atom Beautify
-It sets identation configuration for many languages following its comunity standards.
-```
-apm install atom-beautify
-```
-
-#### Linter
-
-It shows errors in real time. Linter provides and Api so the other linters can display the error messages. You have to install a diferent linter for each language.
-
-![Image of Linter](https://i.github-camo.com/70b6e697c9d793642414b4ea6d08dbb9678877b3/687474703a2f2f672e7265636f726469742e636f2f313352666d6972507a322e676966)
-
-
-```
-apm install linter
-apm install linter-htmlhint
-apm install linter-csslint
-apm install linter-sass-lint
-apm install linter-pug-lint
-apm install linter-eslint
-apm install linter-scss-lint
-```
-
-To use the Rubocop and SCSS linter you need to install the following gems:
-```
-gem install scss_lint
-```
-
-#### Minimap
-
-![Image of Minimap](https://i.github-camo.com/bb671dcf7706c32eb432472c2cd69d354f824661/68747470733a2f2f6769746875622e636f6d2f61746f6d2d6d696e696d61702f6d696e696d61702f626c6f622f6d61737465722f7265736f75726365732f73637265656e73686f742e706e673f7261773d74727565)
-
-It allows you to preview the source code for easier navigation
-```
-apm install minimap
-```
-#### Color Picker
-![Image of Color-Picker](https://i.github-camo.com/467c72e686f00893c3d36bf46499e76c10f31787/68747470733a2f2f6769746875622e636f6d2f74686f6d61736c696e647374726f6d2f636f6c6f722d7069636b65722f7261772f6d61737465722f707265766965772e676966)
-
-```
-apm install color-picker
-```
-
-#### Pigments
-
-![Image of Pigments](https://i.github-camo.com/802d8b759d01e70861f95f99495731f19b145b03/687474703a2f2f61626533332e6769746875622e696f2f61746f6d2d7069676d656e74732f7069676d656e74732e6769663f7261773d74727565)
-It display CSS colors in place
-```
-apm install pigments
-```
-
-#### node-requirer
-
-![image of node-requirer](https://user-images.githubusercontent.com/25931366/28980572-b476c736-7924-11e7-8f81-9f53bf1c8c13.gif)
-
-It lets you quickly add require/import statements to any files within your code.
-
-```
-apm install node-requirer
-```
-
-#### js-hyperclick
-
-![image of js-hyperclick](https://user-images.githubusercontent.com/25931366/28981322-a7e89bfe-7927-11e7-9265-d2318ef0f22c.gif)
-
-It lets you jump to where variables are defined. (JS only)
-
-```
-apm install js-hyperclick
-```
-
-#### React
-React.js (JSX) language support, indentation, snippets, auto completion, reformatting
-
-
-```
-apm install react
-```
-
-#### Highlight-selected
-Double click on a word to highlight it throughout the open file.
-
-![image of highlight](https://user-images.githubusercontent.com/25931366/29073959-0120d44e-7c24-11e7-8bf1-ea2053820c96.gif)
-
-```
-apm install highlight-selected
-```
-
-#### tab-foldername-index
-It replaces tab’s title if opened multiple files with the same name for more readability.
-
-![image of tab-foldername](https://user-images.githubusercontent.com/25931366/29074125-85109a50-7c24-11e7-94ab-dc0488e56a3e.png)
-
-```
-apm install tab-foldername-index
-```
+|Name|Description|Stars|Build|
+|----|-----------|-----|-----|
+|[Atom Beautify](https://github.com/Glavin001/atom-beautify)|It sets identation configuration for many languages following its comunity standards. |[![GitHub stars](https://img.shields.io/github/stars/Glavin001/atom-beautify.svg?style=social&label=Star)](https://github.com/Glavin001/atom-beautify)|[![Build Status](https://travis-ci.org/Glavin001/atom-beautify.png?branch=master)](https://travis-ci.org/Glavin001/atom-beautify)
+|[Linter](https://github.com/steelbrain/linter)| It shows errors in real time. `Linter` provides an Api so the other linters can display the error messages. You have to install a diferent linter for each language.| [![GitHub stars](https://img.shields.io/github/stars/steelbrain/linter.svg?style=social&label=Star)](https://github.com/steelbrain/linter)|[![Build Status](https://circleci.com/gh/steelbrain/linter.png?branch=master)](https://circleci.com/gh/steelbrain/linter)
+|[Minimap](https://github.com/atom-minimap/minimap)|A preview of the full source code.| [![GitHub stars](https://img.shields.io/github/stars/atom-minimap/minimap.svg?style=social&label=Star)](https://github.com/atom-minimap/minimap)|[![Build Status](https://travis-ci.org/atom-minimap/minimap.svg?branch=master)](https://travis-ci.org/atom-minimap/minimap)
+|[Color Picker](https://github.com/abe33/atom-pigments)|A color management for Atom.  it intends to enable developers to quickly adjust the color values in their CSS files| [![GitHub stars](https://img.shields.io/github/stars/thomaslindstrom/color-picker.svg?style=social&label=Star)](https://github.com/thomaslindstrom/color-picker)|[![Build Status](https://travis-ci.org/thomaslindstrom/color-picker.svg?branch=master)](https://travis-ci.org/thomaslindstrom/color-picker)
+|[Pigments](https://github.com/abe33/atom-pigments)| A package to display colors in project and files| [![GitHub stars](https://img.shields.io/github/stars/abe33/atom-pigments.svg?style=social&label=Star)](https://github.com/abe33/atom-pigments)|[![Build Status](https://travis-ci.org/abe33/atom-pigments.svg?branch=master)](https://travis-ci.org/abe33/atom-pigments)
+|[Node Requirer](https://github.com/tnrich/atom-node-requirer)| Lets you quickly add require/import statements to any files/node_modules within your code| [![GitHub stars](https://img.shields.io/github/stars/tnrich/atom-node-requirer.svg?style=social&label=Star)](https://github.com/tnrich/atom-node-requirer)|[![Build Status](https://travis-ci.org/tnrich/atom-node-requirer.svg?branch=master)](https://travis-ci.org/tnrich/atom-node-requirer)
+|[JS Hyperclick](https://github.com/AsaAyers/js-hyperclick)| It lets you jump to where variables are defined. (JS only)| [![GitHub stars](https://img.shields.io/github/stars/AsaAyers/js-hyperclick.svg?style=social&label=Star)](https://github.com/AsaAyers/js-hyperclick)|[![Build Status](https://travis-ci.org/AsaAyers/js-hyperclick.svg?branch=master)](https://travis-ci.org/AsaAyers/js-hyperclick)
+|[React](https://github.com/orktes/atom-react)| React.js (JSX) language support, indentation, snippets, auto completion, reformatting| [![GitHub stars](https://img.shields.io/github/stars/orktes/atom-react.svg?style=social&label=Star)](https://github.com/orktes/atom-react)|[![Build Status](https://travis-ci.org/orktes/atom-react.svg?branch=master)](https://travis-ci.org/orktes/atom-react)
+|[Highlight Selected](https://github.com/richrace/highlight-selected)| Double click on a word to highlight it throughout the open file| [![GitHub stars](https://img.shields.io/github/stars/richrace/highlight-selected.svg?style=social&label=Star)](https://github.com/richrace/highlight-selected)|[![Build Status](https://travis-ci.org/richrace/highlight-selected.svg?branch=master)](https://travis-ci.org/richrace/highlight-selected)
+|[Tab Folder Name Index](https://github.com/Connormiha/atom-tab-foldername-index) | It replaces tab’s title if opened multiple files with the same name for more readability | [![GitHub stars](https://img.shields.io/github/stars/Connormiha/atom-tab-foldername-index.svg?style=social&label=Star)](https://github.com/Connormiha/atom-tab-foldername-index)|[![Build Status](https://travis-ci.org/Connormiha/atom-tab-foldername-index.svg?branch=master)](https://travis-ci.org/Connormiha/atom-tab-foldername-index)
 
 # VSCode
 

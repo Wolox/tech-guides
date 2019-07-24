@@ -6,8 +6,6 @@
   - [Javascript](#javascript)
     - [Angular](#angular)
   - [CSS/SASS](#csssass)
-- [Text editors](#text-editors)
-  - [VScode](./vscode-extensions.md)
 - [External Resources](#external-resources)
   - [Images Presentation](#images-presentation)
   - [Scrolling](#scrolling)
