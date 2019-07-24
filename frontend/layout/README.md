@@ -1,6 +1,6 @@
-# Layout Tech Guides [Tech Guides under construction]
+# Layout Tech Guides
 
-## Content
+## Index
 
 - [Project Bootstrapper](#project-bootstrapper)
 - [Style Guide](#style-guide)

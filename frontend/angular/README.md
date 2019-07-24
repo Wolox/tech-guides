@@ -1,7 +1,6 @@
-# Angular Tech Guides [Tech Guides under construction]
-This section is still under construction. 
+# Angular Tech Guides
 
-## Content
+## Index
 
 - [Project Bootstrapper](#project-bootstrapper)
 - [Style Guide](#style-guide)
@@ -10,6 +9,7 @@ This section is still under construction.
 - [Useful Documentation](#useful-documentation)
 
 ## Project Bootstrapper
+We use the Angular CLI to create web applications. You'll find a detailed guide to start your project [here] (https://github.com/Wolox/tech-guides/frontend/angular/docs/kickoff.md).
 
 ## Style Guide
 

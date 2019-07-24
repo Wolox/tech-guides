@@ -1,7 +1,6 @@
-# Vue Tech Guides [Tech Guides under construction]
-This section is still under construction. 
+# Vue Tech Guides
 
-## Content
+## Index
 
 - [Project Bootstrapper](#project-bootstrapper)
 - [Style Guide](#style-guide)

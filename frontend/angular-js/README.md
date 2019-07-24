@@ -1,6 +1,6 @@
-# AngularJS Tech Guides [Tech Guides under construction]
+# AngularJS Tech Guides
 
-## Content
+## Index
 
 - [Project Bootstrapper](#project-bootstrapper)
 - [Style Guide](#style-guide)
