@@ -44,7 +44,7 @@
 
 # Indentation
 
-For all of our code we use 2 spaces of indentation. You can set it as default in your text editor settings to use tab instead with 2 spaces. 
+We use 2 space indentation in all our files. Set your text editor to use spaces instead of tabs for indentation and set the indentation size to 2.
 
 # CSS/SASS
 
