@@ -42,6 +42,10 @@
   - Angular code snippets
     - [Fetch data from API: Infinite scroll](https://codepad.co/snippet/b27gCGTJ)
 
+# Indentation
+
+We use 2 space indentation in all our files. Set your text editor to use spaces instead of tabs for indentation and set the indentation size to 2.
+
 # CSS/SASS
 
 ## Nested rules
