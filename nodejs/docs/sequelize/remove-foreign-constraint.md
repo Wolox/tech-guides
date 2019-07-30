@@ -2,9 +2,9 @@
 
 ## Introduction
 
-To remove a constraint in a Sequelize migration, you can use the `removeConstraint` function, that receive two parameters: the table name and the constraint name. But what happen when you don't know the constraint name? For example, when Sequelize name it differently in each environment. Let's resolve this.
+To remove a constraint in a Sequelize migration, you can use the `removeConstraint` function, that receive two parameters, the table name and the constraint name. But what happen when you don't know the constraint name? For example, when Sequelize names it differently in each environment. Let's resolve this.
 
-## Why this happen?
+## Why does this happen?
 
 In a migration file, when you want to create a relation between two tables with a foreign key, you probably use the next code
 
@@ -18,7 +18,7 @@ queryInterface.addColumn(tableName, field, {
     }
 })
 ```
-When Sequelize run this migration, it will create the relation with a foreign key. At this moment, everything is ok. But, when you find the foreign constraint name is something like this: `FK__business___busin__467D75B8`. If you see, the final section, is like a random string. So, when you run the same migration in a different environment, the name will be different. So, you can't use `removeConstraint` dynamically.
+When Sequelize runs this migration, it will create a relation with a foreign key. At this moment, everything is ok. But, when you find the foreign constraint name is something like this: `FK__business___busin__467D75B8`. If you see, the final section, is like a random string. So, when you run the same migration in a different environment, the name will be different. So, you can't use `removeConstraint` dynamically.
 
 ## How to solve it
 
@@ -38,7 +38,7 @@ Executing this query, it will return for example:
 |FK__pending_d__sap_r__4C62CE45|
 |FK__pending_d__docum__4E4B16B7|
 
-If you have another dialect and you find how to list the foreign constraints, include that in this doc!
+If you have another dialect and you find how to list the foreign constraints, include it in this doc!
 
 2. Now that we have the query, pass that to the `query` function from sequelize. I mean this: `queryInterface.sequelize.query`
 This will return something like this
@@ -72,7 +72,7 @@ Then, you can add your new foreign relation.
 
 ## TIP
 
-The next time you need to create a foreign key, use the `addConstriant` function to know the constraint name
+The next time you need to create a foreign key, use the `addConstraint` function to know the constraint name
 
 ```javascript
 queryInterface.addConstraint(tableName, fields, {
