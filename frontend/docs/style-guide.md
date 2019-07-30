@@ -6,8 +6,6 @@
   - [Javascript](#javascript)
     - [Angular](#angular)
   - [CSS/SASS](#csssass)
-- [Text editors](#text-editors)
-  - [VScode](./vscode-extensions.md)
 - [External Resources](#external-resources)
   - [Images Presentation](#images-presentation)
   - [Scrolling](#scrolling)
@@ -43,6 +41,10 @@
     - Specific conventions for syntax and structuring angular applications and why you should follow them.
   - Angular code snippets
     - [Fetch data from API: Infinite scroll](https://codepad.co/snippet/b27gCGTJ)
+
+# Indentation
+
+We use 2 space indentation in all our files. Set your text editor to use spaces instead of tabs for indentation and set the indentation size to 2.
 
 # CSS/SASS
 
