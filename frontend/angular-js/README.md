@@ -10,7 +10,7 @@
 
 ## Project Bootstrapper
 
-At [Wolox](http://wolox.com.ar), we have developed the [AngularJS Bootstrap](http://github.com/wolox/frontend-bootstrap) (use `angular` branch) to create our AngularJS projects. You'll find a detailed guide to start with your project in its README.
+At [Wolox](http://wolox.com.ar), we have developed the [AngularJS Bootstrap](https://github.com/wolox/angularjs-bootstrap) to create our AngularJS projects. You'll find a detailed guide to start with your project in its README.
 
 ## Style Guide
 
