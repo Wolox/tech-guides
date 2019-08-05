@@ -78,7 +78,7 @@ Helpful tools with **absolutley no business logic**. These include parsers, date
 
 ### 2.5- Serializers
 
-Formats the response of a service or endpoint. These are used when there is too much complexity or repetition.
+Formats the response of a service or endpoint. These are used to avoid duplicated logic in response formatting. 
 
 ### 2.6- Interactors
 
@@ -90,7 +90,7 @@ Abstraction layers set up before controllers usually, which allow us to perform 
 
 ### 2.8- Mappers
 
-They are used to centralize the corresponding logic of converting the data that arrives to us into the objects we handle in our application. As an advantage we also have the reuse of them at the different entry points where it applies.
+They are used to centralize the corresponding logic of converting the data that arrives to us into the objects we handle in our application. As an advantage we also have the reuse of them at the different entry points where it applies. The main difference between mappers and serializers is that mappers are used for IN data formatting whereas serializers should be used for OUT data formatting.
 
 &nbsp;
 
@@ -121,7 +121,7 @@ To respect the JavaScript standards we leave all other variables, functions and 
 
 ## 4- Conditionals
 
-There are several Boolean contexts, to make the most of them we must use thuthy/falsy values. To know what they are you should read section 7.5.
+There are several Boolean contexts, to cover as much cases as possible we must use truthy/falsy values. To know what they are, go to section [7.5](#75--truthy-and-falsy-values).
 
 ### 4.1- IFs
 
@@ -164,7 +164,7 @@ When a value should be chosen using a binary condition it is useful to use the t
    let variable = condition ? value_if_condition_is_true : value_if_condition_is_false;
 ```
 
-This operator is convenient when the condition is not given directly by a Truthy or falsy value or when we want to assign values other than _undefined_.
+This operator is convenient when the condition is not given directly by a truthy or falsy value or when we want to assign values other than _undefined_.
 
 ```javascript
   const age = 26;
@@ -203,6 +203,7 @@ Examples:
 
 ```javascript
 let myObj;
+const myValue = 1;
 
 let value = myObj && myObj.myKey;
 console.log(value) //undefined because myObj is a falsy value.
@@ -213,7 +214,7 @@ console.log(value) //undefined because myObj is a truthy value, then the value o
 
 myObj.myKey = myValue;
 let value = myObj && myObj.myKey;
-console.log(value) //myValue because myObj is a truthy value, then the value of myObj.mykey is assigned which is myValue.
+console.log(value) //myValue because myObj is a truthy value, then the value of myObj.mykey is assigned and it's value is 1.
 ```
 
 ### 4.4- OR Operator
@@ -252,14 +253,14 @@ This example could be written with `if/else` and we note that it is much longer.
 
 ## 5- Rest API
 
-Typically we use a RESTful design for our web APIs. The concept of REST is to separate the API structure into logical resources. There are used the HTTP methods **GET**, **DELETE**, **POST** and **PUT** to operate with the resources.
+Typically we use a RESTful design for our APIs. The concept of REST is to separate the API structure into logical resources. There are used the HTTP methods **GET**, **DELETE**, **POST** and **PUT** to operate with the resources.
 
 ### 5.1- Best Practices
 
 These are some of the best practices to design a clean RESTful API:
 
 * **Use plural nouns instead of verbs**: To get all cars perform a GET to _/users_ instead of _/getUsers_.
-* **GET methods must not alter states**: Must return stuff, not modify it.
+* **GET methods must not alter states**: Must return data, not modify it.
 * **Use sub-resources for relations**: To obtain driver number 2 of car number 4 use GET _/cars/4/drivers/2_
 * **Provide filtering, sorting, field selection and paging for collections**: Use query params to apply different options to alter data retrieval through GET methods.
 * **API Version**: API's must be versioned always.
@@ -293,7 +294,7 @@ The _declarative_ paradigm, as opposed to _imperative_, avoids describing the **
 
 ### 6.2- Map
 
-Returns a new array resulting of applying the a function to each element of the original array.
+Returns a new array resulting of applying the function to each element of the original array.
 
 ```javascript
    const numbers = [1, 4, 9, 16];
@@ -307,7 +308,7 @@ Returns a new array resulting of applying the a function to each element of the 
 
 ### 6.3- Reduce
 
-Effectively reduces the array to one value, iterating through each element where acumulator is the result of the last call.
+Reduces the array to one value, iterating through each element where acumulator is the result of the last call, which is also known as seed.
 The starting value of the acumulator is passed a second parameter and the last value returned is effectively the result of the reduce operation.
 
 ```javascript
