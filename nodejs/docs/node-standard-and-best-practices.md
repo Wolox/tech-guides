@@ -16,10 +16,9 @@
      - [2.8- Mappers](#28--mappers)
    - [3- Naming Conventions](#3--naming-conventions)
      - [3.1- Files](#31--files)
-     - [3.2- Input and output API parameters (Pending)](#32--input-and-output-api-parameters-pending)
-     - [3.3- Routes (Pending)](#33--routes-pending)
-     - [3.4- Database](#34--database)
-     - [3.5- Code](#35--code)
+     - [3.2- Routes, input and output API parameters](#32--routes-input-and-output-api-parameters)
+     - [3.3- Database](#33--database)
+     - [3.4- Code](#34--code)
    - [4- Conditionals](#4--conditionals)
      - [4.1- IFs](#41--ifs)
      - [4.2- Ternary Operator](#42--ternary-operator)
@@ -36,13 +35,13 @@
      - [6.5- Others](#65--others)
    - [7- Code Style](#7--code-style)
      - [7.1- Line length limit](#71--line-length-limit)
-     - [7.2- Requires](#7.2--requires)
-     - [7.3- Destructuring](#7.3--destructuring)
+     - [7.2- Requires](#72--requires)
+     - [7.3- Destructuring](#73--destructuring)
      - [7.4- Implicit Return](#74--implicit-return)
      - [7.5- Truthy and Falsy values](#75--truthy-and-falsy-values)
    - [8- Promise vs Async/Await](#8--promise-vs-asyncawait)
      - [8.1- Promise](#81--promise)
-     - [8.2- Async/Await](#82--async/await)
+     - [8.2- Async Await](#82--async-await)
      - [8.3- When to use which?](#83--when-to-use-which)
    - [9- Error handling](#9--error-handling)
      - [9.1- Throwing errors](#91--throwing-errors)
@@ -110,11 +109,11 @@ For example:
 
 With the purpose of unifying the interfaces with other techs and making things easier to the client who will consume other API, we decide to keep routes, input and output API parameters in **snake_case**.
 
-### 3.4- Database
+### 3.3- Database
 
 To respect the database conventions we decide to keep tables and columns in **snake_case**.
 
-### 3.5- Code
+### 3.4- Code
 
 To respect the JavaScript standards we leave all other variables, functions and general code in **camelCase**.
 
@@ -403,7 +402,7 @@ A _promise_ represents the eventual success or failure of an asynchronous operat
 
 There are many ways to handle correctly promises. Feel free to browse Maykol Purica's post about Promises in the useful links section.
 
-### 8.2- Async/Await
+### 8.2- Async Await
 
 Promise's _syntactic sugar_.
 Specifying any function or arrow function as **async** specifies that the return value is a Promise.
@@ -469,7 +468,7 @@ When using this approach, we await all of the promises so the code is uniform.
 
 &nbsp;
 
-## 9- Errors handling
+## 9- Error handling
 
 ### 9.1- Throwing errors
 
