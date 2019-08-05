@@ -74,7 +74,7 @@ The model should be as simple as possible, just fields and Sequelize configurati
 
 ### 2.4- Helpers
 
-Helpful tools with **absolutley no business logic whatsoever**. These include parsers, date formatters, etc. These are just helpers and should be able to be used in other projects.
+Helpful tools with **absolutley no business logic**. These include parsers, date formatters, etc. These are just auxiliary tools and should be able to be used in other projects.
 
 ### 2.5- Serializers
 
