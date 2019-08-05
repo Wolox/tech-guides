@@ -24,8 +24,9 @@ At [Wolox](http://wolox.com.ar), we have developed the [ExpressJS Bootstrap](htt
 - [HOW TO use validations in bulk methods](./docs/sequelize/validations_in_bulk_methods.md)
 - [Remove foreign constraints when you don't know the name](./docs/sequelize/remove-foreign-constraint.md)
 
-### Standards
+## Standards
 
+- [Wolox NodeJS Standard and Best Practices](./docs/node-standard-and-best-practices.md)
 - [Airbnb Javascript Style Guide](https://github.com/airbnb/javascript)
 
 ## Wolox posts
