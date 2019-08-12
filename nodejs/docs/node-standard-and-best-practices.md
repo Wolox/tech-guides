@@ -74,7 +74,7 @@ The model should be as simple as possible, just fields and Sequelize configurati
 
 ### 2.4- Helpers
 
-Helpful tools with **absolutley no business logic**. This includes parsers, date formatters, etc. Helpers are just auxiliary tools and should be abstract enough to able to be used in other projects.
+Helpful tools with **absolutley no business logic**. This includes parsers, date formatters, etc. Keep in mind that helpers are just auxiliary tools, thus should be abstract enough to allow being implemented in other projects.
 
 ### 2.5- Serializers
 
@@ -102,7 +102,7 @@ To keep consistency between all our projects we define a convention for a sort o
 
 File names must be **snake_case** and **plural**, with the exception of models, which will be in **singular**. We like to keep models singular, since they are representing a singular instance of that type of object, but the other type of files should be kept in plural since they usually handle collections of objects. Also we like to avoid adding the entity (model, controller, etc) of the file in the name itself.
 For example:
-- if we have the model user, the file should be named **user.js** instead of **users.js**, **user.model.js** or **user_model.js**.
+- if we have a 'User' model, the file should be named **user.js** instead of **users.js**, **user.model.js** or **user_model.js**.
 - if we have the cars controller, the file should be named **cars.js** instead of **car.js**, **cars.controller.js** or **cars_controller.js**
 
 ### 3.2- Routes, input and output API parameters
@@ -131,7 +131,7 @@ Up to the possible extent, single statement `ifs` should be placed within the sa
    if(!user) return next(errors.notFound('User not found');
 ```
 
-Also, the `else` statement should be avoided when possible. For example, using an early `return` instead of `else` statement:
+Also, the `else` statement should be avoided when possible. In many cases, you can replace it using an early `return`:
 
 ```javascript
    if(!user) return next(errors.notFound('User not found');
