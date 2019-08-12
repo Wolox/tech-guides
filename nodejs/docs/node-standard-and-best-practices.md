@@ -109,6 +109,84 @@ For example:
 
 With the purpose of unifying the interfaces with other techs and making things easier to the client who will consume other API, we decide to keep routes, input and output API parameters in **snake_case**.
 
+Some clarifications about the responses:
+
+If we need to return an object, for example an user, we must return it in this way using a key in the body.
+
+```javascript
+{
+  user: {
+    id: 1,
+    first_name: 'My first name',
+    last_name: 'My last name',
+    email: 'My email'
+  }
+}
+```
+
+instead of:
+
+```javascript
+{
+  id: 1,
+  first_name: 'My first name',
+  last_name: 'My last name',
+  email: 'My email'
+}
+```
+
+If we need to return a list of objects, for example a list of users, we must return it in this way using a key in the body.
+
+```javascript
+{
+  users: [
+    {
+      id: 1,
+      first_name: 'My first name',
+      last_name: 'My last name',
+      email: 'My email'
+    },
+    {
+      id: 2,
+      first_name: 'My first name',
+      last_name: 'My last name',
+      email: 'My email'
+    },
+    {
+      id: 3,
+      first_name: 'My first name',
+      last_name: 'My last name',
+      email: 'My email'
+    }
+  ]
+}
+```
+
+instead of
+
+```javascript
+[
+  {
+    id: 1,
+    first_name: 'My first name',
+    last_name: 'My last name',
+    email: 'My email'
+  },
+  {
+    id: 2,
+    first_name: 'My first name',
+    last_name: 'My last name',
+    email: 'My email'
+  },
+  {
+    id: 3,
+    first_name: 'My first name',
+    last_name: 'My last name',
+    email: 'My email'
+  }
+]
+```
+
 ### 3.3- Database
 
 To respect the database conventions we decide to keep tables and columns in **snake_case**.
@@ -260,7 +338,11 @@ Typically we use a RESTful design for our APIs. The concept of REST is to separa
 These are some of the best practices to design a clean RESTful API:
 
 * **Use plural nouns instead of verbs**: To get all cars perform a GET to _/users_ instead of _/getUsers_.
-* **GET methods must not alter states**: Must return data, not modify it.
+* **The following HTTP methods are typically used in a RESTful API**:
+  * **GET**: Use GET requests to retrieve resource representation/information only – and not to modify it in any way. As GET requests do not change the state of the resource, these are said to be safe methods. Additionally, GET APIs should be idempotent, which means that making multiple identical requests must produce the same result every time until another API (POST or PUT) has changed the state of the resource on the server.
+  * **POST**: Use POST APIs to create new subordinate resources, e.g. a file is subordinate to a directory containing it or a row is subordinate to a database table. Talking strictly in terms of REST, POST methods are used to create a new resource into the collection of resources. Ideally, if a resource has been created on the origin server, the response SHOULD be HTTP response code 201 (Created) and contain an entity which describes the status of the request and refers to the new resource, and a Location header.
+  * **PUT**: Use PUT APIs primarily to update existing resource (if the resource does not exist then API may decide to create a new resource or not). If a new resource has been created by the PUT API, the origin server MUST inform the user agent via the HTTP response code 201 (Created) response and if an existing resource is modified, either the 200 (OK) or 204 (No Content) response codes SHOULD be sent to indicate successful completion of the request.
+  * **DELETE**: DELETE APIs are used to delete resources (identified by the Request-URI). A successful response of DELETE requests SHOULD be HTTP response code 200 (OK) if the response includes an entity describing the status, 202 (Accepted) if the action has been queued, or 204 (No Content) if the action has been performed but the response does not include an entity.
 * **Use sub-resources for relations**: To obtain driver number 2 of car number 4 use GET _/cars/4/drivers/2_
 * **Provide filtering, sorting, field selection and paging for collections**: Use query params to apply different options to alter data retrieval through GET methods.
 * **API Version**: API's must be versioned always.
@@ -274,7 +356,7 @@ Most commonly used are:
 * **201 CREATED**: Successful response meaning a new resource has been created. Most commonly used with POST and sometimes PUT.
 * **204 NO CONTENT**: Successful response without content in body.
 * **400 BAD REQUEST**: Request was not formatted correctly and the server cannot interpret it.
-* **401 UNAUTHORIZED**: Unauthorized attempt to use a specific resource.
+* **401 UNAUTHORIZED**: The client must authenticate itself to get the requested response.
 * **403 FORBIDDEN**: Incorrect level of authorization to use a specific resource.
 * **404 NOT FOUND**: Specified resource was not found.
 * **422 UNPROCESSABLE ENTITY**: Must be used when the server cannot handle the request as is. For example may be a parameter image cannot be read correctly or some parameters are missing.
@@ -521,6 +603,10 @@ In this section we will leave a few **packages** that will help us solve many of
    [MaPuP]: <https://medium.com/wolox-driving-innovation/how-to-code-better-async-javascript-e59363883c84>
    [destructuring]: <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment>
    [statusCodes]: <https://developer.mozilla.org/en-US/docs/Web/HTTP/Status>
+   [lodash]: <https://lodash.com/>
+   [lodash-fp]: <https://github.com/lodash/lodash/wiki/FP-Guide>
+   [rambda]: <https://ramdajs.com/>
+   [moment]: <https://momentjs.com/>
 
 ## About
 
