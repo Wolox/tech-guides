@@ -25,7 +25,7 @@
 
   - Only include one React component per file.
   - Always use JSX syntax.
-  - Do not use `React.createElement` unless you're initializing the app from a file that is not JSX.
+  - Do not use `React.createElement`.
   - Always use export default for Components.
   - Use `export default` for reducers, actionCreators and services. As a general rule of thumb, use `export default` for all files that have a unique object to export. 
 
@@ -37,15 +37,29 @@ src
 └───app
 │   │
 │   └───components
-│   │ └───baseComponents
-│   │     └───Input
-│   │     └───Text
-│   │     └───Button
+│   │ └───atoms # Can't be broken down into smaller things
+│   │ |   └───Input
+│   │ |   └───Text
+│   │ |   └───Button
+│   │ |   └───etc
+│   │ └───molecules # Two or more atoms
+│   │ |   └───FormInput
+│   │ |   └───SearchBar
+│   │ |   └───Table
+│   │ |   └───etc
+│   │ └───organisms # Two or more molecules
+│   │     └───LoginForm
+│   │     └───UserTable
 │   │     └───etc
 │   └───screens
 │       └───MyScreenComponent
-│           └───assets // Screen specific app assets
-│           | components
+│           └───assets # Screen specific app assets
+│           └───reducer
+│             | actions.js
+│             | reducer.js
+│             | selectors.js
+│             | effects.js
+│           └───components # Screen specific components
 │           | constants.js
 │           | i18n.js
 │           | index.js
@@ -53,7 +67,7 @@ src
 │           | styles.scss
 │           | utils.js
 │
-└───assets // General app assets
+└───assets # General app assets
 └───config
     | api.js
     | i18n.js
@@ -64,6 +78,7 @@ src
 │       | actions.js
 │       | reducer.js
 │       | selectors.js
+│       | effects.js
 │
 └───propTypes
 │   | Model1.js
@@ -71,7 +86,10 @@ src
 │   
 └───scss
 └───services
-    | MyService.js
+│   │ serializers.js
+│   └───Model
+│        | ModelService.js
+│        | serializers.js
 │
 └───utils
 │   index.js
@@ -79,7 +97,8 @@ src
 
 ## Class vs `React.createClass` vs stateless
 
-  - If you have internal state and/or refs, prefer `class extends Component` over `React.createClass`. eslint: [`react/prefer-es6-class`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md) [`react/prefer-stateless-function`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md)
+  - Avoid `React.createClass`. eslint: [`react/prefer-es6-class`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md) [`react/prefer-stateless-function`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md)
+  - Prefer normal functions (not arrow functions) over classes:
 
     ```jsx
     // bad
@@ -91,49 +110,47 @@ src
     });
 
     // good
-    class Listing extends Component {
-      // ...
-      render() {
-        return <div>{this.state.hello}</div>;
-      }
-    }
-    ```
-
-    And if you don't have state or refs, only for stateless components, prefer normal functions (not arrow functions) over classes:
-
-    ```jsx
-    // bad
-    class Listing extends Component {
-      render() {
-        return <div>{this.props.hello}</div>;
-      }
-    }
-
-    // bad (relying on function name inference is discouraged)
-    const Listing = ({ hello }) => (
-      <div>{hello}</div>
-    );
-
-    // good
     function Listing({ hello }) {
       return <div>{hello}</div>;
     }
     ```
-
-  - Avoid using helper render methods when possible. Functions that return JSX elements should probably be layout components.
+  - Prefer normal function components (not arrow functions) over `class extends Component`. Only exception is usage of `componentDidCatch` and `getDerivedStateFromError` (which have no hooks support)
 
     ```jsx
     // bad
-    function TextContainer extends Component {
-      renderText = text => <span>text</span>;
+    class Listing extends Component {
+      state = { foo: 1 };
 
       render() {
-        return (
-          <div>
-            {this.renderText('aText')}
-          </div>
-        )
+        return <div>{this.state.hello}</div>;
       }
+    }
+
+    // bad
+    const Listing = ({ hello }) => {
+      const [foo, setFoo] = useState(1);
+      return <div>{hello}</div>;
+    }
+
+    // good
+    function Listing({ hello }) {
+      const [foo, setFoo] = useState(1);
+      return <div>{hello}</div>;
+    }
+    ```
+
+  - Avoid using helper render methods when possible. Functions that return JSX elements should probably be components themselves.
+
+    ```jsx
+    // bad
+    function TextContainer({ text }) {
+      renderText = text => <span>text</span>;
+
+      return (
+        <div>
+          {this.renderText(text)}
+        </div>
+      )
     }
 
     // good
@@ -159,38 +176,38 @@ src
 ## Naming
 
   - **Extensions**: Use `.js` extension for React components.
-  - **Filename**: For component filenames and services use PascalCase. E.g., `ReservationCard.js`.
+  - **Filename**: For services use PascalCase. E.g., `ReservationCard.js` or a folder with the service name and `index.js` as filename. For React components, there must be a folder in PascalCase with its name and the component file should be `index.js` (and optionally `layout.js` if you're using [Smart/Dumb components](https://medium.com/@thejasonfile/dumb-components-and-smart-components-e7b33a698d43)
   - **Reference Naming**: Use PascalCase for React components and camelCase for their associated elements. eslint: [`react/jsx-pascal-case`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md)
 
     ```jsx
     // bad
-    import reservationCard from './ReservationCard';
+    import myService from './MyService';
+    import myComponent from './MyComponent';
 
     // good
-    import ReservationCard from './ReservationCard';
+    import MyService from './MyService'; # webpack infers index.js
+    import MyComponent from './MyComponent'; # webpack infers index.js
 
     // bad
-    const ReservationItem = <ReservationCard />;
+    const MyComponent = <MyComponent />;
 
     // good
-    const reservationItem = <ReservationCard />;
+    const myComponent = <MyComponent />;
     ```
   - **Component Hierarchy**: 
     - Component files should be inside folders that match the component's name.
     - Use index.js as the filename of a container component. Use `Container` as the suffix of the component's name.
-    - Use layout.js as the filename of a layout component.
+    - Use layout.js as the filename of a layout component. Only do this if your component is becoming too big, it should be an exception, not a rule.
 
     
     ```jsx
     // MyComponent/index.js
     import MyComponent from './layout'
 
-    class MyComponentContainer extends Component {
+    function MyComponentContainer() {
       // Do smart stuff
 
-      render() {
-        return <MyComponent />
-      }
+      return <MyComponent />
     }
 
     // MyComponent/layout.js
@@ -605,69 +622,43 @@ src
   }
   ```
 
-  - Base smart components like InputContainer, ButtonContainer, etc. if it's clear that they will want to pass all its props to it's layout component:
+  - HTML element wrappers (Button, Input, Image, etc.)
 
   ```jsx
-  import Button from './layout';
-  class ButtonContainer extends Component {
-    // do something smart
-
-    render() {
-      return <Button {...this.props} />
+    function Input(props) { 
+      return <input {...props} />
     }
-  }
   ```
 
-  - Spreading objects with known, explicit props. This can be particularly useful when testing React components with Mocha's beforeEach construct.
-
-  ```jsx
-  function Foo {
-    const props = {
-      text: '',
-      isPublished: false
-    }
-
-    return <div {...props} />;
-  }
-
-  export default Foo;
-  ```
-
-  Notes for use:
-  Filter out unnecessary props when possible. Also, use [prop-types-exact](https://www.npmjs.com/package/prop-types-exact) to help prevent bugs.
-
-  ```jsx
-  // good
-  render() {
-    const { irrelevantProp, ...relevantProps  } = this.props;
-    return <WrappedComponent {...relevantProps} />
-  }
-
-  // bad
-  render() {
-    const { irrelevantProp, ...relevantProps  } = this.props;
-    return <WrappedComponent {...this.props} />
-  }
-  ```
 
 ## Refs
 
-  - Always use ref callbacks. eslint: [`react/no-string-refs`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-string-refs.md)
+  - Always use ref [`useRef`](https://reactjs.org/docs/hooks-reference.html#useref) for function components and [`createRef`](https://reactjs.org/docs/refs-and-the-dom.html#creating-refs) for class components.
 
-    > Note: Only use refs for class components. Reasons in React docs: https://reactjs.org/docs/refs-and-the-dom.html#refs-and-functional-components
 
     ```jsx
     // bad
-    <Foo
-      ref="myRef"
-    />
+    <Foo ref="myRef" />
 
-    // good
+    // bad
     setRef = ref => this.myRef = ref;
 
-    <Foo
-      ref={this.setRef}
-    />
+    <Foo ref={this.setRef} />
+
+    // good
+    function Bar() {
+      const myRef = useRef(null);
+      return <Foo ref={myRef}/>
+    }
+
+    // good
+    class Bar extends Component() {
+      myRef = createRef();
+      render() {
+        return <Foo ref={myRef}/>
+      }
+    }
+    
     ```
 
 ## Parentheses
@@ -809,16 +800,16 @@ src
 
     ```jsx
     // bad
-    React.createClass({
+    class MyComponent extends Component {
       _onClickSubmit() {
         // do stuff
       },
 
       // other stuff
-    });
+    };
 
     // good
-    class extends Component {
+    class MyComponent extends Component {
       onClickSubmit() {
         // do stuff
       }
@@ -845,15 +836,14 @@ src
 
   - Ordering for `class extends Component`:
 
+  1. `getDerivedStateFromProps`
+  1. `getDerivedStateFromError`
   1. optional `static` methods
-  1. `constructor`
-  1. `getChildContext`
-  1. `componentWillMount`
+  1. `constructor` # Although it shouldn't be necessary
   1. `componentDidMount`
-  1. `componentWillReceiveProps`
   1. `shouldComponentUpdate`
-  1. `componentWillUpdate`
   1. `componentDidUpdate`
+  1. `getSnapshotBeforeUpdate`
   1. `componentWillUnmount`
   1. `componentDidCatch`
   1. *clickHandlers or eventHandlers* like `onClickSubmit()` or `onChangeDescription()`
@@ -866,7 +856,7 @@ src
   1. mapDispatchToProps (if using Redux)
   1. export default MyComponent
 
-  - How to define `propTypes`, `defaultProps`, `contextTypes`, etc...
+  - How to define `propTypes` and `defaultProps`.
 
     ```jsx
     import React from 'react';
@@ -924,21 +914,5 @@ src
   const composedHoc = compose(hoc1(config1), hoc2, hoc3(config3));
   const WrappedComponent = composedHoc(Component);
   ```
-
-## Translation
-
-  This JSX/React style guide is also available in other languages:
-
-  - ![cn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/China.png) **Chinese (Simplified)**: [JasonBoy/javascript](https://github.com/JasonBoy/javascript/tree/master/react)
-  - ![tw](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Taiwan.png) **Chinese (Traditional)**: [jigsawye/javascript](https://github.com/jigsawye/javascript/tree/master/react)
-  - ![es](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Spain.png) **Español**: [agrcrobles/javascript](https://github.com/agrcrobles/javascript/tree/master/react)
-  - ![jp](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Japan.png) **Japanese**: [mitsuruog/javascript-style-guide](https://github.com/mitsuruog/javascript-style-guide/tree/master/react)
-  - ![kr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/South-Korea.png) **Korean**: [apple77y/javascript](https://github.com/apple77y/javascript/tree/master/react)
-  - ![pl](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Poland.png) **Polish**: [pietraszekl/javascript](https://github.com/pietraszekl/javascript/tree/master/react)
-  - ![Br](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Brazil.png) **Portuguese**: [ronal2do/javascript](https://github.com/ronal2do/airbnb-react-styleguide)
-  - ![ru](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Russia.png) **Russian**: [leonidlebedev/javascript-airbnb](https://github.com/leonidlebedev/javascript-airbnb/tree/master/react)
-  - ![th](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Thailand.png) **Thai**: [lvarayut/javascript-style-guide](https://github.com/lvarayut/javascript-style-guide/tree/master/react)
-  - ![tr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Turkey.png) **Turkish**: [alioguzhan/react-style-guide](https://github.com/alioguzhan/react-style-guide)
-  - ![ua](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Ukraine.png) **Ukrainian**: [ivanzusko/javascript](https://github.com/ivanzusko/javascript/tree/master/react)
 
 **[⬆ back to top](#table-of-contents)**
