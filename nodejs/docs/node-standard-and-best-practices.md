@@ -74,7 +74,7 @@ The model should be as simple as possible, just fields and Sequelize configurati
 
 ### 2.4- Helpers
 
-Helpful tools with **absolutley no business logic**. These include parsers, date formatters, etc. These are just auxiliary tools and should be able to be used in other projects.
+Helpful tools with **absolutley no business logic**. This includes parsers, date formatters, etc. Keep in mind that helpers are just auxiliary tools, thus should be abstract enough to allow being implemented in other projects.
 
 ### 2.5- Serializers
 
@@ -82,7 +82,7 @@ Formats the response of a service or endpoint. These are used to avoid duplicate
 
 ### 2.6- Interactors
 
-Utilized when business flow is too complex or are many of them. For _complex_ business flows we mean those which utilize many _services_ or perform various calculations. For these cases we create **interactors** and move the different interactions from the controller to it.
+Utilized when business flows are too complex or are many of them. For _complex_ business flows we mean those which utilize many _services_ or perform various calculations. For these cases we create **interactors** and move the different interactions from the controller to it.
 
 ### 2.7- Middlewares
 
@@ -100,14 +100,14 @@ To keep consistency between all our projects we define a convention for a sort o
 
 ### 3.1- Files
 
-File names must be **snake_case** and **plural** except models, which will be in **singular**. We like to keep models singular, since they are representing a singular instance of that type of objects, but the other type of files in plural since they usually handle collections of objects. Also we like to avoid the entity (model, controller, etc) of the file in the name itself.
+File names must be **snake_case** and **plural**, with the exception of models, which will be in **singular**. We like to keep models singular, since they are representing a singular instance of that type of object, but the other type of files should be kept in plural since they usually handle collections of objects. Also we like to avoid adding the entity (model, controller, etc) of the file in the name itself.
 For example:
-- if we have the model user, the file should be named **user.js** instead of **users.js** **user.model.js** or **user_model.js**.
+- if we have a 'User' model, the file should be named **user.js** instead of **users.js**, **user.model.js** or **user_model.js**.
 - if we have the cars controller, the file should be named **cars.js** instead of **car.js**, **cars.controller.js** or **cars_controller.js**
 
 ### 3.2- Routes, input and output API parameters
 
-With the purpose of unifying the interfaces with other techs and making things easier to the client who will consume other API, we decide to keep routes, input and output API parameters in **snake_case**.
+With the purpose of unifying the interfaces with other techs and making things easier to the client who may consume any other API, we decided to keep routes, input and output API parameters in **snake_case**.
 
 Some clarifications about the responses:
 
@@ -189,11 +189,11 @@ instead of
 
 ### 3.3- Database
 
-To respect the database conventions we decide to keep tables and columns in **snake_case**.
+To respect the database conventions we decided to keep tables and columns in **snake_case**.
 
 ### 3.4- Code
 
-To respect the JavaScript standards we leave all other variables, functions and general code in **camelCase**.
+To respect the JavaScript standards we leave all variables, functions and general code in **camelCase**.
 
 &nbsp;
 
@@ -209,7 +209,7 @@ Up to the possible extent, single statement `ifs` should be placed within the sa
    if(!user) return next(errors.notFound('User not found');
 ```
 
-Likewise, the if statement should be wisley selected to avoid using the else statement, for example use early return instead of else statement:
+Also, the `else` statement should be avoided when possible. In many cases, you can replace it using an early `return`:
 
 ```javascript
    if(!user) return next(errors.notFound('User not found');
@@ -271,7 +271,7 @@ Instead, when we have these cases it is convenient to use the **AND** operator o
 
 A simple way to avoid the ternary operator is using the **AND** operator. 
 
-In the following example variable will be set to value if indicator is truthy, if indicator is falsy variable will be set to value;
+In the following example, `variable` will be set to `value` if `indicator` is truthy; if `indicator` is falsy, `variable` will be set to `value`;
 
 ```javascript
    let variable = indicator && value;
@@ -331,13 +331,13 @@ This example could be written with `if/else` and we note that it is much longer.
 
 ## 5- Rest API
 
-Typically we use a RESTful design for our APIs. The concept of REST is to separate the API structure into logical resources. There are used the HTTP methods **GET**, **DELETE**, **POST** and **PUT** to operate with the resources.
+Typically we use a RESTful design for our APIs. The concept of REST is to separate the API structure into logical resources. The HTTP methods **GET**, **DELETE**, **POST** and **PUT** are used to operate with those resources.
 
 ### 5.1- Best Practices
 
 These are some of the best practices to design a clean RESTful API:
 
-* **Use plural nouns instead of verbs**: To get all cars perform a GET to _/users_ instead of _/getUsers_.
+* **Use plural nouns instead of verbs**: To get all users perform a GET to _/users_ instead of _/getUsers_.
 * **The following HTTP methods are typically used in a RESTful API**:
   * **GET**: Use GET requests to retrieve resource representation/information only – and not to modify it in any way. As GET requests do not change the state of the resource, these are said to be safe methods. Additionally, GET APIs should be idempotent, which means that making multiple identical requests must produce the same result every time until another API (POST or PUT) has changed the state of the resource on the server.
   * **POST**: Use POST APIs to create new subordinate resources, e.g. a file is subordinate to a directory containing it or a row is subordinate to a database table. Talking strictly in terms of REST, POST methods are used to create a new resource into the collection of resources. Ideally, if a resource has been created on the origin server, the response SHOULD be HTTP response code 201 (Created) and contain an entity which describes the status of the request and refers to the new resource, and a Location header.
@@ -590,9 +590,9 @@ In this section we will leave a few **packages** that will help us solve many of
 
 ## 11- Useful Links
 
-- [Developing Better Node.js Developers][MaPiP] Post by Matias Pizzagalli's post.
-- [Bootstrap][GEP] Post by Gonzalo Escandarani.
-- [Promises][MaPuP] Post by Maykol Purica.
+- [Developing Better Node.js Developers][MaPiP] by Matias Pizzagalli.
+- [Bootstrap][GEP] by Gonzalo Escandarani.
+- [Promises][MaPuP] by Maykol Purica.
 - [Destructuring][destructuring] Destructuring guide.
 - [Status Codes][statusCodes] Status codes guide.
 
