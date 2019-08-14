@@ -111,7 +111,7 @@ With the purpose of unifying the interfaces with other techs and making things e
 
 Some clarifications about the responses:
 
-If we need to return an object, for example an user, we must return it in this way using a key in the body.
+If we need to return an object that represents a certain entity, for example an user, we must return it using a key in the body that describes it as such.
 
 ```javascript
 {
