@@ -271,7 +271,7 @@ Instead, when we have these cases it is convenient to use the **AND** operator o
 
 A simple way to avoid the ternary operator is using the **AND** operator. 
 
-In the following example, `variable` will be set to `value` if `indicator` is truthy; if `indicator` is falsy, `variable` will be set to `value`;
+In the following example, `variable` will be set to `value` if `indicator` is truthy; if `indicator` is falsy, `variable` will be set to the falsy value inside `indicator`;
 
 ```javascript
    let variable = indicator && value;
