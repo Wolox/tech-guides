@@ -595,6 +595,7 @@ In this section we will leave a few **packages** that will help us solve many of
 - [Promises][MaPuP] by Maykol Purica.
 - [Destructuring][destructuring] Destructuring guide.
 - [Status Codes][statusCodes] Status codes guide.
+- [Error propagation in Javascript][errorPropagation] How errors propagate in Javascript.
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
@@ -603,6 +604,7 @@ In this section we will leave a few **packages** that will help us solve many of
    [MaPuP]: <https://medium.com/wolox-driving-innovation/how-to-code-better-async-javascript-e59363883c84>
    [destructuring]: <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment>
    [statusCodes]: <https://developer.mozilla.org/en-US/docs/Web/HTTP/Status>
+   [errorPropagation]: <https://medium.com/front-end-weekly/error-propagation-in-javascript-with-error-translation-pattern-78cf7178fe92>
    [lodash]: <https://lodash.com/>
    [lodash-fp]: <https://github.com/lodash/lodash/wiki/FP-Guide>
    [rambda]: <https://ramdajs.com/>
