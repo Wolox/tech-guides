@@ -35,12 +35,16 @@
      - [6.5- Some](#65--some)
      - [6.6- Every](#66--every)
      - [6.7- ForEach](#67--forEach)
-   - [7- Code Style](#7--code-style)
-     - [7.1- Line length limit](#71--line-length-limit)
-     - [7.2- Requires](#72--requires)
+   - [7- ES6](#7--es6)
+     - [7.1- Arrow functions](#71--arrow-functions)
+     - [7.2- Spread operator](#72--spread--operator)
      - [7.3- Destructuring](#73--destructuring)
-     - [7.4- Implicit Return](#74--implicit-return)
-     - [7.5- Truthy and Falsy values](#75--truthy-and-falsy-values)
+   - [8- Code Style](#8--code-style)
+     - [8.1- Line length limit](#81--line-length-limit)
+     - [8.2- Requires](#82--requires)
+     - [8.3- Destructuring](#83--destructuring)
+     - [8.4- Implicit Return](#84--implicit-return)
+     - [8.5- Truthy and Falsy values](#85--truthy-and-falsy-values)
    - [8- Promise vs Async/Await](#8--promise-vs-asyncawait)
      - [8.1- Promise](#81--promise)
      - [8.2- Async Await](#82--async-await)
@@ -466,6 +470,79 @@ tennisPlayers.forEach(name => {
 })
 
 ```
+
+## 7- ES6
+
+### 7.1- Arrow functions
+
+Arrow functions it's a new functionality introduced by ES6 that allow build a function
+with a more concise syntax. Use token `=>` after params instead of the word `function`.
+
+```javascript
+//ES5
+var nextNumber = function(x) {
+  return x+1;
+} 
+
+//ES6
+const nextNumber = x => {
+  return x+1;
+}
+// Arrow functions use implicit return, which means you can do this:
+const nextNumber = x => x+1; // return x+1
+// This is particularly useful for when we are returning something right away, like a promise
+// but if you need to do another action before returning you should add { }
+const nextNumber = x => {
+  console.log('Next number ready');
+  return x+1;
+}
+// For one param function the parenthesis are optional:
+const nextNumber = (x) => x+1;
+
+```
+
+
+### 7.2- Spread operator
+
+The spread operator allows us to get all properties for an object. It's important to know that
+this operator creates a new object and doesn't exist a reference to the original object
+
+```javascript
+// first we will define an object 
+const myHouse = { size: 30, age: 40, countFloors: 2, countEnvironments: 6 };
+// now we wanted create a new house with the same properties for myHouse
+// but contains different age
+const friendHouse = { size: 30, age: 25, countFloors: 2, countEnvironments: 6 };
+// but with the spread operator
+const friendHouse = {...myHouse, age: 25 };
+// if you do this:
+delete myHouse.size;
+// the object friendHouse still containing the original property size
+```
+
+
+### 7.3- Destructuring
+
+The destructuring assignment syntax is a expression that makes it possible to unpack values from arrays, or properties from objects, into distinct variables.
+
+```javascript
+const getDataUser = () => ({
+  id: 1,
+  name: 'Steve',
+  age: 24
+})
+const getUsers = () => [{ id: 1, name: 'Carlos' }, { id: 2, name: 'Julian' }]
+// we wanted only the name for a user
+const { name } = await getDataUser();
+// for this way, I get only property name for the value returning by getDataUser function
+// now, we wanted the first element for value returning by getUsers function
+const [ firstUser ] = await getUsers(); 
+// if you do this:
+console.log(name);
+console.log(firstUser.name)
+// will show Steve and Carlos
+```
+
 
 &nbsp;
 
