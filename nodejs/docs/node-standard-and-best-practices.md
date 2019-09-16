@@ -32,7 +32,9 @@
      - [6.2- Map](#62--map)
      - [6.3- Reduce](#63--reduce)
      - [6.4- Filter](#64--filter)
-     - [6.5- Others](#65--others)
+     - [6.5- Some](#65--some)
+     - [6.6- Every](#66--every)
+     - [6.7- ForEach](#67--forEach)
    - [7- Code Style](#7--code-style)
      - [7.1- Line length limit](#71--line-length-limit)
      - [7.2- Requires](#72--requires)
@@ -417,24 +419,63 @@ Returns an array with all the values from the original array for which the funct
    // filtered is [12, 130, 44]
 ```
 
-### 6.5- Others
+### 6.5- Some
 
-Other useful methods for a _declarative_ approach.
+Returns true when the array contains at least one element that the function returned a truthy value.
 
-* **some()**.
-* **every()**.
-* **forEach()**.
-* **split()**.
+
+```javascript
+
+const  isLegal = value  =>  value >= 18;
+
+const  anyLegalAge = [8, 37, 17, 62, 13].some(isLegal);
+
+// returned true because the elements 37 and 13 are greater than 18
+
+```
+
+
+### 6.6- Every
+
+Returns true when all elements for the array returned a truthy value for the function.
+
+
+```javascript
+
+const  isEven = value  => !(value  %  2);
+
+const  areEven = [8, 5, 17, 40, 13].every(isEven);
+
+// returned false because the elements 5,17 and 13 are odd
+
+```
+
+
+
+### 6.7- forEach
+
+This function doesn't modify the original array. Allow execute the same function for each element without returning a value.
+
+
+```javascript
+
+const tennisPlayers = ['Federer','Nalbandian','Nadal'];
+
+tennisPlayers.forEach(name => {
+	//code that is will executed for each element
+})
+
+```
 
 &nbsp;
 
-## 7- Code style
+## 8- Code style
 
-### 7.1- Line length limit
+### 8.1- Line length limit
 
 Line length limit should be between 80 and 100 characters.
 
-### 7.2- Requires
+### 8.2- Requires
 
 The format we'll adopt for **requires** will be:
 * **const** for each require.
@@ -451,9 +492,7 @@ The format we'll adopt for **requires** will be:
 
 ```
 
-### 7.3- Destructuring
-
-The destructuring assignment syntax is a JavaScript expression that makes it possible to unpack values from arrays, or properties from objects, into distinct variables.
+### 8.3- Destructuring
 
 This is really useful to refer specific values from modules.
 
@@ -463,21 +502,21 @@ This is really useful to refer specific values from modules.
 
 A comprenhensive approach to destructuring may be found in the useful links section.
 
-### 7.4- Implicit return
+### 8.4- Implicit return
 
 When using _arrow functions_ we can make the **return statement implicit** meaning that the result of evaluating the expression right of the arrow will be returned as a value. This saves writing **{}** and **return**.  
 
 Yes, code will be shorter and neater but for more complex code, changing or debugging is noticeably more prone to errors. This is why, we enforce the use of the **implicit return** only in simple or short functions.
 
-### 7.5- Truthy and Falsy values
+### 8.5- Truthy and Falsy values
 
 In JavaScript, a truthy value is a value that translates to true when evaluated in a Boolean context. All values are truthy unless they are defined as falsy which are **false**, **0**, **""**, **null**, **undefined** and **NaN**.
 
 &nbsp;
 
-## 8- Promise vs Async/Await
+## 9- Promise vs Async/Await
 
-### 8.1- Promise
+### 9.1- Promise
 
 A _promise_ represents the eventual success or failure of an asynchronous operation. Promises have two methods:
 * **then**: Takes a function as parameter which is executed once the promise is resolved with the result as parameter.
@@ -485,14 +524,14 @@ A _promise_ represents the eventual success or failure of an asynchronous operat
 
 There are many ways to handle correctly promises. Feel free to browse Maykol Purica's post about Promises in the useful links section.
 
-### 8.2- Async Await
+### 9.2- Async Await
 
 Promise's _syntactic sugar_.
 Specifying any function or arrow function as **async** specifies that the return value is a Promise.
 **await** may only be used inside **async** functions. Using **await** makes the code flow block until the promise is _resolved_ or _rejected_.
 **await** statements are usually within **try/catch** blocks.
 
-### 8.3- When to use which?
+### 9.3- When to use which?
 
 Always prioritize the use of **promises**.  
 A convenient case for using async/await is when a promise is executed conditionally without altering main flow. 
@@ -551,9 +590,9 @@ When using this approach, we await all of the promises so the code is uniform.
 
 &nbsp;
 
-## 9- Error handling
+## 10- Error handling
 
-### 9.1- Throwing errors
+### 10.1- Throwing errors
 
 There are two ways of doing it. They are almost identical except for what is mentioned [here](https://stackoverflow.com/questions/33445415/javascript-promises-reject-vs-throw).
 
@@ -568,7 +607,7 @@ or
 When throwing errors within promises we must return the exception using **Promise.reject**.  
 Be uniform with an option to achieve the prolixity of the code.
 
-### 9.2- Capturing errors
+### 10.2- Capturing errors
 
 A **catch** has to be used to handle the error.
 
@@ -579,7 +618,7 @@ In case you want to perform the response of the request with the error, you have
 ```
 When a parameter is passed to the **next** function, Express already knows that it must go to the error middleware function, regardless of the other functions in between.
 
-## 10- Utils
+## 11- Utils
 
 In this section we will leave a few **packages** that will help us solve many of our problems.
 
@@ -588,7 +627,7 @@ In this section we will leave a few **packages** that will help us solve many of
 * **[RAMBDA][rambda]**: A practical functional library for JavaScript programmers.
 * **[MOMENT][moment]**: Parse, validate, manipulate, and display dates and times in JavaScript.
 
-## 11- Useful Links
+## 12- Useful Links
 
 - [Developing Better Node.js Developers][MaPiP] by Matias Pizzagalli.
 - [Bootstrap][GEP] by Gonzalo Escandarani.
