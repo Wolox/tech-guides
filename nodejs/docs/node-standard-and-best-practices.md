@@ -425,8 +425,7 @@ Returns an array with all the values from the original array for which the funct
 
 ### 6.5- Some
 
-Returns true when the array contains at least one element that the function returned a truthy value.
-
+Returns true when at least one array's element evaluated by the function, returns a truthy value.
 
 ```javascript
 
@@ -441,7 +440,7 @@ const  anyLegalAge = [8, 37, 17, 62, 13].some(isLegal);
 
 ### 6.6- Every
 
-Returns true when all elements for the array returned a truthy value for the function.
+Returns true when all the elements within the array evaluated by the function, return a truthy value.
 
 
 ```javascript
@@ -458,8 +457,7 @@ const  areEven = [8, 5, 17, 40, 13].every(isEven);
 
 ### 6.7- forEach
 
-This function doesn't modify the original array. Allow execute the same function for each element without returning a value.
-
+Execute the function for each element without returning a value. The forEach function doesn't modify the original array.
 
 ```javascript
 
@@ -475,8 +473,7 @@ tennisPlayers.forEach(name => {
 
 ### 7.1- Arrow functions
 
-Arrow functions it's a new functionality introduced by ES6 that allow build a function
-with a more concise syntax. Use token `=>` after params instead of the word `function`.
+Arrow functions are a new feature introduced by ES6 that allow build a function. Use token `=>` after params instead of `function`.
 
 ```javascript
 //ES5
@@ -504,20 +501,31 @@ const nextNumber = (x) => x+1;
 
 ### 7.2- Spread operator
 
-The spread operator allows us to get all properties for an object. It's important to know that
-this operator creates a new object and doesn't exist a reference to the original object
+The spread operator allows us to merge all properties from an object into a target object.
+It's important to know that this operator creates a new object and doesn't exist
+ a reference to the original object
 
 ```javascript
-// first we will define an object 
+// first we will define two objects
 const myHouse = { size: 30, age: 40, countFloors: 2, countEnvironments: 6 };
-// now we wanted create a new house with the same properties for myHouse
-// but contains different age
+const newHouseAge = { age: 44 };
+// now we want to create a new house with the same properties as myHouse
+// with different age
 const friendHouse = { size: 30, age: 25, countFloors: 2, countEnvironments: 6 };
-// but with the spread operator
+// but using the spread operator
 const friendHouse = {...myHouse, age: 25 };
 // if you do this:
 delete myHouse.size;
-// the object friendHouse still containing the original property size
+// the object friendHouse keeps its property 'size'
+// keep in mind that the properties are applied in the order in which the objects are given
+// for example:
+const newHouse = {...friendHouse, ...newHouseAge };
+console.log(newHouse.age);
+// will log '44'
+// on the opposite
+const newHouse = {...newHouseAge, ...friendHouse };
+console.log(newHouse.age);
+// will log '30'
 ```
 
 
