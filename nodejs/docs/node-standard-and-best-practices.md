@@ -429,9 +429,10 @@ Returns an array with all the values from the original array for which the funct
 Returns true when at least one array's element evaluated by the function, returns a truthy value.
 
 ```javascript
-const  isLegal = value => value >= 18;
-const  anyCanDrive = [8, 37, 17, 62, 13].some(isLegal);
-// returned true because the elements 37 and 13 are greater than 18
+   const isLegal = value => value >= 18;
+
+   const anyCanDrive = [8, 37, 17, 62, 13].some(isLegal);
+   // returned true because the elements 37 and 13 are greater than 18
 
 ```
 
@@ -441,9 +442,10 @@ const  anyCanDrive = [8, 37, 17, 62, 13].some(isLegal);
 Returns true when all the elements within the array evaluated by the function, return a truthy value.
 
 ```javascript
-const  isEven = value => !(value % 2);
-const  areEven = [8, 5, 17, 40, 13].every(isEven);
-// returned false because the elements 5,17 and 13 are odd
+   const  isEven = value => !(value % 2);
+
+   const  areEven = [8, 5, 17, 40, 13].every(isEven);
+   // returned false because the elements 5,17 and 13 are odd
 
 ```
 
@@ -455,6 +457,7 @@ Execute the function for each element without returning a value. The forEach fun
 
 ```javascript
    const tennisPlayers = ['Federer','Nalbandian','Nadal'];
+
    tennisPlayers.forEach(name => {
      //code that is will executed for each element
    })
@@ -504,10 +507,10 @@ a reference to the original object.
    const friendHouse = {...myHouse, age: 25 };
    // keep in mind that the properties are applied in the order in which the objects are given
    const newHouse = {...friendHouse, ...newHouseAge };
-   console.log(newHouse.age); // log '44'
+   console.log(newHouse.age); // log 44
    // on the opposite
    const newHouse = {...newHouseAge, ...friendHouse };
-   console.log(newHouse.age); //log '25'
+   console.log(newHouse.age); // log 25
 
 ```
 
@@ -523,8 +526,10 @@ The destructuring assignment syntax is a expression that makes it possible to un
      age: 24
    });
    const getUsers = () => [{ id: 1, name: 'Peter' }, { id: 2, name: 'Ben' }];
+
    const { name } = await getDataUser();
    const [ firstUser ] = await getUsers(); 
+   
    console.log(name); // log 'Steve'
    console.log(firstUser.name); // log 'Peter'
 
