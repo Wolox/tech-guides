@@ -37,23 +37,24 @@
      - [6.7- ForEach](#67--forEach)
    - [7- ES6](#7--es6)
      - [7.1- Arrow functions](#71--arrow-functions)
-     - [7.2- Spread operator](#72--spread--operator)
+     - [7.2- Spread operator](#72--spread-operator)
      - [7.3- Destructuring](#73--destructuring)
+     - [7.4- String interpolation](#74--string-interpolation)
    - [8- Code Style](#8--code-style)
      - [8.1- Line length limit](#81--line-length-limit)
      - [8.2- Requires](#82--requires)
      - [8.3- Destructuring](#83--destructuring)
      - [8.4- Implicit Return](#84--implicit-return)
      - [8.5- Truthy and Falsy values](#85--truthy-and-falsy-values)
-   - [8- Promise vs Async/Await](#8--promise-vs-asyncawait)
-     - [8.1- Promise](#81--promise)
-     - [8.2- Async Await](#82--async-await)
-     - [8.3- When to use which?](#83--when-to-use-which)
-   - [9- Error handling](#9--error-handling)
-     - [9.1- Throwing errors](#91--throwing-errors)
-     - [9.2- Capturing errors](#92--capturing-errors)
-   - [10- Utils](#10--utils)
-   - [11- Useful Links](#11--useful-links)
+   - [9- Promise vs Async/Await](#9--promise-vs-asyncawait)
+     - [9.1- Promise](#91--promise)
+     - [9.2- Async Await](#92--async-await)
+     - [9.3- When to use which?](#93--when-to-use-which)
+   - [10- Error handling](#10--error-handling)
+     - [10.1- Throwing errors](#101--throwing-errors)
+     - [10.2- Capturing errors](#102--capturing-errors)
+   - [11- Utils](#11--utils)
+   - [12- Useful Links](#12--useful-links)
 
 ## 1- Objective
 
@@ -414,7 +415,7 @@ The starting value of the acumulator is passed a second parameter and the last v
 
 ### 6.4- Filter
 
-Returns an array with all the values from the original array for which the function retured a truthy value.
+Returns an array with all the values from the original array for which the function returned a truthy value.
 
 ```javascript
    const isBigEnough = value => value >= 10;
@@ -428,11 +429,8 @@ Returns an array with all the values from the original array for which the funct
 Returns true when at least one array's element evaluated by the function, returns a truthy value.
 
 ```javascript
-
-const  isLegal = value  =>  value >= 18;
-
-const  anyLegalAge = [8, 37, 17, 62, 13].some(isLegal);
-
+const  isLegal = value => value >= 18;
+const  anyCanDrive = [8, 37, 17, 62, 13].some(isLegal);
 // returned true because the elements 37 and 13 are greater than 18
 
 ```
@@ -442,13 +440,9 @@ const  anyLegalAge = [8, 37, 17, 62, 13].some(isLegal);
 
 Returns true when all the elements within the array evaluated by the function, return a truthy value.
 
-
 ```javascript
-
-const  isEven = value  => !(value  %  2);
-
+const  isEven = value => !(value % 2);
 const  areEven = [8, 5, 17, 40, 13].every(isEven);
-
 // returned false because the elements 5,17 and 13 are odd
 
 ```
@@ -460,12 +454,10 @@ const  areEven = [8, 5, 17, 40, 13].every(isEven);
 Execute the function for each element without returning a value. The forEach function doesn't modify the original array.
 
 ```javascript
-
-const tennisPlayers = ['Federer','Nalbandian','Nadal'];
-
-tennisPlayers.forEach(name => {
-	//code that is will executed for each element
-})
+   const tennisPlayers = ['Federer','Nalbandian','Nadal'];
+   tennisPlayers.forEach(name => {
+     //code that is will executed for each element
+   })
 
 ```
 
@@ -476,25 +468,23 @@ tennisPlayers.forEach(name => {
 Arrow functions are a new feature introduced by ES6 that allow build a function. Use token `=>` after params instead of `function`.
 
 ```javascript
-//ES5
-var nextNumber = function(x) {
-  return x+1;
-} 
-
-//ES6
-const nextNumber = x => {
-  return x+1;
-}
-// Arrow functions use implicit return, which means you can do this:
-const nextNumber = x => x+1; // return x+1
-// This is particularly useful for when we are returning something right away, like a promise
-// but if you need to do another action before returning you should add { }
-const nextNumber = x => {
-  console.log('Next number ready');
-  return x+1;
-}
-// For one param function the parenthesis are optional:
-const nextNumber = (x) => x+1;
+   //ES5
+   var nextNumber = function(x) {
+    return x+1;
+   } 
+   //ES6
+   const nextNumber = x => {
+    return x+1;
+   }
+   // Arrow functions use implicit return, which means you can do
+   const nextNumber = (x) => x+1;
+   // For one param the parenthesis are optional
+   const nextNumber = x => x+1;
+   // if you need to do another action before returning you should add { }
+   const nextNumber = x => {
+    console.log('Next number ready');
+    return x+1;
+   }
 
 ```
 
@@ -503,29 +493,22 @@ const nextNumber = (x) => x+1;
 
 The spread operator allows us to merge all properties from an object into a target object.
 It's important to know that this operator creates a new object and doesn't exist
- a reference to the original object
+a reference to the original object.
 
 ```javascript
-// first we will define two objects
-const myHouse = { size: 30, age: 40, countFloors: 2, countEnvironments: 6 };
-const newHouseAge = { age: 44 };
-// now we want to create a new house with the same properties as myHouse
-// with different age
-const friendHouse = { size: 30, age: 25, countFloors: 2, countEnvironments: 6 };
-// but using the spread operator
-const friendHouse = {...myHouse, age: 25 };
-// if you do this:
-delete myHouse.size;
-// the object friendHouse keeps its property 'size'
-// keep in mind that the properties are applied in the order in which the objects are given
-// for example:
-const newHouse = {...friendHouse, ...newHouseAge };
-console.log(newHouse.age);
-// will log '44'
-// on the opposite
-const newHouse = {...newHouseAge, ...friendHouse };
-console.log(newHouse.age);
-// will log '30'
+   const myHouse = { size: 30, age: 40, countFloors: 2, countEnvironments: 6 };
+   const newHouseAge = { age: 44 };
+   // classic solution
+   const friendHouse = { size: 30, age: 25, countFloors: 2, countEnvironments: 6 };
+   // but using the spread operator
+   const friendHouse = {...myHouse, age: 25 };
+   // keep in mind that the properties are applied in the order in which the objects are given
+   const newHouse = {...friendHouse, ...newHouseAge };
+   console.log(newHouse.age); // log '44'
+   // on the opposite
+   const newHouse = {...newHouseAge, ...friendHouse };
+   console.log(newHouse.age); //log '25'
+
 ```
 
 
@@ -534,23 +517,36 @@ console.log(newHouse.age);
 The destructuring assignment syntax is a expression that makes it possible to unpack values from arrays, or properties from objects, into distinct variables.
 
 ```javascript
-const getDataUser = () => ({
-  id: 1,
-  name: 'Steve',
-  age: 24
-})
-const getUsers = () => [{ id: 1, name: 'Carlos' }, { id: 2, name: 'Julian' }]
-// we wanted only the name for a user
-const { name } = await getDataUser();
-// for this way, I get only property name for the value returning by getDataUser function
-// now, we wanted the first element for value returning by getUsers function
-const [ firstUser ] = await getUsers(); 
-// if you do this:
-console.log(name);
-console.log(firstUser.name)
-// will show Steve and Carlos
+   const getDataUser = () => ({
+     id: 1,
+     name: 'Steve',
+     age: 24
+   });
+   const getUsers = () => [{ id: 1, name: 'Peter' }, { id: 2, name: 'Ben' }];
+   const { name } = await getDataUser();
+   const [ firstUser ] = await getUsers(); 
+   console.log(name); // log 'Steve'
+   console.log(firstUser.name); // log 'Peter'
+
 ```
 
+
+### 7.4- String interpolation
+
+The new string interpolation introducing a way more easy to log messages with vars.
+
+```javascript
+   const myDog = {
+     name: 'Dynamite',
+     age: 5,
+     weight: 13.5
+   };
+   //ECMA 5
+   console.log("My dog name is"+ myDog.name);
+   //ECMA 6
+   console.log(`My dog name is ${myDog.name}`);
+
+```
 
 &nbsp;
 
