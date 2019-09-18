@@ -6,7 +6,7 @@
 
    - [1- Objective](#1--objective)
    - [2- APP Structure](#2--app-structure)
-     - [2.1- Controllers](#21--controllers) 
+     - [2.1- Controllers](#21--controllers)
      - [2.2- Services](#22--services)
      - [2.3- Models](#23--models)
      - [2.4- Helpers](#24--helpers)
@@ -24,6 +24,7 @@
      - [4.2- Ternary Operator](#42--ternary-operator)
      - [4.3- AND Operator](#43--and-operator)
      - [4.4- OR Operator](#44--or-operator)
+     - [4.5- SWITCH/CASE vs Dictionary (Object literal)](#45--or-operator)
    - [5- Rest API](#5--rest-api)
      - [5.1- Best Practices](#51--best-practices)
      - [5.2- Response Status Codes](#52--response-status-codes)
@@ -51,7 +52,7 @@
 
 ## 1- Objective
 
-The purpose of this document is to present the standards we use in Wolox to work with NodeJS. 
+The purpose of this document is to present the standards we use in Wolox to work with NodeJS.
 It's recommended to read Matias Pizzagalli's post whose link is in the section of useful links.
 
 &nbsp;
@@ -78,7 +79,7 @@ Helpful tools with **absolutley no business logic**. This includes parsers, date
 
 ### 2.5- Serializers
 
-Formats the response of a service or endpoint. These are used to avoid duplicated logic in response formatting. 
+Formats the response of a service or endpoint. These are used to avoid duplicated logic in response formatting.
 
 ### 2.6- Interactors
 
@@ -236,7 +237,7 @@ instead of
 ```
 ### 4.2- Ternary Operator
 
-When a value should be chosen using a binary condition it is useful to use the ternary operator. 
+When a value should be chosen using a binary condition it is useful to use the ternary operator.
 
 ```javascript
    let variable = condition ? value_if_condition_is_true : value_if_condition_is_false;
@@ -269,7 +270,7 @@ Instead, when we have these cases it is convenient to use the **AND** operator o
 
 ### 4.3- AND Operator
 
-A simple way to avoid the ternary operator is using the **AND** operator. 
+A simple way to avoid the ternary operator is using the **AND** operator.
 
 In the following example, `variable` will be set to `value` if `indicator` is truthy; if `indicator` is falsy, `variable` will be set to the falsy value inside `indicator`;
 
@@ -297,7 +298,7 @@ console.log(value) //myValue because myObj is a truthy value, then the value of 
 
 ### 4.4- OR Operator
 
-When using OR operator between diferent values, the result of evaluation will be the first truthy value from left to right. 
+When using OR operator between diferent values, the result of evaluation will be the first truthy value from left to right.
 
 In this example variable will be set to option_1 if its not falsy, in that case it will be set to option_2 value if its not falsy, and on until the last value.
 
@@ -328,6 +329,75 @@ This example could be written with `if/else` and we note that it is much longer.
 
 &nbsp;
 
+### 4.5- SWITCH/CASE vs Dictionary (Object literal)
+
+The purpose of `SWTCH/CASE` is to execute code depending on the input. It evaluates its input against its cases and execute the block above the matching case. According to [Mozilla](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch) docs:
+
+
+> The switch statement evaluates an expression, matching the
+> expression's value to a case clause, and executes statements
+> associated with that case, as well as statements in cases that follow
+> the matching case.
+
+
+```
+switch (expr) {
+
+case 'Oranges':
+
+console.log('Oranges are $0.59 a pound.');
+
+break;
+
+case 'Mangoes':
+
+case 'Papayas':
+
+console.log('Mangoes and papayas are $2.79 a pound.');
+
+// expected output: "Mangoes and papayas are $2.79 a pound."
+
+break;
+
+default:
+
+console.log('Sorry, we are out of ' + expr + '.');
+
+}
+
+```
+
+That would print Mangoes and papayas are $2.79 a pound.
+
+The problem with this is that as it grows in complexity and in number of cases, it gets more and more difficult to understand and debug, and let’s not talk about what happens if you forget a `break` ([Click if you want to know](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch#What_happens_if_I_forgot_a_break)). Furthermore, since `SWITCH` needs to compare the input to each one of the cases until it hits a match, the bigger the number of cases, the more the performance will suffer.
+
+A good solution, and the standard among Wolox NodeJs projects is to use a dictionary (object literal) instead. So let’s rewrite the same Mozilla example:
+
+
+```
+const getFruitPrice = fruit =>
+
+({
+
+oranges: 0.59,
+
+mangoes: 2.79,
+
+papayas: 2.79
+
+}[fruit]);
+
+
+
+console.log(getFruitPrice('apple') || 'Sorry, we are out of that');
+```
+
+
+An object literal is more flexible and permits us to return any king of value (even functions) and to execute statements targeting directly the input value. You can read more about the topic in the [link](https://ultimatecourses.com/blog/deprecating-the-switch-statement-for-object-literals#Problems_with_switch).
+
+
+&nbsp;
+
 
 ## 5- Rest API
 
@@ -352,7 +422,7 @@ These are some of the best practices to design a clean RESTful API:
 There are many _status codes_ to use in request responses. \
 Most commonly used are:
 
-* **200 OK**: Base successful response. Depends on currently used HTTP method. 
+* **200 OK**: Base successful response. Depends on currently used HTTP method.
 * **201 CREATED**: Successful response meaning a new resource has been created. Most commonly used with POST and sometimes PUT.
 * **204 NO CONTENT**: Successful response without content in body.
 * **400 BAD REQUEST**: Request was not formatted correctly and the server cannot interpret it.
@@ -383,7 +453,7 @@ Returns a new array resulting of applying the function to each element of the or
 
    // pass a function to map
    const double = numbers.map(x => x * 2);
-   
+
    console.log(double);
    // expected output: Array [2, 8, 18, 32]
 ```
@@ -412,7 +482,7 @@ Returns an array with all the values from the original array for which the funct
 
 ```javascript
    const isBigEnough = value => value >= 10;
-    
+
    const filtered = [12, 5, 8, 130, 44].filter(isBigEnough);
    // filtered is [12, 130, 44]
 ```
@@ -465,7 +535,7 @@ A comprenhensive approach to destructuring may be found in the useful links sect
 
 ### 7.4- Implicit return
 
-When using _arrow functions_ we can make the **return statement implicit** meaning that the result of evaluating the expression right of the arrow will be returned as a value. This saves writing **{}** and **return**.  
+When using _arrow functions_ we can make the **return statement implicit** meaning that the result of evaluating the expression right of the arrow will be returned as a value. This saves writing **{}** and **return**.
 
 Yes, code will be shorter and neater but for more complex code, changing or debugging is noticeably more prone to errors. This is why, we enforce the use of the **implicit return** only in simple or short functions.
 
@@ -494,8 +564,8 @@ Specifying any function or arrow function as **async** specifies that the return
 
 ### 8.3- When to use which?
 
-Always prioritize the use of **promises**.  
-A convenient case for using async/await is when a promise is executed conditionally without altering main flow. 
+Always prioritize the use of **promises**.
+A convenient case for using async/await is when a promise is executed conditionally without altering main flow.
 Using promises we would have:
 
 ```javascript
@@ -507,7 +577,7 @@ Using promises we would have:
       }))
       .then(response => ...)
   }
- 
+
   return sendEmail({
     id: order.id,
     state: order.state
@@ -515,7 +585,7 @@ Using promises we would have:
     .then(response => ...)
 ```
 
-Notice the promises chain was repeated. As it grows, the duplicate code will get bigger and bigger.  
+Notice the promises chain was repeated. As it grows, the duplicate code will get bigger and bigger.
 Instead, using **async/await**:
 
 ```javascript
@@ -526,7 +596,7 @@ Instead, using **async/await**:
       ...
     }
   }
- 
+
   return sendEmail({
     id: order.id,
     state: order.state
@@ -541,7 +611,7 @@ When using this approach, we await all of the promises so the code is uniform.
     if (order.state === CANCELLED) {
       await deleteProduct(order.product);
     }
- 
+
     const response = await sendEmail({ id: order.id, state: order.state });
     ...
   } catch (e) {
@@ -565,7 +635,7 @@ or
    return Promise.reject(errors.notFound('User not found'));
 ```
 
-When throwing errors within promises we must return the exception using **Promise.reject**.  
+When throwing errors within promises we must return the exception using **Promise.reject**.
 Be uniform with an option to achieve the prolixity of the code.
 
 ### 9.2- Capturing errors
@@ -599,7 +669,7 @@ In this section we will leave a few **packages** that will help us solve many of
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
-   [MaPiP]: <https://medium.com/wolox-driving-innovation/developing-better-node-js-developers-a176de770539> 
+   [MaPiP]: <https://medium.com/wolox-driving-innovation/developing-better-node-js-developers-a176de770539>
    [GEP]: <https://medium.com/wolox-driving-innovation/nodejs-api-bootstrap-b598a2591a3b>
    [MaPuP]: <https://medium.com/wolox-driving-innovation/how-to-code-better-async-javascript-e59363883c84>
    [destructuring]: <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment>
