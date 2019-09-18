@@ -15,7 +15,7 @@ If you already have a repository, if you clone it first, you can easily do:
 cd my-gem && bundler gem .
 ```
 
-As a suggestion and configurations, you should configure your bundler gem creator with the following options selected:
+As suggestions, you should configure your gem with the following options selected:
 
 - Use [RSpec](https://rspec.info/) for tests.
 - Use a clear, open source License. It could be MIT, or Apache-2.0.
