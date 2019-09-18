@@ -52,7 +52,7 @@ At [Wolox](https://wolox.co), we have developed the [RoR kickoff guide](./docs/k
 - [Configuration for VIM](./docs/other/vim-config.md)
 
 ## Posts
-
+- [Web Scraping & Automation with Selenium](https://medium.com/wolox-driving-innovation/web-scraping-automation-with-selenium-and-ruby-8211e4573187)
 - [Building a Microservices API in AWS](https://medium.com/wolox-driving-innovation/https-medium-com-wolox-driving-innovation-building-microservices-api-aws-e9a455cc3456)
 - [Get to Know the Power of Elasticsearch From a Rails App Perspective](https://medium.com/wolox-driving-innovation/https-medium-com-wolox-driving-innovation-the-power-of-elasticsearch-from-a-rails-app-perspective-6166892f89b4)
 - [Centralized Logging in Microservices using AWS Cloudwatch + Elasticsearch](https://medium.com/wolox-driving-innovation/centralized-logging-in-microservices-using-aws-cloudwatch-elasticsearch-f5db7a57e553)
