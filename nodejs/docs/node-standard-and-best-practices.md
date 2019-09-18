@@ -442,9 +442,9 @@ Returns true when at least one array's element evaluated by the function, return
 Returns true when all the elements within the array evaluated by the function, return a truthy value.
 
 ```javascript
-   const  isEven = value => !(value % 2);
+   const isEven = value => !(value % 2);
 
-   const  areEven = [8, 5, 17, 40, 13].every(isEven);
+   const areEven = [8, 5, 17, 40, 13].every(isEven);
    // returned false because the elements 5,17 and 13 are odd
 
 ```
@@ -453,14 +453,17 @@ Returns true when all the elements within the array evaluated by the function, r
 
 ### 6.7- forEach
 
-Execute the function for each element without returning a value. The forEach function doesn't modify the original array.
+Execute the function for each element without returning a value.
+The forEach function doesn't modify the original array and create a new scope.
 
 ```javascript
    const tennisPlayers = ['Federer','Nalbandian','Nadal'];
 
    tennisPlayers.forEach(name => {
+     const nameLength = name.length;
      //code that is will executed for each element
    })
+   console.log(nameLength) // ReferenceError:nameLength is not defined
 
 ```
 
@@ -547,7 +550,7 @@ The new string interpolation introducing a way more easy to log messages with va
      weight: 13.5
    };
    //ECMA 5
-   console.log("My dog name is"+ myDog.name);
+   console.log("My dog name is "+ myDog.name);
    //ECMA 6
    console.log(`My dog name is ${myDog.name}`);
 
