@@ -342,27 +342,17 @@ The purpose of `SWTCH/CASE` is to execute code depending on the input. It evalua
 
 ```
 switch (expr) {
+  case 'Oranges':
+    console.log('Oranges are $0.59 a pound.');
+    break;
+  case 'Mangoes':
+  case 'Papayas':
+    console.log('Mangoes and papayas are $2.79 a pound.');
+    // expected output: "Mangoes and papayas are $2.79 a pound."
+    break;
 
-case 'Oranges':
-
-console.log('Oranges are $0.59 a pound.');
-
-break;
-
-case 'Mangoes':
-
-case 'Papayas':
-
-console.log('Mangoes and papayas are $2.79 a pound.');
-
-// expected output: "Mangoes and papayas are $2.79 a pound."
-
-break;
-
-default:
-
-console.log('Sorry, we are out of ' + expr + '.');
-
+  default:
+  console.log('Sorry, we are out of ' + expr + '.');
 }
 
 ```
@@ -376,18 +366,11 @@ A good solution, and the standard among Wolox NodeJs projects is to use a dictio
 
 ```
 const getFruitPrice = fruit =>
-
-({
-
-oranges: 0.59,
-
-mangoes: 2.79,
-
-papayas: 2.79
-
-}[fruit]);
-
-
+  ({
+    oranges: 0.59,
+    mangoes: 2.79,
+    papayas: 2.79
+  }[fruit]);
 
 console.log(getFruitPrice('apple') || 'Sorry, we are out of that');
 ```
