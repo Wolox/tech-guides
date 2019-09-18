@@ -41,6 +41,7 @@ At [Wolox](https://wolox.co), we have developed the [RoR kickoff guide](./docs/k
 ### Gem tutorials
 
 - [Spree](./docs/gems/tutorials/spree.md)
+- [Creation of new Gems](./docs/gems/tutorials/creating_gems.md)
 - [Building and Pushing Gems](./docs/gems/tutorials/pushing_gems.md)
 
 ### Other
