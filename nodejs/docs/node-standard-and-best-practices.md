@@ -494,6 +494,28 @@ Arrow functions are a new feature introduced by ES6 that allow build a function.
 
 ```
 
+An important difference between classic functions and arrow functions is how `this` behaves in each case.
+
+```javascript
+   var friends = ['Joe', 'Paul'];
+   const myLife = {
+    age: 7,
+    showFriends() {
+     console.log(this.friends); //log undefined
+     console.log(this.age); // log 7
+    },
+    arrowShowFriends: () => {
+     console.log(this.friends); // log ['Joe', 'Paul']
+     console.log(this.age); // log undefined
+    }
+   };
+   myLife.showFriends();
+   myLife.arrowShowFriends();
+
+```
+As you can see, in the classic function, `this` references the local context.
+And in the arrow function, `this` references the global context.
+
 
 ### 7.2- Spread operator
 
