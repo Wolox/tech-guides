@@ -24,7 +24,7 @@
      - [4.2- Ternary Operator](#42--ternary-operator)
      - [4.3- AND Operator](#43--and-operator)
      - [4.4- OR Operator](#44--or-operator)
-     - [4.5- SWITCH/CASE vs Dictionary (Object literal)](#45--or-operator)
+     - [4.5- SWITCH/CASE vs Dictionary (Object literal)](#45--switch/case-vs-dictionary-(object-literal))
    - [5- Rest API](#5--rest-api)
      - [5.1- Best Practices](#51--best-practices)
      - [5.2- Response Status Codes](#52--response-status-codes)
