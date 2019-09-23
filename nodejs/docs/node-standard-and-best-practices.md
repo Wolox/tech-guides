@@ -33,22 +33,29 @@
      - [6.2- Map](#62--map)
      - [6.3- Reduce](#63--reduce)
      - [6.4- Filter](#64--filter)
-     - [6.5- Others](#65--others)
-   - [7- Code Style](#7--code-style)
-     - [7.1- Line length limit](#71--line-length-limit)
-     - [7.2- Requires](#72--requires)
+     - [6.5- Some](#65--some)
+     - [6.6- Every](#66--every)
+     - [6.7- ForEach](#67--forEach)
+   - [7- ES6](#7--es6)
+     - [7.1- Arrow functions](#71--arrow-functions)
+     - [7.2- Spread operator](#72--spread-operator)
      - [7.3- Destructuring](#73--destructuring)
-     - [7.4- Implicit Return](#74--implicit-return)
-     - [7.5- Truthy and Falsy values](#75--truthy-and-falsy-values)
-   - [8- Promise vs Async/Await](#8--promise-vs-asyncawait)
-     - [8.1- Promise](#81--promise)
-     - [8.2- Async Await](#82--async-await)
-     - [8.3- When to use which?](#83--when-to-use-which)
-   - [9- Error handling](#9--error-handling)
-     - [9.1- Throwing errors](#91--throwing-errors)
-     - [9.2- Capturing errors](#92--capturing-errors)
-   - [10- Utils](#10--utils)
-   - [11- Useful Links](#11--useful-links)
+     - [7.4- String interpolation](#74--string-interpolation)
+   - [8- Code Style](#8--code-style)
+     - [8.1- Line length limit](#81--line-length-limit)
+     - [8.2- Requires](#82--requires)
+     - [8.3- Destructuring](#83--destructuring)
+     - [8.4- Implicit Return](#84--implicit-return)
+     - [8.5- Truthy and Falsy values](#85--truthy-and-falsy-values)
+   - [9- Promise vs Async/Await](#9--promise-vs-asyncawait)
+     - [9.1- Promise](#91--promise)
+     - [9.2- Async Await](#92--async-await)
+     - [9.3- When to use which?](#93--when-to-use-which)
+   - [10- Error handling](#10--error-handling)
+     - [10.1- Throwing errors](#101--throwing-errors)
+     - [10.2- Capturing errors](#102--capturing-errors)
+   - [11- Utils](#11--utils)
+   - [12- Useful Links](#12--useful-links)
 
 ## 1- Objective
 
@@ -461,7 +468,7 @@ The starting value of the acumulator is passed a second parameter and the last v
 
 ### 6.4- Filter
 
-Returns an array with all the values from the original array for which the function retured a truthy value.
+Returns an array with all the values from the original array for which the function returned a truthy value.
 
 ```javascript
    const isBigEnough = value => value >= 10;
@@ -470,24 +477,169 @@ Returns an array with all the values from the original array for which the funct
    // filtered is [12, 130, 44]
 ```
 
-### 6.5- Others
+### 6.5- Some
 
-Other useful methods for a _declarative_ approach.
+Returns true when at least one array's element evaluated by the function, returns a truthy value.
 
-* **some()**.
-* **every()**.
-* **forEach()**.
-* **split()**.
+```javascript
+   const isLegal = value => value >= 18;
+
+   const anyCanDrive = [8, 37, 17, 62, 13].some(isLegal);
+   // returned true because the elements 37 and 13 are greater than 18
+
+```
+
+
+### 6.6- Every
+
+Returns true when all the elements within the array evaluated by the function, return a truthy value.
+
+```javascript
+   const isEven = value => !(value % 2);
+
+   const areEven = [8, 5, 17, 40, 13].every(isEven);
+   // returned false because the elements 5,17 and 13 are odd
+
+```
+
+
+
+### 6.7- forEach
+
+Execute the function for each element without returning a value.
+The forEach function doesn't modify the original array and create a new scope.
+
+```javascript
+   const tennisPlayers = ['Federer','Nalbandian','Nadal'];
+
+   tennisPlayers.forEach(name => {
+     const nameLength = name.length;
+     //code that is will executed for each element
+   })
+   console.log(nameLength) // ReferenceError:nameLength is not defined
+
+```
+
+## 7- ES6
+
+### 7.1- Arrow functions
+
+Arrow functions are a new feature introduced by ES6 that allow build a function. Use token `=>` after params instead of `function`.
+
+```javascript
+   //ES5
+   var nextNumber = function(x) {
+    return x+1;
+   }
+   //ES6
+   const nextNumber = x => {
+    return x+1;
+   }
+   // Arrow functions use implicit return, which means you can do
+   const nextNumber = (x) => x+1;
+   // For one param the parenthesis are optional
+   const nextNumber = x => x+1;
+   // if you need to do another action before returning you should add { }
+   const nextNumber = x => {
+    console.log('Next number ready');
+    return x+1;
+   }
+
+```
+
+An important difference between classic functions and arrow functions is how `this` behaves in each case.
+
+```javascript
+   var friends = ['Joe', 'Paul'];
+   const myLife = {
+    age: 7,
+    showFriends() {
+     console.log(this.friends); //log undefined
+     console.log(this.age); // log 7
+    },
+    arrowShowFriends: () => {
+     console.log(this.friends); // log ['Joe', 'Paul']
+     console.log(this.age); // log undefined
+    }
+   };
+   myLife.showFriends();
+   myLife.arrowShowFriends();
+
+```
+As you can see, in the classic function, `this` references the local context.
+And in the arrow function, `this` references the global context.
+
+
+### 7.2- Spread operator
+
+The spread operator allows us to merge all properties from an object into a target object.
+It's important to know that this operator creates a new object and doesn't exist
+a reference to the original object.
+
+```javascript
+   const myHouse = { size: 30, age: 40, countFloors: 2, countEnvironments: 6 };
+   const newHouseAge = { age: 44 };
+   // classic solution
+   const friendHouse = { size: 30, age: 25, countFloors: 2, countEnvironments: 6 };
+   // but using the spread operator
+   const friendHouse = {...myHouse, age: 25 };
+   // keep in mind that the properties are applied in the order in which the objects are given
+   const newHouse = {...friendHouse, ...newHouseAge };
+   console.log(newHouse.age); // log 44
+   // on the opposite
+   const newHouse = {...newHouseAge, ...friendHouse };
+   console.log(newHouse.age); // log 25
+
+```
+
+
+### 7.3- Destructuring
+
+The destructuring assignment syntax is a expression that makes it possible to unpack values from arrays, or properties from objects, into distinct variables.
+
+```javascript
+   const getDataUser = () => ({
+     id: 1,
+     name: 'Steve',
+     age: 24
+   });
+   const getUsers = () => [{ id: 1, name: 'Peter' }, { id: 2, name: 'Ben' }];
+
+   const { name } = await getDataUser();
+   const [ firstUser ] = await getUsers();
+
+   console.log(name); // log 'Steve'
+   console.log(firstUser.name); // log 'Peter'
+
+```
+
+
+### 7.4- String interpolation
+
+The new string interpolation introducing a way more easy to log messages with vars.
+
+```javascript
+   const myDog = {
+     name: 'Dynamite',
+     age: 5,
+     weight: 13.5
+   };
+   //ECMA 5
+   console.log("My dog name is "+ myDog.name);
+   //ECMA 6
+   console.log(`My dog name is ${myDog.name}`);
+
+```
 
 &nbsp;
 
-## 7- Code style
+## 8- Code style
 
-### 7.1- Line length limit
+### 8.1- Line length limit
 
 Line length limit should be between 80 and 100 characters.
 
-### 7.2- Requires
+### 8.2- Requires
 
 The format we'll adopt for **requires** will be:
 * **const** for each require.
@@ -504,9 +656,7 @@ The format we'll adopt for **requires** will be:
 
 ```
 
-### 7.3- Destructuring
-
-The destructuring assignment syntax is a JavaScript expression that makes it possible to unpack values from arrays, or properties from objects, into distinct variables.
+### 8.3- Destructuring
 
 This is really useful to refer specific values from modules.
 
@@ -516,21 +666,21 @@ This is really useful to refer specific values from modules.
 
 A comprenhensive approach to destructuring may be found in the useful links section.
 
-### 7.4- Implicit return
+### 8.4- Implicit return
 
 When using _arrow functions_ we can make the **return statement implicit** meaning that the result of evaluating the expression right of the arrow will be returned as a value. This saves writing **{}** and **return**.
 
 Yes, code will be shorter and neater but for more complex code, changing or debugging is noticeably more prone to errors. This is why, we enforce the use of the **implicit return** only in simple or short functions.
 
-### 7.5- Truthy and Falsy values
+### 8.5- Truthy and Falsy values
 
 In JavaScript, a truthy value is a value that translates to true when evaluated in a Boolean context. All values are truthy unless they are defined as falsy which are **false**, **0**, **""**, **null**, **undefined** and **NaN**.
 
 &nbsp;
 
-## 8- Promise vs Async/Await
+## 9- Promise vs Async/Await
 
-### 8.1- Promise
+### 9.1- Promise
 
 A _promise_ represents the eventual success or failure of an asynchronous operation. Promises have two methods:
 * **then**: Takes a function as parameter which is executed once the promise is resolved with the result as parameter.
@@ -538,14 +688,14 @@ A _promise_ represents the eventual success or failure of an asynchronous operat
 
 There are many ways to handle correctly promises. Feel free to browse Maykol Purica's post about Promises in the useful links section.
 
-### 8.2- Async Await
+### 9.2- Async Await
 
 Promise's _syntactic sugar_.
 Specifying any function or arrow function as **async** specifies that the return value is a Promise.
 **await** may only be used inside **async** functions. Using **await** makes the code flow block until the promise is _resolved_ or _rejected_.
 **await** statements are usually within **try/catch** blocks.
 
-### 8.3- When to use which?
+### 9.3- When to use which?
 
 Always prioritize the use of **promises**.
 A convenient case for using async/await is when a promise is executed conditionally without altering main flow.
@@ -604,9 +754,9 @@ When using this approach, we await all of the promises so the code is uniform.
 
 &nbsp;
 
-## 9- Error handling
+## 10- Error handling
 
-### 9.1- Throwing errors
+### 10.1- Throwing errors
 
 There are two ways of doing it. They are almost identical except for what is mentioned [here](https://stackoverflow.com/questions/33445415/javascript-promises-reject-vs-throw).
 
@@ -621,7 +771,7 @@ or
 When throwing errors within promises we must return the exception using **Promise.reject**.
 Be uniform with an option to achieve the prolixity of the code.
 
-### 9.2- Capturing errors
+### 10.2- Capturing errors
 
 A **catch** has to be used to handle the error.
 
@@ -632,7 +782,7 @@ In case you want to perform the response of the request with the error, you have
 ```
 When a parameter is passed to the **next** function, Express already knows that it must go to the error middleware function, regardless of the other functions in between.
 
-## 10- Utils
+## 11- Utils
 
 In this section we will leave a few **packages** that will help us solve many of our problems.
 
@@ -641,7 +791,7 @@ In this section we will leave a few **packages** that will help us solve many of
 * **[RAMBDA][rambda]**: A practical functional library for JavaScript programmers.
 * **[MOMENT][moment]**: Parse, validate, manipulate, and display dates and times in JavaScript.
 
-## 11- Useful Links
+## 12- Useful Links
 
 - [Developing Better Node.js Developers][MaPiP] by Matias Pizzagalli.
 - [Bootstrap][GEP] by Gonzalo Escandarani.
