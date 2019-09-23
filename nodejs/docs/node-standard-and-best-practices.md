@@ -376,7 +376,7 @@ console.log(getFruitPrice('apple') || 'Sorry, we are out of that');
 ```
 
 
-An object literal is more flexible and permits us to return any king of value (even functions) and to execute statements targeting directly the input value. You can read more about the topic in the [link](https://ultimatecourses.com/blog/deprecating-the-switch-statement-for-object-literals#Problems_with_switch).
+An object literal is more flexible and permits us to return any kind of value (even functions) and to execute statements targeting directly the input value. You can read more about the topic in the [link](https://ultimatecourses.com/blog/deprecating-the-switch-statement-for-object-literals#Problems_with_switch).
 
 
 &nbsp;
