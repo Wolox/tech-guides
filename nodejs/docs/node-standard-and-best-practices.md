@@ -24,7 +24,7 @@
      - [4.2- Ternary Operator](#42--ternary-operator)
      - [4.3- AND Operator](#43--and-operator)
      - [4.4- OR Operator](#44--or-operator)
-     - [4.5- SWITCH/CASE vs Dictionary (Object literal)](#45--switch/case-vs-dictionary-(object-literal))
+     - [4.5- SWITCH vs Dictionary](#45--switch-vs-dictionary)
    - [5- Rest API](#5--rest-api)
      - [5.1- Best Practices](#51--best-practices)
      - [5.2- Response Status Codes](#52--response-status-codes)
@@ -336,7 +336,7 @@ This example could be written with `if/else` and we note that it is much longer.
 
 &nbsp;
 
-### 4.5- SWITCH/CASE vs Dictionary (Object literal)
+### 4.5- SWITCH vs Dictionary
 
 The purpose of `SWTCH/CASE` is to execute code depending on the input. It evaluates its input against its cases and execute the block above the matching case. According to [Mozilla](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch) docs:
 
@@ -530,7 +530,7 @@ Arrow functions are a new feature introduced by ES6 that allow build a function.
    //ES5
    var nextNumber = function(x) {
     return x+1;
-   } 
+   }
    //ES6
    const nextNumber = x => {
     return x+1;
@@ -606,8 +606,8 @@ The destructuring assignment syntax is a expression that makes it possible to un
    const getUsers = () => [{ id: 1, name: 'Peter' }, { id: 2, name: 'Ben' }];
 
    const { name } = await getDataUser();
-   const [ firstUser ] = await getUsers(); 
-   
+   const [ firstUser ] = await getUsers();
+
    console.log(name); // log 'Steve'
    console.log(firstUser.name); // log 'Peter'
 
