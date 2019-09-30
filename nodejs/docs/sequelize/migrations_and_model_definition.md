@@ -69,6 +69,11 @@ module.exports = {
 We implements an `up` function to run `migration` and down function to undo migration (whenever possible).
 The params that functions receive are `queryInterface` and `Sequelize`. The first has functions to modify your current schema, for example: `createTable`, `addColumn`, `changeColumn`, `removeColumn`, `addIndex`, `removeIndex`, `addConstraint`, `removeConstraint`, `bulkInsert`, `bulkUpdate`, `bulkDelete` (you can see all functions [here](https://sequelize.org/master/class/lib/query-interface.js~QueryInterface.html)). The second parameter, we used for different's types data (for example `INTEGER` or `STRING`).
 
+### How works migrations
+
+When we run migrations for the first time, a new table called SequelizeMeta is created. This table will save the names of the migrations executed to keep track of them. This will only run migrations that have not run when running npm run migrations.
+On the other hand, if exists pending migrations when starting the application and we are in the `development` environment, we will have an error with the message `Pending migrations` (this is because exists migrations that are not exists in the SequelizeMeta table). In the `production` environment, the migrations will be run automatically when the application starting.
+
 # Operators
 
 We often use operators in our queries. For this, Sequelize makes available the `Op` object that can be called as follows:
