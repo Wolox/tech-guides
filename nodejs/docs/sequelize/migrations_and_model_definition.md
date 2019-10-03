@@ -72,12 +72,14 @@ The params that functions receive are `queryInterface` and `Sequelize`. The firs
 ### How works migrations
 
 When we run migrations for the first time, a new table called `SequelizeMeta` is created. This table will save the names of the migrations executed to keep track of them, when a migration is successful name of file would be stored here (check [umzug](https://github.com/sequelize/umzug) for more detail).
+
 On app start we have some scenarios:
 
-- Some migrations are pending:
-  - In `development` mode: app not start, migrations should be manually executed with npm run migrations command.
+- **Migrations are pending:**
+  - In `development` mode: app not start, migrations should be manually executed with `npm run migrations` command.
   - In `production` mode: migrations runs automatically, if anything fails we have to check manually.
-- Migrations are up-to-date: nothing to do in any environment, app start automatically.
+- **Migrations are up-to-date:**
+  - Nothing to do in any environment, app start automatically.
 
 # Operators
 
