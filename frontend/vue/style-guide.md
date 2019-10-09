@@ -19,37 +19,30 @@ src
 ├── assets // General app assets
 |
 ├── components
-|     |
-|     ├ MyComponent.vue
-|     |
-|     └ RelatedComponents
-|         |
-|         ├ RelatedComponent1.vue
-|         |
-|         └ RelatedComponent2.vue
+|    ├ MyComponent.vue
+|    └ RelatedComponents
+|      ├ RelatedComponent1.vue
+|      └ RelatedComponent2.vue
 |
 ├── config
-|     ├ api.js
-|     |
-|     └ i18n.js
+|    ├ api.js
+|    └ i18n.js
+|
+├── constants // Folder with js files
 |
 ├── mixins // Folder with js files
 |
 ├── scss
-|     ├ application.scss
-|     |
-|     ├ commons // Common styles, like display, margins, texts, etc.
-|     |
-|     └ variables // Common SCSS variables, like colors, sizes, etc.
+|    ├ application.scss
+|    ├ commons // Common styles, like display, margins, texts, etc.
+|    └ variables // Common SCSS variables, like colors, sizes, etc.
 |
 ├── services
-|     |
-|     └ MyService.js
+|    └ MyService.js
 |
 ├── store
-|     ├ index.js
-|     |
-|     └ modules // Folder with js files that contains parts of the store.
+|    ├ index.js
+|    └ modules // Folder with js files that contains parts of the store.
 |
 ├── utils // Folder with js files
 |
@@ -68,47 +61,47 @@ src
 Component/instance options should be ordered consistently. Here at Wolox, we have opted for the recommended way from the Vue's official site.
 
 1. Side Effects
-   * `el`
+    * <span style='color: orangered'>el</span>
 2. Global Awareness
-   * `name`
-   * `parent`
+    * <span style='color: orangered'>name</span>
+    * <span style='color: orangered'>parent</span>
 3. Component Type
-   * `functional`
+    * <span style='color: orangered'>functional</span>
 4. Template Modifiers
-   * `delimiters`
-   * `comments`
+    * <span style='color: orangered'>delimiters</span>
+    * <span style='color: orangered'>comments</span>
 5. Template Dependencies
-   * `components`
-   * `directives`
-   * `filters`
+    * <span style='color: orangered'>components</span>
+    * <span style='color: orangered'>directives</span>
+    * <span style='color: orangered'>filters</span>
 6. Composition
-   * `extends`
-   * `mixins`
+    * <span style='color: orangered'>extends</span>
+    * <span style='color: orangered'>mixins</span>
 7. Interface
-   * `inheritAttrs`
-   * `model`
-   * `props/propsData`
+    * <span style='color: orangered'>inheritAttrs</span>
+    * <span style='color: orangered'>model</span>
+    * <span style='color: orangered'>props/propsData</span>
 8. Local State
-   * `data`
-   * `computed`
+    * <span style='color: orangered'>data</span>
+    * <span style='color: orangered'>computed</span>
 9. Events
-   * `watch`
-   * Lyfecycle Events
-     * `beforeCreate`
-     * `created`
-     * `beforeMount`
-     * `mounted`
-     * `beforeUpdate`
-     * `updated`
-     * `activated`
-     * `deactivated`
-     * `beforeDestroy`
-     * `destroyed`
+    * <span style='color: orangered'>watch</span>
+    * <span style='color: orangered'>Lyfecycle Events</span>
+        * <span style='color: orangered'>beforeCreate</span>
+        * <span style='color: orangered'>created</span>
+        * <span style='color: orangered'>beforeMount</span>
+        * <span style='color: orangered'>mounted</span>
+        * <span style='color: orangered'>beforeUpdate</span>
+        * <span style='color: orangered'>updated</span>
+        * <span style='color: orangered'>activated</span>
+        * <span style='color: orangered'>deactivated</span>
+        * <span style='color: orangered'>beforeDestroy</span>
+        * <span style='color: orangered'>destroyed</span>
 10. Non-Reactive Properties
-   * `methods`
+    * <span style='color: orangered'>methods</span>
 11. Rendering
-   * `template` / `render`
-   * `renderError`
+    * <span style='color: orangered'>template / render</span>
+    * <span style='color: orangered'>renderError</span>
 
 ## Props
 
@@ -118,32 +111,30 @@ As Vue separates the template from the script, we're going to follow the convent
 
 ```pug
 // bad
-
 <template lang='pug'>
-   my-component(greetingText='hi')
+  my-component(greetingText='hi')
 </template>
 
 <script>
-props: {
-  'greeting-text': String
-}
+  props: {
+    'greeting-text': String
+  }
 </script>
 ```
 
 ```pug
 // good
-
 <template lang='pug'>
-   my-component(greeting-text='hi')
+  my-component(greeting-text='hi')
 </template>
 
 <script>
-   props: {
-      greetingText: String
-   }
+  props: {
+    greetingText: String
+  }
 </script>
 ```
-|
+
 ### Prop types
 
 We're going to use the object syntax for the **props** option. This is in order to always specify the data type.
@@ -156,10 +147,10 @@ props: ['title', 'isSelected', 'amount', 'onSelect']
 ```js
 // good
 props: {
-   title: { type: String },
-   isSelected: { type: Boolean },
-   amount: { type: Number },
-   onSelect: { type: Function }
+  title: { type: String },
+  isSelected: { type: Boolean },
+  amount: { type: Number },
+  onSelect: { type: Function }
 }
 ```
 
@@ -168,20 +159,20 @@ Additionally, we're going to write in the top the required props, and we're also
 ```js
 // bad
 props: {
-   title: { type: String, required: true },
-   isSelected: { type: Boolean, required: false },
-   amount: { type: Number },
-   onSelect: { type: Function, required: true }
+  title: { type: String, required: true },
+  isSelected: { type: Boolean, required: false },
+  amount: { type: Number },
+  onSelect: { type: Function, required: true }
 }
 ```
 
 ```js
 // good
 props: {
-   title: { type: String, required: true },
-   onSelect: { type: Function, required: true },
-   isSelected: { type: Boolean },
-   amount: { type: Number }
+  title: { type: String, required: true },
+  onSelect: { type: Function, required: true },
+  isSelected: { type: Boolean },
+  amount: { type: Number }
 }
 ```
 
@@ -212,17 +203,17 @@ When sending explicitly `true` props, omit the value. It also must be passed las
 ```pug
 // bad
 my-component(
-   :title='article.title'
-   :dark-theme='true'
-   :stars='article.review'
+  :title='article.title'
+  :dark-theme='true'
+  :stars='article.review'
 )
 ```
 
 ```pug
-// bad
+// good
 my-component(
-   :title='article.title'
-   :stars='article.review'
-   dark-theme
+  :title='article.title'
+  :stars='article.review'
+  dark-theme
 )
 ```
