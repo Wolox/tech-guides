@@ -929,8 +929,8 @@ src
 ## Typescript
 
 - File extensions
-  Use `.tsx` extension for React components.
-  Use `.ts` extension for files that don't need react elements
+  - Use `.tsx` extension for React components.
+  - Use `.ts` extension for files that don't need react elements
 
 - Creating a class component
   ```tsx
@@ -948,7 +948,7 @@ src
     }
   ```
 
-  - Creating a functional component
+- Creating a functional component
   ```tsx
     interface Props {
       prop1: string;
