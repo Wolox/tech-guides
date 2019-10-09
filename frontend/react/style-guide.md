@@ -20,6 +20,7 @@
   1. [Ordering](#ordering)
   1. [`isMounted`](#ismounted)
   1. [HOCs](#hocs)  
+  1. [Typescript](#typescript)
 
 ## Basic Rules
 
@@ -924,6 +925,11 @@ src
   const composedHoc = compose(hoc1(config1), hoc2, hoc3(config3));
   const WrappedComponent = composedHoc(Component);
   ```
+
+## Typescript
+
+
+
 
 ## Translation
 
