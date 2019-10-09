@@ -928,7 +928,51 @@ src
 
 ## Typescript
 
+- File extensions
+  Use `.tsx` extension for React components.
+  Use `.ts` extension for files that don't need react elements
 
+- Creating a class component
+  ```tsx
+    interface Props {
+      prop1: string; //required prop
+      prop2?: number; //optional prop
+    }
+
+    interface State {
+      stateProperty: boolean;
+    }
+
+    class Breadcrumb extends Component<Props, State> {
+      //
+    }
+  ```
+
+  - Creating a functional component
+  ```tsx
+    interface Props {
+      prop1: string;
+    }
+
+    function CardLink({ prop1, prop2}: Props) {
+      //
+    }
+  ```
+
+- Default props
+  ```tsx
+    interface Props {
+      prop1: string;
+      prop2?: number;
+    }
+
+    class Breadcrumb extends Component<Props, State> {
+      static defaultProps = {
+        prop2: 5
+      };
+      //
+    }
+  ```
 
 
 ## Translation
