@@ -34,7 +34,7 @@ src
 |
 ├── scss
 |    ├ application.scss
-|    ├ commons // Common styles, like display, margins, texts, etc.
+|    ├ commons // SASS Component and common styles (display, margins, texts, etc.)
 |    └ variables // Common SCSS variables, like colors, sizes, etc.
 |
 ├── services
