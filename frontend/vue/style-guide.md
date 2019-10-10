@@ -114,13 +114,13 @@ As Vue separates the template from the script, we're going to follow the convent
 
 ```pug
 // bad
-<template lang='pug'>
+<template lang="pug">
   my-component(greetingText='hi')
 </template>
 
 <script>
   props: {
-    'greeting-text': String
+    'greeting-text': { type: String }
   }
 </script>
 ```
@@ -133,7 +133,7 @@ As Vue separates the template from the script, we're going to follow the convent
 
 <script>
   props: {
-    greetingText: String
+    greetingText: { type: String }
   }
 </script>
 ```
