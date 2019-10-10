@@ -994,6 +994,14 @@ src
     }
   ```
 
+- Typing for npm packages
+  TypeScript requires type informations about the package's code. The package can support typescript out of the box if it has a file like: `index.d.ts`, if that is not the case you'll have to install the types yourself, for example:
+
+  ``` node
+  npm install lodash
+  npm install @types/lodash
+  ```
+
 
 ## Translation
 
