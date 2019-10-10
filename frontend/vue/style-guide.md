@@ -26,11 +26,14 @@ src
 |
 ├── config
 |    ├ api.js
+|    ├ i18n // folder with all the translations.
 |    └ i18n.js
 |
 ├── constants // Folder with js files
 |
 ├── mixins // Folder with js files
+|    ├ userRoles.js
+|    └ statistics.js
 |
 ├── scss
 |    ├ application.scss
@@ -38,7 +41,7 @@ src
 |    └ variables // SASS variables (colors, sizes, etc.)
 |
 ├── services
-|    └ MyService.js
+|    └ UserService.js // Must follow the format '#{Something}Service.js'
 |
 ├── store
 |    ├ index.js
