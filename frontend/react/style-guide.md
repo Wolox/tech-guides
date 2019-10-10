@@ -974,6 +974,26 @@ src
     }
   ```
 
+- Event handling
+  ```tsx
+    import React, { Component, MouseEvent } from 'react';
+
+    export class Button extends Component {
+
+      handleClick(event: MouseEvent) {
+        //
+      }
+      
+      render() {
+        return (
+          <button onClick={this.handleClick}>
+            {this.props.children}
+          </button>
+        )
+      }
+    }
+  ```
+
 
 ## Translation
 
