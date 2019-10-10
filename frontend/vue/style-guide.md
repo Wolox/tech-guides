@@ -124,7 +124,7 @@ As Vue separates the template from the script, we're going to follow the convent
 
 ```pug
 // good
-<template lang='pug'>
+<template lang="pug">
   my-component(greeting-text='hi')
 </template>
 
