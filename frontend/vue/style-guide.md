@@ -35,7 +35,7 @@ src
 ├── scss
 |    ├ application.scss
 |    ├ commons // SASS Component and common styles (display, margins, texts, etc.)
-|    └ variables // Common SCSS variables, like colors, sizes, etc.
+|    └ variables // SASS variables (colors, sizes, etc.)
 |
 ├── services
 |    └ MyService.js
