@@ -966,7 +966,7 @@ src
       prop2?: number;
     }
 
-    class Breadcrumb extends Component<Props, State> {
+    class Breadcrumb extends Component<Props, {}> {
       static defaultProps = {
         prop2: 5
       };
