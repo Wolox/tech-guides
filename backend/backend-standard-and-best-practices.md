@@ -1,6 +1,7 @@
 - [1- Objective](#1--objective)
 - [2- Naming Conventions](#2--naming-conventions)
-  - [2.1- Input and output API parameters](#21--input-and-output-api-parameters)
+  - [2.1- Input and output API parameters](#21--input-and-output-parameters-naming)
+  - [2.2- Output parameters structure](#22-output-parameters-structure)
 - [3- Response bodies](#3-response-bodies)
   - [3.1- Pagination](#31-pagination)
 - [4- API Versioning](#4-api-versioning)
@@ -14,7 +15,7 @@ The purpose of this document is to present the standards we use in Wolox to work
 
 To keep consistency between all our projects we define a convention for a sort of different cases that we consider important. Most of the decisions were made to respect the **HTTP** and **database** standards, or to be consistent between technologies in our stack.
 
-### 2.1- Input and output API parameters
+### 2.1- Input and output parameters naming
 
 With the purpose of unifying the interfaces between techs and making things easier to the client who may consume any of our APIs, we decided to keep input and output API parameters in **snake_case**.
 
@@ -48,6 +49,31 @@ With the purpose of unifying the interfaces between techs and making things easi
     "email": "My email"
   }
 ]
+```
+### 2.2 Output parameters structure
+
+If we need to return an object that represents a certain entity, for example an user, we should avoid to return it using a key in the body containing all its data; we should directly return the data in the body instead.
+
+```json
+{
+  "id": 1,
+  "first_name": "My first name",
+  "last_name": "My last name",
+  "email": "My email"
+}
+```
+
+instead of:
+
+```json
+{
+  "user": {
+    "id": 1,
+    "first_name": "My first name",
+    "last_name": "My last name",
+    "email": "My email"
+  }
+}
 ```
 
 ## 3 Response bodies
@@ -105,7 +131,7 @@ Some clarifications about the pagination response:
 We decided to implement API versioning via the use of headers.
 
 
-Java example:
+- Java example:
 ```java
 /*
 http://localhost:8080/person/header
@@ -127,7 +153,7 @@ Implementations are shown below:
 
 ```
 
-Rails example (using Versionist)
+- Rails example (using [Versionist])
 ```ruby
 MyApi::Application.routes.draw do
   api_version(:module => "V20120317", :header => {:name => "X-API-VERSION", :value => "v20120317"}) do
@@ -138,14 +164,14 @@ MyApi::Application.routes.draw do
 end
 ```
 
-Node/Express example (using Express routes versioning)
+- Node/Express example (using [Express Routes Versioning])
 ```javascript
 var app = require('express')();
 var versionRoutes = require('express-routes-versioning')();
 app.listen(3000);
 app.use(function(req, res, next) {
     //req.version is used to determine the version
-   req.version = req.headers['accept-version'];
+   req.version = req.headers['X-API-VERSION'];
    next();
 });
 app.get('/users', versionRoutes({
@@ -165,3 +191,8 @@ function respondV2(req, res, next) {
    res.status(200).send('ok v2');
 }
 ```
+
+[//]: #
+
+  [Versionist]: <https://github.com/bploetz/versionist>
+  [Express Routes Versioning]: <https://www.npmjs.com/package/express-routes-versioning>
