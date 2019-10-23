@@ -1,10 +1,13 @@
+# Backend standards and best practices
+
 - [1- Objective](#1--objective)
 - [2- Naming Conventions](#2--naming-conventions)
   - [2.1- Input and output API parameters](#21--input-and-output-parameters-naming)
-  - [2.2- Output parameters structure](#22-output-parameters-structure)
-- [3- Response bodies](#3-response-bodies)
-  - [3.1- Pagination](#31-pagination)
-- [4- API Versioning](#4-api-versioning)
+  - [2.2- Output parameters structure](#22--output-parameters-structure)
+- [3- Response bodies](#3--response-bodies)
+  - [3.1- Pagination](#31--pagination)
+- [4- API Versioning](#4--api-versioning)
+- [5- Response Status Codes](#5--response-status-codes)
 
 
 ## 1- Objective
@@ -29,28 +32,30 @@ With the purpose of unifying the interfaces between techs and making things easi
 ```
 
 ```json
-"user_list": [
-  {
-    "id": 1,
-    "first_name": "My first name",
-    "last_name": "My last name",
-    "email": "My email"
-  },
-  {
-    "id": 2,
-    "first_name": "My first name",
-    "last_name": "My last name",
-    "email": "My email"
-  },
-  {
-    "id": 3,
-    "first_name": "My first name",
-    "last_name": "My last name",
-    "email": "My email"
-  }
-]
+{
+  "admin_users": [
+    {
+      "id": 1,
+      "first_name": "My first name",
+      "last_name": "My last name",
+      "email": "My email"
+    },
+    {
+      "id": 2,
+      "first_name": "My first name",
+      "last_name": "My last name",
+      "email": "My email"
+    },
+    {
+      "id": 3,
+      "first_name": "My first name",
+      "last_name": "My last name",
+      "email": "My email"
+    }
+  ]
+}
 ```
-### 2.2 Output parameters structure
+### 2.2- Output parameters structure
 
 If we need to return an object that represents a certain entity, for example an user, we should avoid to return it using a key in the body containing all its data; we should directly return the data in the body instead.
 
@@ -76,9 +81,9 @@ instead of:
 }
 ```
 
-## 3 Response bodies
+## 3- Response bodies
 
-### 3.1 Pagination
+### 3.1- Pagination
 
 All paginated lists requested to our APIs should be returned using the following structure:
 
@@ -126,7 +131,7 @@ Some clarifications about the pagination response:
 - When returning the first page, the *previous_page* property should be `NULL`.
 - The parameters with the `_link` suffix are suggested when using link-oriented pagination; otherwise, they should not be included in the response body.
 
-## 4 API Versioning
+## 4- API Versioning
 
 We decided to implement API versioning via the use of headers.
 
@@ -191,6 +196,23 @@ function respondV2(req, res, next) {
    res.status(200).send('ok v2');
 }
 ```
+
+### 5- Response Status Codes
+
+There are many _status codes_ to use in request responses. \
+Most commonly used are:
+
+* **200 OK**: Base successful response. Depends on currently used HTTP method.
+* **201 CREATED**: Successful response meaning a new resource has been created. Most commonly used with POST and sometimes PUT.
+* **204 NO CONTENT**: Successful response without content in body.
+* **400 BAD REQUEST**: Request was not formatted correctly and the server cannot interpret it.
+* **401 UNAUTHORIZED**: The client must authenticate itself to get the requested response.
+* **403 FORBIDDEN**: Incorrect level of authorization to use a specific resource.
+* **404 NOT FOUND**: Specified resource was not found.
+* **422 UNPROCESSABLE ENTITY**: Must be used when the server cannot handle the request as is. For example may be a parameter image cannot be read correctly or some parameters are missing.
+* **500 INTERNAL SERVER ERROR**: An internal server error has ocurred which it does not know how to handle.
+
+You can read more about this and other status codes in [this link](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status).
 
 [//]: #
 
