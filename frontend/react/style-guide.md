@@ -928,6 +928,9 @@ src
 
 ## Typescript
 
+- Useful links
+  - https://github.com/typescript-cheatsheets/react-typescript-cheatsheet
+
 - File extensions
   - Use `.tsx` extension for React components.
   - Use `.ts` extension for files that don't need react elements
