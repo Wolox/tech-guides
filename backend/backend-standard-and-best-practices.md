@@ -9,6 +9,7 @@
 - [4- API Versioning](#4--api-versioning)
 - [5- Response Status Codes](#5--response-status-codes)
 - [6- API Documentation ](#6--api-documentation)
+- [7- Routes](#6--routes)
 
 
 ## 1- Objective
@@ -17,7 +18,7 @@ The purpose of this document is to present the standards we use in Wolox to work
 
 ## 2- Naming conventions
 
-To keep consistency between all our projects we define a convention for a sort of different cases that we consider important. Most of the decisions were made to respect the **HTTP** and **database** standards, or to be consistent between technologies in our stack.
+To keep consistency between all our projects we define a convention for different cases that we consider important. Most of the decisions were made to respect the **HTTP** and **database** standards, or to be consistent between technologies in our stack.
 
 ### 2.1- Input and output parameters naming
 
@@ -162,9 +163,7 @@ Implementations are shown below:
 - Rails example (using [Versionist])
 ```ruby
 MyApi::Application.routes.draw do
-  api_version(:module => "V20120317", :header => {:name => "X-API-VERSION", :value => "v20120317"}) do
-    match '/foos.(:format)' => 'foos#index', :via => :get
-    match '/foos_no_format' => 'foos#index', :via => :get
+  api_version(:module => "V20120317", header: {name: "X-API-VERSION", value: "v20120317"}) do
     resources :bars
   end
 end
@@ -203,18 +202,17 @@ function respondV2(req, res, next) {
 There are many _status codes_ to use in request responses. \
 Most commonly used are:
 
-* **200 OK**: Base successful response. Depends on currently used HTTP method.
+* **200 OK**: Basic successful response. Depends on currently used HTTP method.
 * **201 CREATED**: Successful response meaning a new resource has been created. Most commonly used with POST and sometimes PUT.
 * **204 NO CONTENT**: Successful response without content in body.
 * **400 BAD REQUEST**: Request was not formatted correctly and the server cannot interpret it.
 * **401 UNAUTHORIZED**: The client must authenticate itself to get the requested response.
 * **403 FORBIDDEN**: Incorrect level of authorization to use a specific resource.
 * **404 NOT FOUND**: Specified resource was not found.
-* **422 UNPROCESSABLE ENTITY**: Must be used when the server cannot handle the request as is. For example may be a parameter image cannot be read correctly or some parameters are missing.
-* **500 INTERNAL SERVER ERROR**: An internal server error has ocurred which it does not know how to handle.
+* **422 UNPROCESSABLE ENTITY**: Must be used when the server cannot handle the request as is. For example, a parameter image cannot be read correctly or some required parameters are missing.
+* **500 INTERNAL SERVER ERROR**: An internal server error has occurred which it does not know how to handle. Avoid using this manually and use a more descriptive code instead.
 
 You can read more about this and other status codes in [this link](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status).
-
 
 ## 6- API Documentation
 
@@ -228,6 +226,28 @@ There are lots of different tools in the market to document APIs. Here in Wolox 
 
 You can read more a about Swagger in this [this link](https://swagger.io/docs/).
 
+### 7- Routes
+
+While it's impossible to define every single route name possibility, we chose a few examples to act as guidelines
+
+#### Wrong
+* *`GET /get_users`, `GET /get_user/:user_id`, `GET /get_user?user_id=1`, `GET /get?model=user&user_id=1`*: while we don't need to be 100% RESTful, we should use the basic idea of resources and verbs as separate things.
+* *`GET /user_summary/1`*: use nested resources for cases where a resource is deeply linked to another resource.
+* *`POST /create_user`*: a POST to a route named `create_X` is redundant, just make a POST to `/users/`
+* *`DELETE /delete_user `*: likewise, a DELETE to a route named `delete_X` is redudant.
+* *`POST /users/update`*: don't use post for an update. Use either patch or put depending on whether you need to pass the whole instance or just the updated fields. Use POST for more generic endpoints that escape the common RESTful resource logic though.
+* *`GET /users/update?field1=a&field2=b&...`*: don't use a GET for an update with query params for fields.
+* *Spanglish*: or any other combination of non-english terms unless it's strictly necessary.
+* *Camel case*: the standard for Wolox backends is to use `lower_snake_case` for routes.
+* *Restricting yourself to database models*: REST resources don't need to have a 1:1 relationship with database models. If it makes semantic sense to break one model up into multiple resources or to join multiple models using an abstract model, that's correct.
+
+#### Right
+* *`GET /users`*
+* *`GET /user/:user_id`*
+* *`PATCH /user/:user_id` and `PUT /user/:user_id`*
+* *`POST /user`*
+* *`DELETE /user/user_id`*
+* *`GET /users/1/summary`*
 
 [//]: #
 
