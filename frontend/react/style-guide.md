@@ -1005,6 +1005,33 @@ src
   npm install @types/lodash
   ```
 
+- Creating a HOC
+
+  ```tsx
+  interface WithLoadingOptions {
+    classNameContainer?: string;
+  }
+
+  interface WithLoadingProps {
+    loading: boolean;
+  }
+
+  export function withSpinner({ classNameContainer }: WithLoadingOptions = {}) {
+    return <P extends object>(WrappedComponent: React.ComponentType<P>) => {
+      function Spinner({ loading, ...props }: P & WithLoadingProps) {
+        return loading ? (
+          <div className={classNameContainer}>
+            <Loading className={classNameLoading} type={typeLoading} color={colorSpinner} />
+          </div>
+        ) : (
+          <WrappedComponent {...props as P} />
+        );
+      }
+
+      return Spinner;
+    };
+  }
+  ```
 
 ## Translation
 
