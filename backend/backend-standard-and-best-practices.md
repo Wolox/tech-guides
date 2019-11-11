@@ -230,10 +230,10 @@ While it's impossible to define every single route name possibility, we chose a 
 
 #### Right
 * *`GET /users`*
-* *`GET /user/:user_id`*
-* *`PATCH /user/:user_id` and `PUT /user/:user_id`*
-* *`POST /user`*
-* *`DELETE /user/user_id`*
+* *`GET /users/:user_id`*
+* *`PATCH /users/:user_id` and `PUT /users/:user_id`*
+* *`POST /users`*
+* *`DELETE /users/user_id`*
 * *`GET /users/1/summary`*
 
 [//]: #
