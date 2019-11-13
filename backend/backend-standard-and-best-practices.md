@@ -216,12 +216,12 @@ You can read more about this and other status codes in [this link](https://devel
 
 ## 6- API Documentation
 
-There are lots of different tools in the market to document APIs. Here in Wolox we decided to use Openpi 3 (A.K.A Swagger) as a standard documentation tool in all of our techs. The reasons behind this decision were some of the advantages OpenApi prodvides:
+There are lots of different tools in the market to document APIs. Here in Wolox we decided to use Openapi 3 (A.K.A Swagger) as a standard documentation tool in all of our techs. The reasons behind this decision were some of the advantages OpenApi prodvides:
 
 * **Quick to use**: The properties that you need to complete in every endpoint are always the same and there are only a few. You can also frequently reuse components and the generic information is simple to complete.
 * **Wide range of available features**: From describing parameters, making authentication and authorization schemes, to even using the generated documentation of an endpoint to mock test the endpoint in question.
-* **Intuitive and easy to use interactive UI**: Swagger up a view where show how to do a request and how to response the API. 
-* **Maintainable and easily extendable**: Swagger permit use constants file/s from your API. 
+* **Intuitive and easy to use interactive UI**: Swagger uses a GUI to show the user how to make requests to the API and what responses will be like. 
+* **Maintainable and easily extendable**: Swagger allows using constants file/s from your API. 
 * **Scan and auto-generate**: For typed languages, Swagger can scan and auto-generate documentation.  
 
 You can read more a about Swagger in this [this link](https://swagger.io/docs/).
