@@ -151,7 +151,7 @@ When informing a client of a request error, the response body should be returned
 ```
 
 Some clarifications about the error response:
-- The `timestamp` field is not mandatory, but it's use is recommended for logging purposes.
+- The `timestamp` field is not mandatory, but its use is recommended for logging purposes.
 - Both the `origin` and `stack_trace` fields are considered sensitive information, and they should not be sent to a frontend or external client. Their use should be limited between internal APIs of the same application.
 - The `code` field in the errors list is intended as a unique identifier of the returned error message, and a way of keeping an internal record of all errors handled by the application.
 - Depending on the case and the receiver of the response, it may not be necessary to send both the `code` and `message` parameters.
