@@ -233,7 +233,7 @@ While it's impossible to define every single route name possibility, we chose a 
 * *`GET /users/:user_id`*
 * *`PATCH /users/:user_id` and `PUT /users/:user_id`*
 * *`POST /users`*
-* *`DELETE /users/user_id`*
+* *`DELETE /users/:user_id`*
 * *`GET /users/1/summary`*
 
 [//]: #
