@@ -6,6 +6,7 @@
   - [2.2- Output parameters structure](#22--output-parameters-structure)
 - [3- Response bodies](#3--response-bodies)
   - [3.1- Pagination](#31--pagination)
+  - [3.2- Error forwarding](#32--error-forwarding)
 - [4- API Versioning](#4--api-versioning)
 - [5- Response Status Codes](#5--response-status-codes)
 - [6- Routes](#6--routes)
@@ -132,6 +133,29 @@ Some clarifications about the pagination response:
 - When returning the first page, the *previous_page* property should be `NULL`.
 - The parameters with the `_link` suffix are suggested when using link-oriented pagination; otherwise, they should not be included in the response body.
 
+### 3.2- Error forwarding
+
+When informing a client of a request error, the response body should be returned using the following structure:
+
+```json
+ {
+  "status_code": 422,
+  "errors": [
+    { "code": "111", "message": "age must be an int" }
+    { "code": "112", "message": "email is mandatory" }
+  ],
+  "origin": "api-name",
+  "stack_trace": "...",
+  "timestamp": "2019-09-10"
+}
+```
+
+Some clarifications about the error response:
+- The `timestamp` field is not mandatory, but it's use is recommended for logging purposes.
+- Both the `origin` and `stack_trace` fields are considered sensitive information, and they should not be sent to a frontend or external client. Their use should be limited between internal APIs of the same application.
+- The `code` field in the errors list is intended as a unique identifier of the returned error message, and a way of keeping an internal record of all errors handled by the application.
+- Depending on the case and the receiver of the response, it may not be necessary to send both the `code` and `message` parameters.
+
 ## 4- API Versioning
 
 We decided to implement API versioning via the use of headers.
@@ -204,7 +228,7 @@ Most commonly used are:
 * **200 OK**: Basic successful response. Depends on currently used HTTP method.
 * **201 CREATED**: Successful response meaning a new resource has been created. Most commonly used with POST and sometimes PUT.
 * **204 NO CONTENT**: Successful response without content in body.
-* **400 BAD REQUEST**: Request was not formatted correctly and the server cannot interpret it.
+* **400 BAD REQUEST**: Request was not formatted correctly and the server cannot interpret it (syntax error).
 * **401 UNAUTHORIZED**: The client must authenticate itself to get the requested response.
 * **403 FORBIDDEN**: Incorrect level of authorization to use a specific resource.
 * **404 NOT FOUND**: Specified resource was not found.
