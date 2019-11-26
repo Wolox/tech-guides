@@ -138,7 +138,7 @@ Some clarifications about the pagination response:
 When informing a client of a request error, the response body should be returned using the following structure:
 
 ```json
- {
+{
   "status_code": 422,
   "errors": [
     { "code": "111", "message": "age must be an int" }
