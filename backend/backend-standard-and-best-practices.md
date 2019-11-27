@@ -10,7 +10,7 @@
 - [4- API Versioning](#4--api-versioning)
 - [5- Response Status Codes](#5--response-status-codes)
 - [6- API Documentation ](#6--api-documentation)
-- [7- Routes](#6--routes)
+- [7- Routes](#7--routes)
 
 
 ## 1- Objective
@@ -36,7 +36,7 @@ With the purpose of unifying the interfaces between techs and making things easi
 
 ```json
 {
-  "admin_users": [
+  "data": [
     {
       "id": 1,
       "first_name": "My first name",
