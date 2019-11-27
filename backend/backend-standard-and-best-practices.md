@@ -9,7 +9,8 @@
   - [3.2- Error forwarding](#32--error-forwarding)
 - [4- API Versioning](#4--api-versioning)
 - [5- Response Status Codes](#5--response-status-codes)
-- [6- Routes](#6--routes)
+- [6- API Documentation ](#6--api-documentation)
+- [7- Routes](#6--routes)
 
 
 ## 1- Objective
@@ -237,7 +238,19 @@ Most commonly used are:
 
 You can read more about this and other status codes in [this link](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status).
 
-### 6- Routes
+## 6- API Documentation
+
+There are lots of different tools in the market to document APIs. Here in Wolox we decided to use Openapi 3 (A.K.A Swagger) as a standard documentation tool in all of our techs. The reasons behind this decision were some of the advantages OpenApi prodvides:
+
+* **Quick to use**: The properties that you need to fill in every endpoint are always the same and there are only a few. You can also frequently reuse components and the generic information is simple to provide.
+* **Wide range of available features**: From describing parameters, making authentication and authorization schemes, to even using the generated documentation of an endpoint to mock test the endpoint in question.
+* **Intuitive and easy to use interactive UI**: Swagger uses a GUI to show the user how to make requests to the API and what responses will look like. 
+* **Maintainable and easily extendable**: Swagger allows using constants files from your API. 
+* **Scan and auto-generate**: For typed languages, Swagger can scan and auto-generate documentation.  
+
+You can read more a about Swagger in this [this link](https://swagger.io/docs/).
+
+### 7- Routes
 
 While it's impossible to define every single route name possibility, we chose a few examples to act as guidelines
 
