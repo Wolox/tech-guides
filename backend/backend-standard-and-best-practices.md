@@ -120,9 +120,9 @@ All paginated lists requested to our APIs should be returned using the following
  "previous_page": 1,
  "current_page": 2,
  "next_page": 3,
- "previous_page_link": "domain.com/users?page=3&limit=6&offset=6",
- "current_page_link": "domain/com/users?page=1&limit=3&offset=0",
- "next_page_link": "domain.com/users?page=2&limit=3&offset=3",
+ "previous_page_link": "domain.com/users?page=1&limit=3&offset=0",
+ "current_page_link": "domain/com/users?page=2&limit=3&offset=3",
+ "next_page_link": "domain.com/users?page=3&limit=3&offset=6",
  "first_page_link": "domain.com/users?page=1&limit=3&offset=0",
  "last_page_link": "domain.com/users?page=4&limit=3&offset=9",
  "n_page_link": "domain.com/users?page=X&limit=3&offset=Y"
