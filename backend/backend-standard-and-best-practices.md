@@ -147,7 +147,7 @@ When informing a client of a request error, the response body should be returned
   ],
   "origin": "api-name",
   "stack_trace": "...",
-  "timestamp": "2019-09-10"
+  "timestamp": "2019-09-10 03:14:07"
 }
 ```
 
