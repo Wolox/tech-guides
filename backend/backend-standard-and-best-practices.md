@@ -15,7 +15,7 @@
 
 ## 1- Objective
 
-The purpose of this document is to present the standards we use in Wolox to work with APIs in the backend department. This standards are simply suggestions and guidelines, and depending on the case, they can be ignored if necessary.
+The purpose of this document is to present the standards we use in Wolox to work with APIs in the backend department. This standards are simply suggestions and guidelines, and depending on the case, they can be adapted if necessary.
 
 ## 2- Naming conventions
 
