@@ -15,7 +15,7 @@
 
 ## 1- Objective
 
-The purpose of this document is to present the standards we use in Wolox to work with APIs in the backend department.
+The purpose of this document is to present the standards we use in Wolox to work with APIs in the backend department. This standards are simply suggestions and guidelines, and depending on the case, they can be adapted if necessary.
 
 ## 2- Naming conventions
 
@@ -120,12 +120,12 @@ All paginated lists requested to our APIs should be returned using the following
  "previous_page": 1,
  "current_page": 2,
  "next_page": 3,
- "previous_page_link": "domain.com/users?page=1&limit=3&offset=0",
- "current_page_link": "domain/com/users?page=2&limit=3&offset=3",
- "next_page_link": "domain.com/users?page=3&limit=3&offset=6",
- "first_page_link": "domain.com/users?page=1&limit=3&offset=0",
- "last_page_link": "domain.com/users?page=4&limit=3&offset=9",
- "n_page_link": "domain.com/users?page=X&limit=3&offset=Y"
+ "previous_page_link": "domain.com/users?page=1&limit=3",
+ "current_page_link": "domain/com/users?page=2&limit=3",
+ "next_page_link": "domain.com/users?page=3&limit=3",
+ "first_page_link": "domain.com/users?page=1&limit=3",
+ "last_page_link": "domain.com/users?page=4&limit=3",
+ "n_page_link": "domain.com/users?page=X&limit=3"
 }
 ```
 
@@ -140,7 +140,6 @@ When informing a client of a request error, the response body should be returned
 
 ```json
 {
-  "status_code": 422,
   "errors": [
     { "code": "111", "message": "age must be an int" }
     { "code": "112", "message": "email is mandatory" }
@@ -154,7 +153,7 @@ When informing a client of a request error, the response body should be returned
 Some clarifications about the error response:
 - The `timestamp` field is not mandatory, but its use is recommended for logging purposes.
 - Both the `origin` and `stack_trace` fields are considered sensitive information, and they should not be sent to a frontend or external client. Their use should be limited between internal APIs of the same application.
-- The `code` field in the errors list is intended as a unique identifier of the returned error message, and a way of keeping an internal record of all errors handled by the application. Also, it should not be a random value, but instead follow a certain convention (for example, codes with format `W-4XX` could be used for invalid request errors, `W-5XX` for application errors, etc.)
+- The `code` field in the errors list is intended as a unique identifier of the returned error message, and a way of keeping an internal record of all errors handled by the application. Also, it should not be a random value, but instead follow a certain convention (for example, codes with format `01XX` could be used for invalid request errors, `02XX` for application errors, etc.). We will define a standard convention for error codes in future versions of this document.
 - Depending on the case and the receiver of the response, it may not be necessary to send both the `code` and `message` parameters.
 
 ## 4- API Versioning
