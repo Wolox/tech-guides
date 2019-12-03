@@ -6,10 +6,19 @@
 2. [Folder structure](#folder-structure)
 3. [Ordering](#ordering)
 4. [Props](#props)
+5. [Alignment](#alignment)
+6. [Quotes](#quotes)
+7. [Spacing](#spacing)
+8. [Vue-Router](#vue-router)
 
 ## Basic rules
 
 * When using the data property on a component, it **must** be a function that return an object. The only exception to the rule is in a root Vue instance, since only a single instance will ever exist.
+
+* Always use v-bind shortcut `:` instead of the whole directive `v-bind:`. E.g.: Do `:value="someValue"` instead of `v-bind:value="someValue"`.
+
+
+
 
 ## Folder structure
 
@@ -115,7 +124,7 @@ As Vue separates the template from the script, we're going to follow the convent
 ```pug
 // bad
 <template lang="pug">
-  my-component(greetingText='hi')
+  my-component(greetingText="hi")
 </template>
 
 <script>
@@ -128,7 +137,7 @@ As Vue separates the template from the script, we're going to follow the convent
 ```pug
 // good
 <template lang="pug">
-  my-component(greeting-text='hi')
+  my-component(greeting-text="hi")
 </template>
 
 <script>
@@ -181,7 +190,7 @@ props: {
 
 ### Passing props to children component
 
-When we wanna send a static value, we're going to avoid the **v-bind** directive.
+When we wanna send a static string value, we're going to avoid the **v-bind** directive.
 
 ```pug
 // bad
@@ -220,3 +229,135 @@ my-component(
   dark-theme
 )
 ```
+
+## Alignment
+
+* The content of the template, the script and the style sections must be align on the left, without any indentation for the first level.
+```pug
+// bad
+<template lang="pug">
+  .container
+    my-component
+</template>
+
+<script>
+  import MyComponent from '../components/MyComponent'
+</script>
+
+<style lang="scss" scoped>
+  .container {
+    width: 100%;
+  }
+</style>
+```
+```pug
+// good
+<template lang="pug">
+.container
+  my-component
+</template>
+
+<script>
+import MyComponent from '../components/MyComponent'
+
+export default {
+  
+}
+</script>
+
+<style lang="scss" scoped>
+.container {
+  width: 100%;
+}
+</style>
+```
+
+* Closing parenthesis, brackets and braces should be aligned at the same indentation than the opening ones.
+
+```js
+// bad
+export default {
+  methods: {
+    generateOptions() {
+      this.myArray.map((element, idx) => (
+        { value: element.id, label: element.name }))}
+  }
+}
+```
+
+```js
+// good
+export default {
+  methods: {
+    generateOptions() {
+      this.myArray.map((element, idx) => (
+        { value: element.id, label: element.name }
+      ))
+    }
+  }
+}
+```
+
+## Quotes
+
+In the template and html tags, always use double quotes (`"`) as the main quotation mark, and single ones (`'`) as secondary. On the contary, in the script and the style sections use single quotes as the main quotation mark and double as secondary.
+
+```pug
+// bad
+<template lang="pug">
+.container
+  input(v-model='name' type='filters.name')
+<template>
+
+<script>
+export default {
+  data() {
+    return {
+      filters: {
+        name: ""
+      }
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+.container {
+  font-family: "Lato";
+}
+</style>
+```
+
+```pug
+// good
+<template lang="pug">
+.container
+  input(v-model="name" type="filters.name")
+<template>
+
+<script>
+export default {
+  data() {
+    return {
+      filters: {
+        name: ''
+      }
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+.container {
+  font-family: 'Lato';
+}
+</style>
+```
+
+
+## Spacing
+
+Always add spaces around the braces.
+
+## Vue-Router
+

@@ -15,7 +15,7 @@ You'll find a detailed guide to start your project [here](./docs/kickoff.md).
 ## Style Guide
 
 We use our own Style Guide that has been strongly influenced by the [Vue Official Style Guide](https://vuejs.org/v2/style-guide/).
- - [Wolox Vue Style Guide](https://github.com/Wolox/tech-guides/tree/master/frontend/vue/style-guide.mb)
+ - [Wolox Vue Style Guide](https://github.com/Wolox/tech-guides/tree/master/frontend/vue/style-guide.md)
 
 
 ## Internal Libraries
