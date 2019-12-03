@@ -2,11 +2,13 @@
 
 ## Index
 
-- [Project Bootstrapper](#project-bootstrapper)
-- [Style Guide](#style-guide)
-- [Internal Libraries](#internal-libraries)
-- [External Libraries](#external-libraries)
-- [Useful Documentation](#useful-documentation)
+- [Vue Tech Guides](#vue-tech-guides)
+  - [Index](#index)
+  - [Project Bootstrapper](#project-bootstrapper)
+  - [Style Guide](#style-guide)
+  - [Internal Libraries](#internal-libraries)
+  - [External Libraries](#external-libraries)
+  - [Useful Documentation](#useful-documentation)
 
 ## Project Bootstrapper
 We use the Vue CLI with our config to create web applications.
