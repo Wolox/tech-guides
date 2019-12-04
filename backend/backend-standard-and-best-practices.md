@@ -255,7 +255,7 @@ You can read more a about Swagger in this [this link](https://swagger.io/docs/).
 While it's impossible to define every single route name possibility, we chose a few examples to act as guidelines
 
 #### Wrong :x:
-* *`GET /get_users`, `GET /get_user/:user_id`, `GET /get_user?user_id=1`, `GET /get?model=user&user_id=1`*: while we don't need to be 100% RESTful, we should use the basic idea of resources and verbs as separate things.
+* *`GET /get_users`, `GET /get_user/:id`, `GET /get_user?id=1`, `GET /get?model=user&id=1`*: while we don't need to be 100% RESTful, we should use the basic idea of resources and verbs as separate things.
 * *`GET /user_summary/1`*: use nested resources for cases where a resource is deeply linked to another resource.
 * *`POST /create_user`*: a POST to a route named `create_X` is redundant, just make a POST to `/users/`
 * *`DELETE /delete_user `*: likewise, a DELETE to a route named `delete_X` is redudant.
@@ -267,10 +267,10 @@ While it's impossible to define every single route name possibility, we chose a 
 
 #### Right :white_check_mark:
 * *`GET /users`*
-* *`GET /users/:user_id`*
-* *`PATCH /users/:user_id` and `PUT /users/:user_id`*
+* *`GET /users/:id`*
+* *`PATCH /users/:id` and `PUT /users/:id`*
 * *`POST /users`*
-* *`DELETE /users/:user_id`*
+* *`DELETE /users/:id`*
 * *`GET /users/1/summary`*
 
 [//]: #
