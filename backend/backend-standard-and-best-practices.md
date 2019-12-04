@@ -15,7 +15,7 @@
 
 ## 1- Objective
 
-The purpose of this document is to present the standards we use in Wolox to work with APIs in the backend department. This standards are simply suggestions and guidelines, and depending on the case, they can be adapted if necessary.
+The purpose of this document is to present the standards we use in Wolox to work with APIs in the backend department. These standards are simply suggestions and guidelines, and depending on the case, they can be adapted if necessary.
 
 ## 2- Naming conventions
 
@@ -30,7 +30,7 @@ With the purpose of unifying the interfaces between techs and making things easi
   "id": 1,
   "first_name": "My first name",
   "last_name": "My last name",
-  "email": "My email"
+  "email": "myemail@server.com"
 }
 ```
 
@@ -62,6 +62,7 @@ With the purpose of unifying the interfaces between techs and making things easi
 
 If we need to return an object that represents a certain entity, for example an user, we should avoid to return it using a key in the body containing all its data; we should directly return the data in the body instead.
 
+:white_check_mark: You should use:
 ```json
 {
   "id": 1,
@@ -71,7 +72,7 @@ If we need to return an object that represents a certain entity, for example an 
 }
 ```
 
-instead of:
+:x: instead of:
 
 ```json
 {
@@ -141,24 +142,24 @@ When informing a client of a request error, the response body should be returned
 ```json
 {
   "errors": [
-    { "code": "111", "message": "age must be an int" }
+    { "code": "111", "message": "age must be an int" },
     { "code": "112", "message": "email is mandatory" }
   ],
   "origin": "api-name",
   "stack_trace": "...",
-  "timestamp": "2019-09-10 03:14:07"
+  "timestamp": "2019-12-02T17:40:53.855Z"
 }
 ```
 
 Some clarifications about the error response:
 - The `timestamp` field is not mandatory, but its use is recommended for logging purposes.
-- Both the `origin` and `stack_trace` fields are considered sensitive information, and they should not be sent to a frontend or external client. Their use should be limited between internal APIs of the same application.
+- Both the `origin` and `stack_trace` fields are considered sensitive information, and they should not be sent to a frontend or external client. Their use should be limited between internal APIs of the same application. They could also be scoped between environments, due to their value during the development process.
 - The `code` field in the errors list is intended as a unique identifier of the returned error message, and a way of keeping an internal record of all errors handled by the application. Also, it should not be a random value, but instead follow a certain convention (for example, codes with format `01XX` could be used for invalid request errors, `02XX` for application errors, etc.). We will define a standard convention for error codes in future versions of this document.
 - Depending on the case and the receiver of the response, it may not be necessary to send both the `code` and `message` parameters.
 
 ## 4- API Versioning
 
-We decided to implement API versioning via the use of headers.
+We decided to implement API versioning via the use of headers. It is worth mentioning that keeping multiple versions alive can become increasingly difficult to maintain, so it should be avoided if possible. 
 
 
 - Java example:
@@ -232,7 +233,7 @@ Most commonly used are:
 * **401 UNAUTHORIZED**: The client must authenticate itself to get the requested response.
 * **403 FORBIDDEN**: Incorrect level of authorization to use a specific resource.
 * **404 NOT FOUND**: Specified resource was not found.
-* **422 UNPROCESSABLE ENTITY**: Must be used when the server cannot handle the request as is. For example, a parameter image cannot be read correctly or some required parameters are missing.
+* **422 UNPROCESSABLE ENTITY**: Must be used when the server cannot handle the request as it is. For example, a parameter image cannot be read correctly or some required parameters are missing.
 * **500 INTERNAL SERVER ERROR**: An internal server error has occurred which it does not know how to handle. Avoid using this manually and use a more descriptive code instead.
 
 You can read more about this and other status codes in [this link](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status).
@@ -253,7 +254,7 @@ You can read more a about Swagger in this [this link](https://swagger.io/docs/).
 
 While it's impossible to define every single route name possibility, we chose a few examples to act as guidelines
 
-#### Wrong
+#### Wrong :x:
 * *`GET /get_users`, `GET /get_user/:user_id`, `GET /get_user?user_id=1`, `GET /get?model=user&user_id=1`*: while we don't need to be 100% RESTful, we should use the basic idea of resources and verbs as separate things.
 * *`GET /user_summary/1`*: use nested resources for cases where a resource is deeply linked to another resource.
 * *`POST /create_user`*: a POST to a route named `create_X` is redundant, just make a POST to `/users/`
@@ -264,7 +265,7 @@ While it's impossible to define every single route name possibility, we chose a 
 * *Camel case*: the standard for Wolox backends is to use `lower_snake_case` for routes.
 * *Restricting yourself to database models*: REST resources don't need to have a 1:1 relationship with database models. If it makes semantic sense to break one model up into multiple resources or to join multiple models using an abstract model, that's correct.
 
-#### Right
+#### Right :white_check_mark:
 * *`GET /users`*
 * *`GET /users/:user_id`*
 * *`PATCH /users/:user_id` and `PUT /users/:user_id`*
