@@ -41,19 +41,19 @@ With the purpose of unifying the interfaces between techs and making things easi
       "id": 1,
       "first_name": "My first name",
       "last_name": "My last name",
-      "email": "My email"
+      "email": "myemail@server.com"
     },
     {
       "id": 2,
       "first_name": "My first name",
       "last_name": "My last name",
-      "email": "My email"
+      "email": "myemail@server.com"
     },
     {
       "id": 3,
       "first_name": "My first name",
       "last_name": "My last name",
-      "email": "My email"
+      "email": "myemail@server.com"
     }
   ]
 }
@@ -68,7 +68,7 @@ If we need to return an object that represents a certain entity, for example an 
   "id": 1,
   "first_name": "My first name",
   "last_name": "My last name",
-  "email": "My email"
+  "email": "myemail@server.com"
 }
 ```
 
@@ -80,7 +80,7 @@ If we need to return an object that represents a certain entity, for example an 
     "id": 1,
     "first_name": "My first name",
     "last_name": "My last name",
-    "email": "My email"
+    "email": "myemail@server.com"
   }
 }
 ```
@@ -98,19 +98,19 @@ All paginated lists requested to our APIs should be returned using the following
       "id": 4,
       "first_name": "My first name",
       "last_name": "My last name",
-      "email": "My email"
+      "email": "myemail@server.com"
     },
     {
       "id": 5,
       "first_name": "My first name",
       "last_name": "My last name",
-      "email": "My email"
+      "email": "myemail@server.com"
     },
     {
       "id": 6,
       "first_name": "My first name",
       "last_name": "My last name",
-      "email": "My email"
+      "email": "myemail@server.com"
     }
  ],
  "count": 3,
