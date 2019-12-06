@@ -192,7 +192,7 @@ square.printAll();
 Functional mixins are a data structure that provides greater abstraction. They also provide true encapsulation. This is something that even classes cannot provide. Also, they allow us to create new mixins expanding others adding new methods. Kind of like in inheritance.
 
 ``` js
-const Rectangle = (newlength, newbreadth) => o => {
+const createRectangle1 = (newlength, newbreadth) => o => {
 //  Here we define all the attributes of a mixin
   let length = newlength;
   let breadth = newbreadth;
@@ -216,35 +216,42 @@ const printAll = () => o =>
     }
   });
 
-const square = Rectangle(11, 11)({});
-console.log(square.getArea());
+const rectangle1 = createRectangle1(11, 14)({});
+console.log('rectangle1.getArea()', rectangle1.getArea());
 
 // At this point we have two ways of creating the object, the first one involves defining a pipe function:
 const pipe = (...fns) => x => fns.reduce((y, f) => f(y), x);
 // OR...
 // import pipe from `lodash/fp/flow`;
 
-// The declaration is a more expanded one
-const createRectangle = (breadth, length) =>
+// This declaration is a more expanded one
+const createRectangle2 = (breadth, length) =>
   pipe(
-    Rectangle(breadth, length),
+    createRectangle1(breadth, length),
     printAll()
   )({});
 
 // The other way is more compressed but more difficult to read and also does not need the pipe function.
-const createRectangle2 = (breadth, length) =>
-  printAll()(Rectangle(breadth, length)({}));
+const createRectangle3 = (breadth, length) =>
+printAll()(createRectangle1(breadth, length)({}));
 
-const square2 = createRectangle(9, 9);
-const square3 = createRectangle2(3, 4);
-square2.printAll();
-square3.printAll();
+const rectangle2 = createRectangle2(9, 5);
+const rectangle3 = createRectangle3(3, 4);
+rectangle2.printAll();
+rectangle3.printAll();
+
+// We can inspect the contents of the objects created, the private attributes will not be visible here.
+console.log('rectangle1', rectangle1);
+console.log('rectangle2', rectangle2);
+console.log('rectangle3', rectangle3);
 
 // This is how we access the attributes of the object created by the mixin.
-console.log('square2.length', square2.length);
-console.log('square2.breadth', square2.breadth);
-console.log('square3.length', square3.length);
-console.log('square3.breadth', square3.breadth);
+console.log('rectangle1.length', rectangle1.length);
+console.log('rectangle1.breadth', rectangle1.breadth);
+console.log('rectangle2.length', rectangle2.length);
+console.log('rectangle2.breadth', rectangle2.breadth);
+console.log('rectangle3.length', rectangle3.length);
+console.log('rectangle3.breadth', rectangle3.breadth);
 ```
 
 ## Classes
