@@ -23,6 +23,7 @@ At [Wolox](http://wolox.com.ar), we have developed the [ExpressJS Bootstrap](htt
 - [HOW TO use aggregation functions and join clause](./docs/sequelize/group_by_and_aggregation_functions.md)
 - [HOW TO use validations in bulk methods](./docs/sequelize/validations_in_bulk_methods.md)
 - [Remove foreign constraints when you don't know the name](./docs/sequelize/remove-foreign-constraint.md)
+- [HOW TO define models, migrations, and use operators](./docs/sequelize/migrations_and_model_definition.md)
 
 ## Standards
 
