@@ -930,6 +930,7 @@ src
 
 - Useful links
   - https://github.com/typescript-cheatsheets/react-typescript-cheatsheet
+  - https://www.typescriptlang.org/docs/home.html
 
 - File extensions
   - Use `.tsx` extension for React components.
