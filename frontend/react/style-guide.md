@@ -948,18 +948,19 @@ src
     }
 
     class Breadcrumb extends Component<Props, State> {
-      //
+      // ...
     }
   ```
 
 - Creating a functional component
   ```tsx
     interface Props {
-      prop1: string;
+      prop1: string; //required prop
+      prop2?: number; //optional prop
     }
 
-    function CardLink({ prop1, prop2}: Props) {
-      //
+    function CardLink({ prop1, prop2 }: Props) {
+      // ...
     }
   ```
 
@@ -970,11 +971,12 @@ src
       prop2?: number;
     }
 
-    class Breadcrumb extends Component<Props, {}> {
+    class Breadcrumb extends Component<Props> {
       static defaultProps = {
         prop2: 5
       };
-      //
+
+      // ...
     }
   ```
 
@@ -985,7 +987,7 @@ src
     export class Button extends Component {
 
       handleClick(event: MouseEvent) {
-        //
+        // ...
       }
       
       render() {
