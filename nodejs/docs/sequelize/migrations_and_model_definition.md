@@ -34,7 +34,7 @@ Here we are defining a constant called `User` (note that this name is in PascalC
 
 A migration is performed on a database whenever it is necessary to update or revert that database's schema to some newer or older version.
 
-### How yo create a migration
+### How you create a migration
 
 To create a migration we can use the following command on your project roots:
 
