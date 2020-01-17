@@ -119,7 +119,18 @@ With the purpose of unifying the interfaces with other techs and making things e
 
 Some clarifications about the responses:
 
-If we need to return an object that represents a certain entity, for example an user, we must return it using a key in the body that describes it as such.
+If we need to return an object that represents a certain entity, the returned response shouldn't contain a key that represents the entity. The correct response would be as follows:
+
+```javascript
+{
+  id: 1,
+  first_name: 'My first name',
+  last_name: 'My last name',
+  email: 'My email'
+}
+```
+
+instead of:
 
 ```javascript
 {
@@ -129,17 +140,6 @@ If we need to return an object that represents a certain entity, for example an 
     last_name: 'My last name',
     email: 'My email'
   }
-}
-```
-
-instead of:
-
-```javascript
-{
-  id: 1,
-  first_name: 'My first name',
-  last_name: 'My last name',
-  email: 'My email'
 }
 ```
 
