@@ -2,7 +2,7 @@
 
 ## Description
 
-[WebPay](https://www.webpay.cl/) is one of the payments portal of [Transbank](https://publico.transbank.cl/). It's main goal is to provide digital businesses an alternative to manage their payment channel.
+[WebPay](https://www.webpay.cl/) is one of the payments portal of [Transbank](https://publico.transbank.cl/) from Chile. It's main goal is to provide digital businesses an alternative to manage their payment channel. 
 
 ## Integration flow
 
