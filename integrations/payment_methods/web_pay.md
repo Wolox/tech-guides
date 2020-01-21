@@ -2,7 +2,7 @@
 
 ## Description
 
-[WebPay](https://www.webpay.cl/) is one of the payments portal of [Transbank](https://publico.transbank.cl/) from Chile. It's main goal is to provide digital businesses an alternative to manage their payment channel. 
+[WebPay](https://www.webpay.cl/) is one of the payments portal of [Transbank](https://publico.transbank.cl/) from Chile. It's main goal is to provide digital businesses an alternative to manage their payment channel. [Here](https://transbankdevelopers.cl/referencia/webpay?l=ruby#webpay) is the official api documentation, [environment credentials](https://github.com/TransbankDevelopers/transbank-webpay-credenciales/) and the [gem](https://transbankdevelopers.cl/documentacion/como_empezar#instalacion-sdk) used.
 
 ## Integration flow
 
