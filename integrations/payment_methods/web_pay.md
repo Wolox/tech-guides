@@ -2,13 +2,11 @@
 
 ## Description
 
-[WebPay](https://www.webpay.cl/) is one of the payments portal of [Transbank](https://publico.transbank.cl/) from Chile. It's main goal is to provide digital businesses an alternative to manage their payment channel. [Here](https://transbankdevelopers.cl/referencia/webpay?l=ruby#webpay) is the official api documentation, [environment credentials](https://github.com/TransbankDevelopers/transbank-webpay-credenciales/) and the [gem](https://transbankdevelopers.cl/documentacion/como_empezar#instalacion-sdk) used.
-
-## Integration flow
+[WebPay](https://www.webpay.cl/) is one of the payment solutions of [Transbank](https://publico.transbank.cl/) in Chile. It's main goal is to provide digital businesses a way to manage their online payment channels. [Here](https://transbankdevelopers.cl/referencia/webpay?l=ruby#webpay) is the official api documentation, [environment credentials](https://github.com/TransbankDevelopers/transbank-webpay-credenciales/) and the [gem](https://transbankdevelopers.cl/documentacion/como_empezar#instalacion-sdk) used.
 
 ## Implementation
 
-WebPay was used in Papa Jhon's project, developed in Ruby on Rails:
+WebPay was used in Papa John's project, developed in Ruby on Rails:
 
 - [Service](https://github.com/Wolox/pj-orders-rails/tree/development/app/services/payments/webpay) and [tests](https://github.com/Wolox/pj-orders-rails/tree/development/spec/services/payments/webpay)
 - [Interactors](https://github.com/Wolox/pj-orders-rails/tree/development/app/interactors/payments) and [tests](https://github.com/Wolox/pj-orders-rails/tree/development/spec/interactors/payments)
@@ -16,12 +14,17 @@ WebPay was used in Papa Jhon's project, developed in Ruby on Rails:
 
 ## Pain Points
 
-No pain points where found using webpay
+- Although Transbank has an official Slack account with an active community, it can be hard to have direct contact/help from their support team.
+- Getting production credentials can take some time.
+- Some of the documentation is either incomplete or incorrect.
 
 ## Alternatives
 
-- OneClick
+- OneClick. Tokenizes the user's credit card for easier following transactions.
+- OnePay. Uses a mobile app to validate the transaction.
 
 ## Estimation
 
-- Backend: 80hs
+- Backend: 100hs.
+- Consider extra time for getting production credentials and obtaining Transbank's validation
+- Check if the client needs the standard integration or the Mall integration, which is a different way of organizing transaction data.
