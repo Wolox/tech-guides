@@ -24,5 +24,5 @@ At [Wolox](https://wolox.co), we have developed the [Java kickoff guide](./docs/
 ### Other
 
 ## Wolox posts
-- [REACTOR](https://medium.com/wolox-driving-innovation/reactor-java-meets-reactive-programming-16105c026fc3)
-- [JWT](https://medium.com/wolox-driving-innovation/securing-applications-with-jwt-spring-boot-da24d3d98f83)
+- [Reactor](https://medium.com/wolox-driving-innovation/reactor-java-meets-reactive-programming-16105c026fc3)
+- [Securing applications with JWT](https://medium.com/wolox-driving-innovation/securing-applications-with-jwt-spring-boot-da24d3d98f83)
