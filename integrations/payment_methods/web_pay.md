@@ -33,7 +33,12 @@ React Native Implementation:
 
 ## Estimation
 
-- Backend: 100hs.
+### Backend
+
+- The full implementation of this integration was estimated in 100hs. Copying this code should reduce this hours around 30.
 - Consider extra time for getting production credentials and obtaining Transbank's validation
 - Check if the client needs the standard integration or the Mall integration, which is a different way of organizing transaction data.
-- Mobile 30hs.
+
+### Mobile
+
+- The full implementation of this integration was estimated in 30hs.
