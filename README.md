@@ -43,6 +43,8 @@ If you need to add a new technology, follow the [Tech Kickoff Guide](./templates
 
 - [Testing](./testing/README.md)
 
+- [Integrations](./integrations/README.md)
+
 ## Contributing
 
 1. Fork it
