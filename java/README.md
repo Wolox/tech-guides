@@ -21,7 +21,7 @@ At [Wolox](https://wolox.co), we have developed the [Java kickoff guide](./docs/
 
 ### Scripts
 
-### Other
+### Libraries and tools
 - [FindBugs - Static analysis on Java code](https://baeldung.com/intro-to-findbugs)
 - [Guava - Java libraries from Google](https://github.com/google/guava)
 - [Lombok - Library to avoid boilerplate code](https://projectlombok.org/)
