@@ -9,7 +9,8 @@
 - [Useful Documentation](#useful-documentation)
 
 ## Project Bootstrapper
-We use the Vue CLI to create web applications. You'll find a detailed guide to start your project [here](./docs/kickoff.md).
+We use the Vue CLI with our config to create web applications.
+You'll find a detailed guide to start your project [here](./docs/kickoff.md).
 
 ## Style Guide
 
