@@ -7,9 +7,9 @@ Install the CLI using the npm package manager: ```npm install -g @vue/cli```
 
 1. Download [.vuerc](./.vuerc) and place it in your root directory (`~/`).
 
-2. Run  ```vue create <project_name> -p wolox-vue``` and follow the instructions.
+2. Run ```vue create <project_name> -p wolox-vue``` and follow the instructions.
 
-3. Modify the `.eslintrc.js` overrides to allow tests to be places in the components folder.
+3. Modify the `.eslintrc.js` overrides to allow tests to be placed in the components folder.
 
 ```diff
 overrides: [
