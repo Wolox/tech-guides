@@ -8,7 +8,7 @@ At [Wolox](http://wolox.com.ar), we have a document dedicated to [Good Practices
 
 * When creating a pull request, always add screenshots or gifs for both Android and iOS. It should feature a "big" phone (e.g. iPhone X, Nexus 5X) and a "small" phone (e.g. iPhone SE, Nexus S) for each system. If you need to make changes to the code that affect visual components, you must update all the screenshots.
 * If you're not sure if the pull request you are reviewing works as expected, checkout the branch and run the code yourself. Preventing future errors is always worth the hassle!
-* Always check for `<View>`s with only one child when reviewing pull requests. Ask the developer to delete the `<View>` and  style the child component directly.
+* Always check for `<View>`s with only one child when reviewing pull requests. In that case, request the developer to delete the `<View>` and to apply its style to the child component directly.
 
 ## Common problems
 
