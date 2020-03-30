@@ -17,6 +17,16 @@ If you want to use a physical device to test your app here is the [Oficial guide
 
 Our default terminal is Bash, despite there are a few options available we choose to use [iTerm2](https://iterm2.com/) along with [Zshell(zsh)](https://ohmyz.sh/)
 Once you have zsh and vsCode installed you can do cmd + shift + p => install 'code' command in PATH on vsCode to add vsCode to our PATH. With it, we'll be able to open files on vsCode by typing the `code` command.
-We are going to run `code ~/.zshrc` from our terminal and add the content of [this doc](https://docs.google.com/document/d/1gMjx25qyjxduW9J87hr18Ub56P1ajmNy6KT_X9Z18fI/edit) at the bottom and save it. This will add several aliases to our terminal to make our work easier.
+Now we can do `code ~/.zshrc` to edit our zshell config file and add our Android PATH
+
+```
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+```
+
 For gif creation we use Giphy.
 And last but not least, install Reactotron. Reactotron is a debugging tool with some interesting features, [here](https://github.com/infinitered/reactotron) is the official repo.
