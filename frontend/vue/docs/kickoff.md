@@ -9,7 +9,26 @@ Install the CLI using the npm package manager: ```npm install -g @vue/cli```
 
 2. Run ```vue create <project_name> -p wolox-vue``` and follow the instructions.
 
-3. Modify the `.eslintrc.js` overrides to allow tests to be placed in the components folder.
+3. Configure eslint
+
+Install `eslint-config-wolox-vue`
+
+```bash
+npm i -D eslint-plugin-prettier eslint-config-wolox eslint-config-wolox-vue
+```
+
+Modify the `.eslintrc.js`:
+
+```diff
+  extends: [
+    'plugin:vue/essential',
+-    '@vue/standard'
++    '@vue/standard',
++    'wolox-vue'
+  ],
+```
+
+and
 
 ```diff
 overrides: [
