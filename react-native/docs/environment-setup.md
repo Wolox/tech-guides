@@ -19,4 +19,4 @@ Our default terminal is Bash, despite there are a few options available we choos
 Once you have zsh and vsCode installed you can do cmd + shift + p => install 'code' command in PATH on vsCode to add vsCode to our PATH. With it, we'll be able to open files on vsCode by typing the `code` command.
 We are going to run `code ~/.zshrc` from our terminal and add the content of [this doc](https://docs.google.com/document/d/1gMjx25qyjxduW9J87hr18Ub56P1ajmNy6KT_X9Z18fI/edit) at the bottom and save it. This will add several aliases to our terminal to make our work easier.
 For gif creation we use Giphy.
-And last but not least, install Reactotron. Reactotron is a debugging tool with some interesting features, [here](https://docs.google.com/document/d/1i_Dq2sW6CjePw40i_84Y1TVXle7he2q6CnUekkVDAZI/edit) is a configuration file for it.
+And last but not least, install Reactotron. Reactotron is a debugging tool with some interesting features, [here](https://github.com/infinitered/reactotron) is the official repo.
