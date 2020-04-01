@@ -15,6 +15,8 @@ At [Wolox](http://wolox.com.ar), we have developed the [React Native Bootstrap](
 
 - [Testing guide with Jest & Enzyme](./docs/jest-enzyme-testing.md)
 
+- [Seting up the Environment](./docs/environment-setup.md)
+
 ### Standards
 
 - [Mobile conventions naming](../mobile/docs/naming/README.md)
