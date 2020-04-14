@@ -1,0 +1,136 @@
+# Angular style guide
+
+## Table Of Contents
+
+ 1. Single responsibility
+
+## Single responsibility
+
+Apply the [_single responsibility principle_  (SRP)](https://wikipedia.org/wiki/Single_responsibility_principle) to all components, services, and other elements. This helps make the app cleaner, easier to read and maintain.
+
+**Avoid**
+```ts
+ /* avoid */
+
+import  { platformBrowserDynamic }  from  '@angular/platform-browser-dynamic';
+import  {  BrowserModule  }  from  '@angular/platform-browser';
+import  {  NgModule,  Component,  OnInit  }  from  '@angular/core';
+
+class  Hero  {
+  id: number;
+  name:  string;
+}
+
+@Component({
+  selector:  'my-app',
+  template:
+  	`<h1>{{title}}</h1>
+  	<pre>{{heroes | json}}</pre>`,
+  styleUrls:  ['app/app.component.css']
+})
+class AppComponent implements OnInit {
+  title = 'Tour of Heroes';
+  heroes: Hero[] = [];
+
+  ngOnInit()  {
+    getHeroes().then(heroes =>  this.heroes = heroes);
+  }
+}
+
+@NgModule({
+  imports: [BrowserModule],
+  declarations: [AppComponent],
+  exports: [AppComponent],
+  bootstrap: [AppComponent]
+})
+
+export  class  AppModule  {  }
+
+platformBrowserDynamic().bootstrapModule(AppModule);
+
+const HEROES:  Hero[]  =  [
+  {id:  1, name:  'Bombasto'},
+  {id:  2, name:  'Tornado'},
+  {id:  3, name:  'Magneta'},
+];
+
+function getHeroes():  Promise<Hero[]>  {
+  return  Promise.resolve(HEROES);  // TODO: get hero data from the server
+}
+```
+
+**Try** define one thing, such as a service or component, per file.
+
+```ts
+/* Module  -> app,module.ts */.
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { AppComponent } from './app.component';
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [BrowserModule],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+
+export class AppModule {}
+```
+
+```ts
+/* Interface -> app.interface.ts */
+export class Hero {
+  id: number;
+  name: string;
+}
+```
+
+```ts
+/* Mock Data -> mock-data.ts */
+import { Hero } from './app.interface';
+
+export const HEROES: Hero[]  = [
+ { id: 1, name: 'Bombasto' },
+ { id: 2, name: 'Tornado' },
+ { id: 3, name: 'Magneta' },
+];
+```
+
+```ts
+/* Service -> app.service.ts */
+import { Injectable } from '@angular/core';
+
+import { HEROES } from './mock-data';
+
+@Injectable()
+
+export class AppService {
+  getHeroes() {
+    return  Promise.resolve(HEROES);
+  }
+}
+```
+```ts
+/* Component -> app.component.ts */
+import { Component, OnInit } from  '@angular/core';
+import { Hero } from  './app.interface';
+import { AppService } from  './app.service';
+
+@Component({
+  selector: 'app-root',
+  template: `<pre>{{ heroes | json }}</pre>`,
+  styleUrls: ['./app.component.scss'],
+  providers: [AppService]
+})
+
+export class AppComponent implements OnInit {
+  heroes:  Hero[] = [];
+
+  constructor(private  AppService:  AppService) {}
+
+  ngOnInit() {
+    this.AppService.getHeroes().then((heroes)  => (this.heroes  = heroes));
+  }
+}
+```
