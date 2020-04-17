@@ -14,5 +14,6 @@ The main goal of this section is to document integrations with differentes APIs 
 
 # Sections
 
+- [Google Assistant with Dialogflow](./google_assistant_dialogflow/)
 - [Payment Methods](./payment_methods/)
 
