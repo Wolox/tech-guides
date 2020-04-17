@@ -12,7 +12,7 @@ Google Assistant with Dialogflow was used in Natura project.
 
 - At the [Google Actions Console](https://console.actions.google.com/) you have to create a new Action.
 
-- Once the Action is created, go to [Dialogflow](https://dialogflow.cloud.google.com/) and create new Agent. At Google Project select the Action you created in Google Actions Console.
+- Once the Action is created, go to [Dialogflow](https://dialogflow.cloud.google.com/) and create a new Agent. At Google Project select the Action you created in Google Actions Console.
 
 - Now you have the Dialogflow Agent integrated with Assistant Action.
 
@@ -20,7 +20,7 @@ Google Assistant with Dialogflow was used in Natura project.
 
 - Go to Integration section, enter in "Integration settings". Select "welcome" at Explicit invocation and click "Test". It updates your Action project for next step.
 
-- Now you have to create a Function, the backend that will be deploy at Google Cloud Functions. Run `firebase init` at you folder project. Select "Functions: Configure and deploy Cloud Functions", then "Use an existent project". Select the project id from the list. Select JavaScript or TypeScript language, Eslint and if you want to install dependencies. It creates a "functions" folder with the Funciton.
+- Now you have to create a Function, the backend that will be deployed to Google Cloud Functions. Run `firebase init` at you folder project. Select "Functions: Configure and deploy Cloud Functions", then "Use an existent project". Select the project id from the list. Select JavaScript or TypeScript language, Eslint and if you want to install dependencies. It creates a "functions" folder with the Funciton.
 
 - At "functions/index.js" insert this code below:
 
@@ -46,7 +46,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest(app);
 
 ## Pain Points
 
-- When you have to deploy you develop to Production at Assistant, you need to pass de Google Review. They test all the flows and intents of the action. If you neeed to enter a code or some id in the conversation and you get a dinamic answer, they demand to use [Account linking](https://developers.google.com/assistant/identity), cause they think you are using some external API or service. To use Account linking, you have to implement some login with Google Accounts or an external API with some web view.
+- When you have to deploy the development to Production at Assistant, you need to pass the Google Review. They test all the flows and intents of the action. If you need to enter a code or some id in the conversation and you get a dynamic answer, they demand to use [Account linking](https://developers.google.com/assistant/identity), cause they think you are using some external API or service. To use Account Linking, you have to implement some login with Google Accounts or an external API with some web view.
 
 - If your Action enables users to complete a transaction (physical goods or services and / or digital goods or subscription purchases) you have to implement the [Transactions API or Digital Purchase API](https://developers.google.com/assistant/transactions).
 
