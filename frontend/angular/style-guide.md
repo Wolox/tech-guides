@@ -236,3 +236,79 @@ export class AppComponent {
   constructor() {}
 }
 ```
+
+## Naming
+
+The correct naming is an important process for avoid clashing.
+Clashing mean that if you use third-party libraries avoid they are the same name, or conversely.
+
+When you create a new project you must change the prefix. Angular applies `app` by default.
+You can change it when you create a new wordspace and invoke a command `ng new <project-name>`, you can add `--prefix=myprefix`.
+
+Beside, some decorators require a necessary naming conventions for its selectors, such as:
+
+**For Pipes**
+
+```ts
+// Bad.
+// kebab-case
+
+@Pipe({
+  name: 'app-cool-pipe',
+  ...
+})
+```
+
+```ts
+// Good.
+// lowerCamelCase
+
+@Pipe({
+  name: 'appCoolPipe',
+  ...
+})
+```
+
+**For Directives**
+
+```ts
+// Bad.
+// kebab-case
+
+@Directive({
+  selector: '[my-cool-directive]',
+  ...
+})
+```
+
+```ts
+// Good.
+// lowerCamelCase
+
+@Directive({
+  selector: '[myCoolDirective]',
+  ...
+})
+```
+
+**For Components**
+
+```ts
+// Bad.
+// lowerCamelCase
+
+@Component({
+  selector: 'appCoolComponent',
+  ...
+})
+```
+
+```ts
+// Good.
+// kebab-case
+
+@Component({
+  selector: 'app-cool-component',
+  ...
+})
+```
