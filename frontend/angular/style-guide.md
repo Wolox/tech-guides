@@ -323,3 +323,14 @@ Of course, this module concept is based by shared particulars features:
 - Not proving general services or external services.
 
 A module can attend a Component, Directive or Pipe. The key is: _If you need to reuse any of them, you need a shared module._
+
+## Lazy Loading
+
+When your app is growing, it will be more lazy for a complete initial launch. Then, lazy loading will speeds up the app load time by splitting it into multiple bundles and loading them on demand. But, for this we need the Router help.
+
+```ts
+{
+  path: 'home',
+  loadChildren: () => import('somePath').then(m => m.myModule)
+}
+```
