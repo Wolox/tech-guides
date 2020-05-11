@@ -2,38 +2,44 @@
 
 ## Table Of Contents
 
- 1. Single responsibility
+1.  Single responsibility
+2.  Access modifiers
+3.  Properties order
+4.  Naming
+5.  Modules
+6.  Lazy Loading
+7.  Components communication
 
 ## Single responsibility
 
-Apply the [_single responsibility principle_  (SRP)](https://wikipedia.org/wiki/Single_responsibility_principle) to all components, services, and other elements. This helps make the app cleaner, easier to read and maintain.
+Apply the [_single responsibility principle_ (SRP)](https://wikipedia.org/wiki/Single_responsibility_principle) to all components, services, and other elements. This helps make the app cleaner, easier to read and maintain.
 
 **Avoid**
+
 ```ts
- /* avoid */
+/* avoid */
 
-import  { platformBrowserDynamic }  from  '@angular/platform-browser-dynamic';
-import  {  BrowserModule  }  from  '@angular/platform-browser';
-import  {  NgModule,  Component,  OnInit  }  from  '@angular/core';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule, Component, OnInit } from '@angular/core';
 
-class  Hero  {
+class Hero {
   id: number;
-  name:  string;
+  name: string;
 }
 
 @Component({
-  selector:  'my-app',
-  template:
-  	`<h1>{{title}}</h1>
-  	<pre>{{heroes | json}}</pre>`,
-  styleUrls:  ['app/app.component.css']
+  selector: 'my-app',
+  template: `<h1>{{ title }}</h1>
+    <pre>{{ heroes | json }}</pre>`,
+  styleUrls: ['app/app.component.css'],
 })
 class AppComponent implements OnInit {
   title = 'Tour of Heroes';
   heroes: Hero[] = [];
 
-  ngOnInit()  {
-    getHeroes().then(heroes =>  this.heroes = heroes);
+  ngOnInit() {
+    getHeroes().then((heroes) => (this.heroes = heroes));
   }
 }
 
@@ -41,21 +47,20 @@ class AppComponent implements OnInit {
   imports: [BrowserModule],
   declarations: [AppComponent],
   exports: [AppComponent],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-
-export  class  AppModule  {  }
+export class AppModule {}
 
 platformBrowserDynamic().bootstrapModule(AppModule);
 
-const HEROES:  Hero[]  =  [
-  {id:  1, name:  'Bombasto'},
-  {id:  2, name:  'Tornado'},
-  {id:  3, name:  'Magneta'},
+const HEROES: Hero[] = [
+  { id: 1, name: 'Bombasto' },
+  { id: 2, name: 'Tornado' },
+  { id: 3, name: 'Magneta' },
 ];
 
-function getHeroes():  Promise<Hero[]>  {
-  return  Promise.resolve(HEROES);  // TODO: get hero data from the server
+function getHeroes(): Promise<Hero[]> {
+  return Promise.resolve(HEROES); // TODO: get hero data from the server
 }
 ```
 
@@ -90,10 +95,10 @@ export class Hero {
 /* Mock Data -> mock-data.ts */
 import { Hero } from './app.interface';
 
-export const HEROES: Hero[]  = [
- { id: 1, name: 'Bombasto' },
- { id: 2, name: 'Tornado' },
- { id: 3, name: 'Magneta' },
+export const HEROES: Hero[] = [
+  { id: 1, name: 'Bombasto' },
+  { id: 2, name: 'Tornado' },
+  { id: 3, name: 'Magneta' },
 ];
 ```
 
@@ -104,33 +109,32 @@ import { Injectable } from '@angular/core';
 import { HEROES } from './mock-data';
 
 @Injectable()
-
 export class AppService {
   getHeroes() {
-    return  Promise.resolve(HEROES);
+    return Promise.resolve(HEROES);
   }
 }
 ```
+
 ```ts
 /* Component -> app.component.ts */
-import { Component, OnInit } from  '@angular/core';
-import { Hero } from  './app.interface';
-import { AppService } from  './app.service';
+import { Component, OnInit } from '@angular/core';
+import { Hero } from './app.interface';
+import { AppService } from './app.service';
 
 @Component({
   selector: 'app-root',
   template: `<pre>{{ heroes | json }}</pre>`,
   styleUrls: ['./app.component.scss'],
-  providers: [AppService]
+  providers: [AppService],
 })
-
 export class AppComponent implements OnInit {
-  heroes:  Hero[] = [];
+  heroes: Hero[] = [];
 
-  constructor(private  AppService:  AppService) {}
+  constructor(private AppService: AppService) {}
 
   ngOnInit() {
-    this.AppService.getHeroes().then((heroes)  => (this.heroes  = heroes));
+    this.AppService.getHeroes().then((heroes) => (this.heroes = heroes));
   }
 }
 ```
