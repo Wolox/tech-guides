@@ -138,3 +138,35 @@ export class AppComponent implements OnInit {
   }
 }
 ```
+
+## Access modifiers
+
+- If your properties are using in the template, then they cannot be privates.
+
+```ts
+// Bad
+
+@Component({
+  selector: 'app-cool',
+  template: `<div>I'm {{ name }}</div>`,
+})
+export class AppComponent {
+  private name = 'wolox';
+}
+```
+
+```ts
+// Good
+
+@Component({
+  selector: 'app-cool',
+  template: `<div>I'm {{ name }}</div>`,
+})
+export class AppComponent {
+  name = 'wolox';
+}
+```
+
+> That's applied conversely, namely, if you don't use the properties in the template, they must be privates. All of this is because when your app pass to production mode, since Ahead-of-Time compilation don't allow this visibility in the template
+
+- If your property is not mutated in neither place in your class, then it must be `readonly`.
