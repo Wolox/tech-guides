@@ -170,3 +170,69 @@ export class AppComponent {
 > That's applied conversely, namely, if you don't use the properties in the template, they must be privates. All of this is because when your app pass to production mode, since Ahead-of-Time compilation don't allow this visibility in the template
 
 - If your property is not mutated in neither place in your class, then it must be `readonly`.
+
+## Properties order
+
+- decorators
+  - inputs
+  - outputs
+  - others
+- public properties
+- public readonly properties
+- private properties
+- private readonly properties
+- setter and getter properties (accessors)
+  - public
+  - private
+
+```ts
+// Bad
+
+@Component({
+  selector: 'app-cool',
+  template: `<div>I'm a nice App</div>`,
+})
+export class AppComponent {
+  get woo() {
+    return this.anyValue;
+  }
+
+  set woo(value) {
+    this.anyValue = value;
+  }
+
+  private name = 'wolox';
+  isCool = true;
+  readonly place = 'world';
+  @Ouput() fooChange = new EventEmiter();
+  @Input() foo;
+
+  constructor() {}
+}
+```
+
+```ts
+// Good
+
+@Component({
+  selector: 'app-cool',
+  template: `<div>I'm a nice App</div>`,
+})
+export class AppComponent {
+  @Input() foo;
+  @Ouput() fooChange = new EventEmiter();
+  isCool = true;
+  private name = 'wolox';
+  readonly place = 'world';
+
+  get woo() {
+    return this.anyValue;
+  }
+
+  set woo(value) {
+    this.anyValue = value;
+  }
+
+  constructor() {}
+}
+```
