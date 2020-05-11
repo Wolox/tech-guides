@@ -11,28 +11,29 @@ Apply the [_single responsibility principle_  (SRP)](https://wikipedia.org/wiki/
 
 **Avoid**
 ```ts
-import  { platformBrowserDynamic }  from  '@angular/platform-browser-dynamic';
-import  {  BrowserModule  }  from  '@angular/platform-browser';
-import  {  NgModule,  Component,  OnInit  }  from  '@angular/core';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule, Component, OnInit } from '@angular/core';
 
-class  Hero  {
+interface Office {
   id: number;
-  name:  string;
+  name: string;
+  location: string;
+  country: string;
 }
 
 @Component({
-  selector:  'my-app',
+  selector: 'app-root',
   template:
-  	`<h1>{{title}}</h1>
-  	<pre>{{heroes | json}}</pre>`,
+    `<h1>{{title}}</h1>
+    <pre>{{offices | json}}</pre>`,
   styleUrls:  ['app/app.component.css']
 })
 class AppComponent implements OnInit {
-  title = 'Tour of Heroes';
-  heroes: Hero[] = [];
+  offices: Office[] = [];
 
   ngOnInit()  {
-    getHeroes().then(heroes =>  this.heroes = heroes);
+    getHeroes().then(offices =>  this.offices = offices);
   }
 }
 
@@ -47,52 +48,123 @@ export  class  AppModule  {  }
 
 platformBrowserDynamic().bootstrapModule(AppModule);
 
-const HEROES:  Hero[]  =  [
-  {id:  1, name:  'Bombasto'},
-  {id:  2, name:  'Tornado'},
-  {id:  3, name:  'Magneta'},
+const OFFICES: Office[]  =  [
+  {
+    id: 1,
+    name: 'Güemes',
+    location: 'Güemes 4673 CP: 1425',
+    country: 'Argentina'
+  },
+  {
+    id: 2,
+    name: 'Malabia',
+    location: 'Malabia 1720 CP: 1414',
+    country: 'Argentina'
+  },
+  {
+    id: 3,
+    name: 'Azurduy',
+    location: 'Juana Azurduy 2440 CP: 1429',
+    country: 'Argentina'
+  },
+  {
+    id: 4,
+    name: 'Medellin',
+    location: 'Carrera 30 # 7AA - 207',
+    country: 'Colombia'
+  },
+  {
+    id: 5,
+    name: 'Santiago', location: 'Pérez Valenzuela 1635, piso 10 CP: 7500028',
+    country: 'Chile'
+  },
+  {
+    id: 6,
+    name: 'Ciudad de México',
+    location: 'Eugenio Sue 316',
+    country: 'México'
+  },
 ];
 
-function getHeroes():  Promise<Hero[]>  {
-  return  Promise.resolve(HEROES);  // TODO: get hero data from the server
+function getHeroes(): Promise<Office[]>  {
+  return  Promise.resolve(OFFICES);
 }
+
 ```
 
-**Try** define one thing, such as a service or component, per file.
+**Try** define one eleemnt, such as a service or component, per file.
 
 ```ts
-/* Module  -> app,module.ts */.
+/* Module  -> app.module.ts */.
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule],
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
+export class AppModule { }
 
-export class AppModule {}
 ```
 
 ```ts
 /* Interface -> app.interface.ts */
-export class Hero {
+export interface Office {
   id: number;
   name: string;
+  location: string;
+  country: string;
 }
 ```
 
 ```ts
 /* Mock Data -> mock-data.ts */
-import { Hero } from './app.interface';
+import { Office } from './app.interface';
 
-export const HEROES: Hero[]  = [
- { id: 1, name: 'Bombasto' },
- { id: 2, name: 'Tornado' },
- { id: 3, name: 'Magneta' },
+export const OFFICES: Office[] = [
+  {
+    id: 1,
+    name: 'Güemes',
+    location: 'Güemes 4673 CP: 1425',
+    country: 'Argentina'
+  },
+  {
+    id: 2,
+    name: 'Malabia',
+    location: 'Malabia 1720 CP: 1414',
+    country: 'Argentina'
+  },
+  {
+    id: 3,
+    name: 'Azurduy',
+    location: 'Juana Azurduy 2440 CP: 1429',
+    country: 'Argentina'
+  },
+  {
+    id: 4,
+    name: 'Medellin',
+    location: 'Carrera 30 # 7AA - 207',
+    country: 'Colombia'
+  },
+  {
+    id: 5,
+    name: 'Santiago', location: 'Pérez Valenzuela 1635, piso 10 CP: 7500028',
+    country: 'Chile'
+  },
+  {
+    id: 6,
+    name: 'Ciudad de México',
+    location: 'Eugenio Sue 316',
+    country: 'México'
+  },
 ];
 ```
 
@@ -100,36 +172,35 @@ export const HEROES: Hero[]  = [
 /* Service -> app.service.ts */
 import { Injectable } from '@angular/core';
 
-import { HEROES } from './mock-data';
+import { OFFICES } from './mock-data';
 
 @Injectable()
-
 export class AppService {
-  getHeroes() {
-    return  Promise.resolve(HEROES);
+  getOffices() Promise<Office[]>  {
+    return Promise.resolve(OFFICES);
   }
 }
 ```
 ```ts
 /* Component -> app.component.ts */
-import { Component, OnInit } from  '@angular/core';
-import { Hero } from  './app.interface';
-import { AppService } from  './app.service';
+import { Component, OnInit } from '@angular/core';
+
+import { Office } from './app.interface';
+import { AppService } from './app.service';
 
 @Component({
   selector: 'app-root',
-  template: `<pre>{{ heroes | json }}</pre>`,
+  template: `<pre>{{ offices | json }}</pre>`,
   styleUrls: ['./app.component.scss'],
-  providers: [AppService]
+  providers: [AppService],
 })
-
 export class AppComponent implements OnInit {
-  heroes:  Hero[] = [];
+  offices: Office[] = [];
 
-  constructor(private  AppService:  AppService) {}
+  constructor(private appService: AppService) {}
 
   ngOnInit() {
-    this.AppService.getHeroes().then((heroes)  => (this.heroes  = heroes));
+    this.appService.getOffices().then((offices) => (this.offices = offices));
   }
 }
 ```
