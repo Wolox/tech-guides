@@ -312,3 +312,14 @@ Beside, some decorators require a necessary naming conventions for its selectors
   ...
 })
 ```
+
+## Modules
+
+A module can be easily loaded in different places in your app. Also, the modules can be isolated for [testing](https://angular.io/guide/testing#angular-testbed) as a code unit.
+
+Of course, this module concept is based by shared particulars features:
+
+- Small features.
+- Not proving general services or external services.
+
+A module can attend a Component, Directive or Pipe. The key is: _If you need to reuse any of them, you need a shared module._
