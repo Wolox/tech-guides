@@ -334,3 +334,88 @@ When your app is growing, it will be more lazy for a complete initial launch. Th
   loadChildren: () => import('somePath').then(m => m.myModule)
 }
 ```
+
+## Communication and interaction of components
+
+7. Content
+
+   1. Two-Way Data Binding (Banana In a Box [🍌]).
+   2. Decorators instead of properties of the Metadata.
+   3. Operations in the Template.
+   4. ...
+
+### i) Two-Way Data Binding (Banana In a Box [🍌]).
+
+```html
+<!-- Bad. -->
+
+<my-comp [prop]="val" (prop)="val=$event"> </my-comp>
+```
+
+```html
+<!-- Good. -->
+
+<my-comp [(prop)]="val"> </my-comp>
+```
+
+This is the systax for Two-way binding, namely, the property binding and event binding:
+
+```html
+<my-comp [prop]="val" (propChange)="val=$event"> </my-comp>
+```
+
+For achieve this, you must add `Change` suffix to `@Output()` name, and the same name as the `@Input()`.
+
+### ii) Decorators instead of properties of the Metadata.
+
+The Component and Directive decorators have had some particularity, they receive configurations in its metadata you could driven easily in the class.
+
+```ts
+@[Component|Directive]({
+  inputs: [[enums]],
+  outputs: [[enums]],
+  hosts: [[enums]]
+})
+```
+
+This configurations are poorly readable. It's preferable to use the corresponding decorators.
+
+- `@Inputs()`
+- `@Outputs()`
+- `@HostBinding()`
+- `@HostListener()`
+
+### iii) Operations in the Template.
+
+The Operators in the template are confusing often. Use getter for rely this processes and your code will be more declarative.
+
+```ts
+// Bad
+
+@Component({
+  selector: 'app-cool',
+  template: `<div>The result is {{ (foo * 32) / 10 + 300 }}</div>`,
+})
+export class AppComponent {
+  @Input() foo;
+
+  constructor() {}
+}
+```
+
+```ts
+// Good
+@Component({
+  selector: 'app-cool',
+  template: `<div>The result is {{ nicerResult }}</div>`,
+})
+export class AppComponent {
+  @Input() foo;
+
+  get nicerResult() {
+    return (this.foo * 32) / 10 + 300;
+  }
+
+  constructor() {}
+}
+```
