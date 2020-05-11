@@ -4,6 +4,8 @@
 
  1. Single responsibility
  2. Witout directly touching DOM
+ 3. Aliasing inputs and outputs
+ 4. Application structure
 
 ## Single responsibility
 
@@ -23,7 +25,7 @@ interface Office {
 }
 
 @Component({
-  selector: 'app-root',
+  selector: 'wlx-root',
   template:
     `<h1>{{title}}</h1>
     <pre>{{offices | json}}</pre>`,
@@ -189,7 +191,7 @@ import { Office } from './app.interface';
 import { AppService } from './app.service';
 
 @Component({
-  selector: 'app-root',
+  selector: 'wlx-root',
   template: `<pre>{{ offices | json }}</pre>`,
   styleUrls: ['./app.component.scss'],
   providers: [AppService],
@@ -335,21 +337,25 @@ export class SetHrefDirective implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.renderer2.setProperty(this.elementRef.nativeElement, 'href', 'https://wolox.com.ar');
+    this.renderer2.setProperty(
+      this.elementRef.nativeElement,
+      'href',
+      'https://wolox.com.ar'
+    );
   }
 }
 ```
 
-## Avoid aliasing inputs and outputs
+## Aliasing inputs and outputs
 
-Avoid input and output aliases except when it serves an important purpose.
+**Avoid** input and output aliases except when it serves an important purpose.
 
 ```ts
 @Component({
-  selector: 'toh-hero-button',
+  selector: 'wlx-btn',
   template: `<button>{{label}}</button>`
 })
-export class HeroButtonComponent {
+export class ButtonComponent {
   // Pointless aliases
   @Output('changeEvent') change = new EventEmitter<any>();
   @Input('labelAttribute') label: string;
@@ -360,29 +366,80 @@ export class HeroButtonComponent {
 
 ```ts
 @Component({
-  selector: 'toh-hero-button',
+  selector: 'wlx-nice-btn',
   template: `<button>{{label}}</button>`
 })
-export class HeroButtonComponent {
+export class ButtonComponent {
   // No aliases
   @Output() change = new EventEmitter<any>();
   @Input() label: string;
 }
 ```
+## Application structure
+ 
+We recommend an application structure similar to next folder tree
+**Try:** 
+  - Make locating code intuitive, simple and fast
+  - Create a module and routing for each screen (for lazy routing)
+  - Each general component must have a module
+  - Do not repeat elements like interfaces, enumerations or functions if they are used more than once, include them in the helpers folder
 
-## TypeScript
-
-**Avoid** use the return type any for callbacks whose value will be ignored
-
-```ts
-function fn(x: () => any) {
-  x();
-}
 ```
-**Try to** use the return type void for callbacks whose value will be ignored:
-
-```ts
-function fn(x: () => void) {
-  x();
-}
+├── app
+│   ├── components
+│   │   ├── generic-component 
+│   │   │   ├── generic-component.component.html
+│   │   │   ├── generic-component.component.scss
+│   │   │   ├── generic-component.component.ts
+│   │   │   ├── generic-component.component.spec
+│   │   │   └── generic-component.module.ts
+│   │   ├── other-component
+│   │   │   ├── other-component.component.html
+│   │   │   ├── other-component.component.scss
+│   │   │   ├── other-component.component.ts
+│   │   │   ├── other-component.component.spec
+│   │   │   └── other-component.module.ts
+│   ├── helpers
+│   │   ├── classes
+│   │   ├── directives
+│   │   ├── enums
+│   │   ├── guards
+│   │   ├── pipes
+│   │   └── utilities
+│   ├── interfaces
+│   │   └── global.interface.ts
+│   ├── screens 
+│   │   └── Home
+│   │       ├── components 
+│   │       │   └── generic-component 
+│   │       │       ├── generic-component.component.html
+│   │       │       ├── generic-component.component.scss
+│   │       │       ├── generic-component.component.ts
+│   │       │       ├── generic-component.component.spec.ts
+│   │       │       └── generic-component.module.ts
+│   │       ├── interfaces 
+│   │       │   └── specific.interface.ts
+│   │       ├── home.component.html
+│   │       ├── home.component.scss
+│   │       ├── home.component.spec.ts
+│   │       ├── home.component.ts
+│   │       ├── home-routing.module.ts
+│   │       └── home.module.ts
+│   └── services
+│       ├── api.service.ts
+│       └── local-store.service.ts
+├── app-routing.module.ts
+├── app.component.html
+├── app.component.scss
+├── app.component.spec.ts
+├── app.component.ts
+├── assets
+├── config
+├── environments
+└── styles 
+    ├── global.sccs
+    └── base
+        ├── buttons.sccs
+        └── forms.sccs
 ```
+
