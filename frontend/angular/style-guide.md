@@ -144,26 +144,24 @@ export class AppComponent implements OnInit {
 - If your properties are using in the template, then they cannot be privates.
 
 ```ts
-// Bad
-
-@Component({
-  selector: 'app-cool',
-  template: `<div>I'm {{ name }}</div>`,
-})
-export class AppComponent {
-  private name = 'wolox';
-}
-```
-
-```ts
-// Good
-
 @Component({
   selector: 'app-cool',
   template: `<div>I'm {{ name }}</div>`,
 })
 export class AppComponent {
   name = 'wolox';
+}
+```
+
+**Avoid**
+
+```ts
+@Component({
+  selector: 'app-cool',
+  template: `<div>I'm {{ name }}</div>`,
+})
+export class AppComponent {
+  private name = 'wolox';
 }
 ```
 
@@ -186,13 +184,17 @@ export class AppComponent {
   - private
 
 ```ts
-// Bad
-
 @Component({
   selector: 'app-cool',
   template: `<div>I'm a nice App</div>`,
 })
 export class AppComponent {
+  @Input() foo;
+  @Ouput() fooChange = new EventEmiter();
+  isCool = true;
+  private name = 'wolox';
+  readonly place = 'world';
+
   get woo() {
     return this.anyValue;
   }
@@ -200,31 +202,19 @@ export class AppComponent {
   set woo(value) {
     this.anyValue = value;
   }
-
-  private name = 'wolox';
-  isCool = true;
-  readonly place = 'world';
-  @Ouput() fooChange = new EventEmiter();
-  @Input() foo;
 
   constructor() {}
 }
 ```
 
-```ts
-// Good
+**Avoid**
 
+```ts
 @Component({
   selector: 'app-cool',
   template: `<div>I'm a nice App</div>`,
 })
 export class AppComponent {
-  @Input() foo;
-  @Ouput() fooChange = new EventEmiter();
-  isCool = true;
-  private name = 'wolox';
-  readonly place = 'world';
-
   get woo() {
     return this.anyValue;
   }
@@ -232,6 +222,12 @@ export class AppComponent {
   set woo(value) {
     this.anyValue = value;
   }
+
+  private name = 'wolox';
+  isCool = true;
+  readonly place = 'world';
+  @Ouput() fooChange = new EventEmiter();
+  @Input() foo;
 
   constructor() {}
 }
@@ -247,10 +243,36 @@ You can change it when you create a new wordspace and invoke a command `ng new <
 
 Beside, some decorators require a necessary naming conventions for its selectors, such as:
 
-**For Pipes**
+```ts
+// lowerCamelCase
+
+@Pipe({
+  name: 'appCoolPipe',
+  ...
+})
+```
 
 ```ts
-// Bad.
+// lowerCamelCase
+
+@Directive({
+  selector: '[myCoolDirective]',
+  ...
+})
+```
+
+```ts
+// kebab-case
+
+@Component({
+  selector: 'app-cool-component',
+  ...
+})
+```
+
+**Avoid**
+
+```ts
 // kebab-case
 
 @Pipe({
@@ -260,19 +282,6 @@ Beside, some decorators require a necessary naming conventions for its selectors
 ```
 
 ```ts
-// Good.
-// lowerCamelCase
-
-@Pipe({
-  name: 'appCoolPipe',
-  ...
-})
-```
-
-**For Directives**
-
-```ts
-// Bad.
 // kebab-case
 
 @Directive({
@@ -282,33 +291,10 @@ Beside, some decorators require a necessary naming conventions for its selectors
 ```
 
 ```ts
-// Good.
-// lowerCamelCase
-
-@Directive({
-  selector: '[myCoolDirective]',
-  ...
-})
-```
-
-**For Components**
-
-```ts
-// Bad.
 // lowerCamelCase
 
 @Component({
   selector: 'appCoolComponent',
-  ...
-})
-```
-
-```ts
-// Good.
-// kebab-case
-
-@Component({
-  selector: 'app-cool-component',
   ...
 })
 ```
@@ -347,14 +333,6 @@ When your app is growing, it will be more lazy for a complete initial launch. Th
 ### i) Two-Way Data Binding (Banana In a Box [🍌]).
 
 ```html
-<!-- Bad. -->
-
-<my-comp [prop]="val" (prop)="val=$event"> </my-comp>
-```
-
-```html
-<!-- Good. -->
-
 <my-comp [(prop)]="val"> </my-comp>
 ```
 
@@ -365,6 +343,12 @@ This is the systax for Two-way binding, namely, the property binding and event b
 ```
 
 For achieve this, you must add `Change` suffix to `@Output()` name, and the same name as the `@Input()`.
+
+**Avoid**
+
+```html
+<my-comp [prop]="val" (prop)="val=$event"> </my-comp>
+```
 
 ### ii) Decorators instead of properties of the Metadata.
 
@@ -390,21 +374,6 @@ This configurations are poorly readable. It's preferable to use the correspondin
 The Operators in the template are confusing often. Use getter for rely this processes and your code will be more declarative.
 
 ```ts
-// Bad
-
-@Component({
-  selector: 'app-cool',
-  template: `<div>The result is {{ (foo * 32) / 10 + 300 }}</div>`,
-})
-export class AppComponent {
-  @Input() foo;
-
-  constructor() {}
-}
-```
-
-```ts
-// Good
 @Component({
   selector: 'app-cool',
   template: `<div>The result is {{ nicerResult }}</div>`,
@@ -415,6 +384,20 @@ export class AppComponent {
   get nicerResult() {
     return (this.foo * 32) / 10 + 300;
   }
+
+  constructor() {}
+}
+```
+
+**Avoid**
+
+```ts
+@Component({
+  selector: 'app-cool',
+  template: `<div>The result is {{ (foo * 32) / 10 + 300 }}</div>`,
+})
+export class AppComponent {
+  @Input() foo;
 
   constructor() {}
 }
