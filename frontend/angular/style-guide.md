@@ -4,7 +4,7 @@
 
  1. [Single responsibility](#single-responsibility)
  2. [Naming](#naming)
- 3. [Witout directly touching DOM](#witout-directly-touching-DOM)
+ 3. [Without directly touching DOM](#without-directly-touching-DOM)
  4. [Application structure](#application-structure)
  5. [Modules](#modules)
  6. [Lazy Loading](#lazy-loading)
@@ -284,7 +284,7 @@ Beside, some decorators require a necessary naming conventions for its selectors
 })
 ```
 
-## Witout directly touching DOM
+## Without directly touching DOM
 
 You will be able to manipulate the elements of your app in Angular with the help of the Renderer2 class.
 
@@ -955,7 +955,7 @@ export class ButtonComponent {
 
 ## Small templates and styles
 
-**Avoid** create template or style file when content is less 5 lines
+**Avoid** create template or style file when content is less than 5 lines
 
 ```html
 // offices.component.html
