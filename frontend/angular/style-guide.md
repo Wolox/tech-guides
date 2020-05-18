@@ -2,19 +2,26 @@
 
 ## Table Of Contents
 
- 1. Single responsibility
- 2. Witout directly touching DOM
- 3. Application structure
- 4. Observables
- 5. Resolver by Screen
- 6. Aliasing inputs and outputs
- 7. Small templates and styles
+ 1. [Single responsibility](#single-responsibility)
+ 2. [Naming](#naming)
+ 3. [Witout directly touching DOM](#witout-directly-touching-DOM)
+ 4. [Application structure](#application-structure)
+ 5. [Modules](#modules)
+ 6. [Lazy Loading](#lazy-loading)
+ 7. [Observables](#observables)
+ 8. [Resolver by Screen](#resolver-by-screen)
+ 9. [Access modifiers](#access-modifiers)
+10. [Properties order](#properties-order)
+11. [Components communication](#communication-and-interaction-of-components)
+12. [Aliasing inputs and outputs](#aliasing-inputs-and-outputs)
+13. [Small templates and styles](#Small-templates-and-styles)
 
 ## Single responsibility
 
-Apply the [_single responsibility principle_  (SRP)](https://wikipedia.org/wiki/Single_responsibility_principle) to all components, services, and other elements. This helps make the app cleaner, easier to read and maintain.
+Apply the [_single responsibility principle_ (SRP)](https://wikipedia.org/wiki/Single_responsibility_principle) to all components, services, and other elements. This helps make the app cleaner, easier to read and maintain.
 
 **Avoid**
+
 ```ts
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { BrowserModule } from '@angular/platform-browser';
@@ -45,10 +52,9 @@ class AppComponent implements OnInit {
   imports: [BrowserModule],
   declarations: [AppComponent],
   exports: [AppComponent],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-
-export  class  AppModule  {  }
+export class AppModule {}
 
 platformBrowserDynamic().bootstrapModule(AppModule);
 
@@ -79,7 +85,8 @@ const OFFICES: Office[]  =  [
   },
   {
     id: 5,
-    name: 'Santiago', location: 'Pérez Valenzuela 1635, piso 10 CP: 7500028',
+    name: 'Santiago',
+    location: 'Pérez Valenzuela 1635, piso 10 CP: 7500028',
     country: 'Chile'
   },
   {
@@ -160,7 +167,8 @@ export const OFFICES: Office[] = [
   },
   {
     id: 5,
-    name: 'Santiago', location: 'Pérez Valenzuela 1635, piso 10 CP: 7500028',
+    name: 'Santiago',
+    location: 'Pérez Valenzuela 1635, piso 10 CP: 7500028',
     country: 'Chile'
   },
   {
@@ -185,6 +193,7 @@ export class AppService {
   }
 }
 ```
+
 ```ts
 /* Component -> app.component.ts */
 import { Component, OnInit } from '@angular/core';
@@ -207,6 +216,72 @@ export class AppComponent implements OnInit {
     this.appService.getOffices().then((offices) => (this.offices = offices));
   }
 }
+```
+
+## Naming 
+
+The correct naming is an important process for avoid clashing.
+Clashing mean that if you use third-party libraries avoid they are the same name, or conversely.
+
+When you create a new project you must change the prefix. Angular applies `app` by default.
+You can change it when you create a new wordspace and invoke a command `ng new <project-name>`, you can add `--prefix=myprefix`.
+
+Beside, some decorators require a necessary naming conventions for its selectors, such as:
+
+```ts
+// lowerCamelCase
+
+@Pipe({
+  name: 'appCoolPipe',
+  ...
+})
+```
+
+```ts
+// lowerCamelCase
+
+@Directive({
+  selector: '[myCoolDirective]',
+  ...
+})
+```
+
+```ts
+// kebab-case
+
+@Component({
+  selector: 'app-cool-component',
+  ...
+})
+```
+
+**Avoid**
+
+```ts
+// kebab-case
+
+@Pipe({
+  name: 'app-cool-pipe',
+  ...
+})
+```
+
+```ts
+// kebab-case
+
+@Directive({
+  selector: '[my-cool-directive]',
+  ...
+})
+```
+
+```ts
+// lowerCamelCase
+
+@Component({
+  selector: 'appCoolComponent',
+  ...
+})
 ```
 
 ## Witout directly touching DOM
@@ -416,6 +491,17 @@ We recommend an application structure similar to next folder tree
         └── forms.sccs
 ```
 
+## Modules
+
+A module can be easily loaded in different places in your app. Also, the modules can be isolated for [testing](https://angular.io/guide/testing#angular-testbed) as a code unit.
+
+Of course, this module concept is based by shared particulars features:
+
+- Small features.
+- Not proving general services or external services.
+
+A module can attend a Component, Directive or Pipe. The key is: _If you need to reuse any of them, you need a shared module._
+
 ### Module and Routing by screen
 
 A screen can contain some specific sections and components, so try to create module and routing.module by screen. Also remember in Angular the main concept is module.
@@ -466,6 +552,19 @@ const routes: Routes = [
 export class HomeRoutingModule { }
 
 ```
+
+## Lazy Loading
+
+When your app is growing, it will be more lazy for a complete initial launch. Then, lazy loading will speeds up the app load time by splitting it into multiple bundles and loading them on demand. But, for this we need the Router help.
+
+```ts
+{
+  path: 'home',
+  loadChildren: () => import('somePath').then(m => m.myModule)
+}
+```
+
+
 ## Observables
 
 1. Try using finite observables (take, first, etc ...) you don't need unsubscribe them.
@@ -474,7 +573,7 @@ export class HomeRoutingModule { }
 4. Some nice [practices](https://medium.com/angular-in-depth/rx-js-best-practices-6a3b095ffb04) with **RxJS**
 
 
-## Resolver by Screen
+## Resolver by screen
 
 When you need call multiples endpoint for and screen
 
@@ -589,6 +688,12 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.departments = departments;
       this.techs = techs;
     });
+  heroes: Hero[] = [];
+
+  constructor(private AppService: AppService) {}
+
+  ngOnInit() {
+    this.AppService.getHeroes().then((heroes) => (this.heroes = heroes));
   }
 }
 ```
@@ -641,6 +746,182 @@ import { ResolverService } from './services/resolver.service'; // new line
   providers: [ResolverService] // new linw
 })
 export class HomeModule {}
+```
+```
+
+## Access modifiers
+
+- If your properties are using in the template, then they cannot be privates.
+
+```ts
+@Component({
+  selector: 'app-cool',
+  template: `<div>I'm {{ name }}</div>`,
+})
+export class AppComponent {
+  name = 'wolox';
+}
+```
+
+**Avoid**
+
+```ts
+@Component({
+  selector: 'app-cool',
+  template: `<div>I'm {{ name }}</div>`,
+})
+export class AppComponent {
+  private name = 'wolox';
+}
+```
+
+> That's applied conversely, namely, if you don't use the properties in the template, they must be privates. All of this is because when your app pass to production mode, since Ahead-of-Time compilation don't allow this visibility in the template
+
+- If your property is not mutated in neither place in your class, then it must be `readonly`.
+
+## Properties order
+
+- decorators
+  - inputs
+  - outputs
+  - others
+- public properties
+- public readonly properties
+- private properties
+- private readonly properties
+- setter and getter properties (accessors)
+  - public
+  - private
+
+```ts
+@Component({
+  selector: 'app-cool',
+  template: `<div>I'm a nice App</div>`,
+})
+export class AppComponent {
+  @Input() foo;
+  @Ouput() fooChange = new EventEmiter();
+  isCool = true;
+  private name = 'wolox';
+  readonly place = 'world';
+
+  get woo() {
+    return this.anyValue;
+  }
+
+  set woo(value) {
+    this.anyValue = value;
+  }
+
+  constructor() {}
+}
+```
+
+**Avoid**
+
+```ts
+@Component({
+  selector: 'app-cool',
+  template: `<div>I'm a nice App</div>`,
+})
+export class AppComponent {
+  get woo() {
+    return this.anyValue;
+  }
+
+  set woo(value) {
+    this.anyValue = value;
+  }
+
+  private name = 'wolox';
+  isCool = true;
+  readonly place = 'world';
+  @Ouput() fooChange = new EventEmiter();
+  @Input() foo;
+
+  constructor() {}
+}
+```
+
+
+## Communication and interaction of components
+
+   1. Two-Way Data Binding (Banana In a Box [🍌]).
+   2. Decorators instead of properties of the Metadata.
+   3. Operations in the Template.
+   
+
+#### 1) Two-Way Data Binding (Banana In a Box [🍌]).
+
+```html
+<my-comp [(prop)]="val"> </my-comp>
+```
+
+This is the systax for Two-way binding, namely, the property binding and event binding:
+
+```html
+<my-comp [prop]="val" (propChange)="val=$event"> </my-comp>
+```
+
+For achieve this, you must add `Change` suffix to `@Output()` name, and the same name as the `@Input()`.
+
+**Avoid**
+
+```html
+<my-comp [prop]="val" (prop)="val=$event"> </my-comp>
+```
+
+#### 2) Decorators instead of properties of the Metadata.
+
+The Component and Directive decorators have had some particularity, they receive configurations in its metadata you could driven easily in the class.
+
+```ts
+@[Component|Directive]({
+  inputs: [[enums]],
+  outputs: [[enums]],
+  hosts: [[enums]]
+})
+```
+
+This configurations are poorly readable. It's preferable to use the corresponding decorators.
+
+- `@Inputs()`
+- `@Outputs()`
+- `@HostBinding()`
+- `@HostListener()`
+
+#### 3) Operations in the Template.
+
+The Operators in the template are confusing often. Use getter for rely this processes and your code will be more declarative.
+
+```ts
+@Component({
+  selector: 'app-cool',
+  template: `<div>The result is {{ nicerResult }}</div>`,
+})
+export class AppComponent {
+  @Input() foo;
+
+  get nicerResult() {
+    return (this.foo * 32) / 10 + 300;
+  }
+
+  constructor() {}
+}
+```
+
+**Avoid**
+
+```ts
+@Component({
+  selector: 'app-cool',
+  template: `<div>The result is {{ (foo * 32) / 10 + 300 }}</div>`,
+})
+export class AppComponent {
+  @Input() foo;
+
+  constructor() {}
+}
 ```
 
 ## Aliasing inputs and outputs
