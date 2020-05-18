@@ -103,7 +103,7 @@ function getHeroes(): Promise<Office[]>  {
 
 ```
 
-**Try** define one eleemnt, such as a service or component, per file.
+**Try** define one element, such as a service or component, per file.
 
 ```ts
 /* Module  -> app.module.ts */.
@@ -575,7 +575,7 @@ When your app is growing, it will be more lazy for a complete initial launch. Th
 
 ## Resolver by screen
 
-When you need call multiples endpoint for and screen
+When you need calling multiples endpoints for a screen
 
 **Avoid** calling these endpoints from component
 
@@ -746,7 +746,6 @@ import { ResolverService } from './services/resolver.service'; // new line
   providers: [ResolverService] // new linw
 })
 export class HomeModule {}
-```
 ```
 
 ## Access modifiers
