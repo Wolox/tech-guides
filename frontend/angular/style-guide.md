@@ -459,12 +459,12 @@ We recommend an application structure similar to next folder tree
 │   ├── screens 
 │   │   └── Home
 │   │       ├── components 
-│   │       │   └── generic-component 
-│   │       │       ├── generic-component.component.html
-│   │       │       ├── generic-component.component.scss
-│   │       │       ├── generic-component.component.ts
-│   │       │       ├── generic-component.component.spec.ts
-│   │       │       └── generic-component.module.ts
+│   │       │   └── specific-component 
+│   │       │       ├── specific-component.component.html
+│   │       │       ├── specific-component.component.scss
+│   │       │       ├── specific-component.component.ts
+│   │       │       ├── specific-component.component.spec.ts
+│   │       │       └── specific-component.module.ts
 │   │       ├── interfaces 
 │   │       │   └── specific.interface.ts
 │   │       ├── home.component.html
