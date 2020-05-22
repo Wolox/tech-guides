@@ -12,7 +12,7 @@
  8. [Resolver by Screen](#resolver-by-screen)
  9. [Access modifiers](#access-modifiers)
 10. [Properties order](#properties-order)
-11. [Components communication](#communication-and-interaction-of-components)
+11. [Components communication and interaction](#components-communication-and-interaction)
 12. [Aliasing inputs and outputs](#aliasing-inputs-and-outputs)
 13. [Small templates and styles](#Small-templates-and-styles)
 
@@ -495,18 +495,18 @@ We recommend an application structure similar to next folder tree
 
 A module can be easily loaded in different places in your app. Also, the modules can be isolated for [testing](https://angular.io/guide/testing#angular-testbed) as a code unit.
 
-Of course, this module concept is based by shared particulars features:
+The module concept is based on some rules:
 
 - Small features.
 - Not proving general services or external services.
 
-A module can attend a Component, Directive or Pipe. The key is: _If you need to reuse any of them, you need a shared module._
+A module can contain a Component, Directive or Pipe. The key is: _If you need to reuse any of them, you need a shared module._
 
 ### Module and Routing by screen
 
 A screen can contain some specific sections and components, so try to create module and routing.module by screen. Also remember in Angular the main concept is module.
 
-Module for Home screen, this is very important for [loazy loading](https://angular.io/guide/lazy-loading-ngmodules) and [separation of concerns](https://en.wikipedia.org/wiki/Separation_of_concerns)
+Module for Home screen, this is very important for [lazy loading](https://angular.io/guide/lazy-loading-ngmodules) and [separation of concerns](https://en.wikipedia.org/wiki/Separation_of_concerns)
 
 ```ts
 import { NgModule } from '@angular/core';
@@ -698,7 +698,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 }
 ```
 
-In routing.module add resolver
+In `routing.module` add resolver
 ```ts
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -715,7 +715,7 @@ const routes: Routes = [
         redirectTo: ''
       }
     ],
-    resolve: { resolved: ResolverService }, // new linw
+    resolve: { resolved: ResolverService }, // new line
     runGuardsAndResolvers: 'always' // new line
   }
 ];
@@ -776,7 +776,7 @@ export class AppComponent {
 
 > That's applied conversely, namely, if you don't use the properties in the template, they must be privates. All of this is because when your app pass to production mode, since Ahead-of-Time compilation don't allow this visibility in the template
 
-- If your property is not mutated in neither place in your class, then it must be `readonly`.
+- If your property is not mutated at all in your class, then it **must be** `readonly`.
 
 ## Properties order
 
@@ -843,7 +843,7 @@ export class AppComponent {
 ```
 
 
-## Communication and interaction of components
+## Components communication and interaction
 
    1. Two-Way Data Binding (Banana In a Box [🍌]).
    2. Decorators instead of properties of the Metadata.
@@ -862,7 +862,7 @@ This is the systax for Two-way binding, namely, the property binding and event b
 <my-comp [prop]="val" (propChange)="val=$event"> </my-comp>
 ```
 
-For achieve this, you must add `Change` suffix to `@Output()` name, and the same name as the `@Input()`.
+To achieve this, you must add `Change` suffix to `@Output()` name, and the same name as the `@Input()`.
 
 **Avoid**
 
@@ -872,7 +872,7 @@ For achieve this, you must add `Change` suffix to `@Output()` name, and the same
 
 #### 2) Decorators instead of properties of the Metadata.
 
-The Component and Directive decorators have had some particularity, they receive configurations in its metadata you could driven easily in the class.
+The Component and Directive decorators have some particularity, they receive configurations in its metadata you could write ans manage more easily in the class.
 
 ```ts
 @[Component|Directive]({
@@ -882,7 +882,7 @@ The Component and Directive decorators have had some particularity, they receive
 })
 ```
 
-This configurations are poorly readable. It's preferable to use the corresponding decorators.
+This configuration is poorly readable. It's preferable to use the corresponding decorators.
 
 - `@Inputs()`
 - `@Outputs()`
@@ -891,7 +891,7 @@ This configurations are poorly readable. It's preferable to use the correspondin
 
 #### 3) Operations in the Template.
 
-The Operators in the template are confusing often. Use getter for rely this processes and your code will be more declarative.
+The Operators in the template are often confusing. Use getters and your code will be cleaner and more declarative.
 
 ```ts
 @Component({
