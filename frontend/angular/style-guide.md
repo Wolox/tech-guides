@@ -307,6 +307,8 @@ export class addCSSStyle implements OnInit {
 }
 ```
 
+**Note:** *The below examples are for custom directives, the idea is not replace behaviour of directives like ngClass or ngStyle.*  
+
 We suggest use renderer2 for:
 
 - Creating and appending DOM elements: createElement, createText and appendChild.
@@ -352,7 +354,7 @@ export class AddAttributeDirective implements OnInit {
 }s
 ```
 
-- Dynamically adding and removing classes: addClass and removeClass.
+- Dynamically adding and removing classes (on custom directives): addClass and removeClass.
 
 ```ts
 import { Directive, Renderer2, ElementRef, OnInit } from '@angular/core';
@@ -951,30 +953,4 @@ export class ButtonComponent {
   @Output() change = new EventEmitter<any>();
   @Input() label: string;
 }
-```
-
-## Small templates and styles
-
-**Avoid** create template or style file when content is less than 5 lines
-
-```html
-// offices.component.html
-<div class="office" *ngFor="let office of offices">
-  <h3 class="office-name"> {{ office?.name }} - ({{ office?.country }}) </h3>
-  <span class="office-location"> {{office?.location}} </span>
-</div>
-```
-
-**Try**
-
-```ts
-@Component({
-  selector: 'wlx-offices',
-  template: `<div class="office" *ngFor="let office of offices">
-              <h3 class="office-name"> {{ office?.name }} - ({{ office?.country }}) </h3>
-              <span class="office-location"> {{ office?.location }} </span>
-            </div>`
-  styleUrls: ['./offices.component.scss'],
-})
-...
 ```
