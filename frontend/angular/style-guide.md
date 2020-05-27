@@ -14,7 +14,6 @@
 10. [Properties order](#properties-order)
 11. [Components communication and interaction](#components-communication-and-interaction)
 12. [Aliasing inputs and outputs](#aliasing-inputs-and-outputs)
-13. [Small templates and styles](#Small-templates-and-styles)
 
 ## Single responsibility
 
@@ -286,7 +285,7 @@ Beside, some decorators require a necessary naming conventions for its selectors
 
 ## Without directly touching DOM
 
-You will be able to manipulate the elements of your app in Angular with the help of the Renderer2 class.
+You should manipulate the elements of your app in Angular with the help of the Renderer2 class.
 
 Permitting direct access to the DOM with ElementRef API can make your application more vulnerable to XSS attacks.
 
@@ -309,7 +308,7 @@ export class addCSSStyle implements OnInit {
 
 **Note:** *The below examples are for custom directives, the idea is not replace behaviour of directives like ngClass or ngStyle.*  
 
-We suggest use renderer2 for:
+Use renderer2 for:
 
 - Creating and appending DOM elements: createElement, createText and appendChild.
 
@@ -427,12 +426,7 @@ export class SetHrefDirective implements OnInit {
 
 ## Application structure
  
-We recommend an application structure similar to next folder tree
-**Try:** 
-  - Make locating code intuitive, simple and fast
-  - Create a module and routing for each screen (for lazy routing)
-  - Each general component must have a module
-  - Do not repeat elements like interfaces, enumerations or functions if they are used more than once, include them in the helpers folder
+Your application's folder structure should be similar to the following folder tree.
 
 ```
 ├── app
@@ -493,6 +487,12 @@ We recommend an application structure similar to next folder tree
         └── forms.sccs
 ```
 
+**Considerations:** 
+  - Make locating code intuitive, simple and fast
+  - Create a module and routing for each screen (for lazy routing)
+  - Each general component must have a module
+  - Do not repeat elements like interfaces, enumerations or functions if they are used more than once, include them in the helpers folder
+
 ## Modules
 
 A module can be easily loaded in different places in your app. Also, the modules can be isolated for [testing](https://angular.io/guide/testing#angular-testbed) as a code unit.
@@ -508,7 +508,7 @@ A module can contain a Component, Directive or Pipe. The key is: _If you need to
 
 A screen can contain some specific sections and components, so try to create module and routing.module by screen. Also remember in Angular the main concept is module.
 
-Module for Home screen, this is very important for [lazy loading](https://angular.io/guide/lazy-loading-ngmodules) and [separation of concerns](https://en.wikipedia.org/wiki/Separation_of_concerns)
+Module for Home screen, this is very important for [lazy loading](#lazy-loading) and [separation of concerns](https://en.wikipedia.org/wiki/Separation_of_concerns)
 
 ```ts
 import { NgModule } from '@angular/core';
@@ -745,7 +745,7 @@ import { ResolverService } from './services/resolver.service'; // new line
     CommonModule,
     HomeRoutingModule
   ],
-  providers: [ResolverService] // new linw
+  providers: [ResolverService] // new line
 })
 export class HomeModule {}
 ```
