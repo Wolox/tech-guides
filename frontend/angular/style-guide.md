@@ -500,7 +500,7 @@ A module can be easily loaded in different places in your app. Also, the modules
 The module concept is based on some rules:
 
 - Small features.
-- Not proving general services or external services.
+- Not injecting general services or external services.
 
 A module can contain a Component, Directive or Pipe. The key is: _If you need to reuse any of them, you need a shared module._
 
@@ -559,6 +559,9 @@ export class HomeRoutingModule { }
 
 When your app is growing, it will be more lazy for a complete initial launch. Then, lazy loading will speeds up the app load time by splitting it into multiple bundles and loading them on demand. But, for this we need the Router help.
 
+
+The Lazy Loading load the module only when it enters the `home` path.
+
 ```ts
 {
   path: 'home',
@@ -566,6 +569,18 @@ When your app is growing, it will be more lazy for a complete initial launch. Th
 }
 ```
 
+The following way is considered Eager Loading and it will make the `MyComponent` component load without even entering the `home` path.
+
+```ts
+{
+  path: 'home',
+  component: MyComponent
+}
+```
+
+Lazy loading is handled by routing system across whole application. And to achieve this, the `RouteModule` allows to use the following methods `forRoot()` and `forChild()` to compact each piece while loading by demand.
+
+> There is only one `forRoot()` method and it will be used in the `AppModule` (or root module)
 
 ## Observables
 
@@ -776,7 +791,7 @@ export class AppComponent {
 }
 ```
 
-> That's applied conversely, namely, if you don't use the properties in the template, they must be privates. All of this is because when your app pass to production mode, since Ahead-of-Time compilation don't allow this visibility in the template
+> That's applied conversely, namely, if you don't use the properties in the template, they **must** be `private`. When your app is in production mode, Ahead-of-Time compilation wont allow it's visibility in the template.
 
 - If your property is not mutated at all in your class, then it **must be** `readonly`.
 
@@ -854,17 +869,18 @@ export class AppComponent {
 
 #### 1) Two-Way Data Binding (Banana In a Box [🍌]).
 
+
+To achieve this, you must add `Change` suffix to `@Output()` name, and the same name as the `@Input()`.
+
 ```html
 <my-comp [(prop)]="val"> </my-comp>
 ```
 
-This is the systax for Two-way binding, namely, the property binding and event binding:
+This is the syntax for Two-way binding, namely, the property binding and event binding:
 
 ```html
 <my-comp [prop]="val" (propChange)="val=$event"> </my-comp>
 ```
-
-To achieve this, you must add `Change` suffix to `@Output()` name, and the same name as the `@Input()`.
 
 **Avoid**
 
