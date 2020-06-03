@@ -219,11 +219,11 @@ export class AppComponent implements OnInit {
 
 ## Naming 
 
-The correct naming is an important process for avoid clashing.
-Clashing mean that if you use third-party libraries avoid they are the same name, or conversely.
+The correct naming is an important process to avoid clashing.
+Clashing means that if you use third-party libraries avoid having the same name, or conversely.
 
 When you create a new project you must change the prefix. Angular applies `app` by default.
-You can change it when you create a new wordspace and invoke a command `ng new <project-name>`, you can add `--prefix=myprefix`.
+You can change it when you create a new workspace and invoke the command `ng new <project-name>`, you can add `--prefix=my-prefix`.
 
 Beside, some decorators require a necessary naming conventions for its selectors, such as:
 
@@ -306,7 +306,7 @@ export class addCSSStyle implements OnInit {
 }
 ```
 
-**Note:** *The below examples are for custom directives, the idea is not replace behaviour of directives like ngClass or ngStyle.*  
+**Note:** *The examples below are for custom directives, you should not replace the behaviour of directives like ngClass or ngStyle.*  
 
 Use renderer2 for:
 
@@ -399,7 +399,7 @@ export class AddCSSStyleDirective implements OnInit {
 }
 ```
 
-- setProperty for setting DOM properties like href of `<a>` elements
+- Setting DOM properties like href of `<a>` elements: setProperty
 
 ```ts
 import { Directive, Renderer2, ElementRef, OnInit } from '@angular/core';
@@ -497,7 +497,7 @@ Your application's folder structure should be similar to the following folder tr
 
 A module can be easily loaded in different places in your app. Also, the modules can be isolated for [testing](https://angular.io/guide/testing#angular-testbed) as a code unit.
 
-The module concept is based on some rules:
+The module concept is based on these rules:
 
 - Small features.
 - Not injecting general services or external services.
@@ -506,7 +506,7 @@ A module can contain a Component, Directive or Pipe. The key is: _If you need to
 
 ### Module and Routing by screen
 
-A screen can contain some specific sections and components, so try to create module and routing.module by screen. Also remember in Angular the main concept is module.
+A screen can contain specific sections and components, so try to create module and routing.module by screen. Keep in mind that in Angular the main concept is modularization.
 
 Module for Home screen, this is very important for [lazy loading](#lazy-loading) and [separation of concerns](https://en.wikipedia.org/wiki/Separation_of_concerns)
 
@@ -557,10 +557,10 @@ export class HomeRoutingModule { }
 
 ## Lazy Loading
 
-When your app is growing, it will be more lazy for a complete initial launch. Then, lazy loading will speeds up the app load time by splitting it into multiple bundles and loading them on demand. But, for this we need the Router help.
+When your app is growing, it will be more lazy for a complete initial launch. Then, lazy loading will speed up the app load time by splitting it into multiple bundles and loading them on demand. But, for this we need the Router help.
 
 
-The Lazy Loading load the module only when it enters the `home` path.
+Lazy Loading loads the module only when it enters the `home` path.
 
 ```ts
 {
@@ -569,7 +569,7 @@ The Lazy Loading load the module only when it enters the `home` path.
 }
 ```
 
-The following way is considered Eager Loading and it will make the `MyComponent` component load without even entering the `home` path.
+The following way is considered Eager Loading and it will make `MyComponent` load without even entering the `home` path.
 
 ```ts
 {
@@ -584,17 +584,17 @@ Lazy loading is handled by routing system across whole application. And to achie
 
 ## Observables
 
-1. Try using finite observables (take, first, etc ...) you don't need unsubscribe them.
-2. When use infinite observalbles to unsubscribe use the [takeUntil(this.ngUnsubscribe)](https://medium.com/@berrow/angular-rxjs-unsubscribe-from-observables-729e1f3c5559) pattern.
-3. When using an api that returns Promises, convert them to observables first, using the [from](learnrxjs.io/learn-rxjs/operators/creation/from) operator.
+1. Try using finite observables (take, first, etc ...) you don't need to unsubscribe them.
+2. When using observables, remember to unsubscribe using [takeUntil(this.ngUnsubscribe)](https://medium.com/@berrow/angular-rxjs-unsubscribe-from-observables-729e1f3c5559) pattern.
+3. When using an api that returns Promises, convert them to observables first, using [from](learnrxjs.io/learn-rxjs/operators/creation/from).
 4. Some nice [practices](https://medium.com/angular-in-depth/rx-js-best-practices-6a3b095ffb04) with **RxJS**
 
 
 ## Resolver by screen
 
-When you need calling multiples endpoints for a screen
+When you need to call multiple endpoints in a screen
 
-**Avoid** calling these endpoints from component
+**Avoid** calling these endpoints from the component
 
 ```ts
 ngOnInit() {
@@ -665,7 +665,7 @@ export class ResolverService implements Resolve<any> {
 }
 ```
 
-In your component.ts call resolver and un ngUnsubscribe pattern.
+In your component.ts call resolver and ngUnsubscribe pattern.
 ```ts
 // component.ts
 import { Component, OnInit, OnDestroy } from '@angular/core';
@@ -715,7 +715,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 }
 ```
 
-In `routing.module` add resolver
+In `routing.module` add a resolver
 ```ts
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -767,7 +767,7 @@ export class HomeModule {}
 
 ## Access modifiers
 
-- If your properties are using in the template, then they cannot be privates.
+- If your properties are being used in the template, then they cannot be privates.
 
 ```ts
 @Component({
@@ -791,7 +791,7 @@ export class AppComponent {
 }
 ```
 
-> That's applied conversely, namely, if you don't use the properties in the template, they **must** be `private`. When your app is in production mode, Ahead-of-Time compilation wont allow it's visibility in the template.
+> That's applied conversely, namely, if you don't use the properties in the template, they **must** be `private`. When your app is in production mode, Ahead-of-Time compilation won't allow it's visibility in the template.
 
 - If your property is not mutated at all in your class, then it **must be** `readonly`.
 
@@ -890,7 +890,7 @@ This is the syntax for Two-way binding, namely, the property binding and event b
 
 #### 2) Decorators instead of properties of the Metadata.
 
-The Component and Directive decorators have some particularity, they receive configurations in its metadata you could write ans manage more easily in the class.
+The Component and Directive decorators have some particularity, they receive configurations in its metadata you could write and manage them easier in the class.
 
 ```ts
 @[Component|Directive]({
