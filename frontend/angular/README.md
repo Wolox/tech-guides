@@ -13,6 +13,8 @@ We use the Angular CLI to create web applications. You'll find a detailed guide 
 
 ## Style Guide
 
+- [Wolox Angular Style Guide](https://github.com/Wolox/tech-guides/blob/master/frontend/angular/style-guide.md)
+
 ## Internal Libraries
 
 |Name|Description|Stars|Build|
