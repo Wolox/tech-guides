@@ -584,8 +584,8 @@ Lazy loading is handled by routing system across whole application. And to achie
 
 ## Observables
 
-1. Try using finite observables (take, first, etc ...) you don't need to unsubscribe them.
-2. When using observables, remember to unsubscribe using [takeUntil(this.ngUnsubscribe)](https://medium.com/@berrow/angular-rxjs-unsubscribe-from-observables-729e1f3c5559) pattern.
+1. Try using finite observables (take, first, etc ...), those you don't need to unsubscribe them.
+2. For other observables, remember to unsubscribe using [takeUntil(this.ngUnsubscribe)](https://medium.com/@berrow/angular-rxjs-unsubscribe-from-observables-729e1f3c5559) pattern.
 3. When using an api that returns Promises, convert them to observables first, using [from](learnrxjs.io/learn-rxjs/operators/creation/from).
 4. Some nice [practices](https://medium.com/angular-in-depth/rx-js-best-practices-6a3b095ffb04) with **RxJS**
 
@@ -805,9 +805,11 @@ export class AppComponent {
 - public readonly properties
 - private properties
 - private readonly properties
+- constructor
 - setter and getter properties (accessors)
   - public
   - private
+- lifecycles
 
 ```ts
 @Component({
@@ -821,6 +823,8 @@ export class AppComponent {
   private name = 'wolox';
   readonly place = 'world';
 
+  constructor() {}
+
   get woo() {
     return this.anyValue;
   }
@@ -828,8 +832,6 @@ export class AppComponent {
   set woo(value) {
     this.anyValue = value;
   }
-
-  constructor() {}
 }
 ```
 
