@@ -43,7 +43,7 @@ class AppComponent implements OnInit {
   offices: Office[] = [];
 
   ngOnInit()  {
-    getHeroes().then(offices =>  this.offices = offices);
+    getOffices().then(offices =>  this.offices = offices);
   }
 }
 
@@ -96,7 +96,7 @@ const OFFICES: Office[]  =  [
   },
 ];
 
-function getHeroes(): Promise<Office[]>  {
+function getOffices(): Promise<Office[]>  {
   return  Promise.resolve(OFFICES);
 }
 
@@ -705,12 +705,6 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.departments = departments;
       this.techs = techs;
     });
-  heroes: Hero[] = [];
-
-  constructor(private AppService: AppService) {}
-
-  ngOnInit() {
-    this.AppService.getHeroes().then((heroes) => (this.heroes = heroes));
   }
 }
 ```
