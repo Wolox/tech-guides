@@ -307,7 +307,7 @@ Exceptions:
 // bad
 <template lang='pug'>
 .container
-  label(:class='{ activeLabel: is-active-block }')
+  label(:class="{ activeLabel: 'is-active-block' }")
     | {{ name-label }}
   input(v-model="name" type="filters.name")
 <template>
@@ -324,9 +324,9 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang='scss' scoped>
 .container {
-  font-family: "Lato";
+  font-family: 'Lato';
 }
 
 .active-label {
@@ -379,3 +379,5 @@ export default {
 - Always leave an empty line between template, script and style tags.
 
 ## Vue-Router
+
+// Soon
