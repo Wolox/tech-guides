@@ -17,6 +17,8 @@
 
 * Always use v-bind shortcut `:` instead of the whole directive `v-bind:`. E.g.: Do `:value="someValue"` instead of `v-bind:value="someValue"`.
 
+* Always use v-on shortcut `@` instead of the whole directive `v-on:`. E.g.: Do `@onClick="handleClick"` instead of `v-on:onClick="handleClick"`.
+
 
 
 
@@ -115,37 +117,13 @@ Component/instance options should be ordered consistently. Here at Wolox, we hav
     * <span style='color: orangered'>template / render</span>
     * <span style='color: orangered'>renderError</span>
 
+The order of tags in single file components will be:
+1. Template
+2. Script
+3. Style
+
+
 ## Props
-
-### Prop name casing
-
-As Vue separates the template from the script, we're going to follow the conventions of each language. HTML attribute names are case-insensitive, so browsers will interpret any uppercase characters as lowercase. That's why we're going to use kebab-case in the HTML. Within Javascript, lowerCamelCase is more natural.
-
-```pug
-// bad
-<template lang="pug">
-  my-component(greetingText="hi")
-</template>
-
-<script>
-  props: {
-    'greeting-text': { type: String }
-  }
-</script>
-```
-
-```pug
-// good
-<template lang="pug">
-  my-component(greeting-text="hi")
-</template>
-
-<script>
-  props: {
-    greetingText: { type: String }
-  }
-</script>
-```
 
 ### Prop types
 
@@ -166,7 +144,7 @@ props: {
 }
 ```
 
-Additionally, we're going to write in the top the required props, and we're also going to avoid specifiying this attribute when it's not required.
+Additionally, we're going to write the required props in the top.For those that aren't required, we're going to avoid specifiying this attribute and we must set a default value for them..
 
 ```js
 // bad
@@ -183,18 +161,19 @@ props: {
 props: {
   title: { type: String, required: true },
   onSelect: { type: Function, required: true },
-  isSelected: { type: Boolean },
-  amount: { type: Number }
+  isSelected: { type: Boolean, default: false },
+  amount: { type: Number, default: 0 }
 }
 ```
 
 ### Passing props to children component
 
-When we wanna send a static string value, we're going to avoid the **v-bind** directive.
+When we wanna send a static string value, we're going to avoid the **v-bind** directive and the doble use of quotation marks.
 
 ```pug
 // bad
 my-component(:title='"This is my title!"')
+my-component(:title="'This is my title!'")
 ```
 
 ```pug
@@ -205,6 +184,9 @@ my-component(title='This is my title!')
 When we wanna send a number, we must bind that value. Even if we're going to send a static number, we need to do this in order to tell Vue this is not a string.
 
 ```pug
+// bad
+my-component(stars='4') // Here we're sending the string '4'
+my-component(stars='article.reviews') // Here we're sending the string 'article.reviews'
 // good
 my-component(:stars='4')
 my-component(:stars='article.reviews')
@@ -229,6 +211,12 @@ my-component(
   dark-theme
 )
 ```
+
+### Prop name casing
+
+This topic is discussed [in this section](#quotes-and-case-styles).
+As Vue separates the template from the script, we're going to follow the conventions of each language. HTML attribute names are case-insensitive, so browsers will interpret any uppercase characters as lowercase. That's why we're going to use kebab-case in the HTML. Within Javascript, lowerCamelCase is more natural.
+
 
 ## Alignment
 
@@ -298,15 +286,30 @@ export default {
 }
 ```
 
-## Quotes
+## Quotes and Case styles
 
-In the template and html tags, always use double quotes (`"`) as the main quotation mark, and single ones (`'`) as secondary. On the contary, in the script and the style sections use single quotes as the main quotation mark and double as secondary.
+The quotation mark we will use will depend on the language we're using. The idea is to keep the standard for that language. Same goes for the case styles.
+
+| Language | Primary quotes | Secondary quotes | Case style |
+| -------- | -------------- | ---------------- | ---------- |
+|HTML|Double|Single|kebab-case|
+|Pug|Single|Double|kebab-case|
+|JavaScript|Single|Double|camelCase|
+|TypeScript|Single|Double|camelCase|
+|SCSS|Single|Double|kebab-case|
+
+Exceptions:
+- When sending props to an element, if the value comes from JavaScript, then, we have to use the case style from JavaScript for that value.
+- We recommend the use of kebab-case for SCSS, but if you're going for an approach like BEM, you're free to do it as long as you keep it consistent along the project.
+- Despite the use of single quotes as the main ones for SCSS is not the standard, it is the one we have adopted at Wolox.
 
 ```pug
 // bad
-<template lang="pug">
+<template lang='pug'>
 .container
-  input(v-model='name' type='filters.name')
+  label(:class='{ activeLabel: is-active-block }')
+    | {{ name-label }}
+  input(v-model="name" type="filters.name")
 <template>
 
 <script>
@@ -325,6 +328,10 @@ export default {
 .container {
   font-family: "Lato";
 }
+
+.active-label {
+  border: 1px solid blue;
+}
 </style>
 ```
 
@@ -332,7 +339,9 @@ export default {
 // good
 <template lang="pug">
 .container
-  input(v-model="name" type="filters.name")
+  label(:class='{ "active-label": isActiveBlock }')
+    | {{ nameLabel }}
+  input(v-model='name' type='filters.name')
 <template>
 
 <script>
@@ -343,6 +352,11 @@ export default {
         name: ''
       }
     }
+  },
+  computed: {
+    isActiveBlock() {
+      ...
+    }
   }
 }
 </script>
@@ -351,13 +365,17 @@ export default {
 .container {
   font-family: 'Lato';
 }
+
+.active-label {
+  border: 1px solid blue;
+}
 </style>
 ```
 
 
 ## Spacing
 
-Always add spaces around the braces.
+- Always add spaces around the braces.
+- Always leave an empty line between template, script and style tags.
 
 ## Vue-Router
-
