@@ -37,62 +37,46 @@ src
 └───app
 │   │
 │   └───components
-│   │ └───atoms # Can't be broken down into smaller things
-│   │ |   └───Input
-│   │ |   └───Text
-│   │ |   └───Button
-│   │ |   └───etc
-│   │ └───molecules # Two or more atoms
-│   │ |   └───FormInput
-│   │ |   └───SearchBar
-│   │ |   └───Table
-│   │ |   └───etc
-│   │ └───organisms # Two or more molecules
-│   │     └───LoginForm
-│   │     └───UserTable
-│   │     └───etc
+│   |   └───FormInput
+│   |   └───SearchBar
+│   |   └───Table
+│   |   └───etc
+|   |
 │   └───screens
 │       └───MyScreenComponent
 │           └───assets # Screen specific app assets
-│           └───reducer
-│             | actions.js
-│             | reducer.js
-│             | selectors.js
-│             | effects.js
+│           └───context
+|             | index.ts
+│             | actions.ts
+│             | reducer.ts
 │           └───components # Screen specific components
-│           | constants.js
-│           | i18n.js
-│           | index.js
-│           | layout.js
+│           | constants.ts
+│           | i18n.ts
+│           | index.tsx
 │           | styles.scss
-│           | utils.js
+│           | utils.ts
 │
 └───assets # General app assets
 └───config
-    | api.js
-    | i18n.js
+    | api.ts
+    | i18n.ts
 └───constants
-└───redux
-│   | store.js
-│   └───myReducer
-│       | actions.js
-│       | reducer.js
-│       | selectors.js
-│       | effects.js
-│
-└───propTypes
-│   | Model1.js
-│   │ Model2.js
+└───types # Custom global TypeScript classes
+└───contexts # Global contexts
+│   └───Auth
+│       | index.ts
+|       | reducer.ts
+|       | actions.ts
 │   
 └───scss
 └───services
-│   │ serializers.js
+│   │ serializers.ts
 │   └───Model
-│        | ModelService.js
-│        | serializers.js
+│        | ModelService.ts
+│        | serializers.ts
 │
 └───utils
-│   index.js
+│   index.tsx
 ```
 
 ## Class vs `React.createClass` vs stateless
@@ -175,18 +159,18 @@ src
 
 ## Naming
 
-  - **Extensions**: Use `.js` extension for React components.
-  - **Filename**: For services use PascalCase. E.g., `ReservationCard.js` or a folder with the service name and `index.js` as filename. For React components, there must be a folder in PascalCase with its name and the component file should be `index.js` (and optionally `layout.js` if you're using [Smart/Dumb components](https://medium.com/@thejasonfile/dumb-components-and-smart-components-e7b33a698d43)
+  - **Extensions**: Use `.ts` extension for React components.
+  - **Filename**: For services use PascalCase. E.g., `ReservationCard.ts` or a folder with the service name and `index.tsx` as filename. For React components, there must be a folder in PascalCase with its name and the component file should be `index.tsx`
   - **Reference Naming**: Use PascalCase for React components and camelCase for their associated elements. eslint: [`react/jsx-pascal-case`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md)
 
     ```jsx
     // bad
     import myService from './MyService';
-    import myComponent from './MyComponent';
+    import myComponent from './MyComponent/index.tsx';
 
     // good
-    import MyService from './MyService'; # webpack infers index.js
-    import MyComponent from './MyComponent'; # webpack infers index.js
+    import MyService from './MyService'; # webpack infers index.tsx
+    import MyComponent from './MyComponent'; # webpack infers index.tsx
 
     // bad
     const MyComponent = <MyComponent />;
@@ -196,25 +180,16 @@ src
     ```
   - **Component Hierarchy**: 
     - Component files should be inside folders that match the component's name.
-    - Use index.js as the filename of a container component. Use `Container` as the suffix of the component's name.
-    - Use layout.js as the filename of a layout component. Only do this if your component is becoming too big, it should be an exception, not a rule.
+    - Use index.tsx as the component filename.
 
     
     ```jsx
-    // MyComponent/index.js
-    import MyComponent from './layout'
+    // MyComponent/index.tsx
 
-    function MyComponentContainer() {
+    function MyComponent() {
       // Do smart stuff
 
       return <MyComponent />
-    }
-
-    // MyComponent/layout.js
-    function MyComponent() {
-      return (
-        // Some JSX
-      )
     }
     ```
   
@@ -270,7 +245,7 @@ src
 
     ```jsx
     // bad
-    /* routes.js */
+    /* routes.ts */
     const userListRoute = '/users';
     const itemListRoute = '/items';
 
@@ -278,7 +253,7 @@ src
     import * as Routes from './routes';
 
     // good
-    /* routes.js */
+    /* routes.ts */
     const Routes = {
       userListRoute: '/users',
       itemListRoute: '/items'
@@ -405,25 +380,20 @@ src
   - Always use object destructuring to explicitly get props variables in the render function of class Components:
 
     ```jsx
-    import MyComponent from './layout';
+    import Child from './components/Child';
 
     // bad
-    class MyComponentContainer extends Component {
-      render() {
-        return <MyComponent foo={this.props.foo} bar={this.props.bar} />
-      }
+    function MyComponent(props) {
+      return <Child foo={props.foo} bar={props.bar} />
     }
 
     // good
-    class MyComponentContainer extends Component {
-      render() {
-        const { foo, bar } = this.props;
-        return <MyComponent foo={foo} bar={bar} />
-      }
+    function MyComponent({ foo, bar }) {
+      return <Child foo={foo} bar={bar} />
     }
     ```
 
-  - Always use object destructuring to explicitly get props variables in layout Components:
+  - Always use object destructuring to explicitly get props variables:
 
     ```jsx
     // bad
@@ -472,27 +442,40 @@ src
     />
     ```
 
-  - Avoid passing arrow functions in props when possible. Instead, create a reference to the function and pass that reference. 
+  - Only use inline arrow functions when the arrow function is simple
+  - If the function is complex, define it as a const beforehand. If you are passing it to a child component. you may use `useCallback` for memoization as well.
 
     > Why? Passing arrow functions as props in render creates a new function each time the component renders, which is less performant.
 
     ```jsx
-    import MyComponent from './layout';
-
     // bad
-    class MyComponentContainer extends Component {
-      render() {
-        return <MyComponent foo={bar => bar + 1} />
-      }
+    function MyComponent() {
+      return <button onClick={event => {
+        let baz = "Hello World";
+        console.log(event.target.value + baz)
+      }} />
     }
 
     // good
-    class MyComponentContainer extends Component {
-      foo = bar => bar + 1;
+    function MyComponent() {
+      const foo = event => {
+        let baz = "Hello World";
+        console.log(event.target.value + baz)
+      };
 
-      render() {
-        return <MyComponent foo={this.foo} />
-      }
+      return <button onClick={foo} />
+    }
+
+    // better when passing it to a child component
+    import Child from './components/Child';
+
+    function MyComponent() {
+      const foo = useCallback(event => {
+        let baz = "Hello World";
+        console.log(event.target.value + baz)
+      }, []);
+
+      return <Child onClick={foo} />
     }
     ```
 
@@ -667,26 +650,20 @@ src
 
     ```jsx
     // bad
-    render() {
-      return <MyComponent variant="long body" foo="bar">
-               <MyChild />
-             </MyComponent>;
-    }
+    return <MyComponent variant="long body" foo="bar">
+             <MyChild />
+           </MyComponent>;
 
     // good
-    render() {
-      return (
-        <MyComponent variant="long body" foo="bar">
-          <MyChild />
-        </MyComponent>
-      );
-    }
+    return (
+      <MyComponent variant="long body" foo="bar">
+        <MyChild />
+      </MyComponent>
+    );
 
     // good, when single line
-    render() {
-      const body = <div>hello</div>;
-      return <MyComponent>{body}</MyComponent>;
-    }
+    const body = <div>hello</div>;
+    return <MyComponent>{body}</MyComponent>;
     ```
 
 ## Tags
