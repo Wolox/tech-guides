@@ -20,6 +20,7 @@
   1. [Ordering](#ordering)
   1. [`isMounted`](#ismounted)
   1. [HOCs](#hocs)  
+  1. [Typescript](#typescript)
 
 ## Basic Rules
 
@@ -891,5 +892,131 @@ src
   const composedHoc = compose(hoc1(config1), hoc2, hoc3(config3));
   const WrappedComponent = composedHoc(Component);
   ```
+
+## Typescript
+
+- Useful links
+  - https://github.com/typescript-cheatsheets/react-typescript-cheatsheet
+  - https://www.typescriptlang.org/docs/home.html
+
+- File extensions
+  - Use `.tsx` extension for React components.
+  - Use `.ts` extension for files that don't need react elements
+
+- Creating a class component
+  ```tsx
+    interface Props {
+      prop1: string; //required prop
+      prop2?: number; //optional prop
+    }
+
+    interface State {
+      stateProperty: boolean;
+    }
+
+    class Breadcrumb extends Component<Props, State> {
+      // ...
+    }
+  ```
+
+- Creating a functional component
+  ```tsx
+    interface Props {
+      prop1: string; //required prop
+      prop2?: number; //optional prop
+    }
+
+    function CardLink({ prop1, prop2 }: Props) {
+      // ...
+    }
+  ```
+
+- Default props
+  ```tsx
+    interface Props {
+      prop1: string;
+      prop2?: number;
+    }
+
+    class Breadcrumb extends Component<Props> {
+      static defaultProps = {
+        prop2: 5
+      };
+
+      // ...
+    }
+  ```
+
+- Event handling
+  ```tsx
+    import React, { Component, MouseEvent } from 'react';
+
+    export class Button extends Component {
+
+      handleClick(event: MouseEvent) {
+        // ...
+      }
+      
+      render() {
+        return (
+          <button onClick={this.handleClick}>
+            {this.props.children}
+          </button>
+        )
+      }
+    }
+  ```
+
+- Typing for npm packages
+  TypeScript requires type informations about the package's code. The package can support typescript out of the box if it has a file like: `index.d.ts`, if that is not the case you'll have to install the types yourself, for example:
+
+  ``` node
+  npm install lodash
+  npm install @types/lodash
+  ```
+
+- Creating a HOC
+
+  ```tsx
+  interface WithLoadingOptions {
+    classNameContainer?: string;
+  }
+
+  interface WithLoadingProps {
+    loading: boolean;
+  }
+
+  export function withSpinner({ classNameContainer }: WithLoadingOptions = {}) {
+    return <P extends object>(WrappedComponent: React.ComponentType<P>) => {
+      function Spinner({ loading, ...props }: P & WithLoadingProps) {
+        return loading ? (
+          <div className={classNameContainer}>
+            <Loading className={classNameLoading} type={typeLoading} color={colorSpinner} />
+          </div>
+        ) : (
+          <WrappedComponent {...props as P} />
+        );
+      }
+
+      return Spinner;
+    };
+  }
+  ```
+
+## Translation
+
+  This JSX/React style guide is also available in other languages:
+
+  - ![cn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/China.png) **Chinese (Simplified)**: [JasonBoy/javascript](https://github.com/JasonBoy/javascript/tree/master/react)
+  - ![tw](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Taiwan.png) **Chinese (Traditional)**: [jigsawye/javascript](https://github.com/jigsawye/javascript/tree/master/react)
+  - ![es](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Spain.png) **Español**: [agrcrobles/javascript](https://github.com/agrcrobles/javascript/tree/master/react)
+  - ![jp](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Japan.png) **Japanese**: [mitsuruog/javascript-style-guide](https://github.com/mitsuruog/javascript-style-guide/tree/master/react)
+  - ![kr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/South-Korea.png) **Korean**: [apple77y/javascript](https://github.com/apple77y/javascript/tree/master/react)
+  - ![pl](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Poland.png) **Polish**: [pietraszekl/javascript](https://github.com/pietraszekl/javascript/tree/master/react)
+  - ![Br](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Brazil.png) **Portuguese**: [ronal2do/javascript](https://github.com/ronal2do/airbnb-react-styleguide)
+  - ![ru](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Russia.png) **Russian**: [leonidlebedev/javascript-airbnb](https://github.com/leonidlebedev/javascript-airbnb/tree/master/react)
+  - ![th](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Thailand.png) **Thai**: [lvarayut/javascript-style-guide](https://github.com/lvarayut/javascript-style-guide/tree/master/react)
+  - ![tr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Turkey.png) **Turkish**: [alioguzhan/react-style-guide](https://github.com/alioguzhan/react-style-guide)
+  - ![ua](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Ukraine.png) **Ukrainian**: [ivanzusko/javascript](https://github.com/ivanzusko/javascript/tree/master/react)
 
 **[⬆ back to top](#table-of-contents)**
