@@ -789,7 +789,7 @@ export class AppComponent {
 
 - If your property is not mutated at all in your class, then it **must be** `readonly`.
 
-## Properties order
+## Properties and methods order
 
 - decorators
   - inputs
@@ -804,6 +804,8 @@ export class AppComponent {
   - public
   - private
 - lifecycles
+- public methods
+- private methods
 
 ```ts
 @Component({
