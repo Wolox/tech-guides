@@ -306,7 +306,7 @@ export class addCSSStyle implements OnInit {
 }
 ```
 
-**Note:** *The examples below are for custom directives, you should not replace the behaviour of directives like ngClass or ngStyle.*  
+**Note:** *The examples below are for custom directives, you should not replace the behavior of directives like ngClass or ngStyle.*  
 
 Use renderer2 for:
 
@@ -374,7 +374,7 @@ export class ApplyClassDirective implements OnInit {
 
 ```
 
-- Dyncamically setting and removing CSS styles: setStyle and removeStyle.
+- Dynamically setting and removing CSS styles: setStyle and removeStyle.
 
 ```ts
 import { Directive, Renderer2, ElementRef, OnInit } from '@angular/core';
@@ -673,7 +673,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { Office, Woloxer, Department, Tech } from '@interfaces/generic.inteface';
+import { Office, Woloxer, Department, Tech } from '@interfaces/generic.interface';
 
 @Component({
   selector: 'app-home',
@@ -812,7 +812,7 @@ export class AppComponent {
 })
 export class AppComponent {
   @Input() foo;
-  @Ouput() fooChange = new EventEmiter();
+  @Output() fooChange = new EventEmitter();
   isCool = true;
   private name = 'wolox';
   readonly place = 'world';
@@ -848,7 +848,7 @@ export class AppComponent {
   private name = 'wolox';
   isCool = true;
   readonly place = 'world';
-  @Ouput() fooChange = new EventEmiter();
+  @Output() fooChange = new EventEmitter();
   @Input() foo;
 
   constructor() {}
