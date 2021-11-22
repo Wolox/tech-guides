@@ -968,7 +968,7 @@ export class App {
 ```ts
 ...
 
-import { MyComponent } from './alert.component';
+import { MyComponent } from './my-component.component';
 
 @Component({
   selector: 'my-app',
