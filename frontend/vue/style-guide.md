@@ -135,15 +135,15 @@ Component/instance options should be ordered consistently. Here at Wolox, we hav
         * <span style='color: orangered'>updated</span>
         * <span style='color: orangered'>activated</span>
         * <span style='color: orangered'>deactivated</span>
-        * <span style='color: orangered'>beforeDestroy</span>
-        * <span style='color: orangered'>destroyed</span>
+        * <span style='color: orangered'>beforeDestroy (Vue2) / beforeUnmount (Vue3)</span>
+        * <span style='color: orangered'>destroyed (Vue2) / unmounted (Vue3)</span>
 10. Non-Reactive Properties
     * <span style='color: orangered'>methods</span>
 11. Rendering
     * <span style='color: orangered'>template / render</span>
     * <span style='color: orangered'>renderError</span>
 
-The order of tags in single file components (SFC) will be:
+The order of tags in single file components ([SFC](https://v3.vuejs.org/api/sfc-spec.html)) will be:
 1. Template
 2. Script
 3. Style
@@ -415,11 +415,16 @@ export default {
 
 ## Routing
 
-// Soon
+We use [vue-router](https://router.vuejs.org/), the official router for Vue.js
 
 ## State management
 
-// Soon
+We use Vuex for the state management
+
+- For Vue2: [Vuex3](https://vuex.vuejs.org/)
+- For Vue3: [Vuex4](https://next.vuex.vuejs.org/)
+
+Additionally in Vue3, for component state management without much complexity, we prefer the use of [Provide and Inject](#provide-and-inject)
 
 ## Functional Components
 
@@ -458,42 +463,58 @@ Performance gains from 2.x for functional components are now negligible in 3.x, 
 ## v-model
 
 ### For Vue 2.x
-// Soon
+See https://vuejs.org/v2/api/#v-model
 ### For Vue 3.x
-// Soon
+Now we can pass an argument to v-model:
+
+```pug
+<template>
+<child-component v-model:title="pageTitle" />
+</template>
+
+<!-- Shorthand for -->
+<child-component :title="pageTitle" @update:title="pageTitle = $event" />
+```
+
+See https://v3.vuejs.org/guide/migration/v-model.html
 
 ## Fragments
 ### Only Vue 3.x
 In Vue 3, components now have official support for multi-root node components, i.e., fragments!
+See https://v3.vuejs.org/guide/migration/fragments.html#overview
 
 ## Emits
-
-// Soon
-
+### For Vue 2.x
+See https://vuejs.org/v2/guide/components.html#Emitting-a-Value-With-an-Event
+### For Vue 3.x
+https://v3.vuejs.org/guide/component-custom-events.html#event-names
 ## Mixins
 ### For Vue 2.x
-// Soon
+See https://vuejs.org/v2/guide/mixins.html
 ### For Vue 3.x
-// Soon
+See https://v3.vuejs.org/guide/mixins.html
 
 ## Filters
 ### For Vue 2.x
-// Soon
+In a project you can define all the filters that you think are convenient.
+
+In general, the recommendation is that if we see that a calculation is repeated or is going to be repeated a lot in several transversal components, it is convenient to evaluate if it is created as a filter.
+
+See https://vuejs.org/v2/guide/filters.html
 ### For Vue 3.x
 Filters are removed from Vue 3.0 and no longer supported. Instead, we recommend replacing them with method calls or computed properties.
 
 ## Options API
-
-// Soon
+See https://v3.vuejs.org/api/options-api.html
 
 ## Composition API
 ### Only Vue 3.x
-// Soon
+See https://v3.vuejs.org/api/composition-api.html
 
 ## Reactivity API
 ### Only Vue 3.x
-// Soon
+See https://v3.vuejs.org/api/reactivity-api.html
 
 ## Provide and Inject
 ### Only Vue 3.x
-// Soon
+See https://v3.vuejs.org/guide/composition-api-provide-inject.html
