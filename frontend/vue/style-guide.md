@@ -28,7 +28,7 @@
 
 * Always use v-bind shortcut `:` instead of the whole directive `v-bind:`. E.g.: Do `:value="someValue"` instead of `v-bind:value="someValue"`.
 
-* Always use v-on shortcut `@` instead of the whole directive `v-on:`. E.g.: Do `@on-click="handleClick"` instead of `v-on:onClick="handleClick"`.
+* Always use v-on shortcut `@` instead of the whole directive `v-on:`. E.g.: Do `@click="handleClick"` instead of `v-on:click="handleClick"`.
 
 
 
