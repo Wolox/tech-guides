@@ -9,7 +9,18 @@
 5. [Alignment](#alignment)
 6. [Quotes](#quotes)
 7. [Spacing](#spacing)
-8. [Vue-Router](#vue-router)
+8. [Routing](#routing)
+9. [State management](#state-management)
+9. [Functional Components](#functional-components)
+10. [v-model](#v-model)
+11. [Fragments](#fragments)
+12. [Emits](#emits)
+14. [Mixins](#mixins)
+15. [Filters](#filters)
+16. [Options API](#options-api)
+17. [Composition API](#composition-api)
+18. [Reactivity API](#reactivity-api)
+19. [Provide and Inject](#provide-and-inject)
 
 ## Basic rules
 
@@ -17,7 +28,7 @@
 
 * Always use v-bind shortcut `:` instead of the whole directive `v-bind:`. E.g.: Do `:value="someValue"` instead of `v-bind:value="someValue"`.
 
-* Always use v-on shortcut `@` instead of the whole directive `v-on:`. E.g.: Do `@onClick="handleClick"` instead of `v-on:onClick="handleClick"`.
+* Always use v-on shortcut `@` instead of the whole directive `v-on:`. E.g.: Do `@click="handleClick"` instead of `v-on:click="handleClick"`.
 
 
 
@@ -30,15 +41,23 @@ src
 ├── assets // General app assets
 |
 ├── components
-|    ├ MyComponent.vue
-|    └ RelatedComponents
+|    ├ MyComponent.vue // Simple component
+|    ├ RelatedComponents // Similar or related components
 |      ├ RelatedComponent1.vue
 |      └ RelatedComponent2.vue
+|    └ OtherComponent // Complex component
+|      ├ index.js
+|      ├ constants.js
+|      └ utils.js
+|
+├── composables
+|    └ useSomething.js // Must follow the format 'use#{Something}.js'
 |
 ├── config
 |    ├ api.js
-|    ├ i18n // folder with all the translations.
-|    └ i18n.js
+|    ├ i18n // Folder with all the translations
+|    ├ i18n.js
+|    └ router.js
 |
 ├── constants // Folder with js files
 |
@@ -61,13 +80,20 @@ src
 ├── utils // Folder with js files
 |
 ├── views // Main views
+|    ├ SomeView.vue
+|    └ OtherView
+|      ├ index.js
+|      ├ composables
+|        └ useSomething.js // Must follow the format 'use#{Something}.js'
+|      └ components
+|        ├ ChildComponent1.vue
+|        └ ChildComponent2.vue
+|      ├ constants.js
+|      └ utils.js
 |
 ├── App.vue
 |
 ├── main.js
-|
-└── router.js
-
 ```
 
 ## Ordering
@@ -109,15 +135,15 @@ Component/instance options should be ordered consistently. Here at Wolox, we hav
         * <span style='color: orangered'>updated</span>
         * <span style='color: orangered'>activated</span>
         * <span style='color: orangered'>deactivated</span>
-        * <span style='color: orangered'>beforeDestroy</span>
-        * <span style='color: orangered'>destroyed</span>
+        * <span style='color: orangered'>beforeDestroy (Vue2) / beforeUnmount (Vue3)</span>
+        * <span style='color: orangered'>destroyed (Vue2) / unmounted (Vue3)</span>
 10. Non-Reactive Properties
     * <span style='color: orangered'>methods</span>
 11. Rendering
     * <span style='color: orangered'>template / render</span>
     * <span style='color: orangered'>renderError</span>
 
-The order of tags in single file components will be:
+The order of tags in single file components ([SFC](https://v3.vuejs.org/api/sfc-spec.html)) will be:
 1. Template
 2. Script
 3. Style
@@ -137,22 +163,25 @@ props: ['title', 'isSelected', 'amount', 'onSelect']
 ```js
 // good
 props: {
-  title: { type: String },
-  isSelected: { type: Boolean },
-  amount: { type: Number },
-  onSelect: { type: Function }
+  title: { type: String, required: true },
+  isSelected: { type: Boolean, required: true },
+  amount: { type: Number, required: true },
+  onSelect: { type: Function, required: true }
 }
 ```
 
-Additionally, we're going to write the required props in the top.For those that aren't required, we're going to avoid specifiying this attribute and we must set a default value for them..
+Additionally, we're going to write the required props in the top. For those that aren't required, we're going to avoid specifying this attribute and we must set a default value for them.
 
 ```js
 // bad
 props: {
   title: { type: String, required: true },
-  isSelected: { type: Boolean, required: false },
   amount: { type: Number },
-  onSelect: { type: Function, required: true }
+  isSelected: { type: Boolean, required: true },
+  onSelect: { type: Function, required: false },
+  text: { type: String },
+  list: { type: Array,  },
+  info: { type: Object, required: false }
 }
 ```
 
@@ -160,15 +189,18 @@ props: {
 // good
 props: {
   title: { type: String, required: true },
-  onSelect: { type: Function, required: true },
-  isSelected: { type: Boolean, default: false },
+  isSelected: { type: Boolean, required: true },
   amount: { type: Number, default: 0 }
+  info: { type: Object, default: () => ({}) },
+  list: { type: Array, default: () => ([]) },
+  onSelect: { type: Function, default: () => null }
+  text: { type: String, default: '' }
 }
 ```
 
 ### Passing props to children component
 
-When we wanna send a static string value, we're going to avoid the **v-bind** directive and the doble use of quotation marks.
+When we wanna send a static string value, we're going to avoid the **v-bind** directive and the double use of quotation marks.
 
 ```pug
 // bad
@@ -187,6 +219,9 @@ When we wanna send a number, we must bind that value. Even if we're going to sen
 // bad
 my-component(stars='4') // Here we're sending the string '4'
 my-component(stars='article.reviews') // Here we're sending the string 'article.reviews'
+```
+
+```
 // good
 my-component(:stars='4')
 my-component(:stars='article.reviews')
@@ -249,7 +284,7 @@ As Vue separates the template from the script, we're going to follow the convent
 import MyComponent from '../components/MyComponent'
 
 export default {
-  
+
 }
 </script>
 
@@ -378,6 +413,108 @@ export default {
 - Always add spaces around the braces.
 - Always leave an empty line between template, script and style tags.
 
-## Vue-Router
+## Routing
 
-// Soon
+We use [vue-router](https://router.vuejs.org/), the official router for Vue.js
+
+## State management
+
+We use Vuex for the state management
+
+- For Vue2: [Vuex3](https://vuex.vuejs.org/)
+- For Vue3: [Vuex4](https://next.vuex.vuejs.org/)
+
+Additionally in Vue3, for component state management without much complexity, we prefer the use of [Provide and Inject](#provide-and-inject)
+
+## Functional Components
+
+### For Vue 2.x
+```js
+// bad
+<template>
+<div>
+  <span>{{ title }}</span>
+  <span>{{ $t('key') }}</span>
+</div>
+</template>
+
+<script>
+export default {
+  props: {
+    title: { type: String, default: '' }
+  }
+}
+</script>
+```
+
+```js
+// good
+<template functional>
+<div>
+  <span>{{ props.title }}</span>
+  <span>{{ parent.$t('key') }}</span>
+</div>
+</template>
+```
+
+### For Vue 3.x
+Performance gains from 2.x for functional components are now negligible in 3.x, so we recommend just using stateful components.
+
+## v-model
+
+### For Vue 2.x
+See https://vuejs.org/v2/api/#v-model
+### For Vue 3.x
+Now we can pass an argument to v-model:
+
+```pug
+<template>
+<child-component v-model:title="pageTitle" />
+</template>
+
+<!-- Shorthand for -->
+<child-component :title="pageTitle" @update:title="pageTitle = $event" />
+```
+
+See https://v3.vuejs.org/guide/migration/v-model.html
+
+## Fragments
+### Only Vue 3.x
+In Vue 3, components now have official support for multi-root node components, i.e., fragments!
+See https://v3.vuejs.org/guide/migration/fragments.html#overview
+
+## Emits
+### For Vue 2.x
+See https://vuejs.org/v2/guide/components.html#Emitting-a-Value-With-an-Event
+### For Vue 3.x
+https://v3.vuejs.org/guide/component-custom-events.html#event-names
+## Mixins
+### For Vue 2.x
+See https://vuejs.org/v2/guide/mixins.html
+### For Vue 3.x
+See https://v3.vuejs.org/guide/mixins.html
+
+## Filters
+### For Vue 2.x
+In a project you can define all the filters that you think are convenient.
+
+In general, the recommendation is that if we see that a calculation is repeated or is going to be repeated a lot in several transversal components, it is convenient to evaluate if it is created as a filter.
+
+See https://vuejs.org/v2/guide/filters.html
+### For Vue 3.x
+Filters are removed from Vue 3.0 and no longer supported. Instead, we recommend replacing them with method calls or computed properties.
+
+## Options API
+See https://v3.vuejs.org/api/options-api.html
+
+## Composition API
+### Only Vue 3.x
+See https://v3.vuejs.org/api/composition-api.html
+
+## Reactivity API
+### Only Vue 3.x
+See https://v3.vuejs.org/api/reactivity-api.html
+
+## Provide and Inject
+### Only Vue 3.x
+See https://v3.vuejs.org/guide/composition-api-provide-inject.html
