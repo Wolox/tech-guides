@@ -34,7 +34,6 @@
 
 ## Editor Extensions
 
-- [Atom](./docs/text-editors.md#atom)
 - [Visual Studio Code](./docs/text-editors.md#vscode)
 
 ## Browser Extensions
