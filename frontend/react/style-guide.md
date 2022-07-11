@@ -669,6 +669,24 @@ src
     <Foo
       ref={this.setRef}
     />
+
+    // better
+    const setRef = createRef(); // This is put in the constructor
+
+    <Foo
+      ref={this.setRef}
+    />
+
+    ```
+  - At present we use hooks 
+    > Note: useRef is not only useful for save a DOM reference, you can also hold a plain JavaScript Object: https://es.reactjs.org/docs/hooks-reference.html#useref
+
+    ```jsx
+    const ref = useRef();
+
+    <Foo
+      ref={ref}
+    />
     ```
 
 ## Parentheses
