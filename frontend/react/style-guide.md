@@ -683,12 +683,12 @@ src
 
     ```jsx
     const ref = useRef();
-
+    // only if Foo is a Class, in other way you need to use forwardRef hook.
     <Foo
       ref={ref}
     />
     ```
-  - Another more hook useful to handle `refs` is named `useImperativeHandle`. The caveats are when you try to handle ever since out a component, avoid doing this as mucho as possible. When you don't have other solution you can use this and able an "api" for this. You need to learn how to use `forwardRef` because they work together. 
+  - Another more hook useful to handle `refs` is named `useImperativeHandle`. The caveats are when you try to handle ever since out a component, avoid doing this as much as possible. When you don't have other solution you can use this and able an "api" for this. You need to learn how to use `forwardRef` because they work together. 
     https://es.reactjs.org/docs/hooks-reference.html#useimperativehandle
     > Paraphrasing to React: This hook is useful There should be a single “source of truth” for any data that changes in a React application.
     
@@ -704,7 +704,7 @@ src
       return <Input myRef={ref} />
     }
     
-    // bad
+    // good
     const Input = forwardRef((props, ref) => {
       return <input ref={ref} />
     })
@@ -714,7 +714,7 @@ src
       return <Input ref={ref} />
     }
 
-    // good
+    // very good
     const Input = forwardRef((props, ref) => {
       const myRef = useRef()
       useImperativeHandle(ref, () => {
