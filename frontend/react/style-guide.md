@@ -688,7 +688,52 @@ src
       ref={ref}
     />
     ```
+  - Another more hook useful to handle `refs` is named `useImperativeHandle`. The caveats are when you try to handle ever since out a component, avoid doing this as mucho as possible. When you don't have other solution you can use this and able an "api" for this. You need to learn how to use `forwardRef` because they work together. 
+    https://es.reactjs.org/docs/hooks-reference.html#useimperativehandle
+    > Paraphrasing to React: This hook is useful There should be a single “source of truth” for any data that changes in a React application.
+    
+    ```jsx
 
+    // very bad
+    const Input = (props) => {
+      return <input ref={props.myRef} />
+    }
+
+    export const Comp = () =>{
+      const ref = useRef()
+      return <Input myRef={ref} />
+    }
+    
+    // bad
+    const Input = forwardRef((props, ref) => {
+      return <input ref={ref} />
+    })
+
+    export const Comp = () =>{
+      const ref = useRef()
+      return <Input ref={ref} />
+    }
+
+    // good
+    const Input = forwardRef((props, ref) => {
+      const myRef = useRef()
+      useImperativeHandle(ref, () => {
+        return {
+          fn: () => {
+            // Do something
+          }
+        }
+      })
+      return <input ref={myRef} />
+    });
+
+    export const Comp = () =>{
+      const ref = useRef()
+      return <Input ref={ref} />
+    }
+    
+
+    ```
 ## Parentheses
 
   - Wrap JSX tags in parentheses when they span more than one line. eslint: [`react/jsx-wrap-multilines`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-wrap-multilines.md)
