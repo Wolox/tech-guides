@@ -13,7 +13,8 @@
  9. [Access modifiers](#access-modifiers)
 10. [Properties order](#properties-order)
 11. [Components communication and interaction](#components-communication-and-interaction)
-12. [Aliasing inputs and outputs](#aliasing-inputs-and-outputs)
+12. [Dynamic components](#dynamic-components)
+13. [Aliasing inputs and outputs](#aliasing-inputs-and-outputs)
 
 ## Single responsibility
 
@@ -936,6 +937,59 @@ export class AppComponent {
   @Input() foo;
 
   constructor() {}
+}
+```
+
+## Dynamic components (v13.*)
+
+This feature allows you set dynamically components in your template; there is a basic way to load them.
+
+```ts
+...
+
+import { MyComponent } from './my-component.component';
+
+@Component({
+  selector: 'my-app',
+  template: `
+    <template #myDynamicComponent></template>
+  `,
+})
+export class App {
+ @ViewChild("myDynamicComponent", { read: ViewContainerRef }) container;
+
+  createComponent(type) {
+    this.componentRef = this.container.createComponent(MyComponent);
+  }
+
+}
+```
+
+**Avoid older version**
+
+```ts
+...
+
+import { MyComponent } from './my-component.component';
+
+@Component({
+  selector: 'my-app',
+  template: `
+    <template #myDynamicComponent></template>
+  `,
+})
+export class App {
+ @ViewChild("myDynamicComponent", { read: ViewContainerRef }) container;
+ componentRef: ComponentRef;
+ 
+  constructor(private resolver: ComponentFactoryResolver) {}
+  
+  createComponent(type) {
+    this.container.clear();
+    const factory: ComponentFactory = this.resolver.resolveComponentFactory(MyComponent);
+    this.componentRef = this.container.createComponent(factory);
+  }
+
 }
 ```
 
