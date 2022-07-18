@@ -688,7 +688,7 @@ src
       ref={ref}
     />
     ```
-  - Another more hook useful to handle `refs` is named `useImperativeHandle`. This is useful when you don't have other solution to handle the state of a component. The purpose of this is when you try to handle a component through of a parent component. This offers an "api" to handle the state of the component since a unique "source of truth". You need to learn how to use `forwardRef` because they work together. 
+  - Another useful hook to handle `refs` is named `useImperativeHandle`. This is useful when you don't have other way to handle the state of a component. The purpose of this is when you try to handle a component through a parent component. This offers an "api" to handle the state of the component from a unique "source of truth". It's advisable to learn how to use `forwardRef` because they work together. 
     https://es.reactjs.org/docs/hooks-reference.html#useimperativehandle
     > Paraphrasing to React: This hook is useful because there should be a single “source of truth” for any data that changes in a React application.
     
