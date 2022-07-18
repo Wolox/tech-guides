@@ -678,7 +678,7 @@ src
     />
 
     ```
-  - At present we use hooks 
+  - At present we use the "useRef" hook
     > Note: useRef is not only useful for save a DOM reference, you can also hold a plain JavaScript Object: https://es.reactjs.org/docs/hooks-reference.html#useref
 
     ```jsx
