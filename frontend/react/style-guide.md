@@ -671,7 +671,7 @@ src
     />
 
     // better
-    const setRef = createRef(); // This is put in the constructor
+    this.setRef = createRef(); // This is put in the constructor
 
     <Foo
       ref={this.setRef}
@@ -679,11 +679,11 @@ src
 
     ```
   - At present we use the "useRef" hook
-    > Note: useRef is not only useful for save a DOM reference, you can also hold a plain JavaScript Object: https://es.reactjs.org/docs/hooks-reference.html#useref
+    > Note: useRef is not only useful for save a DOM reference, you can also hold a plain JavaScript Object: https://es.reactjs.org/docs/hooks-reference.html#useref.
+    > You need to review how [Refs and functional components](https://reactjs.org/docs/refs-and-the-dom.html#refs-and-function-components) work
 
     ```jsx
     const ref = useRef();
-    // only if Foo is a Class, in other way you need to use forwardRef hook.
     <Foo
       ref={ref}
     />
