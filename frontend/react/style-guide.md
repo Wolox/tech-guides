@@ -1340,7 +1340,7 @@ The **mutate** function is asynchronous, which means that It cannot be used dire
 For example:
 ```tsx
 // ❌ This will not work in React 16 and earlier
-const CreateTodo = () => {
+const CreateTodo = (event) => {
   const mutation = useMutation(data => {
     event.preventDefault()
     const api = create();
@@ -1356,7 +1356,7 @@ const CreateTodo = () => {
     const api = create();
     return api.post('/api', data)
   })
-  const onSubmit = data => {
+  const onSubmit = (data, event) => {
     event.preventDefault()
     mutation.mutate(data)
   }
