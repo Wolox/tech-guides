@@ -1039,7 +1039,7 @@ src
 
 ## React Query
 ### Introduction
-React Query is a data-fetching library for React. It helps on fetching, caching, synchronizing and updating server state in our React Applications.
+React Query is a data-fetching library for React. It helps with fetching, caching, synchronizing and updating server state in our React Applications.
 >For advanced information on React-Query, check [here](https://tkdodo.eu/blog/practical-react-query).
 >Official Documentation, check [here](https://tanstack.com/query/v4/docs/overview?from=reactQueryV3&original=https://react-query-v3.tanstack.com/overview)
 ### `QueryClientProvider`
