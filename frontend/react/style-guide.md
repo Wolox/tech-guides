@@ -1262,6 +1262,10 @@ useQuery(['todos', todoId], async () => {
 
 ### Parallel Queries
 Use to execute queries at the same time so as to maximize fetching concurrency.
+
+**Manual Parallel Queries**
+
+Use when the number of parallel queries does not change. Just use any number of `useQuery` or `useInfiniteQuery` hook side by side.
 ```tsx
 function App () {
 // The following queries will execute in parallel due to number of parallel
@@ -1271,12 +1275,19 @@ function App () {
   const projectsQuery = useQuery(['projects'], fetchProjects)
   ...
 }
+```
+>When using React Query in [suspense mode](https://tanstack.com/query/v4/docs/guides/suspense), this pattern of parallelism does not work due to the first query would suspend the component before the other queries run. To avoid this behavior, use `useQueries`.
 
+**Dynamic Parallel Queries**
+
+Use when the number of queries you need to execute is changing from render to render. 
+>You cannot use manual querying since that would violate the rules of hooks.
+```tsx
+// ❌ Bad
 function App () {
-  // ❌ Bad
-	const userQueries = users.map(user => {
-		return useQuery(['user', user.id], () => fetchUserById(user.id))
-	})
+  const userQueries = users.map(user => {
+    return useQuery(['user', user.id], () => fetchUserBy(user.id))
+  })
 }
 
 // ✅ Good
