@@ -1303,7 +1303,7 @@ Use the built-in **selectors** solution provided by React-Query. Take into accou
 export const useTodosQuery = () =>
   useQuery(['todos'], fetchTodos, {
     select: (data) => data.map((todo) => todo.name.toUpperCase()),
-})
+  })
 
 // ✅ ✅ Better
 const transformTodoNames = (data: Todos) =>
