@@ -26,7 +26,7 @@
 
   - Only include one React component per file.
   - Always use JSX syntax.
-  - Do not use `React.createElement` unless you're initializing the app from a file that is not JSX.
+  - Do not use `React.createElement`.
   - Always use export default for Components.
   - Use `export default` for reducers, actionCreators and services. As a general rule of thumb, use `export default` for all files that have a unique object to export. 
 
@@ -38,49 +38,52 @@ src
 └───app
 │   │
 │   └───components
-│   │ └───baseComponents
-│   │     └───Input
-│   │     └───Text
-│   │     └───Button
-│   │     └───etc
+│   |   └───FormInput
+│   |   └───SearchBar
+│   |   └───Table
+│   |   └───etc
+|   |
 │   └───screens
 │       └───MyScreenComponent
-│           └───assets // Screen specific app assets
-│           | components
-│           | constants.js
-│           | i18n.js
-│           | index.js
-│           | layout.js
+│           └───assets # Screen specific app assets
+│           └───context
+|             | index.ts
+│             | actions.ts
+│             | reducer.ts
+│           └───components # Screen specific components
+│           | constants.ts
+│           | i18n.ts
+│           | index.tsx
 │           | styles.scss
-│           | utils.js
+│           | utils.ts
 │
-└───assets // General app assets
+└───assets # General app assets
 └───config
-    | api.js
-    | i18n.js
+    | api.ts
+    | i18n.ts
 └───constants
-└───redux
-│   | store.js
-│   └───myReducer
-│       | actions.js
-│       | reducer.js
-│       | selectors.js
-│
-└───propTypes
-│   | Model1.js
-│   │ Model2.js
+└───types # Custom global TypeScript classes
+└───contexts # Global contexts
+│   └───Auth
+│       | index.ts
+|       | reducer.ts
+|       | actions.ts
 │   
 └───scss
 └───services
-    | MyService.js
+│   │ serializers.ts
+│   └───Model
+│        | ModelService.ts
+│        | serializers.ts
 │
 └───utils
-│   index.js
+│   index.tsx
 ```
 
 ## Class vs `React.createClass` vs stateless
 
-  - If you have internal state and/or refs, prefer `class extends Component` over `React.createClass`. eslint: [`react/prefer-es6-class`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md) [`react/prefer-stateless-function`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md)
+  - Avoid `React.createClass`. eslint: [`react/prefer-es6-class`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md) [`react/prefer-stateless-function`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md)
+  - Prefer normal functions (not arrow functions) over classes:
 
     ```jsx
     // bad
@@ -92,49 +95,47 @@ src
     });
 
     // good
-    class Listing extends Component {
-      // ...
-      render() {
-        return <div>{this.state.hello}</div>;
-      }
-    }
-    ```
-
-    And if you don't have state or refs, only for stateless components, prefer normal functions (not arrow functions) over classes:
-
-    ```jsx
-    // bad
-    class Listing extends Component {
-      render() {
-        return <div>{this.props.hello}</div>;
-      }
-    }
-
-    // bad (relying on function name inference is discouraged)
-    const Listing = ({ hello }) => (
-      <div>{hello}</div>
-    );
-
-    // good
     function Listing({ hello }) {
       return <div>{hello}</div>;
     }
     ```
-
-  - Avoid using helper render methods when possible. Functions that return JSX elements should probably be layout components.
+  - Prefer normal function components (not arrow functions) over `class extends Component`. Only exception is usage of `componentDidCatch` and `getDerivedStateFromError` (which have no hooks support)
 
     ```jsx
     // bad
-    function TextContainer extends Component {
-      renderText = text => <span>text</span>;
+    class Listing extends Component {
+      state = { foo: 1 };
 
       render() {
-        return (
-          <div>
-            {this.renderText('aText')}
-          </div>
-        )
+        return <div>{this.state.hello}</div>;
       }
+    }
+
+    // bad
+    const Listing = ({ hello }) => {
+      const [foo, setFoo] = useState(1);
+      return <div>{hello}</div>;
+    }
+
+    // good
+    function Listing({ hello }) {
+      const [foo, setFoo] = useState(1);
+      return <div>{hello}</div>;
+    }
+    ```
+
+  - Avoid using helper render methods when possible. Functions that return JSX elements should probably be components themselves.
+
+    ```jsx
+    // bad
+    function TextContainer({ text }) {
+      renderText = text => <span>text</span>;
+
+      return (
+        <div>
+          {this.renderText(text)}
+        </div>
+      )
     }
 
     // good
@@ -159,46 +160,37 @@ src
 
 ## Naming
 
-  - **Extensions**: Use `.js` extension for React components.
-  - **Filename**: For component filenames and services use PascalCase. E.g., `ReservationCard.js`.
+  - **Extensions**: Use `.ts` extension for React components.
+  - **Filename**: For services use PascalCase. E.g., `ReservationCard.ts` or a folder with the service name and `index.tsx` as filename. For React components, there must be a folder in PascalCase with its name and the component file should be `index.tsx`
   - **Reference Naming**: Use PascalCase for React components and camelCase for their associated elements. eslint: [`react/jsx-pascal-case`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md)
 
     ```jsx
     // bad
-    import reservationCard from './ReservationCard';
+    import myService from './MyService';
+    import myComponent from './MyComponent/index.tsx';
 
     // good
-    import ReservationCard from './ReservationCard';
+    import MyService from './MyService'; # webpack infers index.tsx
+    import MyComponent from './MyComponent'; # webpack infers index.tsx
 
     // bad
-    const ReservationItem = <ReservationCard />;
+    const MyComponent = <MyComponent />;
 
     // good
-    const reservationItem = <ReservationCard />;
+    const myComponent = <MyComponent />;
     ```
   - **Component Hierarchy**: 
     - Component files should be inside folders that match the component's name.
-    - Use index.js as the filename of a container component. Use `Container` as the suffix of the component's name.
-    - Use layout.js as the filename of a layout component.
+    - Use index.tsx as the component filename.
 
     
     ```jsx
-    // MyComponent/index.js
-    import MyComponent from './layout'
+    // MyComponent/index.tsx
 
-    class MyComponentContainer extends Component {
+    function MyComponent() {
       // Do smart stuff
 
-      render() {
-        return <MyComponent />
-      }
-    }
-
-    // MyComponent/layout.js
-    function MyComponent() {
-      return (
-        // Some JSX
-      )
+      return <MyComponent />
     }
     ```
   
@@ -254,7 +246,7 @@ src
 
     ```jsx
     // bad
-    /* routes.js */
+    /* routes.ts */
     const userListRoute = '/users';
     const itemListRoute = '/items';
 
@@ -262,7 +254,7 @@ src
     import * as Routes from './routes';
 
     // good
-    /* routes.js */
+    /* routes.ts */
     const Routes = {
       userListRoute: '/users',
       itemListRoute: '/items'
@@ -389,25 +381,20 @@ src
   - Always use object destructuring to explicitly get props variables in the render function of class Components:
 
     ```jsx
-    import MyComponent from './layout';
+    import Child from './components/Child';
 
     // bad
-    class MyComponentContainer extends Component {
-      render() {
-        return <MyComponent foo={this.props.foo} bar={this.props.bar} />
-      }
+    function MyComponent(props) {
+      return <Child foo={props.foo} bar={props.bar} />
     }
 
     // good
-    class MyComponentContainer extends Component {
-      render() {
-        const { foo, bar } = this.props;
-        return <MyComponent foo={foo} bar={bar} />
-      }
+    function MyComponent({ foo, bar }) {
+      return <Child foo={foo} bar={bar} />
     }
     ```
 
-  - Always use object destructuring to explicitly get props variables in layout Components:
+  - Always use object destructuring to explicitly get props variables:
 
     ```jsx
     // bad
@@ -456,27 +443,40 @@ src
     />
     ```
 
-  - Avoid passing arrow functions in props when possible. Instead, create a reference to the function and pass that reference. 
+  - Only use inline arrow functions when the arrow function is simple
+  - If the function is complex, define it as a const beforehand. If you are passing it to a child component. you may use `useCallback` for memoization as well.
 
     > Why? Passing arrow functions as props in render creates a new function each time the component renders, which is less performant.
 
     ```jsx
-    import MyComponent from './layout';
-
     // bad
-    class MyComponentContainer extends Component {
-      render() {
-        return <MyComponent foo={bar => bar + 1} />
-      }
+    function MyComponent() {
+      return <button onClick={event => {
+        let baz = "Hello World";
+        console.log(event.target.value + baz)
+      }} />
     }
 
     // good
-    class MyComponentContainer extends Component {
-      foo = bar => bar + 1;
+    function MyComponent() {
+      const foo = event => {
+        let baz = "Hello World";
+        console.log(event.target.value + baz)
+      };
 
-      render() {
-        return <MyComponent foo={this.foo} />
-      }
+      return <button onClick={foo} />
+    }
+
+    // better when passing it to a child component
+    import Child from './components/Child';
+
+    function MyComponent() {
+      const foo = useCallback(event => {
+        let baz = "Hello World";
+        console.log(event.target.value + baz)
+      }, []);
+
+      return <Child onClick={foo} />
     }
     ```
 
@@ -606,69 +606,43 @@ src
   }
   ```
 
-  - Base smart components like InputContainer, ButtonContainer, etc. if it's clear that they will want to pass all its props to it's layout component:
+  - HTML element wrappers (Button, Input, Image, etc.)
 
   ```jsx
-  import Button from './layout';
-  class ButtonContainer extends Component {
-    // do something smart
-
-    render() {
-      return <Button {...this.props} />
+    function Input(props) { 
+      return <input {...props} />
     }
-  }
   ```
 
-  - Spreading objects with known, explicit props. This can be particularly useful when testing React components with Mocha's beforeEach construct.
-
-  ```jsx
-  function Foo {
-    const props = {
-      text: '',
-      isPublished: false
-    }
-
-    return <div {...props} />;
-  }
-
-  export default Foo;
-  ```
-
-  Notes for use:
-  Filter out unnecessary props when possible. Also, use [prop-types-exact](https://www.npmjs.com/package/prop-types-exact) to help prevent bugs.
-
-  ```jsx
-  // good
-  render() {
-    const { irrelevantProp, ...relevantProps  } = this.props;
-    return <WrappedComponent {...relevantProps} />
-  }
-
-  // bad
-  render() {
-    const { irrelevantProp, ...relevantProps  } = this.props;
-    return <WrappedComponent {...this.props} />
-  }
-  ```
 
 ## Refs
 
-  - Always use ref callbacks. eslint: [`react/no-string-refs`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-string-refs.md)
+  - Always use ref [`useRef`](https://reactjs.org/docs/hooks-reference.html#useref) for function components and [`createRef`](https://reactjs.org/docs/refs-and-the-dom.html#creating-refs) for class components.
 
-    > Note: Only use refs for class components. Reasons in React docs: https://reactjs.org/docs/refs-and-the-dom.html#refs-and-functional-components
 
     ```jsx
     // bad
-    <Foo
-      ref="myRef"
-    />
+    <Foo ref="myRef" />
 
-    // good
+    // bad
     setRef = ref => this.myRef = ref;
 
-    <Foo
-      ref={this.setRef}
-    />
+    <Foo ref={this.setRef} />
+
+    // good
+    function Bar() {
+      const myRef = useRef(null);
+      return <Foo ref={myRef}/>
+    }
+
+    // good
+    class Bar extends Component() {
+      myRef = createRef();
+      render() {
+        return <Foo ref={myRef}/>
+      }
+    }
+    
     ```
 
 ## Parentheses
@@ -677,26 +651,20 @@ src
 
     ```jsx
     // bad
-    render() {
-      return <MyComponent variant="long body" foo="bar">
-               <MyChild />
-             </MyComponent>;
-    }
+    return <MyComponent variant="long body" foo="bar">
+             <MyChild />
+           </MyComponent>;
 
     // good
-    render() {
-      return (
-        <MyComponent variant="long body" foo="bar">
-          <MyChild />
-        </MyComponent>
-      );
-    }
+    return (
+      <MyComponent variant="long body" foo="bar">
+        <MyChild />
+      </MyComponent>
+    );
 
     // good, when single line
-    render() {
-      const body = <div>hello</div>;
-      return <MyComponent>{body}</MyComponent>;
-    }
+    const body = <div>hello</div>;
+    return <MyComponent>{body}</MyComponent>;
     ```
 
 ## Tags
@@ -810,16 +778,16 @@ src
 
     ```jsx
     // bad
-    React.createClass({
+    class MyComponent extends Component {
       _onClickSubmit() {
         // do stuff
       },
 
       // other stuff
-    });
+    };
 
     // good
-    class extends Component {
+    class MyComponent extends Component {
       onClickSubmit() {
         // do stuff
       }
@@ -846,15 +814,14 @@ src
 
   - Ordering for `class extends Component`:
 
+  1. `getDerivedStateFromProps`
+  1. `getDerivedStateFromError`
   1. optional `static` methods
-  1. `constructor`
-  1. `getChildContext`
-  1. `componentWillMount`
+  1. `constructor` # Although it shouldn't be necessary
   1. `componentDidMount`
-  1. `componentWillReceiveProps`
   1. `shouldComponentUpdate`
-  1. `componentWillUpdate`
   1. `componentDidUpdate`
+  1. `getSnapshotBeforeUpdate`
   1. `componentWillUnmount`
   1. `componentDidCatch`
   1. *clickHandlers or eventHandlers* like `onClickSubmit()` or `onChangeDescription()`
@@ -867,7 +834,7 @@ src
   1. mapDispatchToProps (if using Redux)
   1. export default MyComponent
 
-  - How to define `propTypes`, `defaultProps`, `contextTypes`, etc...
+  - How to define `propTypes` and `defaultProps`.
 
     ```jsx
     import React from 'react';
