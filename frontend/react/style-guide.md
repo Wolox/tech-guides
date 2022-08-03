@@ -3,24 +3,25 @@
 ## Table of Contents
 
   1. [Basic Rules](#basic-rules)
-  1. [Folder Structure](#folder-structure)
-  1. [Class vs `React.createClass` vs stateless](#class-vs-reactcreateclass-vs-stateless)
-  1. [Mixins](#mixins)
-  1. [Naming](#naming)
-  1. [Import](#import)
-  1. [Declaration](#declaration)
-  1. [Alignment](#alignment)
-  1. [Quotes](#quotes)
-  1. [Spacing](#spacing)
-  1. [Props](#props)
-  1. [Refs](#refs)
-  1. [Parentheses](#parentheses)
-  1. [Tags](#tags)
-  1. [Methods](#methods)
-  1. [Ordering](#ordering)
-  1. [`isMounted`](#ismounted)
-  1. [HOCs](#hocs)  
-  1. [Typescript](#typescript)
+  2. [Folder Structure](#folder-structure)
+  3. [Class vs `React.createClass` vs stateless](#class-vs-reactcreateclass-vs-stateless)
+  4. [Hooks](#hooks)
+  5. [Mixins](#mixins)
+  6. [Naming](#naming)
+  7. [Import](#import)
+  8. [Declaration](#declaration)
+  9. [Alignment](#alignment)
+  10. [Quotes](#quotes)
+  11. [Spacing](#spacing)
+  12. [Props](#props)
+  13. [Refs](#refs)
+  14. [Parentheses](#parentheses)
+  15. [Tags](#tags)
+  16. [Methods](#methods)
+  17. [Ordering](#ordering)
+  18. [`isMounted`](#ismounted)
+  19. [HOCs](#hocs)  
+  20. [Typescript](#typescript)
 
 ## Basic Rules
 
@@ -150,6 +151,110 @@ src
       )
     }
     ```
+
+## Hooks
+
+After the React >=16.8 you can enjoy this [feature](https://reactjs.org/docs/hooks-reference.html) following necessarily these hooks rules: https://reactjs.org/docs/hooks-rules.html
+
+### useState
+> Note: Keep in mind that this hook is async.
+
+```tsx
+const [state, setState] = useState(initialState);
+```
+
+- If you need update some property of an object.
+
+```tsx
+const [state, setState] = useState({ foo: '123', hoo: 'abc' });
+
+// bad
+setState({...state, hoo: 'def'})
+
+// good
+setState(prev => ({...prev, hoo: 'def'}));
+```
+
+- If you need keep some data after a initial request.
+```tsx
+// bad
+const [state, setState] = useState();
+
+useEffect(() => {
+  let result = expensiveCalculus();
+  setState(result);
+}, [])
+
+// good
+const [state, setState] = useState(() => expensiveCalculus());
+```
+
+### useEffect
+> Note: This hook is sync and it'll fire before layout and paint of each state update.
+
+- If you want to generate subscriptions.
+```tsx
+// bad
+
+useEffect(() => {
+  props.getSomething().subscribe(() => {
+    // do something
+  });
+}, []);
+
+// good
+
+useEffect(() => {
+  const subscription = props.getSomething()
+
+  subscription.subscribe(() => {
+    // do something
+  });
+
+  return () => {
+    // clean the subscription
+    subscription.unsubscribe();
+  }
+  // need to pass deps
+}, [props.getSomething]);
+
+```
+
+- If you call a function inside a useEffect and you want to prevent it being called again as the function is recreated on every render.
+
+```tsx
+
+// bad
+const Comp = () => {
+
+  const fn = () => {
+    // do something
+  }
+
+  useEffect(() => {
+    fn();
+  }, [fn]);
+
+  return <span>Comp</span>
+}
+
+// good
+const Comp = () => {
+
+  const fn = useCallback(() => {
+    // do something
+  })
+
+  useEffect(() => {
+    fn();
+  }, [fn]);
+
+  return <span>Comp</span>
+}
+```
+
+### useLayoutEffect
+> Note: This hook is like useEffect, but it is fire in way sync.
 
 ## Mixins
 
