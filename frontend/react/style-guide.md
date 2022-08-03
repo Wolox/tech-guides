@@ -21,6 +21,7 @@
   1. [`isMounted`](#ismounted)
   1. [HOCs](#hocs)  
   1. [Typescript](#typescript)
+  1. [React Query](#react-query)
 
 ## Basic Rules
 
@@ -1098,6 +1099,239 @@ src
     };
   }
   ```
+
+## React Query
+### Introduction
+React Query is a data-fetching library for React. It helps with fetching, caching, synchronizing and updating server state in our React Applications.
+>For advanced information on React-Query, check [here](https://tkdodo.eu/blog/practical-react-query).
+>Official Documentation, check [here](https://tanstack.com/query/v4/docs/overview?from=reactQueryV3&original=https://react-query-v3.tanstack.com/overview)
+### `QueryClientProvider`
+First of all, we will need to use the `QueryClientProvider` component to connect and provide a `QueryClient` for our app. You will be required to pass an instance of `QueryClient` to provide.
+```tsx
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+
+const queryClient = new QueryClient()
+
+function App() {
+  return <QueryClientProvider client={queryClient}>...</QueryClientProvider>
+}
+```
+>For more information, check [here](https://tanstack.com/query/v4/docs/reference/QueryClientProvider)
+
+### `useQuery`
+Use to subscribe to a query in your components or custom hooks, with at least:
+- A unique query **key**, that is used internally for refetching, caching and sharing queries throughout the application.
+```tsx
+// ✅ Good --> TODOs List
+ useQuery('todos', ...) // queryKey === ['todos']
+
+// ✅✅ Better --> TODOs List
+ useQuery(['todos'], ...) // queryKey === ['todos']
+
+// One TODO
+useQuery(['todo', 5], ...) // queryKey === ['todo', 5]
+
+// Every TODOs with "done" type
+ useQuery(['todos', { type: 'done' }], ...) // queryKey === ['todos', { type: 'done' }]
+
+// It will trigger a refetch whenever the query key changes
+useQuery(['todos', todoId], () => fetchTodoById(todoId))
+```
+- A function that returns a promise that:
+    - Resolves the data, or
+    - Throws an error
+```tsx
+useQuery(['todos', todoId], fetchTodoById)
+
+useQuery(['todos', todoId], () => fetchTodoById(todoId))
+
+useQuery(['todos', todoId], async () => {
+ if (somethingGoesWrong) {
+   throw new Error('Oh no!')
+ }
+ return data
+ })
+```
+
+>Check full useQuery documentation [here](https://tanstack.com/query/v4/docs/reference/useQuery).
+
+### Parallel Queries
+Use to execute queries at the same time so as to maximize fetching concurrency.
+
+**Manual Parallel Queries**
+
+Use when the number of parallel queries does not change. Just use any number of `useQuery` or `useInfiniteQuery` hook side by side.
+```tsx
+function App () {
+// The following queries will execute in parallel due to number of parallel
+// queries does not change. useQuery calls must be side-by-side.
+  const usersQuery = useQuery(['users'], fetchUsers)
+  const teamsQuery = useQuery(['teams'], fetchTeams)
+  const projectsQuery = useQuery(['projects'], fetchProjects)
+  ...
+}
+```
+>When using React Query in [suspense mode](https://tanstack.com/query/v4/docs/guides/suspense), this pattern of parallelism does not work due to the first query would suspend the component before the other queries run. To avoid this behavior, use `useQueries`.
+
+**Dynamic Parallel Queries**
+
+Use when the number of queries you need to execute is changing from render to render. 
+>You cannot use manual querying since that would violate the rules of hooks.
+```tsx
+// ❌ Bad
+function App () {
+  const userQueries = users.map(user => {
+    return useQuery(['user', user.id], () => fetchUserBy(user.id))
+  })
+}
+
+// ✅ Good
+function App({ users }) {
+  const userQueries = useQueries({
+    queries: users.map(user => {
+      return {
+        queryKey: ['user', user.id],
+        queryFn: () => fetchUserById(user.id),
+      }
+    })
+  })
+}
+```
+>Check full useQueries documentation [here](https://tanstack.com/query/v4/docs/reference/useQueries).
+
+### Data Transformation
+Use the built-in **selectors** solution provided by React-Query. Take into account:
+- Selector will only be called if data exists.
+- Selectors will run on every render, because the functional identity changes. Memoize it either with useCallback, or by extracting it to a stable function reference.
+- Selector can also be used to subscribe to **only** parts of the data.
+```tsx
+// ✅ Good
+export const useTodosQuery = () =>
+  useQuery(['todos'], fetchTodos, {
+    select: (data) => data.map((todo) => todo.name.toUpperCase()),
+  })
+
+// ✅ ✅ Better
+const transformTodoNames = (data: Todos) =>
+  data.map((todo) => todo.name.toUpperCase())
+
+export const useTodosQuery = () =>
+  useQuery(['todos'], fetchTodos, {
+    // ✅ uses a stable function reference
+    select: transformTodoNames,
+  })
+
+export const useTodosQuery = () =>
+  useQuery(['todos'], fetchTodos, {
+    // ✅ memoizes with useCallback
+    select: React.useCallback(
+      (data: Todos) => data.map((todo) => todo.name.toUpperCase()),
+      []
+    ),
+  })
+
+
+// ✅ Partial Subscriptions
+export const useTodosQuery = (select) =>
+  useQuery(['todos'], fetchTodos, { select })
+
+export const useTodosCount = () => useTodosQuery((data) => data.length)
+export const useTodo = (id) =>
+  useTodosQuery((data) => data.find((todo) => todo.id === id))
+```
+
+### `useMutation`
+Use to create/update/delete data or perform server side-effects. Mutations don’t run instantly, React Query gives us a function to invoke whenever we want to make the mutation.
+The **mutate** function is asynchronous, which means that It cannot be used directly in an event callback. Wrap it in another function due to `React Event Pooling`.
+For example:
+```tsx
+// ❌ This will not work in React 16 and earlier
+const CreateTodo = (event) => {
+  const mutation = useMutation(data => {
+    event.preventDefault()
+    const api = create();
+    return api.post('/api', data)
+  })
+
+  return <form onSubmit={mutation.mutate}>...</form>
+}
+
+// ✅ This will work
+const CreateTodo = () => {
+  const mutation = useMutation(formData => {
+    const api = create();
+    return api.post('/api', data)
+  })
+  const onSubmit = (data, event) => {
+    event.preventDefault()
+    mutation.mutate(data)
+  }
+
+  return <form onSubmit={onSubmit}>...</form>
+}
+```
+- If you want to apply some side-effects at any stage during the mutation lifecycle, you should use `useMutation` helper functions.
+```tsx
+useMutation(addTodo, {
+  onMutate: variables => {
+    // Trigger when a mutation is about to happen.
+
+    // Optionally return a context containing data to use when for example rolling back
+    return { id: 1 }
+  },
+  onError: (error, variables, context) => {
+    // Trigger when an error happened.
+    console.log(`rolling back optimistic update with id ${context.id}`)
+  },
+  onSuccess: (data, variables, context) => {
+    // Trigger when there is returning data.
+  },
+  onSettled: (data, error, variables, context) => {
+    // Trigger when error or success exists.
+  },
+})
+```
+>These come in handy for both [invalidating and refetching queries after mutations](https://tanstack.com/query/v4/docs/guides/invalidations-from-mutations) and even [optimistic updates](https://tanstack.com/query/v4/docs/guides/optimistic-updates).
+
+- If you return a promise on any of the callback functions, it will be awaited before the next callback is called:
+```tsx
+useMutation(addTodo, {
+  onSuccess: async () => {
+    console.log("I'm first!")
+  },
+  onSettled: async () => {
+    console.log("I'm second!")
+  },
+})
+```
+- If you need to send more than one variable to mutations, use an object.
+```tsx
+// ❌ this is invalid syntax and will NOT work
+const mutation = useMutation((title, body) => updateTodo(title, body))
+mutation.mutate('hello', 'world')
+
+// ✅ use an object for multiple variables
+const mutation = useMutation(({ title, body }) => updateTodo(title, body))
+mutation.mutate({ title: 'hello', body: 'world' })
+```
+>Check full useMutation documentation [here](https://tanstack.com/query/v4/docs/reference/useMutation).
+
+### Hooks Destructuring
+Both `useQuery` and `useMutation` provide us with many functionalities to manage all kinds of states that we can destruct from their hooks, below we will explain how to obtain them and we will review the most important ones:
+```tsx
+const { isLoading, isError, error, isSuccess, data, status, fetchStatus } = useQuery(queryKey, queryFn?);
+```
+- **`isLoading`** or **`status === 'loading'`** - The query has no data yet.
+- **`isError`** or **`status === 'error'`** - The query encountered an error. The error is available via the **`error`** property.
+- **`isSuccess`** or **`status === 'success'`** - The query was successful and data is available. The data is available via the **`data`** property.
+- **`fetchStatus`** exists because together with **`status`** allow all combinations on background refetches and stale-while-revalidate logic. It has the following options:
+    - **`fetchStatus === 'fetching'`** - The query is currently fetching.
+    - **`fetchStatus === 'paused'`** - The query wanted to fetch, but it is paused.
+    - **`fetchStatus === 'idle'`** - The query is not doing anything at the moment.
+>As a rule of thumb:
+  >- The **`status`** gives information about the **`data`**: Do we have any or not?
+  >- The **`fetchStatus`** gives information about the **`queryFn`**: Is it running or not?
+
 
 ## Translation
 
