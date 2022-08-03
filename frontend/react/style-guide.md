@@ -669,8 +669,71 @@ src
     <Foo
       ref={this.setRef}
     />
-    ```
 
+    // better
+    this.setRef = createRef(); // This is put in the constructor
+
+    <Foo
+      ref={this.setRef}
+    />
+
+    ```
+  - At present we use the "useRef" hook
+    > Note: useRef is not only useful for save a DOM reference, you can also hold a plain JavaScript Object: https://es.reactjs.org/docs/hooks-reference.html#useref.
+    > You need to review how [Refs and functional components](https://reactjs.org/docs/refs-and-the-dom.html#refs-and-function-components) work
+
+    ```jsx
+    const ref = useRef();
+    <Foo
+      ref={ref}
+    />
+    ```
+  - Another useful hook to handle `refs` is named `useImperativeHandle`. This is useful when you don't have other way to handle the state of a component. The purpose of this is when you try to handle a component through a parent component. This offers an "api" to handle the state of the component from a unique "source of truth". It's advisable to learn how to use `forwardRef` because they work together. 
+    https://es.reactjs.org/docs/hooks-reference.html#useimperativehandle
+    > Paraphrasing to React: This hook is useful because there should be a single “source of truth” for any data that changes in a React application.
+    
+    ```jsx
+
+    // very bad
+    const Input = (props) => {
+      return <input ref={props.myRef} />
+    }
+
+    export const Comp = () =>{
+      const ref = useRef()
+      return <Input myRef={ref} />
+    }
+    
+    // good
+    const Input = forwardRef((props, ref) => {
+      return <input ref={ref} />
+    })
+
+    export const Comp = () =>{
+      const ref = useRef()
+      return <Input ref={ref} />
+    }
+
+    // very good
+    const Input = forwardRef((props, ref) => {
+      const myRef = useRef()
+      useImperativeHandle(ref, () => {
+        return {
+          fn: () => {
+            // Do something
+          }
+        }
+      })
+      return <input ref={myRef} />
+    });
+
+    export const Comp = () =>{
+      const ref = useRef()
+      return <Input ref={ref} />
+    }
+    
+
+    ```
 ## Parentheses
 
   - Wrap JSX tags in parentheses when they span more than one line. eslint: [`react/jsx-wrap-multilines`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-wrap-multilines.md)
