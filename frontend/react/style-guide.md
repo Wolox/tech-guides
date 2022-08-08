@@ -6,23 +6,24 @@
   2. [Folder Structure](#folder-structure)
   3. [Class vs `React.createClass` vs stateless](#class-vs-reactcreateclass-vs-stateless)
   4. [Hooks](#hooks)
-  5. [Mixins](#mixins)
-  6. [Naming](#naming)
-  7. [Import](#import)
-  8. [Declaration](#declaration)
-  9. [Alignment](#alignment)
-  10. [Quotes](#quotes)
-  11. [Spacing](#spacing)
-  12.  [Props](#props)
-  13. [Refs](#refs)
-  14. [Parentheses](#parentheses)
-  15. [Tags](#tags)
-  16. [Methods](#methods)
-  17. [Ordering](#ordering)
-  18. [`isMounted`](#ismounted)
-  19. [HOCs](#hocs)  
-  20. [Typescript](#typescript)
-  21. [React Query](#react-query)
+  5. [Custom Hooks](#custom-hooks)
+  6. [Mixins](#mixins)
+  7. [Naming](#naming)
+  8. [Import](#import)
+  9. [Declaration](#declaration)
+  10. [Alignment](#alignment)
+  11. [Quotes](#quotes)
+  12. [Spacing](#spacing)
+  13. [Props](#props)
+  14. [Refs](#refs)
+  15. [Parentheses](#parentheses)
+  16. [Tags](#tags)
+  17. [Methods](#methods)
+  18. [Ordering](#ordering)
+  19. [`isMounted`](#ismounted)
+  20. [HOCs](#hocs)  
+  21. [Typescript](#typescript)
+  22. [React Query](#react-query)
 
 ## Basic Rules
 
@@ -256,6 +257,112 @@ const Comp = () => {
 
 ### useLayoutEffect
 > Note: This hook is like useEffect, but it is fire in way sync.
+## Custom-Hooks
+A custom Hook is a Javascript function whose name starts with "use" ([Rules of Hooks](https://reactjs.org/docs/hooks-rules.html) apply to them) and that may call other Hooks.
+
+Unlike a React component, a custom Hook doesn’t need to have a specific signature. We can decide what it takes as arguments, and what, if anything, it should return. Also every time you use a custom Hook, all state and effects inside of it are fully isolated.
+
+### Why use them?
+There are three main advantages of using Custom Hooks:
+- Reusability — we can use the same hook again and again, without the need to write it twice.
+- Clean Code — extracting all the component logic into a hook will provide a cleaner codebase.
+- Maintainability — easier to maintain. if we need to change the logic of the hook, we only need to change it once.
+
+>In simple words, building your own Hooks lets you extract component logic into reusable functions.
+
+To strengthen custom-hooks theory, let's see the following hook:
+```tsx
+import { useCallback, useState } from 'react';
+// Usage
+function App() {
+  // Call the hook which returns, current value and the toggler function
+  const [theme, setTheme] = useToggle();
+  
+  return (
+    <button onClick={setTheme}>{theme ? 'Dark' : 'Light'}</button>
+  );
+}
+// Custom Hook
+// Parameter is the boolean, with default "false" value
+const useToggle = (initialState = false) => {
+  // Initialize the state
+  const [state, setState] = useState(initialState);
+  
+  // Define and memorize toggler function in case we pass down the component,
+  // This function change the boolean value to it's opposite value
+  const toggle = useCallback(() => setState(state => !state), []);
+  
+  return [state, toggle]
+}
+```
+Some Remarks:
+- `useToggle` is the custom Hook.
+- `useToggle` is called at the top level of a React Functional Component like React Hooks.
+- `useToggle` is a Javascript function.
+- `useToggle` calls another React Hooks like `useState` and `useCallback`.
+- `useToggle` could be exported from a `custom-hooks.ts` file, and reuse in another components. Even, it can be used, in isolation, for a purpose other than changing the page theme.
+
+### Wolox Custom Hooks
+In this section, you will find Wolox's custom Hooks and their use cases.
+
+#### useRequest
+This custom hook is used to fetch data from server handling request states and post-request actions.
+
+```tsx
+  import { useRequest } from '~hooks/useRequest';
+
+  const [state, loading, error] = useRequest({
+    request: YOUR_QUERY,
+    payload: QUERY_PARAMS_OBJECT, // It could be {} if the query does not expect any params.
+    initialState?: STATE, // Use it if you want a state value on Prefetch.
+    withPostSuccess: () => {
+      // Do anything when request success.
+    },
+    withPostFailure: () => {
+      // Do anything when request fails.
+    },
+    withPostFetch: () => {
+      // Do anything when request ends. Regardless of its outcome.
+    },
+    transformResponse: response => YOUR_TRANSFORM_METHOD(response) // Use to transform request response.
+  },
+  [DEPENDENCIES] // Whenever a dependency changes, the request will be sent.
+  );
+```
+**Hook Destructuring**
+- `state`: The query was successful and data is available. On prefetch, it will take initialState's value.
+- `loading`: The query has no data yet.
+- `error`: The query encountered an error.
+
+#### useLazyRequest
+A variant of the useRequest custom-hook. It allows us to choose when to send the request.
+
+```tsx
+  import { useLazyRequest } from '~hooks/useRequest';
+
+  const [state, loading, error, sentData] = useLazyRequest({
+    request: YOUR_LAZY_QUERY,
+    initialState?: STATE, // Use it if you want a state value on Prefetch.
+    withPostSuccess: () => {
+      // Do anything when request success.
+    },
+    withPostFailure: () => {
+      // Do anything when request fails.
+    },
+    withPostFetch: () => {
+      // Do anything when request ends. Regardless of its outcome.
+    },
+    transformResponse: response => YOUR_TRANSFORM_METHOD(response) // Use to transform request response.
+  });
+
+  const onSubmit = (formData) => {
+    sentData({ formData });
+  }
+```
+**Hook Destructuring**
+
+Inherits the variables from useRequest Custom Hook and adds:
+- `sentData`: A method to trigger the request with query params. Method name can be anything.
 
 ## Mixins
 
