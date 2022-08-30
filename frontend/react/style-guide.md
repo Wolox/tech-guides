@@ -683,10 +683,8 @@ Inherits the variables from useRequest Custom Hook and adds:
     import MyComponent from './layout';
 
     // bad
-    class MyComponentContainer extends Component {
-      render() {
-        return <MyComponent foo={bar => bar + 1} />
-      }
+    function MyComponentContainer() {
+      return <MyComponent foo={bar => bar + 1} />;
     }
 
     // good
@@ -955,7 +953,7 @@ Inherits the variables from useRequest Custom Hook and adds:
 
     ```jsx
     // bad
-    render() {
+    function Comp() {
       return <MyComponent variant="long body" foo="bar">
                <MyChild />
              </MyComponent>;
@@ -1086,13 +1084,13 @@ Inherits the variables from useRequest Custom Hook and adds:
 
     ```jsx
     // bad
-    React.createClass({
-      _onClickSubmit() {
+    function Comp() {
+      const _onClickSubmit = () => {
         // do stuff
-      },
+      }
 
       // other stuff
-    });
+    }
 
     // good
     function Comp() {
