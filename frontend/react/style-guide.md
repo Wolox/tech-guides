@@ -495,6 +495,13 @@ Inherits the variables from useRequest Custom Hook and adds:
     });
 
     // good
+    class ReservationCard extends Component {
+      // stuff goes here
+    }
+
+    export default ReservationCard
+
+    // better
     function ReservationCard() {
       return (
         // Some JSX
@@ -603,10 +610,14 @@ Inherits the variables from useRequest Custom Hook and adds:
     import MyComponent from './layout';
 
     // bad
-    class MyComponentContainer extends Component {
-      render() {
-        return <MyComponent foo={this.props.foo} bar={this.props.bar} />
-      }
+    function MyComponentContainer(props) {
+      return <MyComponent foo={props.foo} bar={props.bar} />;
+    }
+
+    // bad
+    function MyComponentContainer(props) {
+      const { foo, bar } = props;
+      return <MyComponent foo={foo} bar={bar} />;
     }
 
     // good
