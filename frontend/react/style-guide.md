@@ -31,12 +31,12 @@
   - Always use JSX syntax.
   - Do not use `React.createElement` unless you're initializing the app from a file that is not JSX.
   - Always use export default for Components.
-  - Use `export default` for reducers, actionCreators and services. As a general rule of thumb, use `export default` for all files that have a unique object to export. 
+  - Use `export default` for reducers, actionCreators and services. As a general rule of thumb, use `export default` for all files that have a unique object to export.
 
 ## Folder Structure
 
 ```
-src  
+src
 │
 └───app
 │   │
@@ -72,7 +72,7 @@ src
 └───propTypes
 │   | Model1.js
 │   │ Model2.js
-│   
+│
 └───scss
 └───services
     | MyService.js
@@ -107,20 +107,19 @@ src
 
     ```jsx
     // bad
-    class Listing extends Component {
+    const Listing = React.createClass({
+      // ...
       render() {
-        return <div>{this.props.hello}</div>;
+        return <div>{this.state.hello}</div>;
       }
-    }
-
-    // bad (relying on function name inference is discouraged)
-    const Listing = ({ hello }) => (
-      <div>{hello}</div>
-    );
+    });
 
     // good
-    function Listing({ hello }) {
-      return <div>{hello}</div>;
+    class Listing extends Component {
+      // ...
+      render() {
+        return <div>{this.state.hello}</div>;
+      }
     }
     ```
 
@@ -373,7 +372,7 @@ Inherits the variables from useRequest Custom Hook and adds:
 ## Naming
 
   - **Extensions**: Use `.js` extension for React components.
-  - **Filename**: For component filenames and services use PascalCase. E.g., `ReservationCard.js`.
+  - **Filename**: For component filenames and services use PascalCase. E.g., `ReservationCard/index.js`, `AuthService.js`.
   - **Reference Naming**: Use PascalCase for React components and camelCase for their associated elements. eslint: [`react/jsx-pascal-case`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md)
 
     ```jsx
@@ -389,22 +388,18 @@ Inherits the variables from useRequest Custom Hook and adds:
     // good
     const reservationItem = <ReservationCard />;
     ```
-  - **Component Hierarchy**: 
+  - **Component Hierarchy**:
     - Component files should be inside folders that match the component's name.
     - Use index.js as the filename of a container component. Use `Container` as the suffix of the component's name.
     - Use layout.js as the filename of a layout component.
 
-    
+
     ```jsx
     // MyComponent/index.js
     import MyComponent from './layout'
 
-    class MyComponentContainer extends Component {
-      // Do smart stuff
-
-      render() {
-        return <MyComponent />
-      }
+    function MyComponentContainer() {
+      return <MyComponent />;
     }
 
     // MyComponent/layout.js
@@ -414,7 +409,7 @@ Inherits the variables from useRequest Custom Hook and adds:
       )
     }
     ```
-  
+
   - **Higher-order Component Naming**: Use a composite of the higher-order component's name and the passed-in component's name as the `displayName` on the generated component. For example, the higher-order component `withFoo()`, when passed a component `Bar` should produce a component with a `displayName` of `withFoo(Bar)`.
 
     > Why? A component's `displayName` may be used by developer tools or in error messages, and having a value that clearly expresses this relationship helps people understand what is happening.
@@ -500,7 +495,10 @@ Inherits the variables from useRequest Custom Hook and adds:
     });
 
     // good
-    class ReservationCard extends Component {
+    function ReservationCard() {
+      return (
+        // Some JSX
+      )
     }
 
     export default ReservationCard
@@ -612,11 +610,8 @@ Inherits the variables from useRequest Custom Hook and adds:
     }
 
     // good
-    class MyComponentContainer extends Component {
-      render() {
-        const { foo, bar } = this.props;
-        return <MyComponent foo={foo} bar={bar} />
-      }
+    function MyComponentContainer({ foo, bar }) {
+      return <MyComponent foo={foo} bar={bar} />;
     }
     ```
 
@@ -625,12 +620,12 @@ Inherits the variables from useRequest Custom Hook and adds:
     ```jsx
     // bad
     function MyComponent(props) {
-      return <span>{this.props.foo}</span>
+      return <span>{this.props.foo}</span>;
     }
 
     // good
     function MyComponent({ foo }) {
-      return <span>{foo}</span>
+      return <span>{foo}</span>;
     }
     ```
 
@@ -652,7 +647,7 @@ Inherits the variables from useRequest Custom Hook and adds:
     ```
 
   - Explicitly `true` props should be passed last:
-    
+
     ```jsx
     // bad
     <Foo
@@ -669,7 +664,7 @@ Inherits the variables from useRequest Custom Hook and adds:
     />
     ```
 
-  - Avoid passing arrow functions in props when possible. Instead, create a reference to the function and pass that reference. 
+  - Avoid passing arrow functions in props when possible. Instead, create a reference to the function and pass that reference.
 
     > Why? Passing arrow functions as props in render creates a new function each time the component renders, which is less performant.
 
@@ -684,12 +679,10 @@ Inherits the variables from useRequest Custom Hook and adds:
     }
 
     // good
-    class MyComponentContainer extends Component {
-      foo = bar => bar + 1;
+    function MyComponentContainer() {
+      const foo = bar => bar + 1;
 
-      render() {
-        return <MyComponent foo={this.foo} />
-      }
+      return <MyComponent foo={foo} />;
     }
     ```
 
@@ -806,16 +799,16 @@ Inherits the variables from useRequest Custom Hook and adds:
 
   ```jsx
   function HOC(WrappedComponent) {
-    return class Proxy extends Component {
-      Proxy.propTypes = {
-        text: PropTypes.string,
-        isLoading: PropTypes.bool
-      };
-
-      render() {
-        return <WrappedComponent {...this.props} />
-      }
+    function Proxy(props) {
+      return <WrappedComponent {...props} />
     }
+
+    Proxy.propTypes = {
+      text: PropTypes.string,
+      isLoading: PropTypes.bool
+    };
+
+    return Proxy;
   }
   ```
 
@@ -823,12 +816,11 @@ Inherits the variables from useRequest Custom Hook and adds:
 
   ```jsx
   import Button from './layout';
-  class ButtonContainer extends Component {
+
+  function ButtonContainer(props) {
     // do something smart
 
-    render() {
-      return <Button {...this.props} />
-    }
+    return <Button {...props} />;
   }
   ```
 
@@ -852,15 +844,14 @@ Inherits the variables from useRequest Custom Hook and adds:
 
   ```jsx
   // good
-  render() {
-    const { irrelevantProp, ...relevantProps  } = this.props;
+  function Component(props) {
+    const { irrelevantProp, ...relevantProps } = props;
     return <WrappedComponent {...relevantProps} />
   }
 
   // bad
-  render() {
-    const { irrelevantProp, ...relevantProps  } = this.props;
-    return <WrappedComponent {...this.props} />
+  function Component(props) {
+    return <WrappedComponent {...props} />
   }
   ```
 
@@ -901,10 +892,10 @@ Inherits the variables from useRequest Custom Hook and adds:
       ref={ref}
     />
     ```
-  - Another useful hook to handle `refs` is named `useImperativeHandle`. This is useful when you don't have other way to handle the state of a component. The purpose of this is when you try to handle a component through a parent component. This offers an "api" to handle the state of the component from a unique "source of truth". It's advisable to learn how to use `forwardRef` because they work together. 
+  - Another useful hook to handle `refs` is named `useImperativeHandle`. This is useful when you don't have other way to handle the state of a component. The purpose of this is when you try to handle a component through a parent component. This offers an "api" to handle the state of the component from a unique "source of truth". It's advisable to learn how to use `forwardRef` because they work together.
     https://es.reactjs.org/docs/hooks-reference.html#useimperativehandle
     > Paraphrasing to React: This hook is useful because there should be a single “source of truth” for any data that changes in a React application.
-    
+
     ```jsx
 
     // very bad
@@ -916,7 +907,7 @@ Inherits the variables from useRequest Custom Hook and adds:
       const ref = useRef()
       return <Input myRef={ref} />
     }
-    
+
     // good
     const Input = forwardRef((props, ref) => {
       return <input ref={ref} />
@@ -944,7 +935,7 @@ Inherits the variables from useRequest Custom Hook and adds:
       const ref = useRef()
       return <Input ref={ref} />
     }
-    
+
 
     ```
 ## Parentheses
@@ -960,7 +951,7 @@ Inherits the variables from useRequest Custom Hook and adds:
     }
 
     // good
-    render() {
+    function Comp() {
       return (
         <MyComponent variant="long body" foo="bar">
           <MyChild />
@@ -969,7 +960,7 @@ Inherits the variables from useRequest Custom Hook and adds:
     }
 
     // good, when single line
-    render() {
+    function Comp() {
       const body = <div>hello</div>;
       return <MyComponent>{body}</MyComponent>;
     }
@@ -1077,8 +1068,6 @@ Inherits the variables from useRequest Custom Hook and adds:
         return <div onClick={this.onClickDiv} />;
       }
     }
-
-    }
     ```
 
   - Do not use underscore prefix for internal methods of a React component.
@@ -1095,8 +1084,8 @@ Inherits the variables from useRequest Custom Hook and adds:
     });
 
     // good
-    class extends Component {
-      onClickSubmit() {
+    function Comp() {
+      const onClickSubmit = () => {
         // do stuff
       }
 
@@ -1212,6 +1201,37 @@ Inherits the variables from useRequest Custom Hook and adds:
   - Use `.tsx` extension for React components.
   - Use `.ts` extension for files that don't need react elements
 
+- Creating a functional component
+  ```tsx
+    interface Props {
+      prop1: string; //required prop
+      prop2?: number; //optional prop
+    }
+
+    function CardLink({ prop1, prop2 = 5 }: Props) {
+      // ...
+    }
+  ```
+
+- Event handling for functional component
+  ```tsx
+    import React, { Component, MouseEvent } from 'react';
+
+    function Button({ children }) {
+
+      const handleClick = (event: MouseEvent) => {
+        // ...
+      }
+
+      return (
+        <button onClick={handleClick}>
+          {children}
+        </button>
+      )
+    }
+    export default Button;
+  ```
+
 - Creating a class component
   ```tsx
     interface Props {
@@ -1228,19 +1248,7 @@ Inherits the variables from useRequest Custom Hook and adds:
     }
   ```
 
-- Creating a functional component
-  ```tsx
-    interface Props {
-      prop1: string; //required prop
-      prop2?: number; //optional prop
-    }
-
-    function CardLink({ prop1, prop2 }: Props) {
-      // ...
-    }
-  ```
-
-- Default props
+- Default props for class component
   ```tsx
     interface Props {
       prop1: string;
@@ -1256,7 +1264,7 @@ Inherits the variables from useRequest Custom Hook and adds:
     }
   ```
 
-- Event handling
+- Event handling for class component
   ```tsx
     import React, { Component, MouseEvent } from 'react';
 
@@ -1265,7 +1273,7 @@ Inherits the variables from useRequest Custom Hook and adds:
       handleClick(event: MouseEvent) {
         // ...
       }
-      
+
       render() {
         return (
           <button onClick={this.handleClick}>
@@ -1387,7 +1395,7 @@ function App () {
 
 **Dynamic Parallel Queries**
 
-Use when the number of queries you need to execute is changing from render to render. 
+Use when the number of queries you need to execute is changing from render to render.
 >You cannot use manual querying since that would violate the rules of hooks.
 ```tsx
 // ❌ Bad
