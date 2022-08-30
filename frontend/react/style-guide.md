@@ -472,10 +472,8 @@ src
     import MyComponent from './layout';
 
     // bad
-    class MyComponentContainer extends Component {
-      render() {
-        return <MyComponent foo={bar => bar + 1} />
-      }
+    function MyComponentContainer() {
+      return <MyComponent foo={bar => bar + 1} />;
     }
 
     // good
@@ -744,7 +742,7 @@ src
 
     ```jsx
     // bad
-    render() {
+    function Comp() {
       return <MyComponent variant="long body" foo="bar">
                <MyChild />
              </MyComponent>;
@@ -875,13 +873,13 @@ src
 
     ```jsx
     // bad
-    React.createClass({
-      _onClickSubmit() {
+    function Comp() {
+      const _onClickSubmit = () => {
         // do stuff
-      },
+      }
 
       // other stuff
-    });
+    }
 
     // good
     function Comp() {
