@@ -1,5 +1,5 @@
 # How to spy functions calls
-When we are testing we can spy the call of an expecific function, th function to spy can be of the same component or another external dependency.
+When we are testing we can spy the call of an specific function, th function to spy can be of the same component or another external dependency.
 
 ## Spy local function
 Component

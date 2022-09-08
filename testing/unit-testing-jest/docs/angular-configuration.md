@@ -55,7 +55,7 @@ This creates a background render of our component and is stored on fixture
 
 ### Init the component
 component = fixture.componentInstance;
-In componenent, we store the instance of the class. Now, we can access the properties and methods of our class.
+In component, we store the instance of the class. Now, we can access the properties and methods of our class.
 
 ### fixture.detectChanges()
 Works like the OnPush detection strategy. With this function, we can update the render of our test, in case we need to use it.

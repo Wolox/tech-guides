@@ -73,7 +73,7 @@ describe('ExampleComponent', () => {
 ````
 
 ## ActivatedRouter
-Many components has resolver files to get the data before to navigate to the view, and in the ```ngOnInit()``` is common to see somethig like this:
+Many components has resolver files to get the data before to navigate to the view, and in the ```ngOnInit()``` is common to see something like this:
 ``` this.data = this.route.snapshot.data.resolved; ``` son we need the mock the resolver data on this way:
 
 ````ts
