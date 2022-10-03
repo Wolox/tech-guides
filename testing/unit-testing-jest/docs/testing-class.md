@@ -1,5 +1,5 @@
 ## Testing a class
-To test a class, we need to instance it with the dependencies. Then, we can call all the methods and add assertions, for example:
+To test a class, we need to instance it with the dependencies. Then, we can call methods and add assertions, for example:
 
 ```ts
 import { Injectable } from '@angular/core';

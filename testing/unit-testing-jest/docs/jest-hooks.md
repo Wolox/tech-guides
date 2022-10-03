@@ -5,13 +5,13 @@ You can use ```beforeEach()``` and/or ```afterEach()``` if you need to set or cl
 
 ```beforeEach``` example:
 ```ts
-    describe('UsersClass', () => {
-        beforeEach(() => {
-            initUsersDB();
-        });
-        
-        it('should test1', () => {...})
-    });
+describe('UsersClass', () => {
+  beforeEach(() => {
+    initUsersDB();
+  });
+    
+  it('should test1', () => {...})
+});
 ```
 in this example the Users **DB** will be initialized before the execution of any test
 
@@ -19,13 +19,13 @@ in this example the Users **DB** will be initialized before the execution of any
 
 ```afterEach``` example:
 ```ts
-    describe('UsersClass', () => {
-        afterEach(() => {
-            clearUsersDB();
-        });
-        
-        it('should test2', () => {...})
-    });
+describe('UsersClass', () => {
+  afterEach(() => {
+    clearUsersDB();
+  });
+
+  it('should test2', () => {...})
+});
 ```
 in this example the Users **DB** will be cleared after the execution of any test.
  
