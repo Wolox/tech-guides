@@ -1,5 +1,5 @@
 # How to spy functions calls
-When we are testing we can spy the call of an specific function, th function to spy can be of the same component or another external dependency.
+When we are testing we can spy the call of an specific function, the function to spy can be of the same component or another external dependency.
 
 ## Spy local function
 Component
@@ -21,9 +21,27 @@ export class ExampleComponent {
 
 Test
 ````ts
-it('should call log function', () => {
+describe('ExampleComponent', () => {
+  let component: ExampleComponent;
+  let fixture: ComponentFixture<ExampleComponent>;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [ ExampleComponent ]
+    })
+    .compileComponents();
+  });
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(ExampleComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+it('Should call log function when div is clicked', () => {
     const spy = jest.spyOn(component, 'log');
     fixture.nativeElement.querySelector('.section').click();
     expect(spy).toHaveBeeCalledWith('test');
+    });
 });
 ````

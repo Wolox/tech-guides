@@ -26,43 +26,53 @@ export class ExampleComponent {
 
 As you can see, the `logService` is an external function injected in the constructor of this component.
 
-Next, on the test file, let's create a `fakeLogService` in order to fake the external functionality.
+Next, on the test file, let's create a `logServiceMock` in order to mock the external functionality.
 
 Test
 ````ts
-const fakeLogService = {
+const logServiceMock = {
   log: jest.fn()
 }
 
 describe('ExampleComponent', () => {
+  let component: ExampleComponent;
+  let fixture: ComponentFixture<ExampleComponent>;
+
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ExampleComponent],
-      providers: [
+      declarations: [ ExampleComponent ],
+        providers: [
         {
           provide: LogService,
-          useValue: fakeLogService
+          useValue: logServiceMock
         }
       ]
-    });
-  })
+    })
+    .compileComponents();
+  });
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(ExampleComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
   
-  it('should call log function', () => {
+  it('should call log function when div is clicked', () => {
     fixture.nativeElement.querySelector('.section').click();
-    expect(fakeLogService.log).toHaveBeeCalledWith('test');
+    expect(logServiceMock.log).toHaveBeeCalledWith('test');
   });
 }
 ````
 
-Finally, we need to provide the fake function on the `providers` array, then, we'll be allowed to
-work with the fake function and not with the real function.
+Finally, we need to provide the mock function on the `providers` array, then, we'll be allowed to
+work with the mock function and not with the real function.
 
 
 
 Now, let's review som external function from angular.
 ## Router
 The `navigate` function is part of the `Router` module of angular. Therefore, in order to test
-a navigate action, we need to fake the navigate functionality, like this:
+a navigate action, we need to mock the navigate functionality, like this:
 
 You can spy the functions of the ``Router`` as follows:
 Test

@@ -1,12 +1,22 @@
 # Basic structure of a test 
+
+### Arrange, Act and Assert (AAA) Pattern:
+- Arrange: Initializes the objects and establishes the values of the data that we are going to use in the Test that contains it.
+- Act: Makes the call to the method to be tested with the parameters prepared for this purpose.
+- Assert: Checks that the executed test method behaves as we expected it to.
+
+
+
 ````ts
   🏷️ describe('Class, Module, Service or Component to test', () => {
     //test
     🌱️ it('should do ...', () => {
-      // setup
+      // Arrange
       const service = new ServiceToTest();
-      // assertion and matcher
-      🔍️️ expect(service.fn)️.🧪toBe('expected value');
+      // Act
+      const value = service.fn();
+      // Assert
+      🔍️️ expect(value)️.🧪toBe('expected value');
     });
   });
 ````
