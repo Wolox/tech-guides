@@ -13,7 +13,7 @@ describe('UsersClass', () => {
   it('should test1', () => {...})
 });
 ```
-in this example the Users **DB** will be initialized before the execution of any test
+In this example the ```initUsersDB()``` function will be executed ***before*** each test case.
 
 ****************
 
@@ -27,7 +27,7 @@ describe('UsersClass', () => {
   it('should test2', () => {...})
 });
 ```
-in this example the Users **DB** will be cleared after the execution of any test.
+In this example the ```clearUsersDB()``` function will be executed ***after*** each test case.
  
 ## One time setUp
 In case that you need to set data before or after of any test but this data will be same instance for all the test, you can use the ```beforeAll()``` and/or ```afterAll()```.
