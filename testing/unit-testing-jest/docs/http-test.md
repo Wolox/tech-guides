@@ -77,12 +77,12 @@ tests cases.
 it('return all users', (done) => {
   service.findAllUsers().subscribe((users) => {
     expect(users).toEqual(USERS);
-      done();
-    });
-    const req = controller.expectOne('api/users');
-    expect(req.request.method).toEqual('GET');
-    req.flush(USERS);
+    done();
   });
+  const req = controller.expectOne('api/users');
+  expect(req.request.method).toEqual('GET');
+  req.flush(USERS);
+});
 ```
 In this test, we subscribe to ```findAllUsers```. Then, inside we create the assertion to verify the response data. ```done()``` is used to indicate the successful finish of the subscription.
 

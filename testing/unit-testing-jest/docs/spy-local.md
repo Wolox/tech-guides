@@ -8,14 +8,14 @@ Component
   selector: 'app-example',
   templateUrl: `
     <div class="section" (click)="log('test')">
-        Click me
+      Click me
     </div>
   `
 })
 export class ExampleComponent {
-    log(message: string): void {
-        console.log(message); 
-    }
+  log(message: string): void {
+    console.log(message); 
+  }
 }
 ````
 
@@ -38,10 +38,10 @@ describe('ExampleComponent', () => {
     fixture.detectChanges();
   });
 
-it('Should call log function when div is clicked', () => {
+  it('Should call log function when div is clicked', () => {
     const spy = jest.spyOn(component, 'log');
     fixture.nativeElement.querySelector('.section').click();
     expect(spy).toHaveBeeCalledWith('test');
-    });
+  });
 });
 ````

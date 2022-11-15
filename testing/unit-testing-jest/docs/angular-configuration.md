@@ -1,5 +1,6 @@
 ## Angular default test configuration
-When you create a new component, directive, service, etc. The default configuration of the tests file is something like this.
+When you create a new component, directive, service, etc. The default configuration of the tests file should be something like this.
+
 ```ts
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ExampleComponent } from './example.component';
@@ -27,10 +28,10 @@ describe('ExampleComponent', () => {
 });
 ```
 
-This is the default configuration of a test file. As you can see, it uses a lot of what we already got on the top theory. Now let's go to understand the TestBed.
+This is the default configuration of a test file. As you can see, it uses a lot of what we already got on the top theory. Now let's understand the TestBed.
 
 ### Understanding TestBed :test_tube:
-TestBed is a utility of [Angular](https://angular.io/api/core/testing/TestBed). With this, we can configure all the environments of our tests.
+[TestBed](https://angular.io/api/core/testing/TestBed) is a utility of Angular. With this, we can configure all the environments of our tests.
 
 Configure a testing module
 With this we can set all the dependencies for our tests, for example:
@@ -39,7 +40,7 @@ TestBed.configureTestingModule(
     {
         declarations: [ ExampleComponent, OtherComponents ... ],
         imports: [ PipesModule, RouterTestingModule, OtherModules... ],
-        providers: [ ExampleService, DecimalPipe, ... ],
+        providers: [ ExampleService, DecimalPipe, OtherProviders... ],
     },
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
 );
@@ -68,5 +69,4 @@ order to update the DOM with the expected information.
 
 ### But why?
 According to Angular docs: 
-> Delayed change detection is intentional and useful. It gives the tester an opportunity to inspect and change the state of the component before Angular initiates data binding and calls lifecycle hooks.
-See more information [here](https://angular.io/guide/testing-components-scenarios#detectchanges).
+> [Delayed change detection is intentional and useful. It gives the tester an opportunity to inspect and change the state of the component before Angular initiates data binding and calls lifecycle hooks.](https://angular.io/guide/testing-components-scenarios#detectchanges)

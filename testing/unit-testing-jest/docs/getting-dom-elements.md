@@ -6,12 +6,12 @@ So, les's see how it works:
 ## Getting element
 Consider the next element
 <br>
-test.html
+``test.html``
 ```html
 <button class="btn_login" (click)="login()">Login</button>
 ```
 
-test.spec.ts
+``test.spec.ts``
 ```ts
 it('should call login function', () => {
     // as nativeElement
@@ -31,7 +31,7 @@ When using `triggerEventHandler` note that the second parameter is the actual ev
 You can see more about ```nativeElement vs debugElement``` on this [link](https://angular.io/guide/testing-components-basics), also note that in debugElement we use the css class from ```By``` to use this you need to import from ```import { By } from '@angular/platform-browser';``` an you can see more info about ```By``` on this [link](https://angular.io/api/platform-browser/By)
 
 Consider the next elements
-test.html
+``test.html``
 ```html
 <app-header-process
     [tabs]="data.tabs"
@@ -47,7 +47,7 @@ test.html
 </ul>
 ```
 To get any of this elements we can use:
-test.spec.ts
+``test.spec.ts``
 ```ts
 it('should render information', () => {
     // get component

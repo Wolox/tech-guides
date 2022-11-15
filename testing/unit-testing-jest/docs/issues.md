@@ -23,13 +23,13 @@ import '@angular/localize/init';
 ```
 
 ### Navigator dependency
-Sometimes, when we are testing many problems don’t let our test execute. Is so frustrating don't find a simple solution just checking the error console and understanding the problem. This is a collection of typical errors that you can get when you are testing. Hope that helps.
+Sometimes, when we are testing many problems don't let our test execute. Is so frustrating don't find a simple solution just checking the error console and understanding the problem. This is a collection of typical errors that you can get when you are testing. Hope that helps.
 
 ### Error with the navigator
 #### Issue:
 If we use the navigator router on the test files, maybe we get an error like this:
 ![error navigator](./assets/NavigatorError.png "Error");
-This means we are using a specific path to test the routing. But we aren’t declaring on the environments file.
+This means we are using a specific path to test the routing. But we aren't declaring on the environments file.
 
 For example, this component:
 ```ts
@@ -116,7 +116,7 @@ describe('ExampleComponent', () => {
     const element = fixture.debugElement.query(By.css('tag'))
     expect(element).toBeTruthy();
   });
-}
+});
 ```
 This solution came from [here](https://stackoverflow.com/questions/42656045/angular2-testing-and-resolved-data-how-to-test-ngoninit)
 
