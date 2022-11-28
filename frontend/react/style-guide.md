@@ -22,6 +22,7 @@
   1. [HOCs](#hocs)
   1. [Typescript](#typescript)
   1. [React Query](#react-query)
+  1. [Context](#context)
 
 ## Basic Rules
 
@@ -35,48 +36,80 @@
 
 ```
 src
-│
-└───app
-│   │
-│   └───components
-│   │ └───baseComponents
-│   │     └───Input
-│   │     └───Text
-│   │     └───Button
-│   │     └───etc
-│   └───screens
-│       └───MyScreenComponent
-│           └───assets // Screen specific app assets
-│           | components
-│           | constants.js
-│           | i18n.js
-│           | index.js
-│           | layout.js
-│           | styles.scss
-│           | utils.js
-│
-└───assets // General app assets
-└───config
-    | api.js
-    | i18n.js
-└───constants
-└───redux
-│   | store.js
-│   └───myReducer
-│       | actions.js
-│       | reducer.js
-│       | selectors.js
-│
-└───propTypes
-│   | Model1.js
-│   │ Model2.js
-│
-└───scss
-└───services
-    | MyService.js
-│
-└───utils
-│   index.js
+├── assets // General app assets
+│   └── logo.png
+├── components
+│   ├── App
+│   │   ├── index.test.tsx
+│   │   └── index.tsx
+│   ├── MyComponent
+│   │   ├── i18n.ts
+│   │   ├── index.tsx
+│   │   ├── styles.module.scss
+│   │   └── types
+│   │       └── myComponentProps.ts
+│   ├── ProviderWrapper
+│   │   └── index.tsx
+│   ├── Spinner
+│   │   ├── components
+│   │   │   ├── constants.ts
+│   │   │   └── loading.tsx
+│   │   └── index.tsx
+│   └── Suspense
+│       └── index.tsx
+├── config
+│   ├── api.js
+│   ├── context.test.ts
+│   ├── context.ts
+│   ├── i18n.js
+│   └── routes.ts
+├── constants
+│   └── constants.ts
+├── contexts
+│   └── FooContext
+│       ├── constants.ts
+│       ├── index.test.ts
+│       ├── index.ts
+│       ├── reducer.test.ts
+│       └── reducer.ts
+├── hooks
+│   ├── useMountedRef.test.ts
+│   ├── useMountedRef.ts
+│   ├── useRequest.test.tsx
+│   └── useRequest.ts
+├── mocks
+│   ├── msw-server.ts
+│   ├── msw-worker.ts
+│   └── login.handlers.ts
+├── screens
+│   └── Home
+│       ├── assets // Screen specific app assets
+│       ├── components
+│       ├── constants.js
+│       ├── i18n.ts
+│       ├── index.test.tsx
+│       ├── index.tsx
+│       └── styles.module.scss
+├── scss
+│   ├── application.scss
+│   ├── components.scss
+│   ├── layout.scss
+│   ├── margins.scss
+│   └── variables
+│       ├── _colors.scss
+│       └── _constants.scss
+├── services
+│   ├── MyService.test.ts
+│   ├── MyService.ts
+│   ├── LocalStorageService.ts
+│   └── types
+│       └── myServiceResponse.ts
+├── types
+│   └── myType.ts
+└── utils
+    ├── displayName.ts
+    ├── inputValidations.js
+    └── types.ts
 ```
 
 ## Class vs `React.createClass` vs stateless
@@ -122,11 +155,11 @@ src
     }
     ```
 
-  - Avoid using helper render methods when possible. Functions that return JSX elements should probably be layout components.
+  - Avoid using helper render methods when possible.
 
     ```jsx
     // bad
-    function TextContainer extends Component {
+    function MyComponent extends Component {
       renderText = text => <span>text</span>;
 
       render() {
@@ -143,7 +176,7 @@ src
       return <span>text</span>;
     }
 
-    function TextContainer({ text }) {
+    function MyComponent({ text }) {
       return (
         <div>
           <Text text={text} />
@@ -179,19 +212,11 @@ src
     ```
   - **Component Hierarchy**:
     - Component files should be inside folders that match the component's name.
-    - Use index.js as the filename of a container component. Use `Container` as the suffix of the component's name.
-    - Use layout.js as the filename of a layout component.
-
+    - Use index.js as the filename of a component.
+    - If a component has its own child components, include a folder named components inside the parent component's folder.
 
     ```jsx
     // MyComponent/index.js
-    import MyComponent from './layout'
-
-    function MyComponentContainer() {
-      return <MyComponent />;
-    }
-
-    // MyComponent/layout.js
     function MyComponent() {
       return (
         // Some JSX
@@ -393,29 +418,8 @@ src
       phoneNumber={12345678}
     />
     ```
-  - Always use object destructuring to explicitly get props variables in the render function of class Components:
 
-    ```jsx
-    import MyComponent from './layout';
-
-    // bad
-    function MyComponentContainer(props) {
-      return <MyComponent foo={props.foo} bar={props.bar} />;
-    }
-
-    // bad
-    function MyComponentContainer(props) {
-      const { foo, bar } = props;
-      return <MyComponent foo={foo} bar={bar} />;
-    }
-
-    // good
-    function MyComponentContainer({ foo, bar }) {
-      return <MyComponent foo={foo} bar={bar} />;
-    }
-    ```
-
-  - Always use object destructuring to explicitly get props variables in layout Components:
+  - Always use object destructuring to explicitly get props variables in Components:
 
     ```jsx
     // bad
@@ -469,18 +473,18 @@ src
     > Why? Passing arrow functions as props in render creates a new function each time the component renders, which is less performant.
 
     ```jsx
-    import MyComponent from './layout';
+    import OtherComponent from './otherComponent';
 
     // bad
-    function MyComponentContainer() {
-      return <MyComponent foo={bar => bar + 1} />;
+    function MyComponent() {
+      return <OtherComponent foo={bar => bar + 1} />;
     }
 
     // good
-    function MyComponentContainer() {
+    function MyComponent() {
       const foo = bar => bar + 1;
 
-      return <MyComponent foo={foo} />;
+      return <OtherComponent foo={foo} />;
     }
     ```
 
@@ -610,15 +614,13 @@ src
   }
   ```
 
-  - Base smart components like InputContainer, ButtonContainer, etc. if it's clear that they will want to pass all its props to it's layout component:
+  - Base smart components like Input, Button, etc. if it's clear that they will want to pass all its props:
 
   ```jsx
-  import Button from './layout';
-
-  function ButtonContainer(props) {
+  function Button(props) {
     // do something smart
 
-    return <Button {...props} />;
+    return <button {...props} />;
   }
   ```
 
@@ -1350,6 +1352,121 @@ const { isLoading, isError, error, isSuccess, data, status, fetchStatus } = useQ
   >- The **`status`** gives information about the **`data`**: Do we have any or not?
   >- The **`fetchStatus`** gives information about the **`queryFn`**: Is it running or not?
 
+
+## Context
+
+### Introduction
+Context provides a way to share values like these between components without having to explicitly pass a prop through every level of the tree.
+>For advanced information on Context, check [here](https://tkdodo.eu/blog/practical-react-query).
+>Official Documentation, check [here](https://reactjs.org/docs/context.html)
+
+### `contextFactory`
+First of all we have a HOC called ProviderWrapper that we are going to use in the base component of our context. This component receives a context, a reducer and an initial state which we should create inside another file, where we will have everything related to this, with the help of the `contextFactory` function located in `config/context.ts`.
+
+```tsx
+import { createContext, useContext, Dispatch } from 'react';
+
+export const contextFactory = <State, Action>(initialState: State) => {
+  interface Store {
+    state: State;
+    dispatch: Dispatch<Action>;
+  }
+
+  const Context = createContext<Store>({
+    state: { ...initialState },
+    // eslint-disable-next-line @typescript-eslint/no-empty-function, no-empty-function
+    dispatch: () => {}
+  });
+
+  const useSelector = <T>(selector: (arg: State) => T) => {
+    const { state } = useContext(Context);
+    return selector(state);
+  };
+
+  const useDispatch = () => {
+    const { dispatch } = useContext(Context);
+    return dispatch;
+  };
+
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  return { useSelector, Context, useDispatch };
+};
+```
+
+### `Reducer`
+In this instance, we have to type the "global" variables that we plan to use, set their initial state and based on this, the types of actions that would modify them. A typical example is the case of a counter, the variable type would be number, the initial state could be 0 and the action types could be INCREASE_COUNT, DECREASE_COUNT, RESET_COUNT. Below you will find the general structure that you can adapt to any type of situation:
+
+```tsx
+import { contextFactory } from '~config/context';
+
+export interface State {
+  foo: string;
+}
+
+export const INITIAL_STATE = {
+  foo: ''
+};
+
+enum ActionTypes {
+  SET_FOO = 'SET_FOO',
+  RESET_FOO = 'RESET_FOO'
+}
+
+interface SetFoo {
+  type: ActionTypes.SET_FOO;
+  payload: string;
+}
+
+interface ResetFoo {
+  type: ActionTypes.RESET_FOO;
+}
+
+export type Action = SetFoo | ResetFoo;
+
+export const actionCreators = {
+  setFoo: (foo: string): SetFoo => ({ type: ActionTypes.SET_FOO, payload: foo }),
+  resetFoo: (): ResetFoo => ({ type: ActionTypes.RESET_FOO })
+};
+
+export const reducer = (state: State, action: Action): State => {
+  switch (action.type) {
+    case ActionTypes.SET_FOO: {
+      return { ...state, foo: action.payload };
+    }
+    case ActionTypes.RESET_FOO: {
+      return { ...state, foo: '' };
+    }
+    default: {
+      return state;
+    }
+  }
+};
+
+export const { useSelector, Context, useDispatch } = contextFactory<State, Action>(INITIAL_STATE);
+```
+
+### `Base component`
+As it is a HOC, we have to think very carefully according to the type of component tree that our project has, which is a "parent" component that contains all the "child" components that need to have access to these global variables.
+
+- If we need the entire application to have access to these variables, then our base component could be the App component.
+- If the application has many screens but these variables are only used in one of them, we could use the screen in question. as a base component, which could be Home, About, or any other.
+
+```tsx
+import { Context, reducer, INITIAL_STATE } from './reducer';
+
+export default withProvider({ Context, reducer, initialState: INITIAL_STATE })(Home);
+```
+
+### `Child components`
+With `useSelector` we can extract the variable that we need to use within the child component, while with `useDispatch` we can make the modifications that we contemplate within our reducer, this function requires as an argument the actionCreator that, depending on the type of action in question, can contain a payload or not.
+
+```tsx
+import {useSelector, useDispatch, actionCreators } from '~contexts/FooContext'
+
+const foo = useSelector(state => state.foo);
+const dispatch = useDispatch();
+dispatch(actionCreators.setFoo('foo')); 
+```
 
 ## Translation
 
