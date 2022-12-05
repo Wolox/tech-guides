@@ -6,6 +6,7 @@
   - [Benefits](./introduction.md#benefits)
 - [Options to test?](./options-to-test.md)
 - [Jest](./jest.md)
+- [Migrating to jest](./migrating-to-jest.md)
 - [Basic structure of a test](./test-structure.md)
 - [Jest hooks](./jest-hooks.md)
   - [Repeating setUp](./jest-hooks.md#repeating-setup)
