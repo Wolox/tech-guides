@@ -1357,12 +1357,48 @@ const { isLoading, isError, error, isSuccess, data, status, fetchStatus } = useQ
 
 ### Introduction
 Context provides a way to share values like these between components without having to explicitly pass a prop through every level of the tree.
->For advanced information on Context, check [here](https://tkdodo.eu/blog/practical-react-query).
+>For advanced information on Context, check [here](https://dmitripavlutin.com/react-context-and-usecontext).
 >Official Documentation, check [here](https://reactjs.org/docs/context.html)
 
-### `contextFactory`
+### `ProviderWrapper`
 First of all we have a HOC called ProviderWrapper that we are going to use in the base component of our context. This component receives a context, a reducer and an initial state which we should create inside another file, where we will have everything related to this, with the help of the `contextFactory` function located in `config/context.ts`.
+>Check full HOC documentation [here](https://reactjs.org/docs/higher-order-components.html).
 
+```tsx
+import React, { useReducer } from 'react';
+
+interface ActionType {
+  type: string;
+}
+
+interface Props<U extends {}, V> {
+  context: React.Context<{ state: U; dispatch: React.Dispatch<V> }>;
+  reducer: React.Reducer<U, V>;
+  initialState: U;
+}
+
+const withProvider = <T extends {}, U, V extends ActionType>({
+  context: Context,
+  reducer,
+  initialState
+}: Props<U, V>) => (WrappedComponent: React.ComponentType<T>) => {
+  function ProviderWrapper(props: T) {
+    const [state, dispatch] = useReducer(reducer, initialState);
+    return (
+      <Context.Provider value={{ state, dispatch }}>
+        <WrappedComponent {...props} />
+      </Context.Provider>
+    );
+  }
+
+  return ProviderWrapper;
+};
+
+export default withProvider;
+```
+
+### `contextFactory`
+We proceed to generate our context Factory.
 ```tsx
 import { createContext, useContext, Dispatch } from 'react';
 
@@ -1374,7 +1410,6 @@ export const contextFactory = <State, Action>(initialState: State) => {
 
   const Context = createContext<Store>({
     state: { ...initialState },
-    // eslint-disable-next-line @typescript-eslint/no-empty-function, no-empty-function
     dispatch: () => {}
   });
 
@@ -1388,7 +1423,6 @@ export const contextFactory = <State, Action>(initialState: State) => {
     return dispatch;
   };
 
-  // eslint-disable-next-line @typescript-eslint/naming-convention
   return { useSelector, Context, useDispatch };
 };
 ```
@@ -1449,7 +1483,7 @@ export const { useSelector, Context, useDispatch } = contextFactory<State, Actio
 As it is a HOC, we have to think very carefully according to the type of component tree that our project has, which is a "parent" component that contains all the "child" components that need to have access to these global variables.
 
 - If we need the entire application to have access to these variables, then our base component could be the App component.
-- If the application has many screens but these variables are only used in one of them, we could use the screen in question. as a base component, which could be Home, About, or any other.
+- If the application has many screens but these variables are only used in one of them, we could use the screen in question. As a base component, which could be Home, About, or any other.
 
 ```tsx
 import { Context, reducer, INITIAL_STATE } from './reducer';
