@@ -1,33 +1,27 @@
-# Unit test with Jest 
-
-## Topics
-- Unit test with Jest
-  - [Whats is testing? and why is important?](./introduction.md#whats-is-testing-and-why-is-important)
-  - [Benefits](./introduction.md#benefits)
-- [Options to test?](./options-to-test.md)
-- [Jest](./jest.md)
-- [Basic structure of a test](./test-structure.md)
-- [Jest hooks](./jest-hooks.md)
-  - [Repeating setUp](./jest-hooks.md#repeating-setup)
-  - [One time setUp](./jest-hooks.md#one-time-setup)
-- [Angular default test configuration](./angular-configuration.md)
-  - [Understanding TestBed :test_tube:](./angular-configuration.md#understanding-testbed-test_tube)
-  - [Fixture and Component :statue_of_liberty:](./angular-configuration.md#fixture-and-component-statue_of_liberty)
-  - [Init the fixture](./angular-configuration.md#init-the-fixture)
-  - [Init the component](./angular-configuration.md#init-the-component)
-  - [fixture.detectChanges()](./angular-configuration.md#fixturedetectchanges)
-- [How to spy functions calls](./spy-local.md)
-  - [Spy local function](./spy-local.md#spy-local-function)
-- [Spy external function](./spy-external.md)
-  - [Router](./spy-external.md#router)
-  - [ActivatedRouter](./spy-external.md#activatedrouter)
-  - [Private functions](./spy-external.md#private-functions)
-- [How to get elements from the DOM on testing](./getting-dom-elements.md)
-  - [Getting element](./getting-dom-elements.md#getting-element)
-- [Testing a class](./testing-class.md)
-- [HttpClientTestingModule](./http-test.md)
-- [Issues](./issues.md)
-  - [i18n dependency](./issues.md#i18n-dependency)
-  - [Navigator dependency](./issues.md#navigator-dependency)
-  - [Error with the navigator](./issues.md#error-with-the-navigator)
-  - [Error with the ChangeDetectionStrategy](./issues.md#error-with-the-changedetectionstrategy)
+# Unit test with Jest
+### Introduction
+  1. [General concepts and benefits](./introduction.md#general-concept-and-benefits)
+  2. [Testing Principles](./introduction.md#principless)
+  3. [Unit test structure (AAA pattern)](./introduction.md#unit-test-structure-aaa-pattern)
+### Angular Testing
+  1. Test structure.
+  2. Angular Testing utility APIs (https://angular.io/guide/testing-utility-apis).
+  3. RouterTestingModule, HttpClientTestingModule, etc.
+### Jest Framework
+  1. Jest (Benefits and concepts).
+  2. How to migrate or install Jest in an Angular project? (https://jestjs.io/docs/migration-guide)
+  3. Jest Hooks.
+  4. Mock functions and spies.
+  5. Matchers (https://jestjs.io/docs/using-matchers).
+### Testing Angular Projects
+  1. Class
+  2. Basic Component
+  3. Service
+  4. Interceptors
+  5. Pipe
+  6. Directive
+  7. Routing
+  8. Guards
+### Others
+  1. Testing private functions
+  2. Angular Testing Library
