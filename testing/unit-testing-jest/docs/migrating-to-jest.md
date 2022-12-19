@@ -18,7 +18,7 @@ Let's start with the migration:
 
 1. Installing the jest dev dependencies
 ```bash
-npm install jest jest-preset-angular --save-dev
+npm install jest jest-preset-angular @types/jest @angular-builders/jest --save-dev
 ```
 
 2. Creating the jest configuration file
@@ -28,7 +28,6 @@ In your root folder, create a file called: `jest.config.js` and add the followin
 ```javascript
 module.exports = {
   preset: 'jest-preset-angular',
-  setupFilesAfterEnv: ['<rootDir>/setup-jest.ts'],
   collectCoverage: true,
   coverageReporters: ['text'],
   roots: ['<rootDir>/src/'],
@@ -86,13 +85,27 @@ Object.defineProperty(document.body.style, 'transform', {
 ```
 This file will refer to Jest and not to Karma.
 
-5. Uninstall Karma & Jasmine In order to get rid of all the Karma & Jasmine dependencies let's run:
+5. Update the `angular.json` file:
 
-```bash
-npm uninstall karma karma-chrome-launcher karma-coverage-istanbul-reporter karma-jasmine karma-jasmine-html-reporter
+```json
+"projects": {
+    ...
+    "[your-project]": {
+         ...
+         "architect": {
+                ...
+                "test": {
+                          "builder": "@angular-builders/jest:run"
+                          ...
 ```
 
-6. Finally, you could delete the `karma.conf.js` file.
+6. Uninstall Karma & Jasmine In order to get rid of all the Karma & Jasmine dependencies let's run:
+
+```bash
+npm uninstall karma karma-chrome-launcher karma-coverage-istanbul-reporter karma-jasmine karma-jasmine-html-reporter @types/jasmine jasmine-core karma-coverage
+```
+
+7. Finally, you could delete the `karma.conf.js` file.
 
 Now, let's run 
 ```bash
