@@ -58,10 +58,10 @@ src
 │   └── Suspense
 │       └── index.tsx
 ├── config
-│   ├── api.js
+│   ├── api.ts
 │   ├── context.test.ts
 │   ├── context.ts
-│   ├── i18n.js
+│   ├── i18n.ts
 │   └── routes.ts
 ├── constants
 │   └── constants.ts
@@ -85,7 +85,7 @@ src
 │   └── Home
 │       ├── assets // Screen specific app assets
 │       ├── components
-│       ├── constants.js
+│       ├── constants.ts
 │       ├── i18n.ts
 │       ├── index.test.tsx
 │       ├── index.tsx
@@ -108,7 +108,7 @@ src
 │   └── myType.ts
 └── utils
     ├── displayName.ts
-    ├── inputValidations.js
+    ├── inputValidations.ts
     └── types.ts
 ```
 
