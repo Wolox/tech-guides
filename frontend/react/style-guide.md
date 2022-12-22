@@ -27,7 +27,7 @@
 ## Basic Rules
 
   - Only include one React component per file.
-  - Always use JSX syntax.
+  - Always use TSX syntax.
   - Do not use `React.createElement` unless you're initializing the app from a file that is not JSX.
   - Always use export default for Components.
   - Use `export default` for reducers, actionCreators and services. As a general rule of thumb, use `export default` for all files that have a unique object to export.
@@ -75,7 +75,7 @@ src
 ├── hooks
 │   ├── useMountedRef.test.ts
 │   ├── useMountedRef.ts
-│   ├── useRequest.test.tsx
+│   ├── useRequest.test.ts
 │   └── useRequest.ts
 ├── mocks
 │   ├── msw-server.ts
@@ -116,7 +116,7 @@ src
 
   - Prefer normal function components (not arrow functions) over `class extends Component`. Only exception is usage of `componentDidCatch` and `getDerivedStateFromError` (which have no hooks support)
 
-    ```jsx
+    ```tsx
     // bad
     class Listing extends Component {
       render() {
@@ -130,14 +130,19 @@ src
     );
 
     // good
-    function Listing({ hello }) {
+    interface Props {
+      hello: string
+    };
+    function Listing({ hello }: Props) {
       return <div>{hello}</div>;
     }
+
+    export default Listing;
     ```
 
   - If you decide to use class component, prefer `class extends Component` over `React.createClass`. eslint: [`react/prefer-es6-class`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md) [`react/prefer-stateless-function`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md)
 
-    ```jsx
+    ```tsx
     // bad
     const Listing = React.createClass({
       // ...
@@ -157,7 +162,7 @@ src
 
   - Avoid using helper render methods when possible.
 
-    ```jsx
+    ```tsx
     // bad
     function MyComponent extends Component {
       renderText = text => <span>text</span>;
@@ -172,17 +177,22 @@ src
     }
 
     // good
-    function Text({ text }) {
+    interface Props {
+      text: string
+    };
+    function Text({ text }: Props) {
       return <span>text</span>;
     }
 
-    function MyComponent({ text }) {
+    function MyComponent({ text }: Props) {
       return (
         <div>
           <Text text={text} />
         </div>
       )
     }
+
+    export default MyComponent;
     ```
 
 ## Mixins
@@ -193,11 +203,11 @@ src
 
 ## Naming
 
-  - **Extensions**: Use `.js` extension for React components.
-  - **Filename**: For component filenames and services use PascalCase. E.g., `ReservationCard/index.js`, `AuthService.js`.
+  - **Extensions**: Use `.ts` or `.tsx` extension for React components.
+  - **Filename**: For component filenames and services use PascalCase. E.g., `ReservationCard/index.tsx`, `AuthService.ts`.
   - **Reference Naming**: Use PascalCase for React components and camelCase for their associated elements. eslint: [`react/jsx-pascal-case`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md)
 
-    ```jsx
+    ```tsx
     // bad
     import reservationCard from './ReservationCard';
 
@@ -212,23 +222,25 @@ src
     ```
   - **Component Hierarchy**:
     - Component files should be inside folders that match the component's name.
-    - Use index.js as the filename of a component.
+    - Use index.tsx as the filename of a component.
     - If a component has its own child components, include a folder named components inside the parent component's folder.
 
     ```jsx
-    // MyComponent/index.js
+    // MyComponent/index.tsx
     function MyComponent() {
       return (
-        // Some JSX
+        // Some TSX code
       )
     }
+
+    export default MyComponent;
     ```
 
   - **Higher-order Component Naming**: Use a composite of the higher-order component's name and the passed-in component's name as the `displayName` on the generated component. For example, the higher-order component `withFoo()`, when passed a component `Bar` should produce a component with a `displayName` of `withFoo(Bar)`.
 
     > Why? A component's `displayName` may be used by developer tools or in error messages, and having a value that clearly expresses this relationship helps people understand what is happening.
 
-    ```jsx
+    ```tsx
     // bad
     function withFoo(WrappedComponent) {
       return function WithFoo(props) {
@@ -240,7 +252,7 @@ src
 
     // good
     function withFoo(WrappedComponent) {
-      function WithFoo(props) {
+      function WithFoo(props: Props) {
         return <WrappedComponent {...props} foo />;
       }
 
@@ -259,7 +271,7 @@ src
 
     > Why? People expect props like `style` and `className` to mean one specific thing. Varying this API for a subset of your app makes the code less readable and less maintainable, and may cause bugs.
 
-    ```jsx
+    ```tsx
     // bad
     <MyComponent style="fancy" />
 
@@ -274,9 +286,9 @@ src
 
   - Prefer wrapping the variables inside a file in an object and then import that object instead of using `import *`
 
-    ```jsx
+    ```tsx
     // bad
-    /* routes.js */
+    /* routes.ts */
     const userListRoute = '/users';
     const itemListRoute = '/items';
 
@@ -284,17 +296,16 @@ src
     import * as Routes from './routes';
 
     // good
-    /* routes.js */
+    /* routes.ts */
     const Routes = {
       userListRoute: '/users',
       itemListRoute: '/items'
-    }
+    };
 
     export default Routes;
 
     /* Another file */
     import Routes from './routes';
-
     ```
 
 ## Declaration
@@ -313,21 +324,21 @@ src
       // stuff goes here
     }
 
-    export default ReservationCard
+    export default ReservationCard;
 
     // better
     function ReservationCard() {
       return (
-        // Some JSX
+        // Some TSX code
       )
     }
 
-    export default ReservationCard
+    export default ReservationCard;
     ```
 
 ## Alignment
 
-  - Follow these alignment styles for JSX syntax. eslint: [`react/jsx-closing-bracket-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md) [`react/jsx-closing-tag-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-tag-location.md)
+  - Follow these alignment styles for JSX or TSX syntax. eslint: [`react/jsx-closing-bracket-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md) [`react/jsx-closing-tag-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-tag-location.md)
 
     ```jsx
     // bad
@@ -391,7 +402,7 @@ src
     <Foo />
     ```
 
-  - Do not pad JSX curly braces with spaces. eslint: [`react/jsx-curly-spacing`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-curly-spacing.md)
+  - Do not pad TSX curly braces with spaces. eslint: [`react/jsx-curly-spacing`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-curly-spacing.md)
 
     ```jsx
     // bad
@@ -428,9 +439,14 @@ src
     }
 
     // good
-    function MyComponent({ foo }) {
+    interface Props {
+      foo: string
+    };
+    function MyComponent({ foo }: Props) {
       return <span>{foo}</span>;
     }
+
+    export default MyComponent;
     ```
 
   - Omit the value of the prop when it is explicitly `true`. eslint: [`react/jsx-boolean-value`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-boolean-value.md)
@@ -446,7 +462,7 @@ src
       hidden
     />
 
-    // good
+    // better
     <Foo hidden />
     ```
 
@@ -562,34 +578,33 @@ src
   ))}
   ```
 
-  - Always define explicit defaultProps for all undefined props.
+  - Always define initial value for all undefined props.
 
-  > Why? propTypes are a form of documentation, and providing defaultProps means the reader of your code doesn’t have to assume as much. In addition, it can mean that your code can omit certain type checks.
-
-  ```jsx
+  ```tsx
   // bad
-  function SFC({ foo, bar, children }) {
+  interface Props {
+    foo: number;
+    bar: string;
+    children: React.ReactNode;
+  };
+
+  function SFC({ foo, bar, children }: Props) {
     return <div>{foo}{bar}{children}</div>;
   }
-  SFC.propTypes = {
-    foo: PropTypes.number.isRequired,
-    bar: PropTypes.string,
-    children: PropTypes.node,
-  };
+
+  export default SFC;
 
   // good
-  function SFC({ foo, bar, children }) {
+  interface Props {
+    foo: number;
+    bar: string;
+    children: React.ReactNode;
+  };
+
+  function SFC({ foo, bar = '', children = null }: Props) {
     return <div>{foo}{bar}{children}</div>;
   }
-  SFC.propTypes = {
-    foo: PropTypes.number.isRequired,
-    bar: PropTypes.string,
-    children: PropTypes.node,
-  };
-  SFC.defaultProps = {
-    bar: '',
-    children: null,
-  };
+  export default SFC;
   ```
 
   - Avoid spreading props.
@@ -616,8 +631,8 @@ src
 
   - Base smart components like Input, Button, etc. if it's clear that they will want to pass all its props:
 
-  ```jsx
-  function Button(props) {
+  ```tsx
+  function Button(props: Props) {
     // do something smart
 
     return <button {...props} />;
@@ -642,17 +657,24 @@ src
   Notes for use:
   Filter out unnecessary props when possible. Also, use [prop-types-exact](https://www.npmjs.com/package/prop-types-exact) to help prevent bugs.
 
-  ```jsx
-  // good
-  function Component(props) {
-    const { irrelevantProp, ...relevantProps } = props;
-    return <WrappedComponent {...relevantProps} />
-  }
-
-  // bad
+  ```tsx
+    // bad
   function Component(props) {
     return <WrappedComponent {...props} />
   }
+
+  interface Props {
+    irrelevantProp: string,
+    firstRelevantProp: string,
+    secondRelevantProp: string
+  };
+
+  // good
+  function Component(props: Props) {
+    const { irrelevantProp, ...relevantProps } = props;
+    return <WrappedComponent {...relevantProps} />
+  }
+  export default Component;
   ```
 
 ## Refs
@@ -759,18 +781,21 @@ src
       );
     }
 
+    export default Comp;
+
     // good, when single line
     function Comp() {
       const body = <div>hello</div>;
       return <MyComponent>{body}</MyComponent>;
     }
+    export default Comp;
     ```
 
 ## Tags
 
   - Always self-close tags that have no children. eslint: [`react/self-closing-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md)
 
-    ```jsx
+    ```tsx
     // bad
     <Foo variant="stuff"></Foo>
 
@@ -780,7 +805,7 @@ src
 
   - If your component has multi-line properties, close its tag on a new line. eslint: [`react/jsx-closing-bracket-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md)
 
-    ```jsx
+    ```tsx
     // bad
     <Foo
       bar="bar"
@@ -799,9 +824,9 @@ src
 
     > Why? Lifecycle methods should be class functions, not instance functions.
 
-    ```jsx
+    ```tsx
     // bad
-    class MyComponent extends Component {
+    function MyComponent() {
       componentDidMount = () => {
         // do something
       }
@@ -812,7 +837,7 @@ src
     }
 
     // good
-    class MyComponent extends Component {
+    function MyComponent {
       componentDidMount() {
         // do something
       }
@@ -827,7 +852,7 @@ src
 
     > Why? A bind call in the render path creates a brand new function on every single render.
 
-    ```jsx
+    ```tsx
     // bad
     class extends Component {
       onClickDiv() {
@@ -839,25 +864,8 @@ src
       }
     }
 
-    // not that bad
-    class extends Component {
-      constructor(props) {
-        super(props);
-
-        this.onClickDiv = this.onClickDiv.bind(this);
-      }
-
-      onClickDiv() {
-        // do stuff
-      }
-
-      render() {
-        return <div onClick={this.onClickDiv} />;
-      }
-    }
-
     // good
-    class extends Component {
+    function Component() {
       // No binding needed. onClickDiv has reference to `this` because it's an arrow function.
 
       onClickDiv = () => {
@@ -865,15 +873,16 @@ src
       }
 
       render() {
-        return <div onClick={this.onClickDiv} />;
+        return <div onClick={onClickDiv} />;
       }
     }
+    export default Component;
     ```
 
   - Do not use underscore prefix for internal methods of a React component.
     > Why? Underscore prefixes are sometimes used as a convention in other languages to denote privacy. But, unlike those languages, there is no native support for privacy in JavaScript, everything is public. Regardless of your intentions, adding underscore prefixes to your properties does not actually make them private, and any property (underscore-prefixed or not) should be treated as being public. See issues [#1024](https://github.com/airbnb/javascript/issues/1024), and [#490](https://github.com/airbnb/javascript/issues/490) for a more in-depth discussion.
 
-    ```jsx
+    ```tsx
     // bad
     function Comp() {
       const _onClickSubmit = () => {
@@ -895,7 +904,7 @@ src
 
   - Be sure to return a value in your `render` methods. eslint: [`react/require-render-return`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/require-render-return.md)
 
-    ```jsx
+    ```tsx
     // bad
     render() {
       (<div />);
@@ -932,32 +941,24 @@ src
   1. mapDispatchToProps (if using Redux)
   1. export default MyComponent
 
-  - How to define `propTypes`, `defaultProps`, `contextTypes`, etc...
+  - How to define `props`, `default values` etc...
 
-    ```jsx
+    ```tsx
     import React from 'react';
     import PropTypes from 'prop-types';
 
-    class Link extends Component {
-      static methodsAreOk() {
+    interface Props {
+      url: string;
+      id: number;
+      text: string;
+    };
+
+    function Link({ url, id, text }: Props) {
+      methodsAreOk() {
         return true;
       }
-
-      render() {
-        const { url, id, text } = this.props;
-        return <a href={url} data-id={id}>{text}</a>;
-      }
+      return <a href={url} data-id={id}>{text}</a>;
     }
-
-    Link.propTypes = {
-      id: PropTypes.number.isRequired,
-      url: PropTypes.string.isRequired,
-      text: PropTypes.string,
-    };
-
-    Link.defaultProps = {
-      text: 'Hello World',
-    };
 
     export default Link;
     ```
