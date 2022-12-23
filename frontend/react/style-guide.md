@@ -578,7 +578,7 @@ src
   ))}
   ```
 
-  - Always define initial value for all undefined props.
+  - Always define an initial value for all undefined props.
 
   ```tsx
   // bad
