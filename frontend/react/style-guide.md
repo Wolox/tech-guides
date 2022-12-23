@@ -131,7 +131,7 @@ src
 
     // good
     interface Props {
-      hello: string
+      hello: string;
     };
     function Listing({ hello }: Props) {
       return <div>{hello}</div>;
@@ -178,7 +178,7 @@ src
 
     // good
     interface Props {
-      text: string
+      text: string;
     };
     function Text({ text }: Props) {
       return <span>text</span>;
@@ -440,7 +440,7 @@ src
 
     // good
     interface Props {
-      foo: string
+      foo: string;
     };
     function MyComponent({ foo }: Props) {
       return <span>{foo}</span>;
@@ -581,11 +581,11 @@ src
   - Always define an initial value for all undefined props.
 
   ```tsx
-  // bad
+  // good
   interface Props {
     foo: number;
-    bar: string;
-    children: React.ReactNode;
+    bar?: string;
+    children?: React.ReactNode;
   };
 
   function SFC({ foo, bar, children }: Props) {
@@ -664,15 +664,14 @@ src
   }
 
   interface Props {
-    irrelevantProp: string,
-    firstRelevantProp: string,
-    secondRelevantProp: string
+    parentProp: string;
+    firstChildProp: string;
+    secondChildProp: string;
   };
 
   // good
-  function Component(props: Props) {
-    const { irrelevantProp, ...relevantProps } = props;
-    return <WrappedComponent {...relevantProps} />
+  function Component({ parentProp, ...childProps}: Props) {
+    return <WrappedComponent {...childProps} />
   }
   export default Component;
   ```
@@ -826,7 +825,7 @@ src
 
     ```tsx
     // bad
-    function MyComponent() {
+    class MyComponent extends Component {
       componentDidMount = () => {
         // do something
       }
@@ -837,7 +836,7 @@ src
     }
 
     // good
-    function MyComponent {
+    class MyComponent extends Component {
       componentDidMount() {
         // do something
       }
@@ -954,9 +953,10 @@ src
     };
 
     function Link({ url, id, text }: Props) {
-      methodsAreOk() {
+      const handleMethodsAreOk = () => {
         return true;
       }
+
       return <a href={url} data-id={id}>{text}</a>;
     }
 
