@@ -6,7 +6,7 @@
 ### Angular Testing
   1. Test structure.
   2. Angular Testing utility APIs (https://angular.io/guide/testing-utility-apis).
-  3. RouterTestingModule, HttpClientTestingModule, etc.
+  3. Testing Modules
 ### Jest Framework
   1. Jest (Benefits and concepts).
   2. How to migrate or install Jest in an Angular project? (https://jestjs.io/docs/migration-guide)
