@@ -15,18 +15,20 @@ Testing is a method to check if the code is working as expected. Testing the cod
 
 ### Principles 
 
-**Easy to write:**  It should be easy to code all of those test routines without enormous effort.
+**Easy to write:** it should be easy to code all of those test routines without enormous effort.
 
-**Readable:** The intent of a unit test should be clear. A good unit test tells a story about some behavioral aspect of our application, so it should be easy to understand which scenario is being tested and — if the test fails — easy to detect how to address the problem. 
+**Readable:** the intent of a unit test should be clear. A good unit test tells a story about some behavioral aspect of our application, so it should be easy to understand which scenario is being tested and — if the test fails — easy to detect how to address the problem. 
 
-**Reliable:** Unit tests should fail only if there’s a bug in the system under test. Good unit tests should be reproducible and independent from external factors such as the environment or running order.
+**Reliable:** unit tests should fail only if there’s a bug in the system under test. Good unit tests should be reproducible and independent from external factors such as the environment or running order.
 
-**Fast:** Developers write unit tests so they can repeatedly run them and check that no bugs have been introduced. Slow unit tests may also indicate that either the system under test, or the test itself, interacts with external systems, making it environment-dependent.
+**Fast:** developers write unit tests so they can repeatedly run them and check that no bugs have been introduced. Slow unit tests may also indicate that either the system under test, or the test itself, interacts with external systems, making it environment-dependent.
+
+> Unit tests do NOT test the interaction with external modules. Everything related to real dependencies is tested in an **integration tests**.
 
 ### Unit test structure (AAA pattern)
-- Arrange: Initializes the objects and establishes the values of the data that we are going to use in the Test that contains it.
-- Act: Makes the call to the method to be tested with the parameters prepared for this purpose.
-- Assert: Checks that the executed test method behaves as we expected it to.
+- Arrange: initializes the objects and establishes the values of the data that we are going to use in the Test that contains it.
+- Act: makes the call to the method to be tested with the parameters prepared for this purpose.
+- Assert: checks that the executed test method behaves as we expected it to.
 
 ````ts
   🏷️ describe('Class, Module, Service or Component to test', () => {
