@@ -150,13 +150,18 @@ external APIs to retrieve the necessary data and return it to the client in a
 JSON. Here is an example of an API route in Next.js that returns a list of users
 in JSON format: // pages/api/users.js
 
-import users from './data/users.json';
+```js
+import users from './data/users.json'
 
-export default (req, res) => { res.status(200).json(users); } This API route
-exports a default function that is invoked when a request is made to the
-/api/users endpoint. The function uses the res object to send a JSON response to
-the client with a list of users. You can then make a request to this endpoint
-from your front-end code using a tool like fetch. For example:
+export default (req, res) => {
+  res.status(200).json(users)
+}
+```
+
+This API route exports a default function that is invoked when a request is made
+to the /api/users endpoint. The function uses the res object to send a JSON
+response to the client with a list of users. You can then make a request to this
+endpoint from your front-end code using a tool like fetch. For example:
 
 ```js
 fetch('/api/users')
@@ -166,6 +171,10 @@ fetch('/api/users')
 
 This will send a GET request to the /api/users endpoint and log the response
 data to the console.
+
+You can read more examples
+[here](https://github.com/vercel/next.js/tree/canary/examples/api-routes-rest)
+You can read the docs [here](https://nextjs.org/docs/api-routes/introduction)
 
 ## SEO
 
@@ -206,4 +215,5 @@ HTML optimized for the web crawler and indexers.
   recognises this metadata and lift it to the right location in your HTML
   document when the page is being rendered. It helps in improving SEO.
 
-<!-- https://medium.com/scalereal/how-next-js-helps-to-improve-seo-ffeff36e9fdd -->
+You can se more about it
+[here](https://medium.com/scalereal/how-next-js-helps-to-improve-seo-ffeff36e9fdd)
