@@ -12,6 +12,8 @@
 
 - [Vue](./vue/)
 
+- [Next.js](./NextJs/style-guide)
+
 ## Open Source
 
 ### Layout
@@ -40,12 +42,12 @@
 
 ### Chrome
 
-| Name | Description |
-|------|-------------|
-|[Muzli](http://muz.li/join/)|Muzli is a goldmine of inspiring, beautiful & fresh content,  stunningly delivered every time you open up a new tab|
-|[Window Resizer](https://chrome.google.com/webstore/detail/window-resizer/kkelicaakdanhinjdeammmilcgefonfh?hl=en)|This extension re-sizes the browser's window in order to emulate various resolutions|
-|[Page Ruller](https://chrome.google.com/webstore/detail/page-ruler/emliamioobfffbgcfdchabfibonehkme)|Page Ruler lets your draw out a ruler to any page and displays the width, height and position of it|
-|[Dimensions](http://felixniklas.com/dimensions/)|Measure between the following elements: images, input-fields, buttons, videos, gifs, text, icons. You can measure everything you see in the browser|
+| Name                                                                                                              | Description                                                                                                                                         |
+| ----------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Muzli](http://muz.li/join/)                                                                                      | Muzli is a goldmine of inspiring, beautiful & fresh content, stunningly delivered every time you open up a new tab                                  |
+| [Window Resizer](https://chrome.google.com/webstore/detail/window-resizer/kkelicaakdanhinjdeammmilcgefonfh?hl=en) | This extension re-sizes the browser's window in order to emulate various resolutions                                                                |
+| [Page Ruller](https://chrome.google.com/webstore/detail/page-ruler/emliamioobfffbgcfdchabfibonehkme)              | Page Ruler lets your draw out a ruler to any page and displays the width, height and position of it                                                 |
+| [Dimensions](http://felixniklas.com/dimensions/)                                                                  | Measure between the following elements: images, input-fields, buttons, videos, gifs, text, icons. You can measure everything you see in the browser |
 
 ## Posts
 
