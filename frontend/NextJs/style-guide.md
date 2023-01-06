@@ -2,11 +2,13 @@
 
 ## Table of Contents
 
-1. [Basic Rules](#basic-rules)
-1. [Folder Structure](#folder-structure)
-1. [Fetching Data](#fetching-data)
-1. [Api Routes](#naming)
-1. [SEO](#mixins)
+- [Next.js Style Guide](#nextjs-style-guide)
+  - [Table of Contents](#table-of-contents)
+  - [Basic Rules](#basic-rules)
+  - [Folder Structure](#folder-structure)
+  - [Fetching Data](#fetching-data)
+  - [API Routes](#api-routes)
+  - [SEO](#seo)
 
 ## Basic Rules
 
@@ -41,7 +43,7 @@
 │     └───etc
 │
 └───pages
-│   | index.page.tsx // root or hoem page.
+│   | index.page.tsx // root or home page.
 │   └───api
 │   │   └───MyServerlessApi
 │   │       | index.api.tsx
@@ -78,10 +80,10 @@
 Next.js allows you to fetch data in different ways, depending on your needs and
 preferences.
 
-- **getStaticProps**: The getStaticProps function is executed on the server side
+- **getStaticProps**: This function is executed on the server side
   is compiled, and allows you to retrieve data from an external API or any other
-  source and pass it as properties to the component. This function is util when
-  we need to have some pages prebuilt like **blogs**, or **lading
+  source and pass it as properties to the component. This function is useful when
+  we need to have some pages prebuilt like **blogs**, or **landing
   pages**.<br /><br />
 
   ```js
@@ -102,9 +104,9 @@ preferences.
   }
   ```
 
-- **getServerSideProps**: The getServerSideProps function, which is executed on
+- **getServerSideProps**: This function, which is executed on
   the server side every time a page is accessed, to fetch data and pass it to
-  the component as properties. yop can also get the query parameters in the URL
+  the component as properties. you can also get the query parameters in the URL
   as request parameters.<br /><br />
 
   ```js
@@ -116,7 +118,7 @@ preferences.
   }
 
   export async function getServerSideProps(context) {
-    // Retrieve data from theexternal API
+    // Retrieve data from the external API
     const res = await fetch.get('https://mi-api.com/datos', {
       params: context.query,
     })
@@ -179,14 +181,13 @@ You can read the docs [here](https://nextjs.org/docs/api-routes/introduction)
 ## SEO
 
 In Next.js you can improve the SEO of the websites using some
-[pre-rendering modes](#fetching-data) this modes will we could to get a document
-HTML optimized for the web crawler and indexers.
+[pre-rendering modes](#fetching-data) these modes will let you get an optimized HTML document for the web crawler and indexers.
 
 - **Prerendering modes**:
 
-  - Static Generation: HTML is only generating during build time.
+  - Static Generation: HTML is only generated during build time.
 
-  - Server-side Rendering: HTML is generating on each reques.<br /><br />
+  - Server-side Rendering: HTML is generated on each request.<br /><br />
 
 - **Head Component**: Next.js provides a built-in component called ‘Head’, which
   helps to append different elements such as title tag, meta tag etc. to the
@@ -210,9 +211,9 @@ HTML optimized for the web crawler and indexers.
   export default IndexPage
   ```
 
-  Head Component makes sure all of your pages include important details like
-  title, description etc. that need to get rendered into your page. Next.js
-  recognises this metadata and lift it to the right location in your HTML
+  Head Component helps us to improve SEO by making sure all of your pages include important details like
+  title, description, etc. that need to get rendered into your page. Next.js
+  recognizes this metadata and lift it to the right location in your HTML
   document when the page is being rendered. It helps in improving SEO.
 
 You can se more about it
